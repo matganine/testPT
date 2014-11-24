@@ -1,8 +1,11 @@
 package com.broceliand.graphLayout.layout
 {
+import com.broceliand.ApplicationManager;
 import com.broceliand.graphLayout.model.IPTNode;
 import com.broceliand.graphLayout.visual.IPTVisualGraph;
 import com.broceliand.graphLayout.visual.IPTVisualNode;
+import com.broceliand.ui.pearl.IUIPearl;
+import com.broceliand.util.Alert;
 
 import flash.events.Event;
 import flash.geom.Point;
@@ -147,7 +150,7 @@ public class PTLayouter extends PTLayouterBase implements IPTLayouter
             _nodePosition = new Dictionary();
             var draggedNode:IVisualNode = _dragNode;
             if (!draggedNode) {
-               var draggedPearl:IUIPearl;
+               var draggedPearl:IUIPearl = ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.draggedPearl;
                if (draggedPearl) {
                   draggedNode = draggedPearl.vnode;
                }

@@ -4,6 +4,10 @@ package com.broceliand.graphLayout.visual
     import com.broceliand.graphLayout.model.EditedGraphVisualModification;
     import com.broceliand.graphLayout.model.EndNodeVisibilityManager;
     import com.broceliand.graphLayout.model.GraphicalDisplayedModel;
+    import com.broceliand.ui.model.ZoomModel;
+    import com.broceliand.ui.pearl.IUIPearl;
+    import com.broceliand.ui.pearlTree.IGraphControls;
+    import com.broceliand.ui.renderers.factory.IPearlRecyclingManager;
     
     import flash.events.Event;
     import flash.events.MouseEvent;

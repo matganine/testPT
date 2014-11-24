@@ -1,6 +1,10 @@
 package com.broceliand.graphLayout.visual
 {
 import com.broceliand.graphLayout.model.IPTNode;
+import com.broceliand.ui.pearl.IUIPearl;
+import com.broceliand.ui.renderers.IRepositionable;
+import com.broceliand.ui.renderers.MoveNotifier;
+import com.broceliand.ui.renderers.pageRenderers.PearlRendererBase;
 
 import flash.events.Event;
 import flash.geom.Point;

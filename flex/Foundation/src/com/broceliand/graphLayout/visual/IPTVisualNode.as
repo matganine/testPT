@@ -1,6 +1,8 @@
 package com.broceliand.graphLayout.visual
 {
    import com.broceliand.graphLayout.model.IPTNode;
+   import com.broceliand.ui.pearl.IUIPearl;
+   import com.broceliand.ui.renderers.MoveNotifier;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    

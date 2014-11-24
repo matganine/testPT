@@ -1,5 +1,6 @@
 package com.broceliand.graphLayout.visual
 {
+import com.broceliand.ApplicationManager;
 import com.broceliand.graphLayout.controller.PearlContextMenu;
 import com.broceliand.graphLayout.layout.IPTLayouter;
 import com.broceliand.graphLayout.model.DistantTreeRefNode;
@@ -15,6 +16,26 @@ import com.broceliand.graphLayout.model.PTNode;
 import com.broceliand.graphLayout.model.PTRootNode;
 import com.broceliand.graphLayout.model.PageNode;
 import com.broceliand.pearlTree.model.BroNeighbourRootPearl;
+import com.broceliand.ui.GeometricalConstants;
+import com.broceliand.ui.interactors.InteractorManager;
+import com.broceliand.ui.interactors.InteractorRightsManager;
+import com.broceliand.ui.interactors.ManipulatedNodesModel;
+import com.broceliand.ui.interactors.SelectInteractor;
+import com.broceliand.ui.interactors.scroll.ScrollUi;
+import com.broceliand.ui.model.ZoomModel;
+import com.broceliand.ui.navBar.NavBar;
+import com.broceliand.ui.pearl.IUIPearl;
+import com.broceliand.ui.pearl.UIPTWPearl;
+import com.broceliand.ui.pearlTree.GraphControlLayer;
+import com.broceliand.ui.pearlTree.IGraphControls;
+import com.broceliand.ui.pearlTree.TitleLayer;
+import com.broceliand.ui.renderers.MoveNotifier;
+import com.broceliand.ui.renderers.TitleRenderer;
+import com.broceliand.ui.renderers.factory.IPearlRecyclingManager;
+import com.broceliand.ui.renderers.pageRenderers.PearlRendererBase;
+import com.broceliand.ui.renderers.pageRenderers.pearl.PearlBase;
+import com.broceliand.util.logging.BroLogger;
+import com.broceliand.util.logging.Log;
 
 import flash.display.DisplayObject;
 import flash.events.Event;
@@ -45,7 +66,7 @@ import org.un.cava.birdeye.ravis.graphLayout.visual.VisualGraph;
 
 public class PTVisualGraph extends VisualGraph implements IPTVisualGraph
 {
-   private var _logger:BroLogger;
+   private var _logger:BroLogger = Log.getLogger("com.broceliand.graphLayout.visual.PTVisualGraph");
    private var _editedGraphVisualModification:EditedGraphVisualModification;
    private var _endNodeVisibilityManager:EndNodeVisibilityManager;
    private var _moveNodeManager:MoveNodeManager= null;

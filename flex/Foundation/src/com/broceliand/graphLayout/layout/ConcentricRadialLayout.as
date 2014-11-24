@@ -2,6 +2,8 @@ package com.broceliand.graphLayout.layout {
     import com.broceliand.ApplicationManager;
     import com.broceliand.graphLayout.model.IPTNode;
     import com.broceliand.graphLayout.visual.IPTVisualNode;
+    import com.broceliand.ui.GeometricalConstants;
+    import com.broceliand.ui.util.NullSkin;
     
     import flash.geom.Point;
     import flash.utils.Dictionary;

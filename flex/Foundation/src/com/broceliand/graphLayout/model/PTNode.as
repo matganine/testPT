@@ -1,6 +1,12 @@
 package com.broceliand.graphLayout.model
 {
 import com.broceliand.graphLayout.visual.IPTVisualNode;
+import com.broceliand.pearlTree.model.BroPTNode;
+import com.broceliand.pearlTree.model.BroPTWDistantTreeRefNode;
+import com.broceliand.pearlTree.model.BroPearlTree;
+import com.broceliand.ui.pearl.IUIPearl;
+import com.broceliand.ui.pearlBar.deck.Deck;
+import com.broceliand.ui.pearlBar.deck.IDeckModel;
 
 import flash.events.Event;
 
@@ -13,8 +19,10 @@ public class PTNode extends Node implements IPTNode
    
    private var _calculatingDescendant:Boolean= false;
    private static const MAX_DESCENDANTS_DEPTH_ALLOWED:Number = 100;
+   public static const DOCKED_CHANGE_EVENT:String = "dockedChange";
  
    
+   private var _dock:IDeckModel = null;
    protected var _businessNode:BroPTNode;
    private var _containingPearlTreeModel:IPearlTreeModel;
    protected var _numDescendantCache:Number = 0;
@@ -55,6 +63,16 @@ public class PTNode extends Node implements IPTNode
    public function set containingPearlTreeModel(o:IPearlTreeModel):void {
       _containingPearlTreeModel =o;
    }
+   
+   public function get isInDropZone():Boolean{
+      
+      if (_dock){
+         return _dock.isDropZone();
+      } else {
+         return false;
+      }  
+   } 
+   
    
    public function get treeOwner():BroPearlTree {
       return _businessNode.owner;
@@ -99,7 +117,7 @@ public class PTNode extends Node implements IPTNode
    }
    
    public function get rootNodeOfMyTree():IPTNode{
-      if(this is PTRootNode){
+      if(this is PTRootNode || isDocked){
          return this;
       }
       var deducedRootNode:IPTNode = null;
@@ -193,8 +211,52 @@ public class PTNode extends Node implements IPTNode
       return false;
    }
    
+   public function getDock():IDeckModel {
+      return _dock;
+   }
+   
+   public function dock(dock:IDeckModel):void{
+      if(_dock != dock){
+         if(_dock){
+            undockInternal(false, false);
+         }
+         _dock = dock;
+         dock.dockNode(this);
+         if (pearlVnode) {
+            pearlVnode.pearlView.setScale(1.0);
+         }
+         dispatchEvent(new Event(DOCKED_CHANGE_EVENT));
+      }         
+   }
+   
+   public function undock(updateSelection:Boolean = true):void{
+      undockInternal(true, updateSelection);             
+   }
+   private function undockInternal(restoreScale:Boolean, updateSelection:Boolean= true):void {
+      if(_dock){
+         var tmpDock:IDeckModel = _dock;
+         _dock = null;
+         tmpDock.undockNode(this, false, updateSelection);
+         if (restoreScale && pearlVnode) {
+            pearlVnode.pearlView.setScale(pearlVnode.vgraph.scale);
+         }
+         dispatchEvent(new Event(DOCKED_CHANGE_EVENT));
+      }   
+   }
+   
+   public function get isDocked():Boolean{
+      return (_dock != null);
+   }
+   
    override public function set vnode(v:IVisualNode):void {
       super.vnode = v;
+      if(isDocked && pearlVnode) {
+
+
+
+            pearlVnode.pearlView.setScale(Deck.PEARL_SCALE);
+
+      }
    }
    
    public function get pearlVnode():IPTVisualNode {

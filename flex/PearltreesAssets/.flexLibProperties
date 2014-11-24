@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" version="3">
+  <includeClasses/>
+  <includeResources>
+    <resourceEntry destPath="assets/scrollbar/arrowUp.png" sourcePath="assets/scrollbar/arrowUp.png"/>
+    <resourceEntry destPath="assets/scrollbar/arrowUpOver.png" sourcePath="assets/scrollbar/arrowUpOver.png"/>
+    <resourceEntry destPath="assets/scrollbar/arrowDown.png" sourcePath="assets/scrollbar/arrowDown.png"/>
+    <resourceEntry destPath="assets/scrollbar/arrowDownOver.png" sourcePath="assets/scrollbar/arrowDownOver.png"/>
+    <resourceEntry destPath="assets/scrollbar/arrowDownDisabled.png" sourcePath="assets/scrollbar/arrowDownDisabled.png"/>
+    <resourceEntry destPath="assets/scrollbar/arrowUpDisabled.png" sourcePath="assets/scrollbar/arrowUpDisabled.png"/>
+    <resourceEntry destPath="PTArial.ttf" sourcePath="PTArial.ttf"/>
+    <resourceEntry destPath="PTArialBold.ttf" sourcePath="PTArialBold.ttf"/>
+    <resourceEntry destPath="assets/scrollbar/downNote16.png" sourcePath="assets/scrollbar/downNote16.png" />
+    <resourceEntry destPath="assets/scrollbar/downNoteHover16.png" sourcePath="assets/scrollbar/downNoteHover16.png" />
+    <resourceEntry destPath="assets/scrollbar/scrollbarNoteBackgroundWhite16.png" sourcePath="assets/scrollbar/scrollbarNoteBackgroundWhite16.png" />
+    <resourceEntry destPath="assets/scrollbar/scrollbarNoteBackgroundWhite16H.png" sourcePath="assets/scrollbar/scrollbarNoteBackgroundWhite16H.png" />
+    <resourceEntry destPath="assets/scrollbar/scrollbarNoteForeground16.png" sourcePath="assets/scrollbar/scrollbarNoteForeground16.png" />
+    <resourceEntry destPath="assets/scrollbar/upNote16.png" sourcePath="assets/scrollbar/upNote16.png" />
+    <resourceEntry destPath="assets/scrollbar/upNoteHover16.png" sourcePath="assets/scrollbar/upNoteHover16.png" />
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>

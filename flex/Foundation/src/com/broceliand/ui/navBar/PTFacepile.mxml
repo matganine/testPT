@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+         xmlns:list="com.broceliand.ui.list.*"
+         creationComplete="onCreationComplete()"
+         verticalAlign="top"
+         paddingTop="2"
+         verticalScrollPolicy="off"
+         horizontalScrollPolicy="off">
+   <list:PTTileList id="friendsList"
+                    itemRenderer="com.broceliand.ui.navBar.FacebookFriendItemPTFacepile"
+                    rowCount="1"
+                    columnWidth="{AVATAR_SIZE + GAP_BETWEEN_AVATARS}"
+                    rowHeight="{AVATAR_SIZE}"
+                    direction="horizontal"
+                    height="100%"
+                    paddingTop="0"
+                    paddingBottom="0"/>
+   
+   <mx:Label id="yourFriendsText"
+             fontSize="14"
+             fontFamily="{PTStyleManager.SYSTEM_FONT_FAMILY}"
+             paddingTop="8"
+             color="{ColorPalette.getInstance().pearltreesColorForSystemFont}"
+             text="{BroLocale.getInstance().getText('welcome.facebookAcceleratedSignup.yourFriends')}"/>
+
+   <mx:Script>
+      <![CDATA[
+         import com.broceliand.ApplicationManager;
+         import com.broceliand.pearlTree.io.object.util.facebookservice.util.FbFriendData;
+         import com.broceliand.pearlTree.model.CurrentUser;
+         import com.broceliand.ui.PTStyleManager;
+         import com.broceliand.ui.list.PTTileList;
+         import com.broceliand.ui.navBar.FacebookFriendItemPTFacepile;
+         import com.broceliand.ui.util.ColorPalette;
+         import com.broceliand.util.BroLocale;
+         import com.broceliand.util.GenericAction;
+         
+         public static const AVATAR_SIZE:int = 36;
+         public static const GAP_BETWEEN_AVATARS:int = 2;
+         public static const MAX_FRIENDS:int = 7;
+         
+         private var _friends:Array;
+         private var _currentUser:CurrentUser; 
+         
+         private function onCreationComplete():void {
+            _currentUser = ApplicationManager.getInstance().currentUser;
+            if (_currentUser.isLoggedOnFacebook() && _currentUser.isAnonymous()) {
+               if (_currentUser.facebookAccount.getFriendsAccessor().isLoaded()) {
+                  updateDataProvider();
+               }
+               else {
+                  var action:GenericAction = new GenericAction(null, this, updateDataProvider);
+                  _currentUser.facebookAccount.getFriendsAccessor().loadValue(action);
+               }
+            }
+         }
+         
+         private function updateDataProvider():void {
+            _friends = clone(_currentUser.facebookAccount.getFriendsWithFacebookApplication());
+            if (_friends.length == 0) {
+               visible = includeInLayout = false;
+            }
+            else {
+               
+               visible = includeInLayout = false;
+               shuffleAndRemoveExtraFriends(_friends);
+               friendsList.columnCount = _friends.length;
+               friendsList.dataProvider = _friends;
+               friendsList.invalidateProperties();
+            }
+         }
+         private function shuffleAndRemoveExtraFriends(friends:Array):void {
+            shuffleArray(friends);
+            var n:int = friends.length;
+            for (var i:int = MAX_FRIENDS; i < n; i++) {
+               friends.pop();
+            }
+         }
+         
+         private function shuffleArray(array:Array):void {
+            var n:Number = array.length - 1;
+            for (var i:uint = 0; i < n; i++) {
+               var randomIndex:int = Math.round(Math.random()*n)
+               var tmp:FbFriendData = array[i];
+               array[i] = array[randomIndex];
+               array[randomIndex] = tmp;
+            }
+         }
+         
+         private function clone(array:Array):Array {
+            var res:Array = new Array();
+            for (var i:int = 0; i < array.length; i++) {
+               res.push(array[i]);
+            }
+            return res;
+         }
+         
+         public function hide(event:Event):void {
+            visible = includeInLayout = false;
+         }
+      ]]>
+   </mx:Script>
+   
+</mx:HBox>

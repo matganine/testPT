@@ -1,5 +1,6 @@
 package com.broceliand.graphLayout.model
 {
+import com.broceliand.ApplicationManager;
 import com.broceliand.graphLayout.visual.IPTVisualGraph;
 import com.broceliand.graphLayout.visual.IPTVisualNode;
 import com.broceliand.pearlTree.model.BroPTNode;
@@ -176,7 +177,13 @@ public class EditedGraphVisualModification
       
       for (var i:int=0; i<_detachedEndVnodes.length; i++) {
          
+         if (!manipulatedModel) {
+            manipulatedModel = ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.manipulatedNodesModel;
+         }
+         
          var parentEndNode:EndNode =_detachedEndVnodesParents[i].node as EndNode;
+         
+         
          
          var parentVnode :IVisualNode = checkDisappearedLeftNode(_detachedEndVnodesParents[i]); 
          if (parentVnode && !_detachedEndVnodes[i].node.isEnded()) {

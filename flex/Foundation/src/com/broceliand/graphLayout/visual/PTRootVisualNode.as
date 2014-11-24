@@ -1,5 +1,7 @@
 package com.broceliand.graphLayout.visual
 {
+	import com.broceliand.ui.pearl.IUIPearl;
+	
 	import mx.core.UIComponent;
 	
 	import org.un.cava.birdeye.ravis.graphLayout.data.INode;

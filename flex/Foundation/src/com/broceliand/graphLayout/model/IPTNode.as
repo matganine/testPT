@@ -1,6 +1,10 @@
 package com.broceliand.graphLayout.model
 {
 	import com.broceliand.graphLayout.visual.IPTVisualNode;
+	import com.broceliand.pearlTree.model.BroPTNode;
+	import com.broceliand.pearlTree.model.BroPearlTree;
+	import com.broceliand.ui.pearl.IUIPearl;
+	import com.broceliand.ui.pearlBar.deck.IDeckModel;
 	
 	import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
 	import org.un.cava.birdeye.ravis.graphLayout.data.INode;

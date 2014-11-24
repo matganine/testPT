@@ -1,10 +1,16 @@
 package com.broceliand.graphLayout.layout
 {
+import com.broceliand.ApplicationManager;
 import com.broceliand.graphLayout.model.EditedGraphVisualModification;
 import com.broceliand.graphLayout.model.IPTNode;
 import com.broceliand.graphLayout.visual.IPTVisualGraph;
 import com.broceliand.graphLayout.visual.IPTVisualNode;
 import com.broceliand.pearlTree.navigation.INavigationManager;
+import com.broceliand.ui.GeometricalConstants;
+import com.broceliand.ui.model.ZoomModel;
+import com.broceliand.ui.pearl.IUIPearl;
+import com.broceliand.ui.renderers.pageRenderers.pearl.PTRootPearl;
+import com.broceliand.util.logging.Log;
 
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -82,6 +88,10 @@ public class PTLayouterBase extends BaseLayouter
          layoutPass();
       }
    }
+   public static function SetNewLayout(value:Boolean):void {
+      PTLayouterBase(ApplicationManager.getInstance().components.pearlTreeViewer.vgraph.layouter).setNewLayout(value);
+   }
+   
    
    override public function set linkLength(rr:Number):void {
       _concentricLayout.linkLength=rr;
@@ -121,6 +131,7 @@ public class PTLayouterBase extends BaseLayouter
          layout.autoFitEnabled=false;
          layout.linkLength = linkLength;
          layout.setAngularBounds(180, 360);
+         layout.minNodeSeparation = ApplicationManager.getInstance().isEmbed()?GeometricalConstants.MIN_NODE_SEPARATION_EMBED:GeometricalConstants.MIN_NODE_SEPARATION;
          return layout;
       }  else {
          var layout2:ConcentricRadialLayout= new ConcentricRadialLayout(graph);
@@ -128,6 +139,7 @@ public class PTLayouterBase extends BaseLayouter
          layout2.autoFitEnabled=false;
          layout2.linkLength = linkLength;
          layout2.setAngularBounds(180, 360);
+         layout2.minNodeSeparation = ApplicationManager.getInstance().isEmbed()?GeometricalConstants.MIN_NODE_SEPARATION_EMBED:GeometricalConstants.MIN_NODE_SEPARATION;
          return layout2;
       }
    }
@@ -220,6 +232,7 @@ public class PTLayouterBase extends BaseLayouter
    
    public function setPearlTreesWorldLayout(value:Boolean):void {
       _isPTWLayout = value;
+      var am:ApplicationManager = ApplicationManager.getInstance();
       var navModel:INavigationManager = am.visualModel.navigationModel;
       if(navModel.isShowingDiscover() && am.useDiscover()) {
          _ptwLayoutType = PTW_LAYOUT_DISCOVER;
@@ -275,6 +288,7 @@ public class PTLayouterBase extends BaseLayouter
             } else if (zoomFactor > 1) {
                zoomFactor = 1;
             }
+            zoomFactor *= (ApplicationManager.getInstance().isEmbed() ? ZoomModel.ZOOM_FACTOR_DEFAULT_EMBED : ZoomModel.ZOOM_FACTOR_DEFAULT);
             updateRadius(_vgraph.scale, zoomFactor);
             IPTVisualGraph(_vgraph).zoomModel.setZoomValueWithNoAnim(zoomFactor);
             

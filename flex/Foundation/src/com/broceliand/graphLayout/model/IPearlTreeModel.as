@@ -1,5 +1,6 @@
 package com.broceliand.graphLayout.model
 {
+   import com.broceliand.pearlTree.model.BroPearlTree;
    
 	public interface IPearlTreeModel
 	{

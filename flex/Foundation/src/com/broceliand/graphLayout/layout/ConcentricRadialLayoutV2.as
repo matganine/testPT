@@ -1,7 +1,13 @@
 package com.broceliand.graphLayout.layout {
+import com.broceliand.ApplicationManager;
 import com.broceliand.graphLayout.model.IPTNode;
 import com.broceliand.graphLayout.model.PTRootNode;
 import com.broceliand.graphLayout.visual.IPTVisualNode;
+import com.broceliand.ui.GeometricalConstants;
+import com.broceliand.ui.util.NullSkin;
+import com.broceliand.util.BroUtilFunction;
+import com.broceliand.util.logging.BroLogger;
+import com.broceliand.util.logging.Log;
 
 import flash.geom.Point;
 import flash.net.SharedObject;
@@ -173,6 +179,9 @@ public class ConcentricRadialLayoutV2 extends AnimatedBaseLayout implements ILay
       _setBounds = false;
       _maxviewwidth = MINIMUM_NODE_WIDTH;
       _maxviewheight = MINIMUM_NODE_HEIGHT;
+      if (!ApplicationManager.getInstance().isEmbed()) {
+         _reduceRadiusHackFactor = 0.9;
+      }
       initDrawing();
    }
    

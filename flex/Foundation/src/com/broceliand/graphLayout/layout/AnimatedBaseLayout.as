@@ -2,6 +2,7 @@ package com.broceliand.graphLayout.layout {
 
     import com.broceliand.graphLayout.model.IPTNode;
     import com.broceliand.graphLayout.visual.IPTVisualNode;
+    import com.broceliand.ui.renderers.TitleRenderer;
     
     import flash.events.TimerEvent;
     import flash.geom.Point;

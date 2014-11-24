@@ -1,5 +1,9 @@
 package com.broceliand.graphLayout.visual
 {
+	import com.broceliand.ui.effects.MoveWithScroll;
+	import com.broceliand.ui.pearl.IUIPearl;
+	import com.broceliand.util.logging.Log;
+	
 	import flash.events.Event;
 	import flash.utils.Dictionary;
 	import flash.utils.getTimer;

@@ -3,6 +3,8 @@ package com.broceliand.graphLayout.layout
 
 
    import com.broceliand.graphLayout.model.IPTNode;
+   import com.broceliand.pearlTree.model.BroPTWDistantTreeRefNode;
+   import com.broceliand.pearlTree.model.BroRadialPosition;
    import com.broceliand.util.BroceliandMath;
    
    import flash.geom.Point;
@@ -113,7 +115,8 @@ package com.broceliand.graphLayout.layout
            var p2:Point = new Point();
            var maxR:Number = 0; 
            for each (var n:IPTNode in nodes) {
-             if (n.getBusinessNode()) {
+             if (n.getBusinessNode() is BroPTWDistantTreeRefNode) {
+                 var distantPTWRefNode:BroPTWDistantTreeRefNode = n.getBusinessNode() as BroPTWDistantTreeRefNode; 
                  var preferredPosition:BroRadialPosition =  distantPTWRefNode.preferredRadialPosition;
                  if(preferredPosition) {
                     r = preferredPosition.radius;

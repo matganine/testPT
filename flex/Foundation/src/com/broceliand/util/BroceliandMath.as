@@ -1,5 +1,7 @@
 package com.broceliand.util
 {
+	import com.broceliand.ui.GeometricalConstants;
+	
 	import flash.geom.Point;
 	
 	

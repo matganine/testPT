@@ -1,5 +1,9 @@
 package com.broceliand.graphLayout.model
 {
+	import com.broceliand.pearlTree.model.BroPTNode;
+	import com.broceliand.pearlTree.model.BroLocalTreeRefNode;
+	import com.broceliand.pearlTree.model.BroPearlTree;
+	
 	
 	public class PearlTreeModel implements IPearlTreeModel
 	{
