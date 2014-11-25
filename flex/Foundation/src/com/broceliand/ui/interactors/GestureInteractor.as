@@ -50,7 +50,7 @@ package com.broceliand.ui.interactors {
       }
       
       public function isTouchScreen():Boolean {
-      	return (Capabilities.touchscreenType == TouchscreenType.FINGER);
+         return (Capabilities.touchscreenType == TouchscreenType.FINGER);
       }
    }
 }

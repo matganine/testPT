@@ -71,7 +71,7 @@ package com.broceliand.ui.tooltip {
          ret.push(filter);
          return ret;
       }      
-     
+      
       override protected function calculateBasePosition(targetPosition:Point):void {
          if(_position == POSITION_BOTTOM) {
             y = targetPosition.y + target.height + TARGET_PADDING;
@@ -82,7 +82,7 @@ package com.broceliand.ui.tooltip {
             x = targetPosition.x + (target.width / 2.0) - (width / 2.0);
          }
       }
-
+      
       public function get position():String {
          return _position;
       }

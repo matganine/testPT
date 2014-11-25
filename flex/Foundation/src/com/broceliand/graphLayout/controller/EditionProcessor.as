@@ -43,11 +43,11 @@ package com.broceliand.graphLayout.controller
    import mx.events.EffectEvent;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
+   
    public class EditionProcessor extends EventDispatcher
    {
       public static const ANIMATION_ENDED_EVENT:String = "EditionAnimationEnds";
-
+      
       private var _inPTW:Boolean;
       private var _graphRootNode:PTRootNode;
       private var _displayModel:GraphicalDisplayedModel;
@@ -59,7 +59,7 @@ package com.broceliand.graphLayout.controller
       private var _startTreePath:Array;
       private var _dockingTreeNode:Array;
       private var _creatingPearlEffect:Effect;
-
+      
       public function EditionProcessor(vgraph:IPTVisualGraph,
                                        editionController:IPearlTreeEditionController,
                                        displayModel:GraphicalDisplayedModel, graphicalNavigation:GraphicalNavigationController, userEdition:UserEdition )
@@ -77,23 +77,23 @@ package com.broceliand.graphLayout.controller
             _startTreePath = _graphRootNode.containedPearlTreeModel.businessTree.treeHierarchyNode.getTreePath();
          }
       }
-
-     public function getGraphicalNode(id2IptNodes:Dictionary, id:Number):IPTNode{
-        var node:Object = id2IptNodes[id];
-        if (node is IPTNode) {
-           return node as IPTNode;
-        } else  if (node is DeckItem) 
-        {
-          var di:DeckItem = node as DeckItem;
-          if (!di.node) {
-             var dropZone:IDeckModel = _vgraph.controls.dropZoneDeckModel;
-             dropZone.createItemNode(di);
-          }
-          return di.node;
-        }
-        return null;
-     }
-
+      
+      public function getGraphicalNode(id2IptNodes:Dictionary, id:Number):IPTNode{
+         var node:Object = id2IptNodes[id];
+         if (node is IPTNode) {
+            return node as IPTNode;
+         } else  if (node is DeckItem) 
+         {
+            var di:DeckItem = node as DeckItem;
+            if (!di.node) {
+               var dropZone:IDeckModel = _vgraph.controls.dropZoneDeckModel;
+               dropZone.createItemNode(di);
+            }
+            return di.node;
+         }
+         return null;
+      }
+      
       public function performEdition():void {
          
          var treeWithGraphicalEdition:Dictionary = findGraphicalTreesToUpdate();
@@ -112,7 +112,7 @@ package com.broceliand.graphLayout.controller
                if (treeWithGraphicalEdition[t.tree]) {
                   hasReorganizeTreeEdition = t;
                }
-
+               
             }
             if (t.hasPrivateStateChanged()){ 
                performPrivateStateChange(t);
@@ -124,14 +124,14 @@ package com.broceliand.graphLayout.controller
             shouldUpdateVisibility =  linkAllNodes(t, id2IptNodes, treeWithGraphicalEdition[t.tree]!=null) ||shouldUpdateVisibility ;
             t.updateTreeVersion();
          }
-
+         
          reattachEndNodes(detachedEndVNode);
          if (_userEdition.hierarchyUpdate) {
             _userEdition.hierarchyUpdate.updateTreeHierarchy(am.visualModel.dataRepository);
          }
-
          
-
+         
+         
          for each (t in _userEdition.getTreesEdition()) {
             shouldUpdateVisibility = changeNodesType(t.getChangeNodeTypes(), id2IptNodes) || shouldUpdateVisibility;
             t.performTreeHierarchyUpdates();
@@ -155,10 +155,10 @@ package com.broceliand.graphLayout.controller
                am.components.pearlTreeViewer.interactorManager.updatePearlUnderCursorAfterCross();
             }
          }
-
-
-
-          _vgraph.endNodeVisibilityManager.updateAllNodes();
+         
+         
+         
+         _vgraph.endNodeVisibilityManager.updateAllNodes();
          if (_inPTW) {
             endAnimation(null);
          } else {
@@ -188,14 +188,14 @@ package com.broceliand.graphLayout.controller
                f.duration =300;
                n.vnode.view.alpha =0;
                parallel.addChild(f);
-
+               
             }
          }
          if (parallel.children.length >0 ) {
             return parallel;
          }
          return null;
-
+         
       }
       public function layoutUpdatedTree():void {
          
@@ -213,7 +213,7 @@ package com.broceliand.graphLayout.controller
             endAnimation(null);
             return;
          }
-
+         
          
          var goToTree:BroPearlTree = getFirstVisibleTree();
          if (goToTree &&  goToTree != _graphRootNode.containedPearlTreeModel.businessTree) {
@@ -221,18 +221,18 @@ package com.broceliand.graphLayout.controller
             
             var navManager:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
             navManager.goTo(goToTree.getMyAssociation().associationId,
-                            navManager.getSelectedUser().persistentId,
-                            goToTree.id);
+               navManager.getSelectedUser().persistentId,
+               goToTree.id);
          }
          _vgraph.layouter.addEventListener(PTLayouterBase.EVENT_LAYOUT_FINISHED, endAnimation);
          updateEdgeWeights();
          
-
+         
          performSlowLayout();
       }
       public function performSlowLayout():void {
          _vgraph.PTLayouter.performSlowLayout();
-
+         
       }
       private function clearGraphAndGoToTheSamePlace(newAssociation:BroAssociation,focusTree:BroPearlTree):void {
          var garp:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
@@ -249,7 +249,7 @@ package com.broceliand.graphLayout.controller
             user.persistentId,
             focusTree.id, -1,-1,-1,-1,0,false, 2);
       }
-
+      
       private function getFirstVisibleTree():BroPearlTree {
          var goToTree:BroPearlTree = _graphRootNode.containedPearlTreeModel.businessTree;
          var path:Array = goToTree.treeHierarchyNode.getTreePath();
@@ -284,7 +284,7 @@ package com.broceliand.graphLayout.controller
       }
       private function updateEdgeWeights():void {
          _graphRootNode.updatingNumberOfDescendant();
-
+         
       }
       private function endAnimation(event:Event):void {
          if (event) {
@@ -299,29 +299,29 @@ package com.broceliand.graphLayout.controller
          }
          dispatchEvent(new Event(ANIMATION_ENDED_EVENT));
       }
-
-
+      
+      
       
       private function createGraphicalNodes(t:TreeEdition, id2IptNodes:Dictionary):Array{
          var newNodes:Array;
          var newNodeEditions:Array = t.createdNodesEdition;
          var gnode:IPTNode;
          if (newNodeEditions){
-           for each (var newNodeEdition:CreateNodeInTree in newNodeEditions) {
-              gnode= _editionController.createNode(newNodeEdition.moveNode);
-              newNodes = BroUtilFunction.addToArray(newNodes, gnode);
-              id2IptNodes[newNodeEdition.newNodeId] = gnode;
-           }
+            for each (var newNodeEdition:CreateNodeInTree in newNodeEditions) {
+               gnode= _editionController.createNode(newNodeEdition.moveNode);
+               newNodes = BroUtilFunction.addToArray(newNodes, gnode);
+               id2IptNodes[newNodeEdition.newNodeId] = gnode;
+            }
          }
          var nodeMoveFromOtherTrees:Array = t.moveNodesFromOtherTrees;
          if (nodeMoveFromOtherTrees) {
-           for each (var moveIntoTree:MoveNodeBetweenTrees in nodeMoveFromOtherTrees) {
-              if (!id2IptNodes[moveIntoTree.movePearlId]) {
-                 gnode = _editionController.createNode(moveIntoTree.moveNode);
-                 newNodes = BroUtilFunction.addToArray(newNodes, gnode);
-                 id2IptNodes[moveIntoTree.movePearlId]= gnode;
-              }
-           }
+            for each (var moveIntoTree:MoveNodeBetweenTrees in nodeMoveFromOtherTrees) {
+               if (!id2IptNodes[moveIntoTree.movePearlId]) {
+                  gnode = _editionController.createNode(moveIntoTree.moveNode);
+                  newNodes = BroUtilFunction.addToArray(newNodes, gnode);
+                  id2IptNodes[moveIntoTree.movePearlId]= gnode;
+               }
+            }
          }
          return newNodes;
       }
@@ -335,31 +335,31 @@ package com.broceliand.graphLayout.controller
          if (rootNode) {
             endNode = _editionController.detachEndNode(rootNode.containedPearlTreeModel);
          }
-
+         
          if (nodeMoveToOtherTrees) {
-           for each (var moveOut:MoveNodeBetweenTrees in nodeMoveToOtherTrees) {
-              nodesToRemove = BroUtilFunction.addToArray(nodesToRemove, unlinkNode(moveOut.moveNode, moveOut.oldParentNode, treeWithGraphicalEdition[moveOut.newTree] == null && !moveOut.newTree.isDropZone(), id2IptNodes));
-           }
+            for each (var moveOut:MoveNodeBetweenTrees in nodeMoveToOtherTrees) {
+               nodesToRemove = BroUtilFunction.addToArray(nodesToRemove, unlinkNode(moveOut.moveNode, moveOut.oldParentNode, treeWithGraphicalEdition[moveOut.newTree] == null && !moveOut.newTree.isDropZone(), id2IptNodes));
+            }
          }
          var deletedNodes:Array = t.lostNodes;
          if (deletedNodes) {
-           for each (var n:BroPTNode  in deletedNodes) {
-              nodesToRemove = BroUtilFunction.addToArray(nodesToRemove, unlinkNode(n , n.parent, true, id2IptNodes));
-              n.deletedByUser = true;
-           }
+            for each (var n:BroPTNode  in deletedNodes) {
+               nodesToRemove = BroUtilFunction.addToArray(nodesToRemove, unlinkNode(n , n.parent, true, id2IptNodes));
+               n.deletedByUser = true;
+            }
          }
          var nodeMoveFromOtherTrees:Array = t.moveNodesFromOtherTrees;
          if (nodeMoveFromOtherTrees) {
-           for each (var moveIntoTree:MoveNodeBetweenTrees in nodeMoveFromOtherTrees) {
-              unlinkNode(moveIntoTree.moveNode, moveIntoTree.oldParentNode, false, id2IptNodes);
-           }
+            for each (var moveIntoTree:MoveNodeBetweenTrees in nodeMoveFromOtherTrees) {
+               unlinkNode(moveIntoTree.moveNode, moveIntoTree.oldParentNode, false, id2IptNodes);
+            }
          }
-
+         
          var nodeMoveInTree:Array = t.moveNodesInTrees;
          if (nodeMoveInTree && !t.isDropzone) {
-           for each (var moveInTree:MoveNodeInTree in nodeMoveInTree) {
-              unlinkNode(moveInTree.moveNode, moveInTree.oldParent, false, id2IptNodes);
-           }
+            for each (var moveInTree:MoveNodeInTree in nodeMoveInTree) {
+               unlinkNode(moveInTree.moveNode, moveInTree.oldParent, false, id2IptNodes);
+            }
          }
          if (nodesToRemove) {
             if(!_nodesToRemoveFromGraph) {
@@ -370,8 +370,8 @@ package com.broceliand.graphLayout.controller
          }
          return endNode;
       }
-
-     
+      
+      
       private function linkAllNodes(t:TreeEdition, id2IptNodes:Dictionary, withGraphicUpdates:Boolean):Boolean {
          var nodeToHide:Array=null;
          var editions:Array = t.getOrderedEditions();
@@ -393,9 +393,9 @@ package com.broceliand.graphLayout.controller
                   Log.getLogger("com.broceliand.graphLayout.controller.EditionProcessor").error("unpextected null e.newParent value for move node : {0} edition {1} ",moveNode, e);
                   continue;
                }
-
+               
                var parentNode:IPTNode = getGraphicalNode(id2IptNodes, e.newParent.persistentID);
-
+               
                if (moveNode && moveNode.vnode  && parentNode && parentNode.vnode) {
                   _editionController.tempLinkNodes(parentNode.vnode, moveNode.vnode, e.newIndex);
                   _editionController.confirmNodeParentLink(moveNode.vnode, false, e.newIndex);
@@ -407,7 +407,7 @@ package com.broceliand.graphLayout.controller
                e.newParent.owner = t.tree;
                t.tree.addToNode(e.newParent, e.moveNode, e.newIndex);
                Log.getLogger("com.broceliand.graphLayout.controller.EditionProcessor").info("Link node in bmodel {0}({1}) to {2}({3}) at {4}", e.moveNode.title, e.moveNode.persistentID, e.newParent.title, e.newParent.persistentID, e.newIndex);
-
+               
             } else {
                if (t.isDropzone) {
                   
@@ -420,13 +420,13 @@ package com.broceliand.graphLayout.controller
                   } else if (dockNode && dockNode.vnode ) {
                      dockNode.dock(dropZone);
                   }
-
+                  
                }
                e.newParent.owner = t.tree;
                t.tree.addToNode(e.newParent, e.moveNode, e.newIndex);
                Log.getLogger("com.broceliand.graphLayout.controller.EditionProcessor").info("Link node in bmodel {0}({1}) to {2}({3}) at {4}", e.moveNode.title, e.moveNode.persistentID, e.newParent.title, e.newParent.persistentID, e.newIndex);
             }
-
+            
          }
          if (nodeToHide) {
             
@@ -451,7 +451,7 @@ package com.broceliand.graphLayout.controller
             dockNode = _editionController.createNode(dockNode.getBusinessNode()) as PTRootNode;
             dockNode.containedPearlTreeModel.openingState = OpeningState.CLOSED;
             dockNode.dock(dropZone);
-
+            
          }
       }
       public function dockOnEndAnimation(ptRootNode:PTRootNode, dropZone:IDeckModel):void {
@@ -461,13 +461,13 @@ package com.broceliand.graphLayout.controller
             layoutUpdatedTree();
          }
       }
-
-
-
-
-
-
-
+      
+      
+      
+      
+      
+      
+      
       
       private function unlinkNode(node:BroPTNode, oldParentNode:BroPTNode, shouldRemove:Boolean, id2IptNodes:Dictionary):IPTNode {
          if (oldParentNode){
@@ -482,9 +482,9 @@ package com.broceliand.graphLayout.controller
             return gnode;
          }
          return null;
-
+         
       }
-
+      
       
       private function removeDockedNodesAndTryLostNodes():Boolean{
          var treeToDelete:Array;
@@ -504,15 +504,15 @@ package com.broceliand.graphLayout.controller
          }
          
          if (_nodesToRemoveFromGraph != null) {
-
+            
             var shouldRemoveRoot:Boolean = (_nodesToRemoveFromGraph.lastIndexOf(_graphRootNode)>=0);
             if (!shouldRemoveRoot) {
                for each (r in treeToDelete) {
                   openTreesModel.closeTree(1, r.treeOwner.id);
                }
-
+               
             }
-
+            
             for each (n in _nodesToRemoveFromGraph) {
                if (shouldRemoveRoot) {
                   if (n.isDocked) {
@@ -525,7 +525,7 @@ package com.broceliand.graphLayout.controller
             return !shouldRemoveRoot;
          }
          return true;
-
+         
       }
       private function removeNode(gnode:IPTNode):void {
          if (gnode && gnode.vnode ) { 
@@ -545,10 +545,10 @@ package com.broceliand.graphLayout.controller
       private function unlinkGraphNodeFromParent(gnode:IPTNode):void {
          if (gnode) {
             if (gnode.isDocked) {
-
-
+               
+               
                gnode.undock();
-
+               
             }
             if ( gnode.parent) {
                var parentVnode:IVisualNode = gnode.parent.vnode;
@@ -558,7 +558,7 @@ package com.broceliand.graphLayout.controller
             }
          }
       }
-
+      
       private function indexGraphNodes(graphRootNodes:Dictionary):Dictionary {
          var result:Dictionary = new Dictionary();
          for each (var rootNodes:IPTNode in graphRootNodes) {
@@ -609,7 +609,7 @@ package com.broceliand.graphLayout.controller
       public function removeAllInvisibleNodesFromGraph():void {
          var nodesToKeep:Dictionary = new Dictionary();
          var nodes2Remove:Array = new Array();
-
+         
          for each (var n:IPTNode in _graphRootNode.getDescendantsAndSelf()) {
             nodesToKeep[n] =n;
          }
@@ -619,85 +619,85 @@ package com.broceliand.graphLayout.controller
             }
          }
          
-
+         
          for each (var node:IPTNode in _vgraph.graph.nodes) {
             if(!node.getDock() && nodesToKeep[node] == null) {
                nodes2Remove.push(node);
             }
          }
-
+         
          for each (node in nodes2Remove) {
             removeNode(node);
          }
       }
       
-
-     
-     private function changeNodesType(changeTypesNode:Array, id2IptNodes:Dictionary ):Boolean{
-        var updateVisibility:Boolean = false;
-        var displayedNode:IPTNode = ApplicationManager.getInstance().components.windowController.getNodeDisplayed();
-        if (changeTypesNode) {
-           for each (var edition:ChangeNodeType in changeTypesNode) {
-              var oldNode:BroTreeRefNode = edition.oldNode;
-              var endNodeToClose:IPTNode = null;
-              if (edition.newNode.isContentTypeMatch(AmfTreeService.CONTENT_TYPE_TREE) && edition.oldNode.refTree.isAssociationRoot()) {
-                 oldNode.refTree.getMyAssociation().isDissolvedAssociation = true;
-              }
-              
-              oldNode.changeNodeType(edition.newNode);
-              oldNode.refTree.getMyAssociation().isDissolvedAssociation = false;
-
-              var oldIPTNode:IPTNode = getGraphicalNode(id2IptNodes, oldNode.persistentID);
-              Log.getLogger("com.broceliand.graphLayout.controller.EditionProcessor").info("Change visible type node {0}",oldNode.title);
-              if (oldIPTNode) {
-                 if (oldNode is BroLocalTreeRefNode && !(edition.newNode is BroLocalTreeRefNode)) {
-                    if (oldIPTNode is EndNode) {
-                       oldIPTNode = oldIPTNode.rootNodeOfMyTree;
-                    }
-                    if (PTRootNode(oldIPTNode).isOpen()) { 
-                       
-                       
-                       
-                       
-                       
-                       var focusTree:BroPearlTree =ApplicationManager.getInstance().visualModel.navigationModel.getFocusedTree();
-                       var focusTreePath:Array = focusTree.treeHierarchyNode.getTreePath();
-                       if (focusTreePath.lastIndexOf(oldNode.refTree) != -1 || focusTreePath.lastIndexOf(edition.newNode.refTree) != -1) {
+      
+      
+      private function changeNodesType(changeTypesNode:Array, id2IptNodes:Dictionary ):Boolean{
+         var updateVisibility:Boolean = false;
+         var displayedNode:IPTNode = ApplicationManager.getInstance().components.windowController.getNodeDisplayed();
+         if (changeTypesNode) {
+            for each (var edition:ChangeNodeType in changeTypesNode) {
+               var oldNode:BroTreeRefNode = edition.oldNode;
+               var endNodeToClose:IPTNode = null;
+               if (edition.newNode.isContentTypeMatch(AmfTreeService.CONTENT_TYPE_TREE) && edition.oldNode.refTree.isAssociationRoot()) {
+                  oldNode.refTree.getMyAssociation().isDissolvedAssociation = true;
+               }
+               
+               oldNode.changeNodeType(edition.newNode);
+               oldNode.refTree.getMyAssociation().isDissolvedAssociation = false;
+               
+               var oldIPTNode:IPTNode = getGraphicalNode(id2IptNodes, oldNode.persistentID);
+               Log.getLogger("com.broceliand.graphLayout.controller.EditionProcessor").info("Change visible type node {0}",oldNode.title);
+               if (oldIPTNode) {
+                  if (oldNode is BroLocalTreeRefNode && !(edition.newNode is BroLocalTreeRefNode)) {
+                     if (oldIPTNode is EndNode) {
+                        oldIPTNode = oldIPTNode.rootNodeOfMyTree;
+                     }
+                     if (PTRootNode(oldIPTNode).isOpen()) { 
+                        
+                        
+                        
+                        
+                        
+                        var focusTree:BroPearlTree =ApplicationManager.getInstance().visualModel.navigationModel.getFocusedTree();
+                        var focusTreePath:Array = focusTree.treeHierarchyNode.getTreePath();
+                        if (focusTreePath.lastIndexOf(oldNode.refTree) != -1 || focusTreePath.lastIndexOf(edition.newNode.refTree) != -1) {
                            continue;
-                       } else {
-                          
-                         if (!oldIPTNode.vnode.isVisible) {
-                            continue;
-                         } else {
-                            
-                            
-                            endNodeToClose = PTRootNode(oldIPTNode).containedPearlTreeModel.endNode;
-                         }
-
-                       }
-                    }
-                 }
-
-                 var changeAction:ChangeNodeTypeAction= new ChangeNodeTypeAction(_editionController, _graphicaNavController, oldIPTNode, oldNode, edition.newNode);
-                 if (endNodeToClose) {
-                    _editionController.closeTreeNode(oldIPTNode.vnode);
-                    var garp:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
-                    garp.postActionRequest(new GenericAction(garp, changeAction, changeAction.replaceGraphicalNode));
-                 } else {
-                    var newIPTNode:IPTNode = changeAction.replaceGraphicalNode();
-                    if (newIPTNode.parent && !newIPTNode.parent.vnode.isVisible) {
-                       
-                       updateVisibility =true;
-                    }
-                    if (displayedNode == oldNode) {
-                       ApplicationManager.getInstance().components.windowController.displayNodeInfo(newIPTNode);
-                    }
-                 }
-              }
-           }
-           ApplicationManager.getInstance().components.mainPanel.navigationBar.model.refreshModel();
-        }
-        return updateVisibility;
-     }
+                        } else {
+                           
+                           if (!oldIPTNode.vnode.isVisible) {
+                              continue;
+                           } else {
+                              
+                              
+                              endNodeToClose = PTRootNode(oldIPTNode).containedPearlTreeModel.endNode;
+                           }
+                           
+                        }
+                     }
+                  }
+                  
+                  var changeAction:ChangeNodeTypeAction= new ChangeNodeTypeAction(_editionController, _graphicaNavController, oldIPTNode, oldNode, edition.newNode);
+                  if (endNodeToClose) {
+                     _editionController.closeTreeNode(oldIPTNode.vnode);
+                     var garp:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
+                     garp.postActionRequest(new GenericAction(garp, changeAction, changeAction.replaceGraphicalNode));
+                  } else {
+                     var newIPTNode:IPTNode = changeAction.replaceGraphicalNode();
+                     if (newIPTNode.parent && !newIPTNode.parent.vnode.isVisible) {
+                        
+                        updateVisibility =true;
+                     }
+                     if (displayedNode == oldNode) {
+                        ApplicationManager.getInstance().components.windowController.displayNodeInfo(newIPTNode);
+                     }
+                  }
+               }
+            }
+            ApplicationManager.getInstance().components.mainPanel.navigationBar.model.refreshModel();
+         }
+         return updateVisibility;
+      }
    }
 }

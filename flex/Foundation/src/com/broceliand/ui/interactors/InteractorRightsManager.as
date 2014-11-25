@@ -22,13 +22,13 @@ package com.broceliand.ui.interactors
    
    public class InteractorRightsManager
    {
-
-
-
-
-
-
-
+      
+      
+      
+      
+      
+      
+      
       
       public static const USER_RIGHT_EDIT:int = 0;
       public static const MAX_NUM_NODES_IN_MAP:int = 100;
@@ -36,7 +36,7 @@ package com.broceliand.ui.interactors
       public static const MAX_NUM_IMMEDIATE_DESCENDANTS:int = 8;
       public static const MAX_NODE_BY_LEVEL:int = 16;
       public static var   PREVENT_TOO_MANY_DESCENDANT:Boolean = true;
-       
+      
       public static const CODE_OK:int = 0;
       public static const CODE_NOK_MISC:int = -1;
       public static const CODE_TOO_MANY_NODES_IN_MAP:int = -2;
@@ -52,7 +52,7 @@ package com.broceliand.ui.interactors
       
       private function userOwnsBusinessNode(businessNode:BroPTNode):Boolean{
          var treeThatContainsTheNode:BroPearlTree = getTreeThatContainsNode(businessNode);
-          
+         
          if(!treeThatContainsTheNode){
             if (businessNode.owner != null) {
                return  businessNode.owner.isCurrentUserAuthor();
@@ -84,12 +84,12 @@ package com.broceliand.ui.interactors
             } else {
                return null;
             }
-               
+            
          } else {
             return businessNode.owner;
          }         
       }
-  
+      
       public function userIsHome():Boolean {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var user : User = am.currentUser;
@@ -98,7 +98,7 @@ package com.broceliand.ui.interactors
          }
          return User.areUsersSame(user, am.visualModel.navigationModel.getSelectedUser());
       }
-
+      
       
       public function testBigTreeLimitation(potentialParentBNode:BroPTNode, potentialChildBNode:BroPTNode):int{
          if(!potentialParentBNode || !potentialChildBNode){
@@ -110,16 +110,16 @@ package com.broceliand.ui.interactors
          if(potentialChildBNode.parent == potentialParentBNode){
             return CODE_OK;
          }
-       
-
+         
+         
          if(potentialChildBNode is BroPTRootNode){
             
             potentialChildBNode = potentialChildBNode.owner.refInParent;
          }
          if(potentialChildBNode.owner != potentialParentBNode.owner){
-              
+            
             var numNodesBeingInserted:int = potentialChildBNode.getDescendantCount();
-
+            
             if(!potentialParentBNode.owner || potentialParentBNode.owner.pearlCount + numNodesBeingInserted > MAX_NUM_NODES_IN_MAP){
                return CODE_TOO_MANY_NODES_IN_MAP;
             } 
@@ -129,7 +129,7 @@ package com.broceliand.ui.interactors
          if (potentialParentBNode is BroPTRootNode) {
             maxChildrenCount = MAX_NUM_IMMEDIATE_DESCENDANTS_ROOT;
          }
-          
+         
          if(potentialParentBNode.childLinks && potentialParentBNode.childLinks.length + 1 > maxChildrenCount){
             if (PREVENT_TOO_MANY_DESCENDANT) {
                return CODE_TOO_MANY_IMMEDIATE_DESCENDANTS;
@@ -139,7 +139,7 @@ package com.broceliand.ui.interactors
          return CODE_OK;
       }      
       
-
+      
       public function userHasRightToMoveNode(node:IPTNode):Boolean{
          if (!node) {
             return false;
@@ -170,10 +170,10 @@ package com.broceliand.ui.interactors
       }      
       
       public function canAddNodeToMyAccount(businessNode:BroPTNode):Boolean{
-        var treeToCheck:BroPearlTree = null;
-        if (businessNode is IBroPTWNode) {
-           return false;
-        } else if(businessNode is BroTreeRefNode){
+         var treeToCheck:BroPearlTree = null;
+         if (businessNode is IBroPTWNode) {
+            return false;
+         } else if(businessNode is BroTreeRefNode){
             var ref:BroTreeRefNode = businessNode as BroTreeRefNode;
             treeToCheck = ref.refTree;
          } else if(businessNode is BroPTRootNode){
@@ -182,17 +182,17 @@ package com.broceliand.ui.interactors
                return false;
             }
          }         
-
-        if(!treeToCheck){
+         
+         if(!treeToCheck){
             return true;
          }
          if(treeToCheck.isCurrentUserAuthor()){
             return false;
          }
          
-
-
-
+         
+         
+         
          
          return true;
       }
@@ -219,7 +219,7 @@ package com.broceliand.ui.interactors
          return treeToCheck.isCurrentUserAuthor();
       }
       private function testIsParentDescendant(draggedNode:IPTNode, nodeToLinkTo:IPTNode):Boolean {
-           
+         
          var nextParent:IPTNode = nodeToLinkTo;
          while(nextParent){
             if(nextParent == draggedNode){
@@ -295,7 +295,7 @@ package com.broceliand.ui.interactors
             return testNoFounderMovePearlsOutOfTeam;
          }
          return testMovingPrivate(manipulatedNodes, bNodeToLinkTo.owner);
-
+         
       }
       
       public function testMoveOutToTreeAllowed(draggedNode:IPTNode, manipulatedNodesModel:ManipulatedNodesModel, targetTree:BroPearlTree):int {
@@ -307,7 +307,7 @@ package com.broceliand.ui.interactors
          }
          return CODE_OK;
       }
-         
+      
       public function testMovingTeamIntoSubTeam(manipulatadNodeModel:ManipulatedNodesModel, targetTree:BroPearlTree):int {
          if (manipulatadNodeModel.containsSubAssociations) {
             if (targetTree.getAssociationId() != manipulatadNodeModel.startAssociationId) {
@@ -380,16 +380,16 @@ package com.broceliand.ui.interactors
             return CODE_NO_PRIVATE_IN_PUBLIC_TEAM;
          } else if (targetTree.isPrivate() && manipulatadNodeModel.containsPublicSubAssocations) {
             return CODE_NO_PUBLIC_TEAM_IN_PRIVATE;
-         /*} else if (targetTree.isPrivate() && manipulatadNodeModel.containsAssoWithPendingRequests) {
+            /*} else if (targetTree.isPrivate() && manipulatadNodeModel.containsAssoWithPendingRequests) {
             return CODE_NO_PENDING_REQUESTS;
-         } else if (targetTree.hasParentsWithTeamRequestsToAccept() && manipulatadNodeModel.containsPrivateTrees) {
+            } else if (targetTree.hasParentsWithTeamRequestsToAccept() && manipulatadNodeModel.containsPrivateTrees) {
             return CODE_NOT_IN_PENDING_REQUESTS;*/
          } else if (targetTree.isPrivatePearltreeOfCurrentUserNotPremium()) {
             return CODE_PRIVATE_EXPIRED_PREMIUM;
          }
          return CODE_OK;
       }
-
+      
       public function convertCodeToTitleMessageCode(code:int, isForDraggingIntoTree:Boolean):int{
          switch(code){
             case CODE_TOO_MANY_IMMEDIATE_DESCENDANTS:
@@ -401,7 +401,7 @@ package com.broceliand.ui.interactors
                   return NodeTitleModel.MESSAGE_TOO_MANY_NODES_IN_OPEN_MAP;
                }
             case CODE_NO_TEAM_IN_TEAM:
-                return NodeTitleModel.MESSAGE_NO_TEAM_IN_TEAM;
+               return NodeTitleModel.MESSAGE_NO_TEAM_IN_TEAM;
             case CODE_NO_TEAM_TO_THE_ROOT_TEAM:
                return NodeTitleModel.MESSAGE_NO_TEAM_TO_THE_ROOT_TEAM;
             case CODE_NO_PRIVATE_IN_PUBLIC_TEAM:

@@ -17,10 +17,10 @@ package com.broceliand.ui.settings
          height = 28;
       }
       
-
+      
       override protected function createChildren():void {
          super.createChildren()
-            
+         
          _label = new Label();
          _greyContainer = new Canvas();
          

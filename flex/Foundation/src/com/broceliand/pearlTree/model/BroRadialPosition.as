@@ -6,9 +6,9 @@ package com.broceliand.pearlTree.model
    public class BroRadialPosition
    {
       
-		private var _radius:Number;
-		private var _angleInRad:Number;
-
+      private var _radius:Number;
+      private var _angleInRad:Number;
+      
       public function BroRadialPosition(radius:Number, angleInRad:Number)
       {
          _radius = radius;

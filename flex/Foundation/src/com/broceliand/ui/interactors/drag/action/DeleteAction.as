@@ -14,7 +14,7 @@ package  com.broceliand.ui.interactors.drag.action
    import mx.events.EffectEvent;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
+   
    public class DeleteAction extends CutBNodeAction implements IUndoableAction   {
       
       private var _forceNoSelectionUpdate:Boolean;
@@ -93,6 +93,6 @@ package  com.broceliand.ui.interactors.drag.action
       }
       
       
-
+      
    }
 }

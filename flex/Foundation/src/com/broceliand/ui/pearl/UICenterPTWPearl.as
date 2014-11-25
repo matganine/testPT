@@ -48,39 +48,39 @@ package com.broceliand.ui.pearl
       private function setShowHaloOnButton(value:Boolean):void {
          if(_showHaloButton != value){
             _showHaloButton = value;
-              if(_showHaloButton){
-                 if(!_haloButtonFilters){
-                    _haloButtonFilters = getHaloButtonFilters();
-                 }
-              }else{
-           }
+            if(_showHaloButton){
+               if(!_haloButtonFilters){
+                  _haloButtonFilters = getHaloButtonFilters();
+               }
+            }else{
+            }
          }
       }
-
+      
       private function getHaloButtonFilters():Array{
-            var color:Number = ColorPalette.getInstance().pearltreesDarkColor;
-            var angle:Number = 0;
-            var alpha:Number = 0.8;
-            var blurX:Number = 20;
-            var blurY:Number = 20;
-            var distance:Number = 0;
-            var strength:Number = 5;
-            var inner:Boolean = false;
-            var knockout:Boolean = false;
-            var quality:Number = BitmapFilterQuality.MEDIUM;
-            var filter:DropShadowFilter = new DropShadowFilter(distance,
-                                        angle,
-                                        color,
-                                        alpha,
-                                        blurX,
-                                        blurY,
-                                        strength,
-                                        quality,
-                                        inner,
-                                        knockout);
-            var ret:Array = new Array();
-            ret.push(filter);
-            return ret;
-        }
+         var color:Number = ColorPalette.getInstance().pearltreesDarkColor;
+         var angle:Number = 0;
+         var alpha:Number = 0.8;
+         var blurX:Number = 20;
+         var blurY:Number = 20;
+         var distance:Number = 0;
+         var strength:Number = 5;
+         var inner:Boolean = false;
+         var knockout:Boolean = false;
+         var quality:Number = BitmapFilterQuality.MEDIUM;
+         var filter:DropShadowFilter = new DropShadowFilter(distance,
+            angle,
+            color,
+            alpha,
+            blurX,
+            blurY,
+            strength,
+            quality,
+            inner,
+            knockout);
+         var ret:Array = new Array();
+         ret.push(filter);
+         return ret;
+      }
    }
 }

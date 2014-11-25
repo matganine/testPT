@@ -44,8 +44,8 @@ package com.broceliand.assets
       public static const IMPORT_CYAN_OVER:Class;
       
       
-
-
+      
+      
       
       
       [Embed(source='/assets/pearlBar/pearlDeck/premium.png')]
@@ -58,27 +58,27 @@ package com.broceliand.assets
       public static const INVITE_FRIEND:Class;
       [Embed(source='/assets/pearlBar/pearlDeck/inviteFriendOver.png')]
       public static const INVITE_FRIEND_OVER:Class;
-   
+      
       
       [Embed(source='/assets/pearlBar/pearlDeck/socialSync.png')]
       public static const SOCIAL_SYNC:Class;
       [Embed(source='/assets/pearlBar/pearlDeck/socialSyncOver.png')]
       public static const SOCIAL_SYNC_OVER:Class;
       
-	   
-	   [Embed(source='/assets/pearlBar/zoom/minus.png')]
+      
+      [Embed(source='/assets/pearlBar/zoom/minus.png')]
       public static const ZOOM_MINUS:Class;
       [Embed(source='/assets/pearlBar/zoom/minusOver.png')]
       public static const ZOOM_MINUS_OVER:Class;
-
-	  
-	  [Embed(source='/assets/pearlBar/zoom/plus.png')]
+      
+      
+      [Embed(source='/assets/pearlBar/zoom/plus.png')]
       public static const ZOOM_PLUS:Class;
       [Embed(source='/assets/pearlBar/zoom/plusOver.png')]
       public static const ZOOM_PLUS_OVER:Class;
-
-	  
-	  [Embed(source='/assets/pearlBar/zoom/zero.png')]
+      
+      
+      [Embed(source='/assets/pearlBar/zoom/zero.png')]
       public static const ZOOM_ZERO:Class;
       [Embed(source='/assets/pearlBar/zoom/zeroOver.png')]
       public static const ZOOM_ZERO_OVER:Class;
@@ -134,25 +134,25 @@ package com.broceliand.assets
              scaleGridTop='6', scaleGridBottom='17',
              scaleGridLeft='7', scaleGridRight='21')]
       public static const LOGIN_BUTTON_OVER:Class;
-
-   
       
-
-
-	  
-	  [Embed(source='/assets/pearlBar/zoom/embed/minus.png')]
+      
+      
+      
+      
+      
+      [Embed(source='/assets/pearlBar/zoom/embed/minus.png')]
       public static const ZOOM_EMBED_MINUS:Class;
       [Embed(source='/assets/pearlBar/zoom/embed/minusOver.png')]
       public static const ZOOM_EMBED_MINUS_OVER:Class;
-
-	  
-	  [Embed(source='/assets/pearlBar/zoom/embed/plus.png')]
+      
+      
+      [Embed(source='/assets/pearlBar/zoom/embed/plus.png')]
       public static const ZOOM_EMBED_PLUS:Class;
       [Embed(source='/assets/pearlBar/zoom/embed/plusOver.png')]
       public static const ZOOM_EMBED_PLUS_OVER:Class;
-
-	  
-	  [Embed(source='/assets/pearlBar/zoom/embed/zero.png')]
+      
+      
+      [Embed(source='/assets/pearlBar/zoom/embed/zero.png')]
       public static const ZOOM_EMBED_ZERO:Class;
       [Embed(source='/assets/pearlBar/zoom/embed/zeroOver.png')]
       public static const ZOOM_EMBED_ZERO_OVER:Class;
@@ -162,7 +162,7 @@ package com.broceliand.assets
       public static const ZOOM_EMBED_CURSOR:Class;
       [Embed(source='/assets/pearlBar/zoom/embed/zoomCursorOver.png')]
       public static const ZOOM_EMBED_CURSOR_OVER:Class;
-
+      
       [Embed(source='/assets/pearlBar/pearlDeck/deck2.png',
                   scaleGridTop='9', scaleGridBottom='21', 
                   scaleGridLeft='35', scaleGridRight='106')]
@@ -170,8 +170,8 @@ package com.broceliand.assets
       
       [Embed(source='/assets/pearlBar/pearlDeck/separateurDeck.png')]
       public static const DECK_SEPARATOR:Class;
-
-
+      
+      
    }
    
 }

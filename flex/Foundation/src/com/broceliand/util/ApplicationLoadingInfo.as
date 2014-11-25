@@ -4,6 +4,6 @@ package com.broceliand.util
    
    public class ApplicationLoadingInfo
    {
-
+      
    }
 }

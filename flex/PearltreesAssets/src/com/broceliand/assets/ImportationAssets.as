@@ -1,7 +1,7 @@
 package com.broceliand.assets
 {
    public class ImportationAssets
-
+      
    {
       [Embed(source="/assets/importation/importFirefox.png")] public static const FIREFOX:Class;
       [Embed(source="/assets/importation/importChrome.png")] public static const CHROME:Class;
@@ -15,7 +15,7 @@ package com.broceliand.assets
       [Embed(source="/assets/importation/importIe.png")] public static const IE:Class;
       [Embed(source="/assets/importation/importOpera.png")] public static const OPERA:Class;
       [Embed(source="/assets/importation/importOther.png")] public static const OTHER:Class;
-
+      
       [Embed(source="/assets/importation/importFirefoxHover.png")] public static const FIREFOX_HOVER:Class;
       [Embed(source="/assets/importation/importChromeHover.png")] public static const CHROME_HOVER:Class;
       [Embed(source="/assets/importation/importPocketHover.png")] public static const POCKET_HOVER:Class;

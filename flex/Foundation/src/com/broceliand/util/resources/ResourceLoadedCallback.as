@@ -7,7 +7,7 @@ package com.broceliand.util.resources
       public function ResourceLoadedCallback(targetObj:Object)
       {
       }
-
+      
       public function onLoaded(loadedData:Object):void
       {
       }

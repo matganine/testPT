@@ -15,10 +15,10 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
    import mx.core.IUIComponent;
    import mx.core.UIComponent;
    import mx.events.FlexEvent;
-
-
+   
+   
    public class PearlRing extends ColorRing implements IRepositionable, IScrollable{
-
+      
       private var _pearl:PearlBase;
       private var _outsidePearl:Boolean  =true;
       private var _nullPoint:Point = new Point(0,0);
@@ -41,7 +41,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             x  = y = 0;
             alpha=1;
             updateScale();
-           
+            
          }
       }
       override protected function getPearlRadius():Number {
@@ -61,20 +61,20 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          if (zoomChanged || (!hadRing && hasRings())) {   
             reposition();
          }
-              
+         
       }
       
       public function moveRingOutPearl():void {
          if (!_outsidePearl) {
-         	updateScale();
+            updateScale();
             _outsidePearl = true;
             includeInLayout= false;
             onAddedToStage(null);
             reposition();
             
             validateNow();
-                 
-
+            
+            
          }
       }
       private function bindToComponent(view:IUIComponent):void {
@@ -84,7 +84,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          if (view.stage && !stage) {
             onAddedToStage(null);
          }
-                
+         
          reposition();
       }
       protected  function onRemoveFromStage(event:Event):void {
@@ -115,7 +115,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          }
          reposition();
       }
-
+      
       public function listenToNode(node:IPTNode):void {
          if (_moveNotifier) {
             _moveNotifier.removeMoveListener(this);
@@ -125,31 +125,31 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             _moveNotifier.addMoveListener(this);
          }
       }
-
+      
       public function reposition():void {
          updateScale();
          if (_outsidePearl) {
             _positionChanged = true;
             
             if (_pearl.parent) {
-              alpha = _pearl.parent.alpha;
+               alpha = _pearl.parent.alpha;
             }
             if (hasRings()) {
                
                
-
-
-
-
-
-
-
-
-
-
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
                updatePosition();
             }
-
+            
          }
          
       }
@@ -166,17 +166,17 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             var offsetX:Number = 0;
             var offsetY:Number = 0;
             
-                  
-
-
-
-
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             move(p.x - p2.x + offsetX, p.y- p2.y + offsetY);
             _positionChanged = false;
          }
@@ -186,21 +186,21 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          if (_positionChanged) {
             updatePosition();
          }
-                
+         
       }
-       internal function clearMemory():void {
-          if (_bindedComponent) {
+      internal function clearMemory():void {
+         if (_bindedComponent) {
             _bindedComponent.removeEventListener(Event.REMOVED_FROM_STAGE, onRemoveFromStage);
             _bindedComponent.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
             _bindedComponent = null;
-          }
-      
+         }
+         
          if (_moveNotifier) {
             _moveNotifier.removeMoveListener(this);
             _moveNotifier = null;
          }
          
-
+         
       }
       override protected function get noteCount():Number{
          var count:Number = super.noteCount;
@@ -254,6 +254,6 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          super.restoreInitialState();
          _outsidePearl = true;
       }
-
+      
    }
 }

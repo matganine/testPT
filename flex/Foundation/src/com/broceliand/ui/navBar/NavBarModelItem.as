@@ -1,8 +1,8 @@
 package com.broceliand.ui.navBar {
-import flash.events.Event;
-import flash.events.EventDispatcher;
-
-import mx.core.UIComponent;
+   import flash.events.Event;
+   import flash.events.EventDispatcher;
+   
+   import mx.core.UIComponent;
    
    
    public class NavBarModelItem extends EventDispatcher {

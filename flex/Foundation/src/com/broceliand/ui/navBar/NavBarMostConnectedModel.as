@@ -35,7 +35,7 @@ package com.broceliand.ui.navBar {
          items.push(item);
          return items;
       }
-            
+      
       public function refreshModel():void {
          var am:ApplicationManager = ApplicationManager.getInstance();  
          var navigationModel:INavigationManager = am.visualModel.navigationModel;
@@ -155,7 +155,7 @@ package com.broceliand.ui.navBar {
       }
       
       public function forceViewRefresh():void {
-                 
+         
       }
       public function get isTeamNameOrSearchResult():Boolean {
          return false;

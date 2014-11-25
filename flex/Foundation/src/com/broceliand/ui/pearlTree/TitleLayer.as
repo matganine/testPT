@@ -5,20 +5,20 @@ package com.broceliand.ui.pearlTree
    import com.broceliand.util.Assert;
    
    import mx.core.UIComponent;
-
+   
    public class TitleLayer extends UIComponent
    {
       private static const TRACE_DEBUG:Boolean = false;
       private static const MAX_RECYCLED_TITLES:Number = 150;
-            
-		private var _titlesContainedAreEditable:Boolean;      
+      
+      private var _titlesContainedAreEditable:Boolean;      
       private var _recycledTitles:Array = new Array();      
       private var _layerName:String; 
       
       
       private var _addChildCount:Number = 0;
       private var _removeChildCount:Number = 0;
-           
+      
       public function TitleLayer(titlesContainedAreEditable:Boolean, layerName:String = null)
       {
          super();
@@ -35,7 +35,7 @@ package com.broceliand.ui.pearlTree
          titleRenderer.setStyle("backgroundAlpha", 0);
          titleRenderer.visible = titleRenderer.includeInLayout = false;
          _recycledTitles.push(titleRenderer);
-        
+         
       }
       
       private function getRecycledTitle():TitleRenderer {
@@ -54,7 +54,7 @@ package com.broceliand.ui.pearlTree
          if(!freeTitleInLayer) {
             freeTitleInLayer = new TitleRenderer(pearlRenderer);
             addChild(freeTitleInLayer);
-
+            
             if(TRACE_DEBUG) {
                _addChildCount++;
             }         
@@ -66,7 +66,7 @@ package com.broceliand.ui.pearlTree
          pearlRenderer.titleRenderer = freeTitleInLayer;
          freeTitleInLayer.visible = true;
          freeTitleInLayer.includeInLayout = false;
-        
+         
       }
       
       public function removeTitle(pearlRenderer:IUIPearl):void {
@@ -98,6 +98,6 @@ package com.broceliand.ui.pearlTree
       public function get titlesContainedAreEditable():Boolean {
          return _titlesContainedAreEditable;
       }
-
+      
    }
 }

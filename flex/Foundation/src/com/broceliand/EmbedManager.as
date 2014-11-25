@@ -88,7 +88,7 @@ package com.broceliand {
             return _am.loaderParameters.getEmbedId();
          }
       }      
-
+      
       public function set pearlClicked(value:Boolean):void {
          dispatchEvent(new Event(PEARL_CLIKED));
       }

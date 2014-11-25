@@ -6,8 +6,6 @@ package com.broceliand.assets
    {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"help/";
       
-      
-      
       public static const BUG:String = SERVER_PATH+"bug.png";
       [Embed(source='/assets/loader/connectionLost.png')]
       public static const CONNECTION_LOST:Class;

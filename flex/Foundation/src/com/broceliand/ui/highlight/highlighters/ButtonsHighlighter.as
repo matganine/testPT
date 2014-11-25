@@ -2,7 +2,7 @@ package com.broceliand.ui.highlight.highlighters
 {
    import mx.controls.Image;
    import mx.core.UIComponent;
-
+   
    public class ButtonsHighlighter extends UIComponentsHighlighter
    {
       protected var _addedImages:Array = null;
@@ -23,7 +23,7 @@ package com.broceliand.ui.highlight.highlighters
          comp.addChild(image);
          
       }
-
+      
       override protected function unhighlightInternal():void{
          for each(var image:Image in _addedImages){
             if(image.parent){

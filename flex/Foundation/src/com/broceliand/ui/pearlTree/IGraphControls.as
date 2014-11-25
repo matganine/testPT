@@ -11,32 +11,32 @@ package com.broceliand.ui.pearlTree
    
    public interface IGraphControls extends ICursorSetter
    {
-        function get scrollControl():IScrollControl;
-        function get dropZoneDeckModel():IDeckModel;
-        function get footer():IFooter;
-        function get unfocusButton():UnfocusButton;
-        function get backFromAliasButton():BackFromAliasButton;
-        function get emptyMapText():EmptyMapText;
-        function get zoomControl():ZoomScale;
-        
-        function showDiscoverHelpLabel(value:Boolean):void;
-        function makeNewsButton():NewsLabel;
-        function releaseNewsButton(newsButton:NewsLabel):void;
-          
-        function addButtonToControlLayer(pearlAddOns:PearlComponentAddOn):void;
-        function removeButtonToControlLayer(pearlAddOns:PearlComponentAddOn):void;
-        
-        function enableScrollControl(isEnabled:Boolean):void;
-        
-        function isPointOverAControl(point:Point):Boolean;
-        function isPointOverTrash(point:Point):Boolean;
-        function isPointOverDropZoneDeck(point:Point):Boolean;
-        function isPointOverTopButtons(point:Point):Boolean;
-        function isPointOverPearlButton(point:Point):Boolean;
-        function getDeckUnderPoint(pt:Point):IDeckModel;
-        function getDepthInParent():int;
-        function isVisible():Boolean
-           
-        function invalidateDisplayList():void;
+      function get scrollControl():IScrollControl;
+      function get dropZoneDeckModel():IDeckModel;
+      function get footer():IFooter;
+      function get unfocusButton():UnfocusButton;
+      function get backFromAliasButton():BackFromAliasButton;
+      function get emptyMapText():EmptyMapText;
+      function get zoomControl():ZoomScale;
+      
+      function showDiscoverHelpLabel(value:Boolean):void;
+      function makeNewsButton():NewsLabel;
+      function releaseNewsButton(newsButton:NewsLabel):void;
+      
+      function addButtonToControlLayer(pearlAddOns:PearlComponentAddOn):void;
+      function removeButtonToControlLayer(pearlAddOns:PearlComponentAddOn):void;
+      
+      function enableScrollControl(isEnabled:Boolean):void;
+      
+      function isPointOverAControl(point:Point):Boolean;
+      function isPointOverTrash(point:Point):Boolean;
+      function isPointOverDropZoneDeck(point:Point):Boolean;
+      function isPointOverTopButtons(point:Point):Boolean;
+      function isPointOverPearlButton(point:Point):Boolean;
+      function getDeckUnderPoint(pt:Point):IDeckModel;
+      function getDepthInParent():int;
+      function isVisible():Boolean
+      
+      function invalidateDisplayList():void;
    }
 }

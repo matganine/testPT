@@ -4,30 +4,30 @@ package com.broceliand.ui.effects
    
    public class ForwardBackwardTogglerBase
    {
-     public static const PLAYED_FORWARD:int = 1; 
-     public static const PLAYING_FORWARD:int = 2; 
-     public static const PLAYED_BACKWARD:int = 3; 
-     public static const PLAYING_BACKWARD:int = 4;
-         
-     protected var _state:int;
-     protected var _targetState:int;
-     protected var _waitForEndOfForwardAnim:Boolean; 
-     protected var _waitForEndOfBackwardAnim:Boolean;
-
+      public static const PLAYED_FORWARD:int = 1; 
+      public static const PLAYING_FORWARD:int = 2; 
+      public static const PLAYED_BACKWARD:int = 3; 
+      public static const PLAYING_BACKWARD:int = 4;
+      
+      protected var _state:int;
+      protected var _targetState:int;
+      protected var _waitForEndOfForwardAnim:Boolean; 
+      protected var _waitForEndOfBackwardAnim:Boolean;
+      
       public function ForwardBackwardTogglerBase(waitForEndOfForwardAnim:Boolean = true, waitForEndOfBackwardAnim:Boolean = true){
-        _state = PLAYED_BACKWARD; 
-        _targetState = PLAYED_BACKWARD;
-        _waitForEndOfForwardAnim = waitForEndOfForwardAnim;
-        _waitForEndOfBackwardAnim =waitForEndOfBackwardAnim;
+         _state = PLAYED_BACKWARD; 
+         _targetState = PLAYED_BACKWARD;
+         _waitForEndOfForwardAnim = waitForEndOfForwardAnim;
+         _waitForEndOfBackwardAnim =waitForEndOfBackwardAnim;
       }
-
-     public function get state():int {
-        return _state;
-     }
-     public function get targetState():int {
-        return _targetState;
-     }
-     
+      
+      public function get state():int {
+         return _state;
+      }
+      public function get targetState():int {
+         return _targetState;
+      }
+      
       public function playForward():void{
          _targetState = PLAYED_FORWARD;
          if((_state == PLAYED_BACKWARD) || ((_state == PLAYING_BACKWARD) && !_waitForEndOfBackwardAnim)){
@@ -47,13 +47,13 @@ package com.broceliand.ui.effects
       protected function handledObjectPlayForward():void{
          
       }
-
+      
       protected function handledObjectPlayBackward():void{
          
       }
       
-     
-     protected function onEnd(event:Event):void{
+      
+      protected function onEnd(event:Event):void{
          switch(_state){
             case PLAYING_FORWARD:
                _state = PLAYED_FORWARD;
@@ -73,7 +73,7 @@ package com.broceliand.ui.effects
             }
             
          }
-     }
-
+      }
+      
    }
 }

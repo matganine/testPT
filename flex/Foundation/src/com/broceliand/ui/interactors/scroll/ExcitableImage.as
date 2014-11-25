@@ -1,7 +1,7 @@
 package com.broceliand.ui.interactors.scroll
 {
    import mx.controls.Image;
-
+   
    public class ExcitableImage extends Image
    {
       private var _isDisabled:Boolean;
@@ -28,7 +28,7 @@ package com.broceliand.ui.interactors.scroll
             invalidateProperties();
          }
       }
-
+      
       public function relax():void{
          if(_excited){
             _excitedChanged = true;
@@ -54,10 +54,10 @@ package com.broceliand.ui.interactors.scroll
             smoothBitmapContent = oldSmooth;
          }
          super.commitProperties();
-          
+         
          
       }
-           
+      
       public function setDisabled(value:Boolean):void  {
          if (_isDisabled != value) {
             _isDisabled = value;
@@ -80,7 +80,7 @@ package com.broceliand.ui.interactors.scroll
             invalidateProperties();
          }
       }
-
+      
       
       
       

@@ -27,7 +27,7 @@ package com.broceliand.ui.pearlTree
    import mx.core.Application;
    import mx.core.IUIComponent;
    import mx.core.UIComponent;
-
+   
    public class UnfocusButton extends PearlButton
    {
       private static const BUTTON_WIDTH:Number = 33;
@@ -35,28 +35,28 @@ package com.broceliand.ui.pearlTree
       private var _inSelection:Boolean;
       private var _centerPoint:Point;
       private var _relaxedSourceSmall:Class;
-
-
-       public function UnfocusButton()
+      
+      
+      public function UnfocusButton()
       {
          super();
          toolTip = PTGenericTooltip.TOOLTIP_ENABLER_PREFIX + BroLocale.getInstance().getText("tooltip.unfocus");
       }
-
+      
       override protected function makeExcitableImage():ExcitableImage {
          var image:ExcitableImage = new ExcitableImage(AssetsManager.getEmbededAsset(PearlAssets.UNFOCUS_BUTTON), AssetsManager.getEmbededAsset(PearlAssets.UNFOCUS_BUTTON_OVER), AssetsManager.getEmbededAsset(PearlAssets.UNFOCUS_BUTTON_DISABLED));
-
+         
          _relaxedSourceSmall = image.relaxedSource;
          image.width = image.height = BUTTON_WIDTH;
          return image;
       }
-
+      
       override protected function createChildren():void {
          super.createChildren();
          visible = includeInLayout = false;
       }
-
-         
+      
+      
       override   protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          if (node is PTRootNode) {
             var focusTree:BroPearlTree = PTRootNode(node).containedPearlTreeModel.businessTree;
@@ -69,9 +69,9 @@ package com.broceliand.ui.pearlTree
             return super.getUIComponentFromNode(node, uiComponent);
          }
          return null;
-       }
-
-
+      }
+      
+      
       override protected function updateTargetComponentPosition(point:Point):void{
          point.x = Math.floor(_bindedComponent.x)+ scaleX * (GeometricalConstants.PEARL_X + GeometricalConstants.PEARL_BUTTON_X) ;   
          point.y = Math.floor(_bindedComponent.y)+ scaleY * (GeometricalConstants.PEARL_Y + GeometricalConstants.PEARL_BUTTON_Y) ;       
@@ -91,14 +91,14 @@ package com.broceliand.ui.pearlTree
             return;
          }
          var node:BroPTNode = newFocus.getRootNode();
-
+         
          var user:User = navModel.getSelectedUser();
          if (newFocus) {
             navModel.goTo(newFocus.getMyAssociation().associationId,
-                          user.persistentId,
-                          newFocus.id,
-                          newFocus.id,
-                          node.persistentID);
+               user.persistentId,
+               newFocus.id,
+               newFocus.id,
+               node.persistentID);
          }
       }
       
@@ -147,7 +147,7 @@ package com.broceliand.ui.pearlTree
       public function setInSelection(value:Boolean):void {
          _focusImage.setDisabled(!value);          
       }
-
+      
       override public function set visible(value:Boolean):void {
          super.visible = value;
       }
@@ -161,10 +161,10 @@ package com.broceliand.ui.pearlTree
          return _centerPoint;
       }
       
-
-
-
-   
+      
+      
+      
+      
    }
    
 }

@@ -1,5 +1,5 @@
 package com.broceliand.pearlTree.model {
-import com.broceliand.pearlTree.io.services.AmfTreeService;
+   import com.broceliand.pearlTree.io.services.AmfTreeService;
    
    public class BroCoeditLocalTreeRefNode extends BroLocalTreeRefNode implements ICoeditNode {
       
@@ -10,6 +10,6 @@ import com.broceliand.pearlTree.io.services.AmfTreeService;
       override public function isContentTypeMatch(contentType:int, isRepresentative:Boolean = false):Boolean {
          return isRepresentative && contentType== AmfTreeService.CONTENT_TYPE_COEDITED_TREE;
       }
-         
+      
    }
 }

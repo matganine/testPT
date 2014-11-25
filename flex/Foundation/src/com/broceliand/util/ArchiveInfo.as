@@ -1,7 +1,7 @@
 package com.broceliand.util
 {
    import com.broceliand.pearlTree.model.ArchiveManager;
-
+   
    public class ArchiveInfo
    {
       private var _url:String;
@@ -15,47 +15,47 @@ package com.broceliand.util
          _date = dateValue;
          _pearlTitle = pearlTitle;
       }
-
+      
       public function get url():String
       {
          return _url;
       }
-
+      
       public function set url(value:String):void
       {
          _url = value;
       }
-
+      
       public function get date():String
       {
          return _date;
       }
-
+      
       public function set date(value:String):void
       {
          _date = value;
       }
-
+      
       public function get mode():int
       {
          return _mode;
       }
-
+      
       public function set mode(value:int):void
       {
          _mode = value;
       }
-
+      
       public function get pearlTitle():String
       {
          return _pearlTitle;
       }
-
+      
       public function set pearlTitle(value:String):void
       {
          _pearlTitle = value;
       }
-
-
+      
+      
    }
 }

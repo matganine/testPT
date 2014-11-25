@@ -53,35 +53,35 @@ package com.broceliand.assets
       
       [Embed(source="/assets/userContent/boutonNote.png")]
       public static const UGC_NOTE_BUTTON_DOWN:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonNoteHover.png")]
       public static const UGC_NOTE_BUTTON_HOVER:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonNoteInact.png")]
       public static const UGC_NOTE_BUTTON_INACT:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonPhoto.png")]
       public static const UGC_PHOTO_BUTTON_DOWN:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonPhotoHover.png")]
       public static const UGC_PHOTO_BUTTON_HOVER:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonPhotoInact.png")]
       public static const UGC_PHOTO_BUTTON_INACT:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonWebPage.png")]
       public static const UGC_WEBPAGE_BUTTON_DOWN:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonWebPageHover.png")]
       public static const UGC_WEBPAGE_BUTTON_HOVER:Class;
-
+      
       
       [Embed(source="/assets/userContent/boutonWebPageInact.png")]
       public static const UGC_WEBPAGE_BUTTON_INACT:Class;
@@ -109,7 +109,7 @@ package com.broceliand.assets
       
       [Embed(source="/assets/userContent/boutonDocumentInact.png")]
       public static const UGC_DOCUMENT_BUTTON_INACT:Class;
-
+      
       
       [Embed(source="/assets/userContent/decoDoneCreate.png")]
       public static const UGC_CONGRATS_CREATED_NORMAL:Class;

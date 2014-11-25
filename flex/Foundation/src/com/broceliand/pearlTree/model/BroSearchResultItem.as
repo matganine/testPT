@@ -34,7 +34,7 @@ package com.broceliand.pearlTree.model
       public function get treeId():int { return _treeId; }
       public function get title():String { 
          if(_title != BroPearlTree.DEFAULT_SERVER_TITLE) {
-           return _title;
+            return _title;
          }
          else{
             return BroLocale.getInstance().getText('defaultMapName');
@@ -46,7 +46,7 @@ package com.broceliand.pearlTree.model
       public function get hits():int { return _hits; }
       public function get pearlCount():int { return _pearlCount; }
       public function get user():User{ return _user; }
-
-
+      
+      
    }
 }

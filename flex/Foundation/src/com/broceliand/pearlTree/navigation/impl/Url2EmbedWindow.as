@@ -7,7 +7,7 @@ package com.broceliand.pearlTree.navigation.impl
    import flash.external.ExternalInterface;
    
    import mx.managers.IHistoryManagerClient;
-
+   
    public class Url2EmbedWindow implements IHistoryManagerClient
    {
       public static const EMBED_WINDOW_CLIENT_NAME:String="embedWindow";

@@ -4,14 +4,14 @@
          creationComplete="onCreationComplete()"
          paddingRight="0" paddingLeft="0" xmlns:base="com.broceliand.ui.pearlWindow.ui.base.*">
    
-      <base:PWCheckBox id="discoverSetting"
-                       height="26"
-                       width="400"
-                       label="{BroLocale.getInstance().getText('anonymous.userSettings.shareDiscover')}"
-                       color="{DEFAULT_TEXT_COLOR}"
-                       fontSize="13"
-                       click="onClickDiscoverSetting()"
-                       thinMode="{PWCheckBox.FAT}"/>
+   <base:PWCheckBox id="discoverSetting"
+                    height="26"
+                    width="400"
+                    label="{BroLocale.getInstance().getText('anonymous.userSettings.shareDiscover')}"
+                    color="{DEFAULT_TEXT_COLOR}"
+                    fontSize="13"
+                    click="onClickDiscoverSetting()"
+                    thinMode="{PWCheckBox.FAT}"/>
    
    <mx:Script>
       <![CDATA[

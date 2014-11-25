@@ -8,6 +8,6 @@ package com.broceliand.graphLayout.controller
    public interface IOpenTreeAnimationController extends IEventDispatcher
    {
       function get isAnimating():Boolean;
-    
+      
    }
 }

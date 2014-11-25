@@ -13,14 +13,14 @@ package com.broceliand.ui.interactors.drag
    import flash.events.MouseEvent;
    import flash.geom.Point;
    
-    
+   
    public class DropZoneInteractor extends RemovePearlInteractor
    {
       private var _draggedPearlIsOverDropZone:Boolean = false;
       
       public function DropZoneInteractor(interactorManager:InteractorManager){
          super(interactorManager);
-
+         
       }
       
       private function enterDropZone():void {
@@ -43,12 +43,12 @@ package com.broceliand.ui.interactors.drag
                var ftree:BroPearlTree = nm.getFocusedTree();
                nm.goTo(ftree.getAssociationId(), nm.getSelectedUser().persistentId, ftree.id, ftree.id); 
             }
-              
-               
+            
+            
             bnode = bnode.owner.refInParent;
             
          }
-        var descendantsToRemove:Array = node.getDescendantsAndSelf();
+         var descendantsToRemove:Array = node.getDescendantsAndSelf();
          var editionController:IPearlTreeEditionController = _interactorManager.pearlTreeViewer.pearlTreeEditionController;
          var descendantsBNode:Array = bnode.getDescendants();
          descendantsBNode.splice(0,0, bnode);
@@ -61,7 +61,7 @@ package com.broceliand.ui.interactors.drag
             editionController.addNodeToDropZone(node);
             node.dock(_interactorManager.pearlTreeViewer.vgraph.controls.dropZoneDeckModel);
             if (node is PTRootNode && PTRootNode(node).isOpen()) {
-                  editionController.closeTreeNode(node.vnode,1,false);
+               editionController.closeTreeNode(node.vnode,1,false);
             }  
          }
       }
@@ -70,7 +70,7 @@ package com.broceliand.ui.interactors.drag
          var point:Point = new Point(event.stageX, event.stageY);
          return _interactorManager.pearlTreeViewer.vgraph.controls.isPointOverDropZoneDeck(point);          
       }
-       
+      
       public function handleDragForDropZone(event:MouseEvent):void{
          
          var isMouseOverDropZone:Boolean = isMouseOverDropZone(event);

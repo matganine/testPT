@@ -112,7 +112,7 @@ package com.broceliand.ui.renderers
       }
       
       override protected function createChildren():void {
-        super.createChildren();
+         super.createChildren();
          if(_titleTextLine1){
             return;
             
@@ -267,7 +267,7 @@ package com.broceliand.ui.renderers
                   updateLabelSize();
                }
             }
-
+            
          }
       }
       
@@ -329,14 +329,14 @@ package com.broceliand.ui.renderers
                   }
                } else if (pearlRenderer && _pearlRenderer.node && _pearlRenderer.node.isDocked) {
                   
-			         if (_pearlRenderer.pearl is PagePearl) {
+                  if (_pearlRenderer.pearl is PagePearl) {
                      maxLines = 3;
                   } else {
                      maxLines = 2;
                   }
                }
                
-                
+               
                var formattedTitle:Array = null;
                
                if (_isTitleMegaExpanded) {
@@ -739,16 +739,16 @@ package com.broceliand.ui.renderers
             orientation = NEUTRAL_SIZE;
          }
       }
-
+      
       public function get messageOnTrashBoxMode():Boolean
       {
          return _messageOnTrashBoxMode;
       }
-
+      
       public function set messageOnTrashBoxMode(value:Boolean):void
       {
          _messageOnTrashBoxMode = value;
       }
-
+      
    }
 }

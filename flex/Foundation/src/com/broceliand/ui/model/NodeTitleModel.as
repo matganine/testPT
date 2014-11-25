@@ -25,12 +25,12 @@ package com.broceliand.ui.model
       public static const MESSAGE_NO_ALLOW_DELETE_PEARL:int = 12;
       public static const MESSAGE_NO_MOVE_PEARL_OUTSIDE_TEAM:int = 13;
       public static const MESSAGE_NO_COPY_PEARL_WHEN_FULL_STORAGE:int = 14;
-		private var _node2NodeMessage:Dictionary;
+      private var _node2NodeMessage:Dictionary;
       public function NodeTitleModel()
       {
          _node2NodeMessage = new Dictionary(true);
       }
-
+      
       public function getNodeTitle(node:IPTNode):String{
          var storedMessageCode:int = getMessageType(node);
          if(storedMessageCode == NO_MESSAGE){
@@ -40,7 +40,7 @@ package com.broceliand.ui.model
          }else{
             return getLocalizedMessage(storedMessageCode, node);
          }
-            
+         
          return "";
       }
       
@@ -65,7 +65,7 @@ package com.broceliand.ui.model
       
       private function getLocalizedMessage(code:int, node:IPTNode):String{
          if (node is PageNode) {
-              switch(code){
+            switch(code){
                case MESSAGE_TOO_MANY_NODES_IN_CLOSED_MAP:
                   return BroLocale.getText("nodeTitle.tooManyNodesInClosedMap.page");
                case MESSAGE_TOO_MANY_NODES_IN_OPEN_MAP:
@@ -124,6 +124,6 @@ package com.broceliand.ui.model
          trace("unknown message for node title " + code);
          return "";
       }
-
+      
    }
 }

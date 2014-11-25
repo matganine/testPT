@@ -177,6 +177,6 @@ package com.broceliand.ui.navBar {
       public function get isTeamNameOrSearchResult():Boolean {
          return false;
       }
-
+      
    }
 }

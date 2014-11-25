@@ -19,9 +19,9 @@
            bottom="0">
    <mx:Image id="deck"
              source="{PearlDeckAssets.DECK}"
-            width="100%"
-            maintainAspectRatio="false"
-            bottom="0"/>
+             width="100%"
+             maintainAspectRatio="false"
+             bottom="0"/>
    <mx:HBox id="decksContainer" horizontalGap="0" backgroundAlpha="0"
             verticalAlign="bottom" bottom="6"
             width="100%"
@@ -150,7 +150,7 @@
          
          <mx:Spacer id="firstPartSpacer"
                     width="0" />
-     </mx:HBox>
+      </mx:HBox>
       <mx:HBox id="dropZoneDeckContainer"
                horizontalGap="0"
                width="100%"
@@ -173,13 +173,13 @@
       <!-- Trash box -->
       <mx:HBox id="rightPartContainer" verticalAlign="bottom" paddingBottom="5">
          <!--<mx:VBox id="zoomBox">
-            <view:ZoomScale id="zoomControl"/>
-            <mx:Text id="zoomBoxText"
-                     textAlign="center" color="{COLOR_TEXT}"
-                     htmlText="{BroLocale.getInstance().getText('pearldeck.zoom')}"
-                     styleName="activeText"
-                     selectable="false"
-                     filters="{getTextFilters()}" />
+         <view:ZoomScale id="zoomControl"/>
+         <mx:Text id="zoomBoxText"
+         textAlign="center" color="{COLOR_TEXT}"
+         htmlText="{BroLocale.getInstance().getText('pearldeck.zoom')}"
+         styleName="activeText"
+         selectable="false"
+         filters="{getTextFilters()}" />
          </mx:VBox>-->
          <mx:Spacer width="90" id="roomForZoomScale"/>
          <mx:VBox id="trashBox" 
@@ -200,7 +200,7 @@
          </mx:VBox>
          <mx:Spacer id="trashSpacer"
                     width="10" />
-     </mx:HBox>
+      </mx:HBox>
    </mx:HBox>
    
    <mx:Style>
@@ -491,9 +491,9 @@
          
          if(!isAnonymous && !StartPolicyLogger.getInstance().isFirstTimeHomeOpened() && (!spl.isFirstNavigationEnded() || !spl.isDropzoneLoaded())) return;
          displayBanner = isAnonymous;
-
          
-            visible = true;
+         
+         visible = true;
          
          
          dropZoneDeck.deckModel.isNavButtonVisible = !isAnonymous;
@@ -529,7 +529,7 @@
             }
             dropZoneDeck.width = NaN;
             dropZoneDeck.percentWidth = 100;
-
+            
             pearlerContainer.alpha = (_isPearlerEnabled)?1:DISABLED_ALPHA;
             importContainer.alpha = (_isImportEnabled) ? 1:DISABLED_ALPHA;
             socialSyncContainer.alpha = (_isSocialSyncEnabled)?1:DISABLED_ALPHA;
@@ -538,12 +538,12 @@
             trashBox.alpha = (_isTrashEnabled)?1:DISABLED_ALPHA;
             dropZoneDeck.deckModel.isEnabled = _isDropZoneEnabled;
          }
-         
+            
          else{
-
+            
             dropZoneDeck.width = NaN;
             dropZoneDeck.percentWidth = 100;
-
+            
             if(_footerBanner && _footerBanner.bannerModel.state == FooterBannerModel.STATE_DEFAULT) {
                dropZoneDeck.deckModel.isTitleVisible = false;
             }
@@ -559,10 +559,10 @@
          premiumBox.visible = premiumBox.includeInLayout = firstPartSpacer.includeInLayout = !am.isEmbed() && !isAnonymous ;
          socialSyncContainer.visible = socialSyncContainer.includeInLayout = socialSyncSpacer.includeInLayout = !isAnonymous;
          findFriendsContainer.visible = findFriendsContainer.includeInLayout = findFriendsSpacer.includeInLayout =  !isAnonymous;
-
-
-
-
+         
+         
+         
+         
          beforePWSpacer.includeInLayout = dropzoneSpacer.includeInLayout = !isAnonymous;
          
          trashBox.visible = trashBox.includeInLayout = trashSpacer.includeInLayout = !isAnonymous || !am.isWhiteMark();
@@ -753,7 +753,7 @@
             invalidateProperties();
          }
       }
-            
+      
       private function onRollOverPearlWindowContainer():void {
          _isOverPearlWindowContainer = true;
          refreshPearlWindowContainer();
@@ -795,7 +795,7 @@
          pearlerImage.source = getPearlerImageSource();
          pearlerText.filters = getTextFilters(NavBar.FILTERS_NOT_OVER);
       }
-            
+      
       private function onRollOverInviteFriendContainer():void {
          if(!_isInviteEnabled) return;
          findFriendsImage.source = AssetsManager.getEmbededAsset(PearlDeckAssets.INVITE_FRIEND_OVER);
@@ -857,19 +857,19 @@
          }
       }
       
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       public function hidePearlWindowContainer():void {
          if (pearlWindowContainer) {
@@ -907,8 +907,8 @@
       }
       public function getPearlerImageSource():Class {
          var cl:Class = ApplicationManager.getInstance().components.pearlbarInfo.isPearlbarInstalled() ?
-                        PearlDeckAssets.PEARLER :
-                        PearlDeckAssets.PEARLER_CYAN;
+            PearlDeckAssets.PEARLER :
+            PearlDeckAssets.PEARLER_CYAN;
          return AssetsManager.getEmbededAsset(cl);
       }
       public function getPearlerImageOverSource():Class {
@@ -922,9 +922,9 @@
          updateActionsAvailable();
       }
       
-
-
-
+      
+      
+      
    ]]></mx:Script>
    
 </mx:Canvas>

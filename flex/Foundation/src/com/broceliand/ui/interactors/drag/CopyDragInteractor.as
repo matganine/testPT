@@ -1,33 +1,33 @@
 package com.broceliand.ui.interactors.drag
 {
-	import com.broceliand.ApplicationManager;
-	import com.broceliand.graphLayout.controller.LayoutAction;
-	import com.broceliand.graphLayout.model.IPTNode;
-	import com.broceliand.graphLayout.visual.IPTVisualGraph;
-	import com.broceliand.pearlTree.model.BroPTNode;
-	import com.broceliand.pearlTree.model.UserGaugeModel;
-	import com.broceliand.pearlTree.navigation.INavigationManager;
-	import com.broceliand.pearlTree.navigation.NavigationEvent;
-	import com.broceliand.ui.interactors.InteractorManager;
-	import com.broceliand.ui.model.NodeTitleModel;
-	import com.broceliand.ui.pearl.IUIPearl;
-	import com.broceliand.ui.pearlTree.IGraphControls;
-	import com.broceliand.util.BroceliandMath;
-	import com.broceliand.util.GenericAction;
-	
-	import flash.display.BitmapData;
-	import flash.display.DisplayObject;
-	import flash.events.MouseEvent;
-	import flash.geom.Matrix;
-	import flash.geom.Point;
-	
-	import mx.controls.Image;
-	import mx.core.BitmapAsset;
-	import mx.core.DragSource;
-	import mx.managers.DragManager;
-
-	public class CopyDragInteractor extends DragEditInteractorBase implements IDragInteractor
-	{
+   import com.broceliand.ApplicationManager;
+   import com.broceliand.graphLayout.controller.LayoutAction;
+   import com.broceliand.graphLayout.model.IPTNode;
+   import com.broceliand.graphLayout.visual.IPTVisualGraph;
+   import com.broceliand.pearlTree.model.BroPTNode;
+   import com.broceliand.pearlTree.model.UserGaugeModel;
+   import com.broceliand.pearlTree.navigation.INavigationManager;
+   import com.broceliand.pearlTree.navigation.NavigationEvent;
+   import com.broceliand.ui.interactors.InteractorManager;
+   import com.broceliand.ui.model.NodeTitleModel;
+   import com.broceliand.ui.pearl.IUIPearl;
+   import com.broceliand.ui.pearlTree.IGraphControls;
+   import com.broceliand.util.BroceliandMath;
+   import com.broceliand.util.GenericAction;
+   
+   import flash.display.BitmapData;
+   import flash.display.DisplayObject;
+   import flash.events.MouseEvent;
+   import flash.geom.Matrix;
+   import flash.geom.Point;
+   
+   import mx.controls.Image;
+   import mx.core.BitmapAsset;
+   import mx.core.DragSource;
+   import mx.managers.DragManager;
+   
+   public class CopyDragInteractor extends DragEditInteractorBase implements IDragInteractor
+   {
       private var _startPoint:Point= new Point();
       private var _mustInit:Boolean = true;
       private var _vgraph:IPTVisualGraph;
@@ -40,16 +40,16 @@ package com.broceliand.ui.interactors.drag
       
       private var DETACH_PEARL_RATIO:Number = .25;
       
-		public function CopyDragInteractor(interactorManager:InteractorManager){
+      public function CopyDragInteractor(interactorManager:InteractorManager){
          _dropZoneInteractor = new DropZoneInteractor(interactorManager);
-			super(interactorManager);
- 		}
-
-		override public function handleDrag(ev:MouseEvent):void{
-        
-		   if (_mustInit) {
+         super(interactorManager);
+      }
+      
+      override public function handleDrag(ev:MouseEvent):void{
+         
+         if (_mustInit) {
             initDrag(ev);
-     	   }
+         }
          if (_isDraggingPearl) {
             _vgraph.handleDragPearl(ev);
             if (!_needLayout && _interactorManager.hasMouseDragged()) {
@@ -70,8 +70,8 @@ package com.broceliand.ui.interactors.drag
          }
          handleNodeTitleMessageWhileDragging(ev);
          ev.updateAfterEvent();
-		   super.handleDrag(ev);
-		}
+         super.handleDrag(ev);
+      }
       
       private function handleNodeTitleMessageWhileDragging(ev:MouseEvent):void {
          var node:IPTNode = _interactorManager.draggedPearl.node;
@@ -81,8 +81,8 @@ package com.broceliand.ui.interactors.drag
          }
       }
       
-		
-		 
+      
+      
       private function testCopyValid(node:IPTNode):Boolean{
          if (node.isDocked) {
             return false;
@@ -101,7 +101,7 @@ package com.broceliand.ui.interactors.drag
          return true;
       }
       
-		override public function dragEnd(ev:MouseEvent):void {
+      override public function dragEnd(ev:MouseEvent):void {
          
          
          if (!_mustInit) {
@@ -124,7 +124,7 @@ package com.broceliand.ui.interactors.drag
          }
          _interactorManager.depthInteractor.returnPearlAboveAllElseToNormalPosition();
          super.dragEnd(ev);
-		}
+      }
       
       private function initDrag(ev:MouseEvent):void {
          _mustInit = false;
@@ -214,9 +214,9 @@ package com.broceliand.ui.interactors.drag
             _vgraph.dragEndEventSafe(ev);
             ApplicationManager.getInstance().visualModel.animationRequestProcessor.postActionRequest(new LayoutAction(_vgraph, false));
             _needLayout = false;
-
+            
          }
       } 
-		
-	}
+      
+   }
 }

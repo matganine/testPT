@@ -215,7 +215,7 @@ package com.broceliand.ui.pearlTree
                SD_ACTIVATE_SQ /=4;
                sDistanceToPoint = BroceliandMath.getSquareDistanceBetweenPoints(_pointToCompareWith, mousePoint);
                
-           }
+            }
             else {
                sDistanceToPoint = BroceliandMath.getSquareDistanceBetweenPointsWithWeight(_pointToCompareWith, mousePoint, 1 / GeometricalConstants.SCROLL_ZONE_VERTICAL_HEIGHT_REDUCTION);
             }

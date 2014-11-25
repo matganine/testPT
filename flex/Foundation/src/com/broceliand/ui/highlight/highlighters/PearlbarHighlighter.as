@@ -19,6 +19,6 @@ package com.broceliand.ui.highlight.highlighters
          super.unhighlightInternal();
          Url2Pearlbar.unhighlightPearlbar();
       }
-
+      
    }
 }

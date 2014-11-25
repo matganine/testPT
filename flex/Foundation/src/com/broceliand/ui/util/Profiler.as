@@ -11,7 +11,7 @@ package com.broceliand.ui.util
    
    import mx.core.Application;
    import mx.logging.LogEventLevel;
-
+   
    public class Profiler
    {
       private var _logger:BroLogger;
@@ -33,12 +33,12 @@ package com.broceliand.ui.util
       {
          return _isEnabled;
       }
-
+      
       public function set isEnabled(value:Boolean):void
       {
          _isEnabled = value;
       }
-
+      
       public static function getInstance():Profiler {
          if (!_singleton) {
             _singleton = new Profiler();

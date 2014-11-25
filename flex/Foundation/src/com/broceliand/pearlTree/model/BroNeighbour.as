@@ -9,14 +9,14 @@ package com.broceliand.pearlTree.model
       private var _neighbourTree:BroPearlTree;
       private var _neighbourPearlId:int;
       private var _teamRequestSentToNeighbour:TeamRequest;
-
+      
       /*public function get rank():int {
-         return _rank;
+      return _rank;
       }
       public function set rank(value:int):void {
-         _rank = value;
+      _rank = value;
       }*/
-
+      
       public function get neighbourTree():BroPearlTree {
          return _neighbourTree;
       }

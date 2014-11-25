@@ -27,15 +27,15 @@ package com.broceliand.ui.pearlTree
       private var _targetPosition:Point = new Point();
       private var _targetVisibleState:Boolean;
       private var _isAddedToControlLayer:Boolean;
-    
+      
       public function PearlComponentAddOn() {
          visible = includeInLayout = false;
       }
-     
+      
       override protected function createChildren():void{
-        super.createChildren();
-        horizontalScrollPolicy = ScrollPolicy.OFF;
-        verticalScrollPolicy = ScrollPolicy.OFF; 
+         super.createChildren();
+         horizontalScrollPolicy = ScrollPolicy.OFF;
+         verticalScrollPolicy = ScrollPolicy.OFF; 
       }
       
       protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
@@ -46,7 +46,7 @@ package com.broceliand.ui.pearlTree
       }
       public function bindToNode(node:IPTNode, defaultC:UIComponent=null):void {
          if (_node != node) {
-              clear();
+            clear();
             _node = node;
          }
          var uiComponent:UIComponent = getUIComponentFromNode(node, defaultC);
@@ -91,7 +91,7 @@ package com.broceliand.ui.pearlTree
          updateVisible();
          repositionNow(true);
       }
-
+      
       protected function onChangeBoundComponent(oldComponent:IUIComponent, newComponent:IUIComponent):void {
       }
       public function reposition():void {
@@ -128,7 +128,7 @@ package com.broceliand.ui.pearlTree
             _isAddedToControlLayer = false;
          }
       }
-            
+      
       override protected function commitProperties():void {
          super.commitProperties();
          repositionNow();
@@ -145,7 +145,7 @@ package com.broceliand.ui.pearlTree
       
       protected function updateTargetComponentPosition(point:Point):void{
       }
-     
+      
       override public function set visible(value:Boolean):void {
          if(value) {
             if(!_isAddedToControlLayer) {
@@ -188,6 +188,6 @@ package com.broceliand.ui.pearlTree
          }
          return true;
       }
-
+      
    }
 }

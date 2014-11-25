@@ -25,7 +25,7 @@ package com.broceliand.pearlTree.model
       {
          resetCache(null);
       }
-
+      
       public function resetCache(owner:BroPearlTree):void {
          if (!_isResetted) {
             if (owner) {
@@ -60,7 +60,7 @@ package com.broceliand.pearlTree.model
          resetValue(TOTAL_HIT_COUNT, owner, true);
       }
       internal function saveTotalHitCount(count:Number):void {
-            saveValue(TOTAL_HIT_COUNT, count);
+         saveValue(TOTAL_HIT_COUNT, count);
       }
       
       
@@ -73,7 +73,7 @@ package com.broceliand.pearlTree.model
       internal function saveTotalMembershipCount(count:Number):void {
          saveValue(TOTAL_MEMBERSHIP_COUNT, count);
       }
-            
+      
       
       internal function getTotalCommentsCount():Number {
          return getValue(TOTAL_COMMENTS_COUNT) as Number;
@@ -82,7 +82,7 @@ package com.broceliand.pearlTree.model
          resetValue(TOTAL_COMMENTS_COUNT, owner, true);
       }
       internal function saveTotalCommentsCount(count:Number):void {
-            saveValue(TOTAL_COMMENTS_COUNT, count);
+         saveValue(TOTAL_COMMENTS_COUNT, count);
       }
       
       
@@ -93,10 +93,10 @@ package com.broceliand.pearlTree.model
          resetValue(TOTAL_NEIGHBOURS_COUNT, owner, true);
       }
       internal function saveTotalNeighboursCount(count:Number):void {
-            saveValue(TOTAL_NEIGHBOURS_COUNT, count);
+         saveValue(TOTAL_NEIGHBOURS_COUNT, count);
       }      
       
-       
+      
       internal function getTotalPearlsCount():Number {
          return getValue(TOTAL_PEARLS_COUNT) as Number;
       }     
@@ -104,7 +104,7 @@ package com.broceliand.pearlTree.model
          resetValue(TOTAL_PEARLS_COUNT, owner, true);
       }
       internal function saveTotalPearlsCount(count:Number):void {
-            saveValue(TOTAL_PEARLS_COUNT, count);
+         saveValue(TOTAL_PEARLS_COUNT, count);
       }
       
       internal function getTotalPageCount():Number {
@@ -141,12 +141,12 @@ package com.broceliand.pearlTree.model
          return getValue(TOTAL_PEARLS_COUNT_WITHOUT_ALIAS) as Number;
       }      
       internal function saveTotalPearlsCountWithoutAlias(count:Number):void {
-            saveValue(TOTAL_PEARLS_COUNT_WITHOUT_ALIAS, count);
+         saveValue(TOTAL_PEARLS_COUNT_WITHOUT_ALIAS, count);
       }
       internal function resetTotalPearlsCountWithoutAlias(owner:BroPearlTree):void {
          resetValue(TOTAL_PEARLS_COUNT_WITHOUT_ALIAS, owner, true);
       }
-
+      
       internal function getTotalPearlsCountWithoutAliasLimitedToAsso():Number {
          return getValue(TOTAL_PEARLS_COUNT_WITHOUT_ALIAS_LIMITED_TO_ASSO) as Number;
       }      
@@ -177,13 +177,13 @@ package com.broceliand.pearlTree.model
          else 
             saveValue(HAS_CROSS_NOTIFICATIONS, 0);
       }      
-       
-       
-       
+      
+      
+      
       internal function hasCrossNotification():Number {
          return getValue(HAS_CROSS_NOTIFICATIONS) as Number;
       }
-               
+      
       
       
       internal function resetHasNotesNotification(owner:BroPearlTree):void {
@@ -195,9 +195,9 @@ package com.broceliand.pearlTree.model
          else 
             saveValue(HAS_NEW_NOTES_NOTIFICATIONS, 0);
       }      
-       
-       
-       
+      
+      
+      
       internal function hasNotesNotification():Number {
          return getValue(HAS_NEW_NOTES_NOTIFICATIONS) as Number;
       }
@@ -208,14 +208,14 @@ package com.broceliand.pearlTree.model
       internal function saveHasStructureNotification(value:Number):void {
          saveValue(HAS_STRUCTURE_CHANGED_NOTIFICATIONS, value);
       }      
-       
-       
-       
+      
+      
+      
       internal function hasStructureNotification():Number {
          return getValue(HAS_STRUCTURE_CHANGED_NOTIFICATIONS) as Number;
       }
       
-
+      
       internal function resetHasSubTeam(owner:BroPearlTree):void {
          resetValue(HAS_SUB_TEAM, owner, true);
       }
@@ -248,10 +248,10 @@ package com.broceliand.pearlTree.model
       }
       private function resetValue(name:String, owner:BroPearlTree=null, resetHierarchyValues:Boolean=false ):void{
          if (resetHierarchyValues && owner) {
-           var path:Array = owner.treeHierarchyNode.getTreePath();
-           for each (var tree:BroPearlTree in path) {
-              tree.cachedValues.resetValue(name, tree, false);
-           } 
+            var path:Array = owner.treeHierarchyNode.getTreePath();
+            for each (var tree:BroPearlTree in path) {
+               tree.cachedValues.resetValue(name, tree, false);
+            } 
          } else {
             _cachedValues[name]= -1;
          }

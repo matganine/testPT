@@ -1,14 +1,14 @@
 package com.broceliand.ui.renderers.pageRenderers.pearl
 {
-import com.broceliand.pearlTree.model.BroPTNode;
-import com.broceliand.ui.util.ColorPalette;
-
-import flash.display.Graphics;
-import flash.geom.ColorTransform;
-
-import mx.core.UIComponent;
-import mx.managers.ISystemManager;
-
+   import com.broceliand.pearlTree.model.BroPTNode;
+   import com.broceliand.ui.util.ColorPalette;
+   
+   import flash.display.Graphics;
+   import flash.geom.ColorTransform;
+   
+   import mx.core.UIComponent;
+   import mx.managers.ISystemManager;
+   
    public class ColorRing extends UIComponent 
    {
       protected var _noteRing:UIComponent = null;
@@ -22,14 +22,14 @@ import mx.managers.ISystemManager;
       protected static const MAX_RING_THICKNESS:Number = 5;
       
       protected static const RING_THICKNESS_ADJUSTMENT_LOG:Number = 6;
-
+      
       protected static const RING_THICKNESS_ADJUSTMENT_LOG_NOTES:Number = 6;
       protected static const RING_THICKNESS_ADJUSTMENT_LOG_PICKS:Number = 7;
       
       protected static var NOTE_RING_COLOR:Number;
       protected static var NOTE_RING_NOTIFIED_COLOR:Number;
       protected static var NOTE_RING_NOTIFIED_COLOR_2:Number;
-         
+      
       protected static var NEIGHBOUR_RING_COLOR:Number;
       protected static var NEIGHBOUR_RING_NOTIFIED_COLOR:Number;
       protected static var NEIGHBOUR_RING_NOTIFIED_COLOR_2:Number;
@@ -53,13 +53,13 @@ import mx.managers.ISystemManager;
          
          _neighbourRing = new UIComponent();
          addChild(_neighbourRing);
-     }
+      }
       public function hasRings():Boolean {
          return _neighbourRingThickNess>0 || _noteRingThickNess>0;
       }
       public function warmNoteRing():void{
          
-          
+         
          if (_noteRing)
             _noteRing.transform.colorTransform = new ColorTransform(0, 0, 0, 1, NOTE_RING_NOTIFIED_COLOR_2 >> 16, (NOTE_RING_NOTIFIED_COLOR_2  >> 8)& 0xFF, NOTE_RING_NOTIFIED_COLOR_2 & 0x0000FF, 0);
       }    
@@ -91,15 +91,15 @@ import mx.managers.ISystemManager;
          return 0; 
       } 
       
-     protected function drawNoteRing():void {
+      protected function drawNoteRing():void {
          var g:Graphics = _noteRing.graphics;
          g.clear();
          if(getPearlRadius()> 0 && _noteRingThickNess > 0) {
             g.beginFill(NOTE_RING_COLOR);
             var pearlRadius:Number = getPearlCenterX();
             var noteRingRadius:Number = getPearlRadius()+
-                                        _neighbourRingThickNess +  
-                                        _noteRingThickNess;
+               _neighbourRingThickNess +  
+               _noteRingThickNess;
             g.drawCircle(pearlRadius, pearlRadius, noteRingRadius);
          }
          g.endFill();
@@ -112,7 +112,7 @@ import mx.managers.ISystemManager;
             g.beginFill(NEIGHBOUR_RING_COLOR);
             var pearlRadius:Number = getPearlCenterX();
             var neighbourRingRadius:Number = getPearlRadius()+ 
-                                             _neighbourRingThickNess;
+               _neighbourRingThickNess;
             g.drawCircle(pearlRadius, pearlRadius, neighbourRingRadius);
          }
          g.endFill();
@@ -137,7 +137,7 @@ import mx.managers.ISystemManager;
       protected function get showNeighbourRing():Boolean {
          return false;
       }
-            
+      
       protected function get noteCount():Number {
          var count:Number = (node)?node.noteCount:0;
          return (count < 0)?0:count;
@@ -186,49 +186,49 @@ import mx.managers.ISystemManager;
             _neighbourRing.visible = _showRings && _canRingBeVisible;
             _noteRing.visible = _showRings && _canRingBeVisible;
          }
-
+         
          var neighbourRingChanged:Boolean = neighbourRingThickNessChanged() || zoomChanged;
          var noteRingChanged:Boolean = noteRingThickNessChanged() || zoomChanged;
          
          if(neighbourRingChanged){
             _neighbourRingThickNess = getNeighbourRingThickNess();
             drawNeighbourRing();
-        }     
-        if(noteRingChanged || neighbourRingChanged) {
+         }     
+         if(noteRingChanged || neighbourRingChanged) {
             _noteRingThickNess = getNoteRingThickNess();  
             drawNoteRing();
-        }
-        var hasRing:Boolean = (_neighbourRingThickNess >0 )|| (_noteRingThickNess > 0);
-        hasRing = hasRing && _showRings;
-        
-
-     }
-     
-     public function get showRings():Boolean {
-        return _showRings;
-     }
-
-     public function set canRingBeVisible(value:Boolean):void {
-        if (_canRingBeVisible != value) {
-           _canRingBeVisible = value;
-           if (_showRings) {
-              _showRingsChanged = true;
-              invalidateProperties()
-           }
-        }
-     }
-     public function set showRings(value:Boolean):void {
+         }
+         var hasRing:Boolean = (_neighbourRingThickNess >0 )|| (_noteRingThickNess > 0);
+         hasRing = hasRing && _showRings;
+         
+         
+      }
+      
+      public function get showRings():Boolean {
+         return _showRings;
+      }
+      
+      public function set canRingBeVisible(value:Boolean):void {
+         if (_canRingBeVisible != value) {
+            _canRingBeVisible = value;
+            if (_showRings) {
+               _showRingsChanged = true;
+               invalidateProperties()
+            }
+         }
+      }
+      public function set showRings(value:Boolean):void {
          if(_showRings != value){
             _showRings = value;
             _showRingsChanged = true;
             invalidateProperties();
-        }
-     }
-     public function restoreInitialState():void { 
-        _showRings = true;
-        _showRingsChanged = true;
-        _canRingBeVisible = true;
-     }
-
+         }
+      }
+      public function restoreInitialState():void { 
+         _showRings = true;
+         _showRingsChanged = true;
+         _canRingBeVisible = true;
+      }
+      
    }
 }

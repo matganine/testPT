@@ -5,7 +5,7 @@ package com.broceliand.ui.search
    import flash.display.Graphics;
    
    import mx.skins.ProgrammaticSkin;
-
+   
    public class SearchOkButtonRoundSkin extends ProgrammaticSkin {
       
       override protected  function updateDisplayList(w:Number, h:Number):void {
@@ -15,19 +15,19 @@ package com.broceliand.ui.search
          
          switch (name) {
             case "upSkin":
-             backgroundFillColor = ColorPalette.getInstance().pearltreesColor;
-             break;
+               backgroundFillColor = ColorPalette.getInstance().pearltreesColor;
+               break;
             case "overSkin":
-             backgroundFillColor = ColorPalette.getInstance().pearltreesDarkColor;
-             break;
+               backgroundFillColor = ColorPalette.getInstance().pearltreesDarkColor;
+               break;
             case "downSkin":
-             backgroundFillColor = ColorPalette.getInstance().pearltreesDarkColor;
-             break;
+               backgroundFillColor = ColorPalette.getInstance().pearltreesDarkColor;
+               break;
             case "disabledSkin":
-             backgroundFillColor = ColorPalette.getInstance().pearltreesColor;
-             break;
+               backgroundFillColor = ColorPalette.getInstance().pearltreesColor;
+               break;
          }
-
+         
          var g:Graphics = graphics;
          g.clear();
          g.beginFill(backgroundFillColor);

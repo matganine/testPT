@@ -6,7 +6,7 @@ package com.broceliand.ui.model
    public class PageNeighboursLoadedEvent extends NeighbourModelEvent
    {
       protected var _pageNode:BroPageNode;
-
+      
       function PageNeighboursLoadedEvent(pageNode:BroPageNode, neighbours:IPaginatedList, type:String){
          super(neighbours, type);
          _pageNode = pageNode;

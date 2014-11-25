@@ -9,7 +9,7 @@ package com.broceliand.ui.util.upload
    import flash.events.EventDispatcher;
    
    import mx.utils.StringUtil;
-
+   
    public class FileUploadRequest extends EventDispatcher
    {
       public static const MINUTE:uint = 60 * 1000;
@@ -129,7 +129,7 @@ package com.broceliand.ui.util.upload
       public static function getProgressInString(progress:Number):String {
          return Math.round(progress * 100).toString() + " %";
       }
-
+      
       public static function get tempFileInfoArray():Array
       {
          if (_tempFileInfoArrayRead) {
@@ -138,7 +138,7 @@ package com.broceliand.ui.util.upload
             return _tempFileInfoArray;
          }
       }
-
+      
       public static function set tempFileInfoArray(value:Array):void
       {
          _tempFileInfoArray = value;

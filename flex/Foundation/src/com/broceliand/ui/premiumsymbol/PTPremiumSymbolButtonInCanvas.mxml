@@ -58,7 +58,7 @@
                _skin = value;
             }
          }
-
+         
          private function onClick(event:Event):void {
             if (symbol) {
                symbol.onClick(event);

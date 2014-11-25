@@ -58,7 +58,7 @@ package com.broceliand.graphLayout.controller
    {
       private static const TRACE_DEBUG:Boolean = false;
       private static const RECYCLE_NODES:Boolean = false;
-
+      
       private var _vgraph:IPTVisualGraph;
       private var _editionController:IPearlTreeEditionController;  
       private var _selectionModel:SelectionModel;
@@ -80,12 +80,12 @@ package com.broceliand.graphLayout.controller
          _garp.notifyEndAction(_currentRequest);
          _currentRequest = null;
       }
-   
+      
       public function createPTW(newPTW:BroPearlTree, crossingNode:BroPTNode, request:IAction):void {                
-
-
-
-
+         
+         
+         
+         
          var am:ApplicationManager = ApplicationManager.getInstance();
          _vgraph.controls.unfocusButton.visible=false;
          _currentRequest = request;
@@ -136,16 +136,16 @@ package com.broceliand.graphLayout.controller
                   vnodeToKeep = n.vnode;
                   vnodeToKeepFound =true;
                } else {
-                     if (subtrees.lastIndexOf(n.getBusinessNode().owner)==-1 || !n.vnode.isVisible) {
+                  if (subtrees.lastIndexOf(n.getBusinessNode().owner)==-1 || !n.vnode.isVisible) {
+                     nodesToRemoveNotInTheTree.push(n);
+                     continue;
+                  } else if (n is EndNode) {
+                     
+                     if (n.getBusinessNode().owner == tree) {
                         nodesToRemoveNotInTheTree.push(n);
                         continue;
-                     } else if (n is EndNode) {
-                           
-                           if (n.getBusinessNode().owner == tree) {
-                              nodesToRemoveNotInTheTree.push(n);
-                              continue;
-                           }
-                     } 
+                     }
+                  } 
                   
                }
                nodesToMoveToTheCenter.push(n);
@@ -163,139 +163,139 @@ package com.broceliand.graphLayout.controller
             clearTreeEffect.addChild(effect);
          }
          effect=null;
-        var depthInteractor:DepthInteractor = am.components.pearlTreeViewer.interactorManager.depthInteractor;
-        if (vnodeToKeep) {
+         var depthInteractor:DepthInteractor = am.components.pearlTreeViewer.interactorManager.depthInteractor;
+         if (vnodeToKeep) {
             depthInteractor.movePearlAboveAllElse(vnodeToKeep.view as IUIPearl);   
-        }
-
-        
-        var moveEffect:Parallel = new Parallel();
-        nodesToRemove = new Array();
+         }
+         
+         
+         var moveEffect:Parallel = new Parallel();
+         nodesToRemove = new Array();
          var action:IAction = new RemoveVNodesAtAnimationEnd(nodesToRemove, null); 
          var remover :GraphicalActionSynchronizer = new GraphicalActionSynchronizer(action);
-
-        effect = null;
-        
-        var move:Move;
-        if (vnodeToKeep) {
-           var vnodeToKeepView:IUIPearl = vnodeToKeep.view  as IUIPearl;
-           var targetPoint:Point = vnodeToKeepView.positionWithoutZoom;  
-          
-           for each (n in nodesToMoveToTheCenter) {
-             if (!n.vnode.view || n.vnode.viewX != targetPoint.x || n.vnode.viewY != targetPoint.y && n.vnode != vnodeToKeep) {
-               move =_vgraph.moveNodeTo(n.vnode, targetPoint.x, targetPoint.y, 300, false);
-               (n.vnode as PTVisualNodeBase).notifyInMove(move);
-               effect = move;
-               
-               remover.registerComponentToWaitForEvent(effect, EffectEvent.EFFECT_END);
-               moveEffect.addChild(effect);   
-             }
-             if (n.vnode != vnodeToKeep) {
-                nodesToRemove.push(n);
-             }
-           }
-        }
-        if (effect) {
-           if (!clearTreeEffect) {
-              clearTreeEffect = new Sequence();
-           }
-            clearTreeEffect.addChild(moveEffect);
-        } 
-        var vnodesFromOutsideScreen:Array = new Array();
          
-        if (newPTW) {
-           var oldVRoot:IPTVisualNode= _vgraph.currentRootVNode as IPTVisualNode;
-           var bnode:BroPTNode = newPTW.getRootNode();
-           var vnode:IPTVisualNode = _vgraph.createNode("[ptw."+bnode.persistentID+"]:" + bnode.title, bnode)  as IPTVisualNode;
-           
-           if (oldVRoot) {
-              
-              var vedge:IVisualEdge = _vgraph.linkNodes(vnode, oldVRoot);
-              EdgeData(vedge.data).visible = false;
-              
-              if(vnodeToKeep) {
-                 vnodeToKeep.refresh();
-              }
-              
-              if(am.useDiscover() && _navModel.isShowingDiscover()) {
-                 
-                 if(vnodeToKeep) {
-                    
-                    effect = new Pause();
-                    effect.duration = 100;
-                    clearTreeEffect.addChild(effect);
-                    
-                    var moveWithScroll:MoveWithScroll = new MoveWithScroll(vnodeToKeep.view);
-                    moveWithScroll.duration = 300;
-                    moveWithScroll.xTo = _vgraph.center.x - PTRootPearl.PEARL_WIDTH_EXCITED * _vgraph.scale / 2.0;
-                    moveWithScroll.yTo = _vgraph.center.y - PTRootPearl.PEARL_WIDTH_EXCITED * _vgraph.scale / 2.0;;
-                    clearTreeEffect.addChild(moveWithScroll);
-                 }
-              }
-              if(vnodeToKeep) {
-                 vnode.pearlView.animationZoomFactor = oldVRoot.pearlView.animationZoomFactor;
-                 vnode.pearlView.setBigger(true); 
-                 vnode.pearlView.move(vnodeToKeep.viewX, vnodeToKeep.viewY);
-              }
-           }
-           
-           if(am.useDiscover() && _navModel.isShowingDiscover()) {
-              _vgraph.origin.x = 0;
-              _vgraph.origin.y = 0;            
-           }
-           
-           _vgraph.currentRootVNode = vnode;
-           
-           var rootNode:IPTNode = vnode.node as IPTNode;
-           if (!rootNode.getBusinessNode().owner.isWhatsHot()) {
-              ApplicationManager.getInstance().components.windowController.displayNodeInfo(vnode.node as IPTNode);
-           }
-           
-           
-           var newNodes:Array = newPTW.getRootNode().getDescendants();
-           if (oldVRoot){
-              newNodes.splice(newNodes.lastIndexOf(oldVRoot.node), 1);
-           }
-           createNodes(vnode, newPTW.getRootNode().getDescendants(), vnodesFromOutsideScreen);         
-           
-           
-           
-           
-           
-           if (vnodesFromOutsideScreen.length || am.useDiscover()) {
-              var gsynchro:GraphicalActionSynchronizer = new GraphicalActionSynchronizer(new CreateNewPTWAction(this, _vgraph, vnodesFromOutsideScreen, null, clearTreeEffect, vnodeToKeep, _selectionModel));
-              var view:IUIPearl = _vgraph.currentRootVNode.view as IUIPearl;
-              if (!view.isCreationCompleted()) {
-                 gsynchro.registerComponentToWaitForCreation(_vgraph.currentRootVNode.view);
-              }
-              _vgraph.currentRootVNode.view.visible =false;
-              for each (vnode in vnodesFromOutsideScreen) {
-                 view = vnode.view as IUIPearl;
-                 if (view && !view.isCreationCompleted()) {
-                    gsynchro.registerComponentToWaitForCreation(vnode.view);
-                 }   
-                 vnode.view.visible =false;
-              }
-              gsynchro.performActionAsap();
-           }
-        }
-        else 
-        {
-           var rootVgraph:IVisualNode = _vgraph.currentRootVNode;
-           if (rootVgraph) {
-              rootVgraph.view.visible =false;
-              applyPTWStyleToNodes(IPTNode(rootVgraph.node));
-              if (clearTreeEffect) {        
-                 clearTreeEffect.play();
-              }      
-              cleanPTWLayout(_vgraph,  vnodesFromOutsideScreen, null);
-           }
-        }
-        remover.performActionAsap();
-      }
+         effect = null;
+         
+         var move:Move;
+         if (vnodeToKeep) {
+            var vnodeToKeepView:IUIPearl = vnodeToKeep.view  as IUIPearl;
+            var targetPoint:Point = vnodeToKeepView.positionWithoutZoom;  
             
+            for each (n in nodesToMoveToTheCenter) {
+               if (!n.vnode.view || n.vnode.viewX != targetPoint.x || n.vnode.viewY != targetPoint.y && n.vnode != vnodeToKeep) {
+                  move =_vgraph.moveNodeTo(n.vnode, targetPoint.x, targetPoint.y, 300, false);
+                  (n.vnode as PTVisualNodeBase).notifyInMove(move);
+                  effect = move;
+                  
+                  remover.registerComponentToWaitForEvent(effect, EffectEvent.EFFECT_END);
+                  moveEffect.addChild(effect);   
+               }
+               if (n.vnode != vnodeToKeep) {
+                  nodesToRemove.push(n);
+               }
+            }
+         }
+         if (effect) {
+            if (!clearTreeEffect) {
+               clearTreeEffect = new Sequence();
+            }
+            clearTreeEffect.addChild(moveEffect);
+         } 
+         var vnodesFromOutsideScreen:Array = new Array();
+         
+         if (newPTW) {
+            var oldVRoot:IPTVisualNode= _vgraph.currentRootVNode as IPTVisualNode;
+            var bnode:BroPTNode = newPTW.getRootNode();
+            var vnode:IPTVisualNode = _vgraph.createNode("[ptw."+bnode.persistentID+"]:" + bnode.title, bnode)  as IPTVisualNode;
+            
+            if (oldVRoot) {
+               
+               var vedge:IVisualEdge = _vgraph.linkNodes(vnode, oldVRoot);
+               EdgeData(vedge.data).visible = false;
+               
+               if(vnodeToKeep) {
+                  vnodeToKeep.refresh();
+               }
+               
+               if(am.useDiscover() && _navModel.isShowingDiscover()) {
+                  
+                  if(vnodeToKeep) {
+                     
+                     effect = new Pause();
+                     effect.duration = 100;
+                     clearTreeEffect.addChild(effect);
+                     
+                     var moveWithScroll:MoveWithScroll = new MoveWithScroll(vnodeToKeep.view);
+                     moveWithScroll.duration = 300;
+                     moveWithScroll.xTo = _vgraph.center.x - PTRootPearl.PEARL_WIDTH_EXCITED * _vgraph.scale / 2.0;
+                     moveWithScroll.yTo = _vgraph.center.y - PTRootPearl.PEARL_WIDTH_EXCITED * _vgraph.scale / 2.0;;
+                     clearTreeEffect.addChild(moveWithScroll);
+                  }
+               }
+               if(vnodeToKeep) {
+                  vnode.pearlView.animationZoomFactor = oldVRoot.pearlView.animationZoomFactor;
+                  vnode.pearlView.setBigger(true); 
+                  vnode.pearlView.move(vnodeToKeep.viewX, vnodeToKeep.viewY);
+               }
+            }
+            
+            if(am.useDiscover() && _navModel.isShowingDiscover()) {
+               _vgraph.origin.x = 0;
+               _vgraph.origin.y = 0;            
+            }
+            
+            _vgraph.currentRootVNode = vnode;
+            
+            var rootNode:IPTNode = vnode.node as IPTNode;
+            if (!rootNode.getBusinessNode().owner.isWhatsHot()) {
+               ApplicationManager.getInstance().components.windowController.displayNodeInfo(vnode.node as IPTNode);
+            }
+            
+            
+            var newNodes:Array = newPTW.getRootNode().getDescendants();
+            if (oldVRoot){
+               newNodes.splice(newNodes.lastIndexOf(oldVRoot.node), 1);
+            }
+            createNodes(vnode, newPTW.getRootNode().getDescendants(), vnodesFromOutsideScreen);         
+            
+            
+            
+            
+            
+            if (vnodesFromOutsideScreen.length || am.useDiscover()) {
+               var gsynchro:GraphicalActionSynchronizer = new GraphicalActionSynchronizer(new CreateNewPTWAction(this, _vgraph, vnodesFromOutsideScreen, null, clearTreeEffect, vnodeToKeep, _selectionModel));
+               var view:IUIPearl = _vgraph.currentRootVNode.view as IUIPearl;
+               if (!view.isCreationCompleted()) {
+                  gsynchro.registerComponentToWaitForCreation(_vgraph.currentRootVNode.view);
+               }
+               _vgraph.currentRootVNode.view.visible =false;
+               for each (vnode in vnodesFromOutsideScreen) {
+                  view = vnode.view as IUIPearl;
+                  if (view && !view.isCreationCompleted()) {
+                     gsynchro.registerComponentToWaitForCreation(vnode.view);
+                  }   
+                  vnode.view.visible =false;
+               }
+               gsynchro.performActionAsap();
+            }
+         }
+         else 
+         {
+            var rootVgraph:IVisualNode = _vgraph.currentRootVNode;
+            if (rootVgraph) {
+               rootVgraph.view.visible =false;
+               applyPTWStyleToNodes(IPTNode(rootVgraph.node));
+               if (clearTreeEffect) {        
+                  clearTreeEffect.play();
+               }      
+               cleanPTWLayout(_vgraph,  vnodesFromOutsideScreen, null);
+            }
+         }
+         remover.performActionAsap();
+      }
+      
       private function makeDisappearEffect(nodesToRemove:Array, vnodeToSkip:IVisualNode ):Effect{
-           
+         
          var disappearEffect:Parallel = new Parallel();
          var effect:UnfocusPearlEffect;
          var nodesToRemoveAtAnimationEnd:Array = new Array();
@@ -303,18 +303,18 @@ package com.broceliand.graphLayout.controller
          _actionsToPerform.push(action);
          var remover :GraphicalActionSynchronizer = new GraphicalActionSynchronizer(action);
          for each (var node:IPTNode in nodesToRemove) {
-           if (node.vnode.isVisible== false || node.vnode.view.alpha==0 ) {
-              
-              _vgraph.removeNode(node.vnode);
-           } else{
-              if (node.vnode != vnodeToSkip) {
+            if (node.vnode.isVisible== false || node.vnode.view.alpha==0 ) {
+               
+               _vgraph.removeNode(node.vnode);
+            } else{
+               if (node.vnode != vnodeToSkip) {
                   effect = new UnfocusPearlEffect(node.vnode.view);
                   effect.duration = 500;
                   nodesToRemoveAtAnimationEnd.push(node);
                   remover.registerComponentToWaitForEvent(effect, TweenEvent.TWEEN_END);
                   disappearEffect.addChild(effect);
-              }
-           }
+               }
+            }
          } 
          
          if (effect) {
@@ -434,8 +434,8 @@ package com.broceliand.graphLayout.controller
       private function createNodes(rootVNode:IVisualNode, newBNodes:Array, result:Array):void {
          Profiler.getInstance().addMarker("-", "search");         
          var vnode:IVisualNode;
-          while (newBNodes.length>0) {
-             var bnode:BroPTNode = newBNodes.pop() as BroPTNode;
+         while (newBNodes.length>0) {
+            var bnode:BroPTNode = newBNodes.pop() as BroPTNode;
             vnode = _vgraph.createNode("[ptw."+bnode.persistentID+"]:" + bnode.title, bnode);
             createInvisibleLink(rootVNode, vnode);  
             result.push(vnode);                        
@@ -444,13 +444,13 @@ package com.broceliand.graphLayout.controller
       }
       public function applyPTWStyleToNodes(rootNode:IPTNode):void {
          var nodes:Array = rootNode.getDescendantsAndSelf();
-                          
+         
          for each (var node:IPTNode in nodes) {
             if (node.predecessors.length>0) {
                EdgeData(IEdge(node.inEdges[0]).data).visible=false;
             }
             if (node.vnode.isVisible) { 
-              (node.vnode.view as IUIPearl).forbidMove(true);
+               (node.vnode.view as IUIPearl).forbidMove(true);
             }
          }
          
@@ -462,19 +462,19 @@ package com.broceliand.graphLayout.controller
          }
       }
       private function makeTreeAlias2VnodeFromCurrentVgraph(vgraph:IVisualGraph, resetSearchCenter:Boolean, allowMultipleNodeByTree:Boolean=false) :Dictionary {
-           var tree2Node :Dictionary = new Dictionary() 
-           var refNode:BroPTWDistantTreeRefNode; 
-       
-           for each (var vnode:IVisualNode in vgraph.visibleVNodes) {
-              var tk:String = getTreeKeyAndResetSearchCenter(vnode,resetSearchCenter);
-              if (tk) {
-                 if(tree2Node[tk] && allowMultipleNodeByTree) {
-                    tk += "-"+vnode.view.toString();
-                 }
-                 tree2Node[tk] = vnode;
-              }
-           }
-           return tree2Node;         
+         var tree2Node :Dictionary = new Dictionary() 
+         var refNode:BroPTWDistantTreeRefNode; 
+         
+         for each (var vnode:IVisualNode in vgraph.visibleVNodes) {
+            var tk:String = getTreeKeyAndResetSearchCenter(vnode,resetSearchCenter);
+            if (tk) {
+               if(tree2Node[tk] && allowMultipleNodeByTree) {
+                  tk += "-"+vnode.view.toString();
+               }
+               tree2Node[tk] = vnode;
+            }
+         }
+         return tree2Node;         
       }
       
       private function getTreeKeyAndResetSearchCenter(vnode:IVisualNode, resetSearchCenter:Boolean):String {
@@ -528,92 +528,92 @@ package com.broceliand.graphLayout.controller
                _vgraph.origin.x=0;
                _vgraph.origin.y=0;  
             } else {
-
+               
             }
             nodesThatGoAway.push(oldVRootNode);
             vgraph.unlinkNodes(oldVRootNode, newRootVnode);
             createInvisibleLink(newRootVnode, oldVRootNode);
          }
          
-        
+         
          vgraph.currentRootVNode = newRootVnode;
          
-     }
-
+      }
+      
       public function cleanPTWLayout(vgraph:IPTVisualGraph, newVNodes:Array, nodesToGoAway:Array):void {
-           Profiler.getInstance().addMarker("-", "search");
-           var am:ApplicationManager = ApplicationManager.getInstance();
-           var navModel:INavigationManager = am.visualModel.navigationModel;
-
-           
-           vgraph.PTLayouter.setPearlTreesWorldLayout(true);
-           var rootVNode:IPTVisualNode = _vgraph.currentRootVNode as IPTVisualNode;
-           var positions:Dictionary = vgraph.PTLayouter.computeLayoutPositionOnly();
-           var vnode:IPTVisualNode;
-           var center:Point = _vgraph.currentRootVNode.viewCenter;
-           var targetPoint:Point;
-           
-           
-           var distanceToCenter:Number = 1; 
-           var farDistance:Number = Math.sqrt( _vgraph.width* _vgraph.width +_vgraph.height * _vgraph.height) / 2.0;
-           
-           var layoutPar:Parallel = new Parallel;
-           
-           rootVNode.pearlView.moveWithoutZoomOffset(positions[rootVNode].x, positions[rootVNode].y);
-           
-           
-           
-           var m:Effect;
-           var speed:Number = _vgraph.height / 1000;
-           var distance:Number =0;
-           var nodesToRemove:Array = new Array();
-           var action:IAction = new RemoveVNodesAtAnimationEnd(nodesToRemove,this);
-           _actionsToPerform.push(action);
-           var remover :GraphicalActionSynchronizer = new GraphicalActionSynchronizer(action);
-
-           var registerobjects:Dictionary = new Dictionary();
-           var maxAnimationTime:Number = 0;
-           for each ( vnode in _vgraph.visibleVNodes) {
-              if (IPTNode(vnode.node).isDocked){
-                 continue;
-              }
-              var pos:Point = positions[vnode];
-              if (pos) {
-                  center.x = vnode.viewX;
-                  center.y = vnode.viewY;
-                  distance = BroceliandMath.getDistanceBetweenPoints(center, pos);
-                 
-                 var time:int= distance/speed;
-                 if (time==0) time =10;
-                 if(time > maxAnimationTime) maxAnimationTime = time;
-                 
-                  if (nodesToGoAway !=null && nodesToGoAway.lastIndexOf(vnode)!=-1) {
-                     m = new UnfocusPearlEffect(vnode.view);
-                     m.duration = 500;
-                     nodesToRemove.push(vnode.node);
-                  }else{
-                     m = _vgraph.moveNodeTo(vnode, pos.x, pos.y,time, false);
-                  }
-                  
-                  if (vnode.view && (Math.ceil(vnode.viewX)!= Math.ceil(pos.x)|| Math.ceil(vnode.viewY)!= Math.ceil(pos.y))) {
-                    if (vnode != _vgraph.currentRootVNode && vnode.view.visible){ 
-                        if (registerobjects[vnode.view] !=  null) {
-                           Alert.show("Register twice");
-                        }
-                        registerobjects[vnode.view]=true;
-                        remover.registerComponentToWaitForEvent(m, TweenEvent.TWEEN_END);
-                        if(m is Move) {
-                           (vnode as PTVisualNodeBase).notifyInMove(m as Move);
-                        }
+         Profiler.getInstance().addMarker("-", "search");
+         var am:ApplicationManager = ApplicationManager.getInstance();
+         var navModel:INavigationManager = am.visualModel.navigationModel;
+         
+         
+         vgraph.PTLayouter.setPearlTreesWorldLayout(true);
+         var rootVNode:IPTVisualNode = _vgraph.currentRootVNode as IPTVisualNode;
+         var positions:Dictionary = vgraph.PTLayouter.computeLayoutPositionOnly();
+         var vnode:IPTVisualNode;
+         var center:Point = _vgraph.currentRootVNode.viewCenter;
+         var targetPoint:Point;
+         
+         
+         var distanceToCenter:Number = 1; 
+         var farDistance:Number = Math.sqrt( _vgraph.width* _vgraph.width +_vgraph.height * _vgraph.height) / 2.0;
+         
+         var layoutPar:Parallel = new Parallel;
+         
+         rootVNode.pearlView.moveWithoutZoomOffset(positions[rootVNode].x, positions[rootVNode].y);
+         
+         
+         
+         var m:Effect;
+         var speed:Number = _vgraph.height / 1000;
+         var distance:Number =0;
+         var nodesToRemove:Array = new Array();
+         var action:IAction = new RemoveVNodesAtAnimationEnd(nodesToRemove,this);
+         _actionsToPerform.push(action);
+         var remover :GraphicalActionSynchronizer = new GraphicalActionSynchronizer(action);
+         
+         var registerobjects:Dictionary = new Dictionary();
+         var maxAnimationTime:Number = 0;
+         for each ( vnode in _vgraph.visibleVNodes) {
+            if (IPTNode(vnode.node).isDocked){
+               continue;
+            }
+            var pos:Point = positions[vnode];
+            if (pos) {
+               center.x = vnode.viewX;
+               center.y = vnode.viewY;
+               distance = BroceliandMath.getDistanceBetweenPoints(center, pos);
+               
+               var time:int= distance/speed;
+               if (time==0) time =10;
+               if(time > maxAnimationTime) maxAnimationTime = time;
+               
+               if (nodesToGoAway !=null && nodesToGoAway.lastIndexOf(vnode)!=-1) {
+                  m = new UnfocusPearlEffect(vnode.view);
+                  m.duration = 500;
+                  nodesToRemove.push(vnode.node);
+               }else{
+                  m = _vgraph.moveNodeTo(vnode, pos.x, pos.y,time, false);
+               }
+               
+               if (vnode.view && (Math.ceil(vnode.viewX)!= Math.ceil(pos.x)|| Math.ceil(vnode.viewY)!= Math.ceil(pos.y))) {
+                  if (vnode != _vgraph.currentRootVNode && vnode.view.visible){ 
+                     if (registerobjects[vnode.view] !=  null) {
+                        Alert.show("Register twice");
+                     }
+                     registerobjects[vnode.view]=true;
+                     remover.registerComponentToWaitForEvent(m, TweenEvent.TWEEN_END);
+                     if(m is Move) {
+                        (vnode as PTVisualNodeBase).notifyInMove(m as Move);
                      }
                   }
-                  layoutPar.addChild(m);
                }
-           }
+               layoutPar.addChild(m);
+            }
+         }
          layoutPar.play();
          remover.performActionAsap();
          vgraph.PTLayouter.setPearlTreesWorldLayout(false);
-
+         
          Profiler.getInstance().addMarker("prepare animation", "search");
          setTimeout(profileAnimationEnd, maxAnimationTime);
       }
@@ -623,7 +623,7 @@ package com.broceliand.graphLayout.controller
          Profiler.getInstance().endSession("search");
       }
       
-
+      
       private function findTreeInCurrentGraph(newPTW:BroPearlTree):BroPearlTree {
          var result:BroPearlTree = null;
          var rootNode:IVisualNode = _vgraph.currentRootVNode;
@@ -639,29 +639,29 @@ package com.broceliand.graphLayout.controller
             }
          }
          return result;
-    }
+      }
    }
    
 }
-    import com.broceliand.ApplicationManager;
-    import com.broceliand.graphLayout.controller.PTWAnimationController;
-    import com.broceliand.graphLayout.model.IPTNode;
-    import com.broceliand.graphLayout.visual.IPTVisualGraph;
-    import com.broceliand.graphLayout.visual.IPTVisualNode;
-    import com.broceliand.pearlTree.model.BroNeighbourRootPearl;
-    import com.broceliand.pearlTree.model.BroPearlTree;
-    import com.broceliand.ui.model.SelectionModel;
-    import com.broceliand.ui.util.Profiler;
-    import com.broceliand.util.IAction;
-    
-    import flash.utils.Dictionary;
-    import flash.utils.setTimeout;
-    
-    import mx.effects.Effect;
-    import mx.events.EffectEvent;
-    
-    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
+import com.broceliand.ApplicationManager;
+import com.broceliand.graphLayout.controller.PTWAnimationController;
+import com.broceliand.graphLayout.model.IPTNode;
+import com.broceliand.graphLayout.visual.IPTVisualGraph;
+import com.broceliand.graphLayout.visual.IPTVisualNode;
+import com.broceliand.pearlTree.model.BroNeighbourRootPearl;
+import com.broceliand.pearlTree.model.BroPearlTree;
+import com.broceliand.ui.model.SelectionModel;
+import com.broceliand.ui.util.Profiler;
+import com.broceliand.util.IAction;
+
+import flash.utils.Dictionary;
+import flash.utils.setTimeout;
+
+import mx.effects.Effect;
+import mx.events.EffectEvent;
+
+import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
+
 internal class CreateNewPTWAction implements IAction {
    private var _animationController:PTWAnimationController;
    private var _vgraph:IPTVisualGraph;
@@ -671,13 +671,13 @@ internal class CreateNewPTWAction implements IAction {
    private var _oldVRoot:IVisualNode;
    private var _selectionModel:SelectionModel;
    public function CreateNewPTWAction (animationController:PTWAnimationController, vgraph:IPTVisualGraph, newVNodes:Array, nodesToGoAway:Array, effect:Effect, oldVRoot:IVisualNode, selectionModel:SelectionModel){
-        _animationController = animationController;
-        _vgraph = vgraph;
-        _newVNodes = newVNodes;
-        _nodesToGoAway  = nodesToGoAway;
-        _effect = effect;
-        _oldVRoot= oldVRoot;
-        _selectionModel = selectionModel;
+      _animationController = animationController;
+      _vgraph = vgraph;
+      _newVNodes = newVNodes;
+      _nodesToGoAway  = nodesToGoAway;
+      _effect = effect;
+      _oldVRoot= oldVRoot;
+      _selectionModel = selectionModel;
    }
    public function performAction():void {
       Profiler.getInstance().addMarker("pearls creation complete","search");      
@@ -692,7 +692,7 @@ internal class CreateNewPTWAction implements IAction {
    }
    public function endEffect(e:EffectEvent):void {
       Profiler.getInstance().addMarker("hide pearls","search");       
-       if (_newVNodes) {
+      if (_newVNodes) {
          for each (var vnode:IVisualNode in _newVNodes) {
             if (vnode.view) {
                vnode.view.visible= true;
@@ -711,8 +711,8 @@ internal class CreateNewPTWAction implements IAction {
       _selectionModel.highlightTree(null);
    }
    
-    
-
+   
+   
 }
 
 internal class MoveINPTWAction implements IAction {
@@ -723,12 +723,12 @@ internal class MoveINPTWAction implements IAction {
    private var _newRootVNode:IPTVisualNode;
    private var _tree2VNode:Dictionary
    public function MoveINPTWAction (animationController:PTWAnimationController, vgraph:IPTVisualGraph, newVNodes:Array, nodesToGoAway:Array, newRootVNode:IPTVisualNode, tree2Node:Dictionary){
-        _animationController = animationController;
-        _vgraph = vgraph;
-        _newVNodes = newVNodes;
-        _nodesToGoAway  = nodesToGoAway;
-        _newRootVNode= newRootVNode;
-        _tree2VNode = tree2Node;
+      _animationController = animationController;
+      _vgraph = vgraph;
+      _newVNodes = newVNodes;
+      _nodesToGoAway  = nodesToGoAway;
+      _newRootVNode= newRootVNode;
+      _tree2VNode = tree2Node;
    }
    public function performAction():void {
       Profiler.getInstance().addMarker("pearls creation complete","search");      
@@ -739,11 +739,11 @@ internal class MoveINPTWAction implements IAction {
       }
       _newRootVNode.view.alpha=1;
       _newRootVNode.pearlView.pearl.showRings = true;
-     
+      
       _animationController.changeVGraphRoot(_vgraph, _newRootVNode, _tree2VNode, _nodesToGoAway);
       _animationController.applyPTWStyleToNodes(IPTNode(_vgraph.currentRootVNode.node));
       _animationController.cleanPTWLayout(_vgraph, _newVNodes, _nodesToGoAway);
-   
+      
    }
 }
 
@@ -764,7 +764,7 @@ internal class RemoveVNodesAtAnimationEnd implements IAction {
          _nodesToRemove =null;
       }
       if (_animationController) {
-            _animationController.onAnimationEnd();
+         _animationController.onAnimationEnd();
       }
    }
 }

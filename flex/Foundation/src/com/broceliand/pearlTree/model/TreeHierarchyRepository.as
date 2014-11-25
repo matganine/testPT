@@ -9,7 +9,7 @@ package com.broceliand.pearlTree.model
       {
          
       }
-
+      
       public function getTree(user:User, treeDb:int, treeId:int):BroPearlTree{
          var treeHierarchy:TreeHierarchy = _user2TreeHierarchy[user];
          if (treeHierarchy==null) {

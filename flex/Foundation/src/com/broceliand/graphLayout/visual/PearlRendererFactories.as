@@ -36,9 +36,9 @@ package com.broceliand.graphLayout.visual
    import mx.core.UIComponent;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
-
-        
+   
+   
+   
    
    public class PearlRendererFactories
    {
@@ -54,7 +54,7 @@ package com.broceliand.graphLayout.visual
       private var _DistantHiddenTreeRefPearlRendererFactory:IFactory = null;
       private var _coeditDistantTreeRefPearlRendererFactory:IFactory = null;
       private var _coeditLocalTreeRefPearlRendererFactory:IFactory = null;
-
+      
       public function PearlRendererFactories(remoteResourceManager:IRemoteResourceManager, interactorManager:InteractorManager, pearlRendererStateManager:PearlRendererStateManager)
       {
          _pagePearlRendererFactory = new PagePearlRendererFactory(remoteResourceManager, interactorManager, pearlRendererStateManager);
@@ -78,7 +78,7 @@ package com.broceliand.graphLayout.visual
          if (node is EndNode) {
             bnode = null;
          }
-
+         
          if(bnode is BroCoeditNeighbourRootPearl) {
             mycomponent = _coeditPtwRootPearlRendererFactory.newInstance();
          } 
@@ -139,10 +139,10 @@ package com.broceliand.graphLayout.visual
             }
          }
          else if (bnode is BroPageNode){
-             mycomponent = _pagePearlRendererFactory.newInstance();
+            mycomponent = _pagePearlRendererFactory.newInstance();
          }
          else if (_endPearlRendererFactory != null){ 
-             mycomponent = _endPearlRendererFactory.newInstance();
+            mycomponent = _endPearlRendererFactory.newInstance();
          }
          else {
             Assert.assert(false, "Unknown type of node "+ bnode);
@@ -154,6 +154,6 @@ package com.broceliand.graphLayout.visual
       public function getPtwPearlRecyclingMananager():IPearlRecyclingManager {
          return (_ptwPearlRendererFactory as IPearlRecyclingManager);
       }
-     
+      
    }
 }

@@ -19,8 +19,8 @@ package com.broceliand.pearlTree.model
          super();
          var extInterface:IJavascriptInterface = ApplicationManager.getInstance().getExternalInterface();
          var facebookId:String = extInterface.getFacebookId();
-
-
+         
+         
          _facebookAccount = new FacebookAccount(facebookId);
          _shouldLinkFacebookAccount = true;
          
@@ -115,11 +115,11 @@ package com.broceliand.pearlTree.model
       public function shouldOpenPWOnNextOver(isFirstOne:Boolean):Boolean {
          return (isAnonymous() && isFirstOne) || openPWOnNextOver;
       }
-
+      
       public function get openPWOnNextOver():Boolean {
          return _openPWOnNextOver;
       }
-
+      
       public function set openPWOnNextOver(value:Boolean):void {
          _openPWOnNextOver = value;
       }

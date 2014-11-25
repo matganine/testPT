@@ -59,7 +59,7 @@ package com.broceliand.ui.interactors.drag
          changeClosestNode(_closeTreeRef, newClosestNode);
       } 
       
-
+      
       private function isNodeFocusSubTree(node:IPTNode):Boolean {
          if (node != null && node.getBusinessNode() is BroPTRootNode && node.vnode.vgraph.currentRootVNode ==node.vnode) {
             return node.getBusinessNode().owner.treeHierarchyNode.parentTree != null;
@@ -72,7 +72,7 @@ package com.broceliand.ui.interactors.drag
          } else {
             return false;
          }
-        
+         
       }
       public function resetOnScrolling():void {
          if (_closeTreeRef) {
@@ -118,7 +118,7 @@ package com.broceliand.ui.interactors.drag
          
          if ((isDraggedPearlInDragIntoTreeZone() &&  !isDraggedPearlTooFarToOpenNode())!=_isDraggedPearlInDragIntoTreeZone) {
             _isDraggedPearlInDragIntoTreeZone = !_isDraggedPearlInDragIntoTreeZone;
-
+            
             var allowed:Boolean = (_testDragIntoTreeAllowed == InteractorRightsManager.CODE_OK) || (_testDragIntoTreeAllowed == InteractorRightsManager.CODE_TOO_MANY_IMMEDIATE_DESCENDANTS);
             var nodeTitleModel:INodeTitleModel = _interactorManager.nodeTitleModel;
             if (!allowed) {
@@ -178,7 +178,7 @@ package com.broceliand.ui.interactors.drag
          return (dist < distanceThreshold);
       }
       
-
+      
       private function changeClosestNode(oldRef:IPTNode, newRef:IPTNode):void {
          if (oldRef != null && _isClosestRefOpened) {
             endExitation(oldRef);
@@ -189,7 +189,7 @@ package com.broceliand.ui.interactors.drag
          _isDraggedPearlInDragIntoTreeZone=false;
          onDraggedPearlMoved();
       }
-
+      
       private function startExitation(node:IPTNode):void {
          
          _isClosestRefOpened = true;
@@ -204,7 +204,7 @@ package com.broceliand.ui.interactors.drag
          _treeOpener.reset();
          _isClosestRefOpened = false;
       }
-
+      
       public function shouldImportBranchIntoParentNode():Boolean
       {
          return _isClosestRefOpened && _closeTreeRef.getBusinessNode() is BroLocalTreeRefNode;
@@ -245,12 +245,12 @@ package com.broceliand.ui.interactors.drag
             treeToOpen = BroLocalTreeRefNode(bnode).refTree;
          }
          if (_isOpeningAsap) {
-           var animProcessor:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
-           if (animProcessor.isBusy) {
+            var animProcessor:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
+            if (animProcessor.isBusy) {
                animProcessor.postActionRequest(new GenericAction(animProcessor, this, selectDraggedNodeAfterTreeIsOpen, nodeToOpen));
-           } else {
+            } else {
                selectDraggedNodeAfterTreeIsOpen(nodeToOpen);
-           }
+            }
             
          } 
          var highlightChanged:Boolean = ApplicationManager.getInstance().visualModel.selectionModel.highlightTree(treeToOpen);
@@ -259,8 +259,8 @@ package com.broceliand.ui.interactors.drag
             IPTVisualGraph(nodeToOpen.vnode.vgraph).refreshNodes();
          }
          
-
-
+         
+         
       }
       
       private function selectDraggedNodeAfterTreeIsOpen(nodeRoot:IPTNode):void {
@@ -285,16 +285,16 @@ package com.broceliand.ui.interactors.drag
          }
       }
       
-
-
-
-
-
-
-
-
-
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
    }
 }
 
@@ -337,4 +337,3 @@ package com.broceliand.ui.interactors.drag
 
 
 
-   

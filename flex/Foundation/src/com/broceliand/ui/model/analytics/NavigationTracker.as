@@ -25,14 +25,14 @@ package com.broceliand.ui.model.analytics
       public static const TREE_HIT_PARAM:String="th";
       public static const UNIQUE_TREE_HIT_PARAM:String="uth";
       public static const MY_VISIT_TREE_HIT_PARAM:String="vth";
-   
+      
       public static const ID_SEPARATOR:String="_";
       public static const VALUE_SEPARATOR:String="-";
       public static const ITEM_SEPARATOR:String=",";
       
       private var _treeHit:Array;
       private var _uniqueTreeHit:Array;
-
+      
       private var _myVisitTreeHit:Array;
       
       private var _timer:Timer;
@@ -65,7 +65,7 @@ package com.broceliand.ui.model.analytics
             isVisingMyTree = true;
          }
          
-
+         
          
          if(event.newSelectedPearl != event.oldSelectedPearl) {
             var tree:BroPearlTree = event.newSelectedTree;
@@ -73,15 +73,15 @@ package com.broceliand.ui.model.analytics
             if (!isVisingMyTree) {
                trackTreeHit(tree);
             }
-
+            
             
             
             if(event.newSelectedTree != event.oldSelectedTree) {
                trackUniqueTreeHit(tree, isVisingMyTree);
-
+               
             }
          }
-
+         
       }
       
       public function trackTreeHit(tree:BroPearlTree):void{
@@ -106,21 +106,21 @@ package com.broceliand.ui.model.analytics
          var myVisitTreeHitsUrl:String = buildUniqueTreeHitsUrl(true);
          
          var urlRequest:String = _serviceUrl+"?"+
-                                 SESSION_PARAM+"="+_sessionID+
-                                 "&"+TREE_HIT_PARAM+"="+treeHitsUrl+
-                                 "&"+UNIQUE_TREE_HIT_PARAM+"="+uniqueTreeHitsUrl+
-                                 "&"+MY_VISIT_TREE_HIT_PARAM+"="+ myVisitTreeHitsUrl;
+            SESSION_PARAM+"="+_sessionID+
+            "&"+TREE_HIT_PARAM+"="+treeHitsUrl+
+            "&"+UNIQUE_TREE_HIT_PARAM+"="+uniqueTreeHitsUrl+
+            "&"+MY_VISIT_TREE_HIT_PARAM+"="+ myVisitTreeHitsUrl;
          
          var request:URLRequest = new URLRequest(urlRequest);
          var loader:URLLoader = new URLLoader();
          addLoaderListeners(loader);
          try {
-             loader.load(request);
+            loader.load(request);
          }
          catch (error:Error){}
-
-
-
+         
+         
+         
       }
       private function addLoaderListeners(loader:URLLoader):void {
          loader.addEventListener(IOErrorEvent.IO_ERROR, onSaveIOError);
@@ -204,6 +204,6 @@ package com.broceliand.ui.model.analytics
       private function onTimeToSave(event:TimerEvent):void{
          saveModel();
       }      
-
+      
    }
 }

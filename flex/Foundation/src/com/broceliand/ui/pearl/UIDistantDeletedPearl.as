@@ -4,7 +4,7 @@ package com.broceliand.ui.pearl
    import com.broceliand.ui.renderers.pageRenderers.PearlRendererStateManager;
    import com.broceliand.ui.renderers.pageRenderers.pearl.PTRootPearl;
    import com.broceliand.util.resources.IRemoteResourceManager;
-
+   
    public class UIDistantDeletedPearl extends DistantDeletedTreeRefPearlRenderer
    {
       private static const DEFAULT_PEARL_WIDTH:Number = PTRootPearl.PEARL_WIDTH_NORMAL;

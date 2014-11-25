@@ -22,7 +22,7 @@ package com.broceliand.ui.interactors.drag
    
    import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
+   
    
    public class PearlDetachmentInteractor extends RemovePearlInteractor
    {
@@ -37,7 +37,7 @@ package com.broceliand.ui.interactors.drag
       private var _hasTemporaryRestore:Boolean = false;
       private var _isClosing:Boolean = false;
       private var _endNodeDetachmentManager:EndNodeDetachementManager;
-
+      
       public function PearlDetachmentInteractor(draggedVnode:IVisualNode, interactorManager:InteractorManager,  mainInteractor:DistantDragEditInteractor, endNodeDetachmentManager:EndNodeDetachementManager)
       {
          super(interactorManager);
@@ -46,34 +46,34 @@ package com.broceliand.ui.interactors.drag
          _mainInteractor = mainInteractor;
          _endNodeDetachmentManager = endNodeDetachmentManager;
          
-        if (_draggedNode.parent && _draggedNode.parent.vnode.isVisible) {
-           var timer :Timer = new Timer(MIN_INACTIVE_TIME_1, 1);
+         if (_draggedNode.parent && _draggedNode.parent.vnode.isVisible) {
+            var timer :Timer = new Timer(MIN_INACTIVE_TIME_1, 1);
             if (false || !isDraggedNodeIsOpenTree()) {
-
-
+               
+               
                timer.addEventListener(TimerEvent.TIMER_COMPLETE, tryDetachBranch);
             } else {
-
+               
                timer.addEventListener(TimerEvent.TIMER_COMPLETE, tryDetachPearl);
             }
-
-         
+            
+            
             timer.start();
-        }
-        _interactorManager = interactorManager;
+         }
+         _interactorManager = interactorManager;
          
       }
       
       
       public function onMove():void {
-       
-        if (!_hasMoved) {
-           var p:Point = new Point(draggedVNode.view.x,draggedVNode.view.y);
-           if (BroceliandMath.getDistanceBetweenPoints(_interactorManager.draggedPearlInitialPosition, p)>3) {
-              
-            _hasMoved = true;    
-           }
-        } 
+         
+         if (!_hasMoved) {
+            var p:Point = new Point(draggedVNode.view.x,draggedVNode.view.y);
+            if (BroceliandMath.getDistanceBetweenPoints(_interactorManager.draggedPearlInitialPosition, p)>3) {
+               
+               _hasMoved = true;    
+            }
+         } 
       }
       private function get draggedVNode():IVisualNode {
          if (!_draggedNode.vnode) {
@@ -85,9 +85,9 @@ package com.broceliand.ui.interactors.drag
          if (!_hasMoved) {
             detachBranch();
             IPTVisualGraph(draggedVNode.vgraph).endNodeVisibilityManager.editMode =true;
-
-
-
+            
+            
+            
             
          }
       }
@@ -103,7 +103,7 @@ package com.broceliand.ui.interactors.drag
       public function detachPearlFromTree():void {
          _pearlDetached = true;
          _interactorManager.selectInteractor.commitPendingSelection();
-
+         
          detachNodes(); 
          setTemporaryLinksVisible(false);
          if (isDraggedNodeIsOpenTree()) {
@@ -112,16 +112,16 @@ package com.broceliand.ui.interactors.drag
             var animationProcess:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
             setTemporaryLinksVisible(false);
             _hasMoved = true;
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
          }
          _endNodeDetachmentManager.onDetachDraggedPearlFromTree();
       }
-         
+      
       public function isClosing():Boolean {
          return _isClosing;
       } 
@@ -131,7 +131,7 @@ package com.broceliand.ui.interactors.drag
          setTemporaryLinksVisible(true);
       }
       private function setTemporaryLinkBackVisible(event:Event):void {
- 		 var animationProcess:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
+         var animationProcess:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
          if (event) {
             _isClosing = false;
             animationProcess.removeEventListener(GraphicalAnimationRequestProcessor.END_PROCESSING_ACTION_EVENT, setTemporaryLinkBackVisible);
@@ -139,19 +139,19 @@ package com.broceliand.ui.interactors.drag
          afterTreeClosed();
          
       }
-         
-         
+      
+      
       
       
       public function detachBranch():void {
-
+         
          _interactorManager.selectInteractor.commitPendingSelection();
          _mainInteractor.detachNodeFromParent(draggedVNode, true);
       }
       
       private function detachNodes():void {
          if (!_nodesDetached) {
-
+            
             _nodesDetached = true;
             _mainInteractor.detachNodeFromParent(draggedVNode, false);
             tempRemoveNode(_draggedNode);
@@ -192,7 +192,7 @@ package com.broceliand.ui.interactors.drag
          var shouldRefreshLinks:Boolean = false;
          if (newParentVNode) {
             
-             if (false && _interactorManager.draggedPearlLogicalOriginParentVNode == newParentVNode) {
+            if (false && _interactorManager.draggedPearlLogicalOriginParentVNode == newParentVNode) {
                restoreTemporaryRemoveNode(_draggedNode, false);
                _hasTemporaryRestore = true;
             } else {
@@ -201,13 +201,13 @@ package com.broceliand.ui.interactors.drag
                   _hasTemporaryRestore = false;
                }
             }
-
+            
          } else {
             if (_hasTemporaryRestore) {
                tempRemoveNode(_draggedNode);
                _hasTemporaryRestore = false;
             }
-
+            
          }
          if (shouldRefreshLinks) {
             draggedVNode.vgraph.refresh();
@@ -220,7 +220,7 @@ package com.broceliand.ui.interactors.drag
          _hasMoved = true;
          end();
          if (_nodesDetached) {
-           restoreTemporaryRemoveNode(_draggedNode);
+            restoreTemporaryRemoveNode(_draggedNode);
          }  
       }
       
@@ -275,7 +275,7 @@ package com.broceliand.ui.interactors.drag
          }
          return modifiedTree;
       }
-
+      
       public function hasMoved():Boolean {
          return _hasMoved;
       }

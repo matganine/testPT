@@ -3,7 +3,7 @@ package com.broceliand.assets
    public class WelcomeAssets
    {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"welcome/";
-
+      
       public static const LOGO_TAGLINE_FR:String = SERVER_PATH+"logoHomeWebFr.png";
       public static const LOGO_TAGLINE_FR_2:String = SERVER_PATH+"logoHomeWebFr2.png";
       public static const LOGO_TAGLINE_FR_3:String = SERVER_PATH+"logoHomeWebFr3.png";
@@ -29,7 +29,7 @@ package com.broceliand.assets
       public static const SLIDESHOW_3:String = SERVER_PATH+"slideshow3.png";
       public static const SLIDESHOW_4:String = SERVER_PATH+"slideshow4.png";
       public static const SLIDESHOW_5:String = SERVER_PATH+"slideshow5.png";
-
+      
       public static const DECO_EDITOR_ID:String = SERVER_PATH+"decoEditorId.png";
       public static const DECO_ADDON_FF:String = SERVER_PATH+"decoAddonFF-IE.png";
       public static const DECO_ADDON_IE:String = SERVER_PATH+"decoAddonFF-IE.png";
@@ -62,43 +62,43 @@ package com.broceliand.assets
       
       [Embed(source='/assets/welcome/video/playOver.png')]
       public static const VIDEO_PLAY_OVER:Class;
-
+      
       
       [Embed(source='/assets/welcome/extServices/facebook.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_FACEBOOK:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/facebookOver.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_FACEBOOK_OVER:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/facebookConnected.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_FACEBOOK_CONNECTED:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/twitter.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_TWITTER:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/twitterOver.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_TWITTER_OVER:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/twitterConnected.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_TWITTER_CONNECTED:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/google.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]
       public static const LOGIN_GOOGLE:Class;
-
+      
       [Embed(source='/assets/welcome/extServices/googleHover.png',
              scaleGridTop='5', scaleGridBottom='13',
              scaleGridLeft='29', scaleGridRight='30')]

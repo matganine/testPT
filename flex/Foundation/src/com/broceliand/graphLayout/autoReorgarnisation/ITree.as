@@ -7,7 +7,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
       function getChildAt(parentNode:Object, index:int):Object;
       function isDropZone():Boolean;
       function moveNode(nodeToMove:Object, newParent:Object):void;
-
-
+      
+      
    }
 }

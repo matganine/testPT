@@ -49,18 +49,18 @@ package com.broceliand.pearlTree.navigation.impl
       private var _navigator:INavigationManager;
       private var _abModel:Number;
       
-
       
-
-
-
-
-
-
-
-
-
-     private var _updateStateWhenFocusChangeOnly:Boolean = false;
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      private var _updateStateWhenFocusChangeOnly:Boolean = false;
       public function Url2NavigationSynchronizer(navBar:INavigationManager) {
          _navigator = navBar;
          _navigator.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigationChange);
@@ -73,24 +73,24 @@ package com.broceliand.pearlTree.navigation.impl
          new Url2EmbedWindow();
          new Url2TeamRequest();
       }
-     
+      
       private function onNavigationChange(workaroundEvent:Event):void {
          var e:NavigationEvent = NavigationEvent (workaroundEvent);
          
          var association:BroAssociation = (e.newFocusTree)?e.newFocusTree.getMyAssociation():null;
          var state:Object = makeState(association, e.newUser, e.newFocusTree,e.newSelectedTree, e.newSelectedPearl, e.selectionOnIntersection, e.isShowingPTW, e.newPearlWindowPreferredState, e.playState, e.revealState, e.searchKeyword, e.isHome, e.searchUserId, e.searchUserOnly);
          if ( _currentState !=null &&  !areStateTheSame(_currentState, state)) {
-             _previousState  = _currentState;
-             _nbOfEventToIgnore ++;
+            _previousState  = _currentState;
+            _nbOfEventToIgnore ++;
             _currentState  =state;
-             UrlNavigationController.save();
+            UrlNavigationController.save();
          } else {
             _currentState = state;
          }          
          
-          updateBrowserTitle(e);
+         updateBrowserTitle(e);
       }
-     
+      
       private function updateBrowserTitle(e:NavigationEvent):void {
          
          var title:String = null;
@@ -156,7 +156,7 @@ package com.broceliand.pearlTree.navigation.impl
       private function areStateTheSame(currentState:Object, state:Object):Boolean {
          if (currentState==null) { return state==null; }
          if (_updateStateWhenFocusChangeOnly) {
-         return _currentState[USER_FIELD]=state[USER_FIELD] && _currentState[FOCUS_FIELD] == state[FOCUS_FIELD] && _currentState[FOCUS_ASSOCIATION_FIELD] == state[FOCUS_ASSOCIATION_FIELD] && _currentState[PTW_FIELD] == state[PTW_FIELD];
+            return _currentState[USER_FIELD]=state[USER_FIELD] && _currentState[FOCUS_FIELD] == state[FOCUS_FIELD] && _currentState[FOCUS_ASSOCIATION_FIELD] == state[FOCUS_ASSOCIATION_FIELD] && _currentState[PTW_FIELD] == state[PTW_FIELD];
          }
          for (var name:String in currentState) {
             if (!state.hasOwnProperty(name) || state[name] != currentState[name]) {
@@ -173,197 +173,197 @@ package com.broceliand.pearlTree.navigation.impl
       public function saveState():Object {
          return _currentState;
       }
-   
-     public function loadState(state:Object):void {
-      if (state) {
-          if (_updateWithDelay && _nbOfEventToIgnore>0 ) { 
-             _nbOfEventToIgnore --;
-            _previousState = null;
-          } else if (!areStateTheSame(_currentState, state)) {
-            var focusAssociationId:int = -1;
-            var userId:int=-1;
-            var focustTreeId:int=-1;
-            var selectedTreeId:int=-1;
-            var pearlId:int=-1;
-            var onIntersection:int=-1;
-            var pearlWindowState:int=0;
-            var play:int = -1;
-            var playState:int = -1;
-            var playUrl:String = null;
-            var playTitle:String = null;
-            var playId:int = -1;
-            var revealState:int = -1;
-            var isPTW:Boolean=false;
-            var isHome:Boolean=false;
-            var searchKeyword:String=null;
-            var searchUserId:Number=0;
-            var searchUserOnly:Boolean=false;
-            
-            _currentState = state;
-            if (_currentState[SEARCH_FIELD]) {
-               searchKeyword = _currentState[SEARCH_FIELD] as String;
-            }
-            if (_currentState[SEARCH_IN_USER_ACCOUNT_FIELD] != null) {
-               searchUserId = parseInt(_currentState[SEARCH_IN_USER_ACCOUNT_FIELD]);
-               if (isNaN(searchUserId)) {
-                  searchUserId = 0;
-               }
-            }
-            if (_currentState[SEARCH_USER_ONLY_FIELD] != null) {
-               searchUserOnly = true;
-            }
-            if (_currentState[SEARCH_IN_USER_ACCOUNT_FIELD] != null) {
-               searchUserId = parseInt(_currentState[SEARCH_IN_USER_ACCOUNT_FIELD]);
-               if (isNaN(searchUserId)) {
-                  searchUserId = 0;
-               }
-            }
-            var uKey:Array = User.parseUserKey(_currentState[USER_FIELD]);
-            if (uKey) {
-               userId = uKey[1];
-            }
-            var fKey:Array = BroPearlTree.parseTreerKey(_currentState[FOCUS_FIELD]);
-            if (fKey) {
-               focustTreeId = fKey[1];
-            }
-
-            if (_currentState[FOCUS_ASSOCIATION_FIELD]) {
-               focusAssociationId = _currentState[FOCUS_ASSOCIATION_FIELD];
-            }            
-            
-            var sKey:Array = BroPearlTree.parseTreerKey(_currentState[SELECT_FIELD]);
-            if (sKey) {
-               selectedTreeId = sKey[1];
-            }
-            if (_currentState[PEARL_FIELD]!=null) {
-               pearlId = parseInt(_currentState[PEARL_FIELD]);
-               if (isNaN(pearlId)){ 
-                  pearlId = -1;
-               }
-            }
-            if (_currentState[INTERSECTION_FIELD]!=null) {
-               onIntersection = parseInt(_currentState[INTERSECTION_FIELD]);
-               if (isNaN(onIntersection)) {
-                  onIntersection = -1;
-               }
-            }
-            
-            if (_currentState[PEARL_WINDOW_FIELD]!=null) {
-               pearlWindowState = parseInt(_currentState[PEARL_WINDOW_FIELD]);
-               if (isNaN(pearlWindowState)) {
-                  pearlWindowState = 0;
-               }
-            }
-            if (_currentState[PLAY_FIELD]!=null) {
-               play= parseInt(_currentState[PLAY_FIELD]);
-               if (isNaN(play)) {
-                  play = -1;
-               }
-            }
-            if (_currentState[PLAY_ID_FIELD]!=null) {
-               playId= parseInt(_currentState[PLAY_ID_FIELD]);
-               if (isNaN(playId)) {
-                  playId = -1;
-               }
-            }
-            if (_currentState[PLAY_STATE_FIELD]!=null) {
-               playState= parseInt(_currentState[PLAY_STATE_FIELD]);
-               if (isNaN(playState)) {
-                  playState = -1;
-               }
-            }
-            
-            if (_currentState[PLAY_URL_FIELD]!=null) {
-               playUrl= _currentState[PLAY_URL_FIELD] as String;
-            }
-
-            if (_currentState[PLAY_TITLE_FIELD]!=null) {
-               playTitle= _currentState[PLAY_TITLE_FIELD] as String;
-               if (playTitle) {
-                  playTitle = StringHelper.unescapeWithPlus(playTitle);
-               }
-            }
-            
-            if (_currentState[REVEAL_FIELD]!=null) {
-               revealState = parseInt(_currentState[REVEAL_FIELD]);
-               if (isNaN(revealState)) {
-                  revealState = -1;
-               }
-               if (revealState > 0) {
-                  play = -1;
-               }
-               if (revealState < -1) {
-                  var model:String = "";
-                  if (revealState == -2) {
-                     model = "A";
-                     _abModel = 1;
-                  }
-                  else if (revealState == -3) {
-                     model = "B";
-                     _abModel = 2;
-                     StartPolicyLogger.getInstance().setStartLocation(StartPolicyLogger.START_LOCATION_SEO_URL);
-                  }
-                  else if (revealState == -4) {
-                     model = "C";
-                     _abModel = 3;
-                  }
-               }
-            }
-                      
-            if (_currentState[PTW_FIELD] != null) {
-               if ("h" == _currentState[PTW_FIELD] ) {
-                  isHome = true;   
-               }
-               isPTW = true;
-            }
-            if (searchKeyword) {
-               _navigator.navigate(NavigationDescription.goToSearch(searchKeyword, searchUserId, searchUserOnly));
-            } 
-            else if (isPTW) {
-               _navigator.goToPearlTreesWorld(focusAssociationId, 
-                                              userId, 
-                                              focustTreeId, 
-                                              isHome);
-            } 
-            else if(Url2TeamRequest.hasTeamRequestNavigationUrl() && !ApplicationManager.getInstance().currentUser.isAnonymous()) {
+      
+      public function loadState(state:Object):void {
+         if (state) {
+            if (_updateWithDelay && _nbOfEventToIgnore>0 ) { 
+               _nbOfEventToIgnore --;
+               _previousState = null;
+            } else if (!areStateTheSame(_currentState, state)) {
+               var focusAssociationId:int = -1;
+               var userId:int=-1;
+               var focustTreeId:int=-1;
+               var selectedTreeId:int=-1;
+               var pearlId:int=-1;
+               var onIntersection:int=-1;
+               var pearlWindowState:int=0;
+               var play:int = -1;
+               var playState:int = -1;
+               var playUrl:String = null;
+               var playTitle:String = null;
+               var playId:int = -1;
+               var revealState:int = -1;
+               var isPTW:Boolean=false;
+               var isHome:Boolean=false;
+               var searchKeyword:String=null;
+               var searchUserId:Number=0;
+               var searchUserOnly:Boolean=false;
                
-            }
-            else {
-               if (  true &&
+               _currentState = state;
+               if (_currentState[SEARCH_FIELD]) {
+                  searchKeyword = _currentState[SEARCH_FIELD] as String;
+               }
+               if (_currentState[SEARCH_IN_USER_ACCOUNT_FIELD] != null) {
+                  searchUserId = parseInt(_currentState[SEARCH_IN_USER_ACCOUNT_FIELD]);
+                  if (isNaN(searchUserId)) {
+                     searchUserId = 0;
+                  }
+               }
+               if (_currentState[SEARCH_USER_ONLY_FIELD] != null) {
+                  searchUserOnly = true;
+               }
+               if (_currentState[SEARCH_IN_USER_ACCOUNT_FIELD] != null) {
+                  searchUserId = parseInt(_currentState[SEARCH_IN_USER_ACCOUNT_FIELD]);
+                  if (isNaN(searchUserId)) {
+                     searchUserId = 0;
+                  }
+               }
+               var uKey:Array = User.parseUserKey(_currentState[USER_FIELD]);
+               if (uKey) {
+                  userId = uKey[1];
+               }
+               var fKey:Array = BroPearlTree.parseTreerKey(_currentState[FOCUS_FIELD]);
+               if (fKey) {
+                  focustTreeId = fKey[1];
+               }
+               
+               if (_currentState[FOCUS_ASSOCIATION_FIELD]) {
+                  focusAssociationId = _currentState[FOCUS_ASSOCIATION_FIELD];
+               }            
+               
+               var sKey:Array = BroPearlTree.parseTreerKey(_currentState[SELECT_FIELD]);
+               if (sKey) {
+                  selectedTreeId = sKey[1];
+               }
+               if (_currentState[PEARL_FIELD]!=null) {
+                  pearlId = parseInt(_currentState[PEARL_FIELD]);
+                  if (isNaN(pearlId)){ 
+                     pearlId = -1;
+                  }
+               }
+               if (_currentState[INTERSECTION_FIELD]!=null) {
+                  onIntersection = parseInt(_currentState[INTERSECTION_FIELD]);
+                  if (isNaN(onIntersection)) {
+                     onIntersection = -1;
+                  }
+               }
+               
+               if (_currentState[PEARL_WINDOW_FIELD]!=null) {
+                  pearlWindowState = parseInt(_currentState[PEARL_WINDOW_FIELD]);
+                  if (isNaN(pearlWindowState)) {
+                     pearlWindowState = 0;
+                  }
+               }
+               if (_currentState[PLAY_FIELD]!=null) {
+                  play= parseInt(_currentState[PLAY_FIELD]);
+                  if (isNaN(play)) {
+                     play = -1;
+                  }
+               }
+               if (_currentState[PLAY_ID_FIELD]!=null) {
+                  playId= parseInt(_currentState[PLAY_ID_FIELD]);
+                  if (isNaN(playId)) {
+                     playId = -1;
+                  }
+               }
+               if (_currentState[PLAY_STATE_FIELD]!=null) {
+                  playState= parseInt(_currentState[PLAY_STATE_FIELD]);
+                  if (isNaN(playState)) {
+                     playState = -1;
+                  }
+               }
+               
+               if (_currentState[PLAY_URL_FIELD]!=null) {
+                  playUrl= _currentState[PLAY_URL_FIELD] as String;
+               }
+               
+               if (_currentState[PLAY_TITLE_FIELD]!=null) {
+                  playTitle= _currentState[PLAY_TITLE_FIELD] as String;
+                  if (playTitle) {
+                     playTitle = StringHelper.unescapeWithPlus(playTitle);
+                  }
+               }
+               
+               if (_currentState[REVEAL_FIELD]!=null) {
+                  revealState = parseInt(_currentState[REVEAL_FIELD]);
+                  if (isNaN(revealState)) {
+                     revealState = -1;
+                  }
+                  if (revealState > 0) {
+                     play = -1;
+                  }
+                  if (revealState < -1) {
+                     var model:String = "";
+                     if (revealState == -2) {
+                        model = "A";
+                        _abModel = 1;
+                     }
+                     else if (revealState == -3) {
+                        model = "B";
+                        _abModel = 2;
+                        StartPolicyLogger.getInstance().setStartLocation(StartPolicyLogger.START_LOCATION_SEO_URL);
+                     }
+                     else if (revealState == -4) {
+                        model = "C";
+                        _abModel = 3;
+                     }
+                  }
+               }
+               
+               if (_currentState[PTW_FIELD] != null) {
+                  if ("h" == _currentState[PTW_FIELD] ) {
+                     isHome = true;   
+                  }
+                  isPTW = true;
+               }
+               if (searchKeyword) {
+                  _navigator.navigate(NavigationDescription.goToSearch(searchKeyword, searchUserId, searchUserOnly));
+               } 
+               else if (isPTW) {
+                  _navigator.goToPearlTreesWorld(focusAssociationId, 
+                     userId, 
+                     focustTreeId, 
+                     isHome);
+               } 
+               else if(Url2TeamRequest.hasTeamRequestNavigationUrl() && !ApplicationManager.getInstance().currentUser.isAnonymous()) {
+                  
+               }
+               else {
+                  if (  true &&
                      pearlWindowState>0 &&
                      !(ApplicationManager.getInstance().currentUser.isAdminAccount() && pearlWindowState == PWModel.LIST_PRIVATE_MSG_PANEL)
                      && true) {
-                  ApplicationManager.getInstance().components.windowController.setPearlWindowDocked(false);
+                     ApplicationManager.getInstance().components.windowController.setPearlWindowDocked(false);
+                  }
+                  if (revealState == NavigationEvent.ADD_ON_NAVIGATION_TYPE && pearlId == -1 && focusAssociationId > 0) {
+                     new PreLoadingRequest(focustTreeId, focusAssociationId).load();
+                     return;
+                  }
+                  
+                  
+                  
+                  
+                  _navigator.goTo(focusAssociationId, 
+                     userId,
+                     focustTreeId,
+                     selectedTreeId, 
+                     pearlId, 
+                     onIntersection, 
+                     play,  
+                     pearlWindowState, 
+                     false, 
+                     revealState);
                }
-               if (revealState == NavigationEvent.ADD_ON_NAVIGATION_TYPE && pearlId == -1 && focusAssociationId > 0) {
-                  new PreLoadingRequest(focustTreeId, focusAssociationId).load();
-                  return;
+               if (playId != -1 && playUrl != null && play == 1) {
+                  ApplicationManager.getInstance().components.pearlTreePlayer.showPlayerOnUrl(playUrl, playId, playState, playTitle);
                }
-               
-
-
-
-               _navigator.goTo(focusAssociationId, 
-                               userId,
-                               focustTreeId,
-                               selectedTreeId, 
-                               pearlId, 
-                               onIntersection, 
-                               play,  
-                               pearlWindowState, 
-                               false, 
-                               revealState);
-            }
-            if (playId != -1 && playUrl != null && play == 1) {
-               ApplicationManager.getInstance().components.pearlTreePlayer.showPlayerOnUrl(playUrl, playId, playState, playTitle);
             }
          }
-       }
-     }
-     
-     private function makeState(focusAssociation:BroAssociation, user:User, focusTreeKey:BroPearlTree, selectedTree:BroPearlTree, pearl:BroPTNode, onIntersection:int, isOnPTW:Boolean, pearlWindowPreferredState:int, play:int, revealState:int, searchKeywod:String, isHome:Boolean, searchUserId:Number, searchUserOnly:Boolean):Object {
-        var state:Object= new Object();
-        if (searchKeywod) {
+      }
+      
+      private function makeState(focusAssociation:BroAssociation, user:User, focusTreeKey:BroPearlTree, selectedTree:BroPearlTree, pearl:BroPTNode, onIntersection:int, isOnPTW:Boolean, pearlWindowPreferredState:int, play:int, revealState:int, searchKeywod:String, isHome:Boolean, searchUserId:Number, searchUserOnly:Boolean):Object {
+         var state:Object= new Object();
+         if (searchKeywod) {
             state[SEARCH_FIELD] = searchKeywod;
             if (searchUserId != 0) {
                state[SEARCH_IN_USER_ACCOUNT_FIELD] = searchUserId;
@@ -371,8 +371,8 @@ package com.broceliand.pearlTree.navigation.impl
             if (searchUserOnly) {
                state[SEARCH_USER_ONLY_FIELD] = "y";
             }
-        } else {
-           if (user) {
+         } else {
+            if (user) {
                state[USER_FIELD] = User.getUserKey(user.persistentDbId, user.persistentId);
             } else {
                state[USER_FIELD] = "-1_-1"; 
@@ -408,16 +408,16 @@ package com.broceliand.pearlTree.navigation.impl
             if (revealState != -1) {
                state[REVEAL_FIELD]= revealState;
             }
-        }
-        return state;
-     }    
-     
-     public  function toString():String {
-        return "N";
-     }
-     
-     public function get abModel():Number {
-        return _abModel;
-     }
+         }
+         return state;
+      }    
+      
+      public  function toString():String {
+         return "N";
+      }
+      
+      public function get abModel():Number {
+         return _abModel;
+      }
    }
 }

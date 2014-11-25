@@ -66,7 +66,7 @@ package com.broceliand.ui.navBar {
          am.visualModel.applicationMessageBroadcaster.addEventListener(ApplicationMessageBroadcaster.WHITE_MARK_CHANGED_EVENT, onWhiteMarkEvent);
          forceViewRefresh();
       }
-
+      
       
       private function computeCompactMode():uint{
          /* Compact mode pour utilisateur non loggué.
@@ -105,15 +105,15 @@ package com.broceliand.ui.navBar {
             return NO_COMPACT_MODE;
          }
       }
-
+      
       public function get compactMode():uint {
-            return computeCompactMode();
+         return computeCompactMode();
       }
-
+      
       public function set compactMode(value:uint):void {
          _compactMode = value;
       }
-
+      
       public function forceViewRefresh():void {
          refreshModelInternal(true);   
          dispatchChangeEvent();
@@ -173,8 +173,8 @@ package com.broceliand.ui.navBar {
                var userName : String = tree.getMyAssociation().preferredUser.name;
                var text:String = "navBar.otherPearltrees";
                if (compactMode == ICON_WITHOUT_PEARLTREE_MODE || 
-                   compactMode == ICON_AND_MOST_CONNECTED_WITHOUT_PEARLTREE_MODE ||
-                   compactMode == WITHOUT_MOST_CONNECTED_MODE) {
+                  compactMode == ICON_AND_MOST_CONNECTED_WITHOUT_PEARLTREE_MODE ||
+                  compactMode == WITHOUT_MOST_CONNECTED_MODE) {
                   text = "navBar.otherPearltrees.short";
                }
                withPremiumSymbol = tree.isPremiumUserRoot();
@@ -194,7 +194,7 @@ package com.broceliand.ui.navBar {
       private function onSyncEvent(event:Event):void {
          refreshModelInternal(true);
       }
-
+      
       private function refreshModelInternal(forceViewToRefresh:Boolean=false):void {
          var am:ApplicationManager = ApplicationManager.getInstance();  
          var anonymous:Boolean = am.currentUser.isAnonymous(); 
@@ -314,7 +314,7 @@ package com.broceliand.ui.navBar {
             var navigationModel:INavigationManager = am.visualModel.navigationModel;            
             var tree:BroPearlTree = NavBarModelTreeItem(item).tree;
             var rootTree: BroPearlTree = getRootTree(tree);
-                 
+            
             if(tree == navigationModel.getFocusedTree() && !navigationModel.isShowingPearlTreesWorld()) {
                var sm:SelectionModel = am.visualModel.selectionModel;
                sm.selectedFromNavBar = true;
@@ -353,7 +353,7 @@ package com.broceliand.ui.navBar {
       public function get isHomeButtonDisplayed():Boolean {
          return _isHomeButtonDisplayed;
       }
-            
+      
       public function set isHomeButtonDisplayed(value:Boolean):void {
          if(value != _isHomeButtonDisplayed) {
             _isHomeButtonDisplayed = value;
@@ -455,28 +455,28 @@ package com.broceliand.ui.navBar {
          }
          return PearlAssets.COEDIT_NORMAL;
       }
-
+      
       public function get withPremiumSymbol():Boolean {
          return _withPremiumSymbol;
       }
-
+      
       public function set withPremiumSymbol(value:Boolean):void {
          if (value != _withPremiumSymbol) {
             _withPremiumSymbol = value;
             dispatchChangeEvent();
          }
       }
-
+      
       public function get isTeamNameOrSearchResult():Boolean
       {
          return _isDisplayingTeamName;
       }
-
+      
       public function set isDisplayingTeamName(value:Boolean):void
       {
          _isDisplayingTeamName = value;
       }
-
-
+      
+      
    }
 }

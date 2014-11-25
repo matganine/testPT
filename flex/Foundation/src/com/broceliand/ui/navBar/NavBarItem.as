@@ -43,31 +43,31 @@ package com.broceliand.ui.navBar {
             if (_item is NavBarModelTreeItem && _item.resizeToFit) {
                maxWidth = MAX_TREE_ITEM_WIDTH;
             }
-               
+            
             
             if(enabled != _item.enabled) {
                callLater(setEnabled, new Array(_item.enabled));
             }
             if (_item.isBold){
                setStyle('fontSize', 14);
-
-
-
+               
+               
+               
                setStyle('fontWeight', 'bold');
             }else{
-
-
-
-
+               
+               
+               
+               
                setStyle('fontWeight', 'normal');
                setStyle('fontSize', 14);
             }
             
             
             if(_item.selected) {
-
+               
             }else{
-
+               
             }
          }
          if (_isSystemFamilyTypeChanged) {

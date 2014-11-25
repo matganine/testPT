@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PearlComponentAddOn xmlns="com.broceliand.ui.pearlTree.*" height="100" width="120" xmlns:mx="http://www.adobe.com/2006/mxml"
-     horizontalScrollPolicy="off" x="900" y ="212" xmlns:text="flash.text.*" verticalScrollPolicy="off"
-     creationComplete="onCreationComplete()" clipContent="false">
+                     horizontalScrollPolicy="off" x="900" y ="212" xmlns:text="flash.text.*" verticalScrollPolicy="off"
+                     creationComplete="onCreationComplete()" clipContent="false">
    
    <mx:Text id="emptyFocusTreeText" selectable="false" color="#000000" visible="false" textAlign="left"  width="100" height="60%"  htmlText="{BroLocale.getInstance().getText('pearl.emptyFocusTree')}"/>
    <mx:Text id="emptyFocusUserTreeText" selectable="false" color="#000000" visible="true" textAlign="left"  width="100" height="60%"  htmlText="{BroLocale.getInstance().getText('pearl.emptyFocusUserTree')}" click="onClickAddPearls()" mouseOver="onMouseOver()" mouseOut="onMouseOut()"/>
    <mx:Text id="privateFocusTreeText"  selectable="false" color="#000000" visible="true" textAlign="center"  width="80" height="100%"  htmlText="{BroLocale.getInstance().getText('pearl.privateFocusTree')}"/>
    <mx:Text id="userRootTreeText" selectable="false" color="#000000" visible="false" textAlign="left" width="100" height="60%" htmlText="{BroLocale.getInstance().getText('pearl.emptyUserTree')}" click="onClickAddPearls()" mouseOver="onMouseOver()" mouseOut="onMouseOut()"/>
-          
+   
    
    <mx:Script>
       <![CDATA[
@@ -28,15 +28,15 @@
          import flash.filters.DropShadowFilter;
          import flash.filters.GlowFilter;
          import com.broceliand.ui.util.ColorPalette;
-
+         
          
          import mx.core.IUIComponent;
          import mx.core.UIComponent;
-
+         
          private var textFilters:Array = getTextFilters();
          public static const TEXT_ROLLOVER_COLOR : uint = 0x009EE0;
          public static const TEXT_ROLLOUT_COLOR : uint = 0x000000;
-
+         
          
          private var _showUserAccount:Boolean =false;
          private var _focusTree:BroPearlTree;
@@ -63,12 +63,12 @@
             privateFocusTreeText.filters = textFilters;
             userRootTreeText.filters = textFilters;
          }
-
+         
          override protected function createChildren():void {
             super.createChildren();
             ApplicationManager.getInstance().visualModel.navigationModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigate);
          }
-       
+         
          private function showUserAccount(isUserAccount:Boolean):void {
             if (_showUserAccount!= isUserAccount) {
                _showUserAccount = isUserAccount;
@@ -128,7 +128,7 @@
                }
             }
          }
-
+         
          private function bindToRootAndMakeVisibleAtAnimationEnd(event:Event):void {
             var navModel:INavigationManager= ApplicationManager.getInstance().visualModel.navigationModel;
             if (navModel.getFocusedTree() && navModel.getFocusedTree().isEmpty() && !navModel.isShowingPearlTreesWorld()) { 
@@ -155,7 +155,7 @@
                }
                invalidateDisplayList();
             }
-               
+            
          }
          
          override protected function updateTargetComponentPosition(point:Point):void{
@@ -203,7 +203,7 @@
             ret.push(dropShadowFilter);
             return ret;
          }
-
+         
       ]]>
    </mx:Script>
 </PearlComponentAddOn >

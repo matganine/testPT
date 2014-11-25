@@ -25,7 +25,7 @@ package com.broceliand.assets.screenWindow.base
       public static const HISTORY:Class;
       [Embed(source='/assets/screenWindow/base/historyOver.png')]
       public static const HISTORY_OVER:Class;
-            
+      
       [Embed(source='/assets/screenWindow/base/rename.png')]
       public static const RENAME:Class;
       [Embed(source='/assets/screenWindow/base/renameOver.png')]
@@ -33,7 +33,7 @@ package com.broceliand.assets.screenWindow.base
       
       [Embed(source="/assets/screenWindow/base/blueButtonUp.png")]
       static public var BLUE_BUTTON_UP:Class;
-
+      
       [Embed(source="/assets/screenWindow/base/blueButtonDown.png")]
       static public var BLUE_BUTTON_DOWN:Class; 
    }

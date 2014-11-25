@@ -18,42 +18,42 @@ package com.broceliand.util.logging
    import mx.logging.ILoggingTarget;
    import mx.logging.LogEventLevel;
    import mx.logging.errors.InvalidCategoryError;
-
+   
    public class Log
    {
       private static var NONE:int = int.MAX_VALUE;
       private static var _targetLevel:int = NONE;
       private static var _loggers:Array;
       private static var _targets:Array = [];
-
-
+      
+      
       public static function isFatal():Boolean
       {
          return (_targetLevel <= LogEventLevel.FATAL) ? true : false;
       }
-
+      
       public static function isError():Boolean
       {
          return (_targetLevel <= LogEventLevel.ERROR) ? true : false;
       }
-
-
+      
+      
       public static function isWarn():Boolean
       {
          return (_targetLevel <= LogEventLevel.WARN) ? true : false;
       }
-
-
+      
+      
       public static function isInfo():Boolean
       {
          return (_targetLevel <= LogEventLevel.INFO) ? true : false;
       }
-
+      
       public static function isDebug():Boolean
       {
          return (_targetLevel <= LogEventLevel.DEBUG) ? true : false;
       }
-
+      
       public static function addTarget(target:ILoggingTarget):void
       {
          if (target)
@@ -71,7 +71,7 @@ package com.broceliand.util.logging
             
             
             _targets.push(target);
-
+            
             if (_targetLevel == NONE)
                _targetLevel = target.level
             else if (target.level < _targetLevel)
@@ -83,7 +83,7 @@ package com.broceliand.util.logging
             throw new ArgumentError(message);
          }
       }
-
+      
       public static function removeTarget(target:ILoggingTarget):void
       {
          if (target)
@@ -115,7 +115,7 @@ package com.broceliand.util.logging
             throw new ArgumentError(message);
          }
       }
-
+      
       public static function getClassLogger(object:Object):BroLogger {
          return getLogger(getQualifiedClassName(object).replace(/::/g, "."));
       }
@@ -124,7 +124,7 @@ package com.broceliand.util.logging
          checkCategory(category);
          if (!_loggers)
             _loggers = [];
-
+         
          
          
          var result:BroLogger= _loggers[category];
@@ -133,7 +133,7 @@ package com.broceliand.util.logging
             result = new BroLogger(category);
             _loggers[category] = result;
          }
-
+         
          
          var target:ILoggingTarget;
          for (var i:int = 0; i < _targets.length; i++)
@@ -142,22 +142,22 @@ package com.broceliand.util.logging
             if (categoryMatchInFilterList(category, target.filters))
                target.addLogger(result);
          }
-
+         
          return result;
       }
-
+      
       public static function flush():void
       {
          _loggers = [];
          _targets = [];
          _targetLevel = NONE;
       }
-
+      
       public static function hasIllegalCharacters(value:String):Boolean
       {
          return value.search(/[\[\]\~\$\^\&\\(\)\{\}\+\?\/=`!@#%,:;'"<>\s]/) != -1;
       }
-
+      
       
       private static function categoryMatchInFilterList(category:String, filters:Array):Boolean
       {
@@ -169,35 +169,35 @@ package com.broceliand.util.logging
             
             
             index = filter.indexOf("*");
-
+            
             if (index == 0)
                return true;
-
+            
             index = index < 0 ? index = category.length : index -1;
-
+            
             if (category.substring(0, index) == filter.substring(0, index))
                return true;
          }
          return false;
       }
-
+      
       private static function checkCategory(category:String):void
       {
          var message:String;
-
+         
          if (category == null || category.length == 0)
          {
             message = "invalidLen";
             throw new InvalidCategoryError(message);
          }
-
+         
          if (hasIllegalCharacters(category) || (category.indexOf("*") != -1))
          {
             message = "invalidChars";
             throw new InvalidCategoryError(message);
          }
       }
-
+      
       private static function resetTargetLevel():void
       {
          var minLevel:int = NONE;
@@ -208,7 +208,7 @@ package com.broceliand.util.logging
          }
          _targetLevel = minLevel;
       }
-
+      
       private static function pad(n:int, len:int) : String {
          var res:String = n.toString();
          while (res.length < len) {
@@ -216,7 +216,7 @@ package com.broceliand.util.logging
          }
          return res;
       }
-
+      
       public static function dateToString(date:Date, includeMilliSeconds : Boolean = true):String
       {
          var dateString:String = ""
@@ -231,17 +231,17 @@ package com.broceliand.util.logging
          }
          return dateString;
       }
-
+      
       private static function date(): String {
          var date:Date  = new Date();
          var str:String = dateToString(date);
          return str;
       }
-
+      
       public static function debug(msg:String, prefix:String = "") : void {
          trace(date() + ": " + prefix + msg);
       }
-
+      
       private static function decimalToHex(n:int, len:int = 2) : String {
          var res:String = n.toString(16);
          while (res.length < len) {
@@ -249,7 +249,7 @@ package com.broceliand.util.logging
          }
          return res;
       }
-
+      
       public static function dumpTeamRequest(teamRequest : TeamRequest) : void {
          debug("Dumping teamRequest...");
          debug("             requestId: "   + teamRequest.requestId);
@@ -270,7 +270,7 @@ package com.broceliand.util.logging
          debug("         lastErrorCode: "   + ErrorConstName(teamRequest.lastErrorCode));
          debug("            notifState: "   + NotifStateName(teamRequest.notifState));
       }
-
+      
       public static function dumpByteArray(input:flash.utils.ByteArray) : String {
          if (input == null) return "";
          var res:String = "0x";
@@ -287,7 +287,7 @@ package com.broceliand.util.logging
          input.position = savePos;
          return res;
       }
-
+      
       public static function ErrorConstName(t: int): String {
          switch(t) {
             case ErrorConst.INTERNAL_ERROR:                            return "INTERNAL_ERROR";
@@ -337,7 +337,7 @@ package com.broceliand.util.logging
          }
          
       }
-
+      
       public static function TeamRequestStateName(t: int): String {
          switch(t) {
             case TeamRequestState.NOT_SENT:       return "NOT_SENT";
@@ -351,7 +351,7 @@ package com.broceliand.util.logging
          }
          
       }
-
+      
       public static function TeamRequestTypeName(t: int): String {
          switch(t) {
             case TeamRequestType.INVITATION:                 return "INVITATION";
@@ -362,7 +362,7 @@ package com.broceliand.util.logging
          }
          
       }
-
+      
       
       public static function NotifStateName(t: int): String {
          switch (t) {
@@ -372,7 +372,7 @@ package com.broceliand.util.logging
          }
          
       }
-
+      
       public static function NotifBoolName(t: Boolean): String {
          switch (t) {
             case true:  return "TRUE";
@@ -380,7 +380,7 @@ package com.broceliand.util.logging
             default:    return "???";
          }
       }
-
+      
       public static function NotifClickName(t: Boolean): String {
          switch (t) {
             case true: return "CLICKED";
@@ -390,7 +390,7 @@ package com.broceliand.util.logging
          return "NotifClickName: Unknown type " + t;
          
       }
-
+      
       
       public static function NotifPublicTypeName(t: int): String {
          switch (t) {
@@ -414,7 +414,7 @@ package com.broceliand.util.logging
          }
          
       }
-
+      
       
       public static function NotifTypeName(t: int): String {
          switch(t) {
@@ -455,12 +455,12 @@ package com.broceliand.util.logging
             case NotifType.NOTE_CROSS:                     return "NOTE_CROSS";                      
             case NotifType.IMPORT_DONE:                    return "IMPORT_DONE";                     
             case NotifType.PREMIUM_MESSAGE:                return "PREMIUM_MESSAGE";                 
-            
+               
          }
          return "NotifTypeName: Unknown type " + t;
          
       }
-
+      
       public static function PWModelConstName(t : uint) : String {
          switch(t) {
             case PWModel.NO_PANEL:                    return "NO_PANEL";
@@ -470,8 +470,8 @@ package com.broceliand.util.logging
             case PWModel.NOTE_PANEL:                  return "NOTE_PANEL";
             case PWModel.SHARE_PANEL:                 return "SHARE_PANEL";
             case PWModel.HELP_EMPTY_PANEL:            return "HELP_EMPTY_PANEL";
-            
-            
+               
+               
             case PWModel.MOVE_PANEL:                  return "MOVE_PANEL";
             case PWModel.MOVE_PRIVATE_PANEL:          return "MOVE_PRIVATE_PANEL";
             case PWModel.COPY_PANEL:                  return "COPY_PANEL";
@@ -493,13 +493,13 @@ package com.broceliand.util.logging
             case PWModel.SEND_PRIVATE_MSG_PANEL:      return "SEND_PRIVATE_MSG_PANEL";
             case PWModel.TEAM_FREEZE_MEMBER_PANEL:    return "TEAM_FREEZE_MEMBER_PANEL";
             case PWModel.TEAM_NOTIFICATION_PANEL:     return "TEAM_NOTIFICATION_PANEL";
-            /*case PWModel.MAKE_PRIVATE_PANEL:          return "MAKE_PRIVATE_PANEL";
-            case PWModel.MOVE_PUBLIC_PANEL:           return "MOVE_PUBLIC_PANEL";*/
+               /*case PWModel.MAKE_PRIVATE_PANEL:          return "MAKE_PRIVATE_PANEL";
+               case PWModel.MOVE_PUBLIC_PANEL:           return "MOVE_PUBLIC_PANEL";*/
          }
          return "PWModelConstName: Unknown type " + t;
          
       }
-
+      
       public static function WindowControllerConstName(t : uint) : String {
          switch(t) {
             case WindowController.NO_WINDOW:                return "NO_WINDOW";
@@ -515,21 +515,21 @@ package com.broceliand.util.logging
             case WindowController.UPDATE_ADDON_WINDOW:      return "UPDATE_ADDON_WINDOW";
             case WindowController.STARTUP_MESSAGE_WINDOW:   return "STARTUP_MESSAGE_WINDOW";
             case WindowController.SEARCH_MODE_PANEL_WINDOW: return "SEARCH_MODE_PANEL_WINDOW";
-            
+               
             case WindowController.NOVELTY_FEED_WINDOW:      return "NOVELTY_FEED_WINDOW";
             case WindowController.INFO_PANEL_WINDOW:        return "INFO_PANEL_WINDOW";
             case WindowController.DELETION_RECOVERY_WINDOW: return "DELETION_RECOVERY_WINDOW";
             case WindowController.EVENT_PROMO_WINDOW:       return "EVENT_PROMO_WINDOW";
             case WindowController.CLEAR_DROPZONE_WINDOW:    return "CLEAR_DROPZONE_WINDOW";
-            
-            
-            
+               
+               
+               
             case WindowController.BIG_ACTION_WINDOW:    return "BIG_ACTION_WINDOW";
          }
          return "WindowControllerConstName: Unknown type " + t;
          
       }
-
+      
       
       public static function hashToString(o:Object) : String {
          var res      : String = "";

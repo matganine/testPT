@@ -24,6 +24,6 @@ package com.broceliand.ui.highlight
       public static const PEARL_URL_PEARL_FRIEND_DROP_ZONE:String = "pearlUrlPearlFriendDropZone";
       public static const PEARLS_AND_EDGES:String = "pearlsAndEdges";
       public static const EDIT:String = "edit";
-    
+      
    }
 }

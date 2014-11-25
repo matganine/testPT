@@ -7,9 +7,9 @@ package com.broceliand.ui.interactors.drag
    {
       
       protected var _pearlRendererStateManager:PearlRendererStateManager= null;
-
+      
       private var _excitedPearl:IUIPearl;
-   
+      
       public function ExcitePearlManager(pearlRendererStateManager:PearlRendererStateManager) {
          _pearlRendererStateManager = pearlRendererStateManager;
       }
@@ -19,7 +19,7 @@ package com.broceliand.ui.interactors.drag
          }
          _excitedPearl = pearl;
          _pearlRendererStateManager.excitePearlRenderer(pearl, false, showButtons);
-      
+         
       }
       internal function relaxPearl(pearl:IUIPearl):void {
          if (_excitedPearl == pearl) {

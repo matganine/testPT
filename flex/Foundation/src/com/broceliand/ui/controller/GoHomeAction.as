@@ -34,7 +34,7 @@ package com.broceliand.ui.controller {
          }
          var help:IContextualHelp = am.components.getContextualHelp(false);
          /*if (help) {
-            help.hide();
+         help.hide();
          }*/
          if (_navigationModel.getSelectedUser() != currentUser) {
             var userTree:BroPearlTree = am.pearlTreeLoader.getTreeInAssociationHierarchy(currentUser.userWorld.treeId, currentUser.userWorld.treeId);
@@ -47,7 +47,7 @@ package com.broceliand.ui.controller {
          _navigationModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, centerAndCloseUserTreeAfterNavEvent);
          _navigationModel.goToUser(currentUser, PWModel.CONTENT_PANEL);
          _navigationModel.getNavigationHistoryModel().clearHistory();
-
+         
       }
       
       private function closeSubTreeModel(userTree:BroPearlTree):void  {
@@ -58,8 +58,8 @@ package com.broceliand.ui.controller {
                openTreeModel.closeTree(t.dbId, t.id);
             }
          }
-       }
-       
+      }
+      
       private function centerAndCloseUserTreeAfterNavEvent(event:NavigationEvent):void{
          if(event) {
             _navigationModel.removeEventListener(NavigationEvent.NAVIGATION_EVENT, centerAndCloseUserTreeAfterNavEvent);
@@ -72,7 +72,7 @@ package com.broceliand.ui.controller {
             centerAndCloseUserTreeAfterAnimationEnds();
          }
       }
-
+      
       private function centerAndCloseUserTreeAfterAnimationEnds(event:Event=null):void{
          var am:ApplicationManager = ApplicationManager.getInstance();
          if (event) {
@@ -86,7 +86,7 @@ package com.broceliand.ui.controller {
             centerFocusTree();
          }
       }
-        
+      
       private function centerFocusTree(event:Event=null):void {
          var am:ApplicationManager = ApplicationManager.getInstance();
          

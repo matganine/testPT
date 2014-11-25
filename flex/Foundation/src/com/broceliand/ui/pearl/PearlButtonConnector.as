@@ -12,13 +12,13 @@ package com.broceliand.ui.pearl
    {
       protected var _xOffset:int;
       protected var _yOffset:int;      
-           
+      
       public function PearlButtonConnector(pearl:UIPearl, button:PearlButton, xOffset:int, yOffset:int) {
          super(pearl, button);
          _xOffset = xOffset;
          _yOffset = yOffset;
       }
-
+      
       override protected function makeMask():void {
          if(!_mask) {
             
@@ -52,4 +52,3 @@ package com.broceliand.ui.pearl
       }
    }
 }
- 

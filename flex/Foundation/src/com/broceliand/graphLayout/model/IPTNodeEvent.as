@@ -3,7 +3,7 @@ package com.broceliand.graphLayout.model
    import com.broceliand.graphLayout.model.IPTNode;
    
    import flash.events.Event;
-
+   
    public class IPTNodeEvent extends Event
    {
       private var _node:IPTNode;

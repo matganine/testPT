@@ -5,9 +5,9 @@ package com.broceliand.pearlTree.model
    public class BroNeighbourRootPearl extends BroPTRootNode
    {
       
-		private var _delegateNode:BroPTNode;
+      private var _delegateNode:BroPTNode;
       
-
+      
       public function BroNeighbourRootPearl(node:BroPTNode)
       {
          _delegateNode = node;
@@ -20,7 +20,7 @@ package com.broceliand.pearlTree.model
       {
          return _delegateNode;
       }
-     
+      
       override public function get neighbourCount():Number {
          if (delegateNode is BroDistantTreeRefNode) {
             return BroDistantTreeRefNode(delegateNode).refTree.rootPearlNeighbourCount;
@@ -38,6 +38,6 @@ package com.broceliand.pearlTree.model
       override public function isAssociationHierarchyRoot():Boolean {
          return false;
       }
-       
+      
    }
 }

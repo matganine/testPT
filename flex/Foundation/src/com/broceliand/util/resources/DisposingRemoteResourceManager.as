@@ -26,26 +26,26 @@ package com.broceliand.util.resources
       }
       
       private function getUrlsToFlush(numElementsToFind:int):Array{
-        var ret:Array = new Array();
-        for(var i:uint = 0; i < numElementsToFind;i++){
-           var urlToFlush:String = null;
-           for(var candidateUrl:String  in _url2LastUseDate){
-              if(ret.indexOf(candidateUrl) > -1){
-                 
-                 continue;
-              }
-              if(urlToFlush == null){
-                 urlToFlush = candidateUrl; 
-              }else{
-                 if(_url2LastUseDate[candidateUrl] < _url2LastUseDate[urlToFlush]){
-                    urlToFlush = candidateUrl;
-                 } 
-              }
-           
-           }
-           ret.push(urlToFlush);
-        }
-        return ret;
+         var ret:Array = new Array();
+         for(var i:uint = 0; i < numElementsToFind;i++){
+            var urlToFlush:String = null;
+            for(var candidateUrl:String  in _url2LastUseDate){
+               if(ret.indexOf(candidateUrl) > -1){
+                  
+                  continue;
+               }
+               if(urlToFlush == null){
+                  urlToFlush = candidateUrl; 
+               }else{
+                  if(_url2LastUseDate[candidateUrl] < _url2LastUseDate[urlToFlush]){
+                     urlToFlush = candidateUrl;
+                  } 
+               }
+               
+            }
+            ret.push(urlToFlush);
+         }
+         return ret;
       }
       
       private function processResources():void{
@@ -69,8 +69,8 @@ package com.broceliand.util.resources
          if(_numElements >= _maxNumElements){
             ApplicationManager.flexApplication.callLater(processResources);
          }
-            
+         
       }  
-
+      
    }
 }

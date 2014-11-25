@@ -23,7 +23,7 @@ package com.broceliand.ui
    import com.broceliand.ui.window.WindowController;
    import com.broceliand.ui.window.ui.signUpBanner.SignUpBanner;
    
-      
+   
    public class ComponentsAccessPoint
    {
       private var _pearlTreePlayer:IPearlTreePlayer;
@@ -50,22 +50,22 @@ package com.broceliand.ui
          _settings = new SettingsModuleLoader();
          _infotipManager = new PTInfotipManager;
       }
-		
-		public function get windowController():IWindowController {
-		   return _windowController;
-		}
-
-   	public function get pearlTreePlayer():IPearlTreePlayer {
-			return _pearlTreePlayer;
-		}
+      
+      public function get windowController():IWindowController {
+         return _windowController;
+      }
+      
+      public function get pearlTreePlayer():IPearlTreePlayer {
+         return _pearlTreePlayer;
+      }
       
       public function get screenLine():IScreenLine {
          return _screenLine;
       } 
-
-		public function get pearlTreeViewer():IPearlTreeViewer {
-			return _pearlTreeViewer;
-		}
+      
+      public function get pearlTreeViewer():IPearlTreeViewer {
+         return _pearlTreeViewer;
+      }
       
       public function get settings():ISettings {
          return _settings;
@@ -77,7 +77,7 @@ package com.broceliand.ui
          }
          return _contextualHelp;
       }
-
+      
       public function set mainPanel(mainPanel:MainPanel):void {
          _mainPanel = mainPanel;
       }      
@@ -96,7 +96,7 @@ package com.broceliand.ui
       public function get topPanel():TopPanel {
          return _topPanel;
       }
-
+      
       public function set pearlbarInfo(value:IPearlbarInfo):void {
          _pearlbarInfo = value;
       }
@@ -104,7 +104,7 @@ package com.broceliand.ui
       public function get pearlbarInfo():IPearlbarInfo {
          return _pearlbarInfo;
       }
-     
+      
       public function get footer():IFooter {
          return _pearlTreeViewer.vgraph.controls.footer;
       }

@@ -32,7 +32,7 @@ package com.broceliand.ui.interactors.drag
    import mx.effects.Parallel;
    import mx.events.EffectEvent;
    
-
+   
    public class InteractiveTreeOpener {
       private var _nodeToOpen:IPTNode =null;
       private var _openingTreeNode:PTRootNode =null;
@@ -73,7 +73,7 @@ package com.broceliand.ui.interactors.drag
          _treeLoader.reset();
       }
       
-       
+      
       public function openAvailableTreeNow(tree:BroPearlTree):void {
          _arePearlsHidden = false;
          clearShowBusyCursorTimeout();
@@ -89,7 +89,7 @@ package com.broceliand.ui.interactors.drag
          }
          
          ApplicationManager.getInstance().visualModel.selectionModel.highlightTree(null);
-        
+         
          
          if (_nodeToOpen.vnode && _nodeToOpen.vnode.vgraph.currentRootVNode == _nodeToOpen.vnode) {
             var ftree:BroPearlTree = (_nodeToOpen as PTRootNode).containedPearlTreeModel.businessTree;
@@ -97,18 +97,18 @@ package com.broceliand.ui.interactors.drag
             navModel.goTo(nextFocusTree.getAssociationId(), userId, nextFocusTree.id, nextFocusTree.id, -2);
             return;
          }
-
-
-
-
-
+         
+         
+         
+         
+         
          ApplicationManager.getInstance().visualModel.navigationModel.goTo(tree.getAssociationId(), userId, tree.id, tree.id, -2);  
-            
-
+         
+         
          ApplicationManager.getInstance().visualModel.selectionModel.openingTree = tree;
          _openingTreeNode = _nodeToOpen as PTRootNode;
          _currentTreeOpenerRequestor.onOpeningTree(_openingTreeNode);
-
+         
       }
       public function onDelayHappenWithTreeNotLoaded(tree:BroPearlTree):void {
          if (!_currentTreeOpenerRequestor.isOpeningTreeNeeded(_nodeToOpen)) {
@@ -142,7 +142,7 @@ package com.broceliand.ui.interactors.drag
          par.addEventListener(EffectEvent.EFFECT_END, onEndEffectAction.performActionOnFirstEvent);
          garp.postActionRequest(playAction);
       }
- 
+      
       private function clearShowBusyCursorTimeout():void {
          if (_showBusyCursorTimeOut>0) {
             clearTimeout(_showBusyCursorTimeOut);
@@ -159,7 +159,7 @@ package com.broceliand.ui.interactors.drag
          }
          
       }      
-
+      
       private function setHasBusyCursor(value:Boolean):void
       {
          if (value != _hasBusyCursor) {
@@ -167,7 +167,7 @@ package com.broceliand.ui.interactors.drag
             _hasBusyCursor = value;
          }
       }
-
+      
    }
 }
 import com.broceliand.ApplicationManager;
@@ -184,72 +184,72 @@ import flash.utils.Timer;
 
 
 internal class LoadedTreeProviderWithDelay implements IPearlTreeLoaderCallback {
-      private var _treeToOpen:BroPearlTree;
-      private var _timer:Timer;
-      private var _timeOut:Boolean = false;
-      private var _interactor:InteractiveTreeOpener;
-      public function LoadedTreeProviderWithDelay(interactor:InteractiveTreeOpener) {
-         _interactor = interactor;
-         _timer =new Timer(500,1);
-         _timer.addEventListener(TimerEvent.TIMER, onDelayHappen);
-         
-      }
+   private var _treeToOpen:BroPearlTree;
+   private var _timer:Timer;
+   private var _timeOut:Boolean = false;
+   private var _interactor:InteractiveTreeOpener;
+   public function LoadedTreeProviderWithDelay(interactor:InteractiveTreeOpener) {
+      _interactor = interactor;
+      _timer =new Timer(500,1);
+      _timer.addEventListener(TimerEvent.TIMER, onDelayHappen);
       
-      public function provideLoadedTreeWithDelay(tree:BroPearlTree, delay:int):void {
-         reset();
-          _treeToOpen = tree;
-         if (delay>10) {
-            _timer.delay = delay;
-            _timer.start();   
-         } else {
-            _timeOut = true;
-         }
-         if (!tree.pearlsLoaded) {
-            ApplicationManager.getInstance().pearlTreeLoader.loadTree(tree.getMyAssociation().associationId, tree.id, this, false);
-         } else {
-            updateState();
-         }
-         
-      } 
-         
-      
-      public function onTreeLoaded(tree:BroPearlTree):void {
-         if (tree!= _treeToOpen) {
-            return;
-         } else {
-            updateState();
-         }
-         
-         
-      }
-      public function onErrorLoadingTree(error:Object):void {
-         trace("Error Loading tree " +error);
-      }
-      
-      private function onDelayHappen(event:Event):void{
+   }
+   
+   public function provideLoadedTreeWithDelay(tree:BroPearlTree, delay:int):void {
+      reset();
+      _treeToOpen = tree;
+      if (delay>10) {
+         _timer.delay = delay;
+         _timer.start();   
+      } else {
          _timeOut = true;
+      }
+      if (!tree.pearlsLoaded) {
+         ApplicationManager.getInstance().pearlTreeLoader.loadTree(tree.getMyAssociation().associationId, tree.id, this, false);
+      } else {
          updateState();
       }
       
-      private function updateState():void {
-         if (_timeOut && _treeToOpen) {
-            if (_treeToOpen.pearlsLoaded) {
+   } 
+   
+   
+   public function onTreeLoaded(tree:BroPearlTree):void {
+      if (tree!= _treeToOpen) {
+         return;
+      } else {
+         updateState();
+      }
+      
+      
+   }
+   public function onErrorLoadingTree(error:Object):void {
+      trace("Error Loading tree " +error);
+   }
+   
+   private function onDelayHappen(event:Event):void{
+      _timeOut = true;
+      updateState();
+   }
+   
+   private function updateState():void {
+      if (_timeOut && _treeToOpen) {
+         if (_treeToOpen.pearlsLoaded) {
             _interactor.openAvailableTreeNow(_treeToOpen);
             reset();
-            } else {
-               _interactor.onDelayHappenWithTreeNotLoaded(_treeToOpen);
-                  
-            }
+         } else {
+            _interactor.onDelayHappenWithTreeNotLoaded(_treeToOpen);
+            
          }
       }
-      
-      public function reset():void {
-         _timer.stop();
-         _timer.reset();
-         _treeToOpen = null;
-         _timeOut = false;
-      }
-      
-      
+   }
+   
+   public function reset():void {
+      _timer.stop();
+      _timer.reset();
+      _treeToOpen = null;
+      _timeOut = false;
+   }
+   
+   
 }
 

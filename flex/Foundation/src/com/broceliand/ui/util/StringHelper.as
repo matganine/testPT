@@ -8,7 +8,7 @@ package com.broceliand.ui.util
    import mx.controls.Text;
    import mx.core.UIComponent;
    
-	public class StringHelper {
+   public class StringHelper {
       public static var latinRange:intRange;
       public static var currencyRange:intRange;
       
@@ -17,34 +17,34 @@ package com.broceliand.ui.util
       }
       
       public static function replace(str:String, oldSubStr:String, newSubStr:String):String {
-          return str.split(oldSubStr).join(newSubStr);
+         return str.split(oldSubStr).join(newSubStr);
       }
       
       public static function trim(str:String, char:String):String {
-          return trimBack(trimFront(str, char), char);
+         return trimBack(trimFront(str, char), char);
       }
       
       public static function trimFront(str:String, char:String):String {
-          char = stringToCharacter(char);
-          if (str.charAt(0) == char) {
-              str = trimFront(str.substring(1), char);
-          }
-          return str;
+         char = stringToCharacter(char);
+         if (str.charAt(0) == char) {
+            str = trimFront(str.substring(1), char);
+         }
+         return str;
       }
       
       public static function trimBack(str:String, char:String):String {
-          char = stringToCharacter(char);
-          if (str.charAt(str.length - 1) == char) {
-              str = trimBack(str.substring(0, str.length - 1), char);
-          }
-          return str;
+         char = stringToCharacter(char);
+         if (str.charAt(str.length - 1) == char) {
+            str = trimBack(str.substring(0, str.length - 1), char);
+         }
+         return str;
       }
       
       public static function stringToCharacter(str:String):String {
-          if (str.length == 1) {
-              return str;
-          }
-          return str.slice(0, 1);
+         if (str.length == 1) {
+            return str;
+         }
+         return str.slice(0, 1);
       }
       
       public static function updateTextHeightBasedOnMaxedWidth(text:Text):void{
@@ -75,11 +75,11 @@ package com.broceliand.ui.util
          }
          return stringToParse.length;         
       }
-
+      
       public static function uintToHex(value:uint):String {
-          var prefix:String = "000000";
-          var str:String = String(prefix + value.toString(16));
-          return str.substr(-6).toUpperCase();
+         var prefix:String = "000000";
+         var str:String = String(prefix + value.toString(16));
+         return str.substr(-6).toUpperCase();
       }
       public static function getDomainFromUrl(value:String):String {
          
@@ -110,28 +110,28 @@ package com.broceliand.ui.util
          }
          return domainUrl;            
       }
-
-	    
-		public static function htmlEscape(str:String):String {
-		    return XML( new XMLNode( XMLNodeType.TEXT_NODE, str ) ).toXMLString().replace(/"/g,'&#34;');
-		}	    
+      
+      
+      public static function htmlEscape(str:String):String {
+         return XML( new XMLNode( XMLNodeType.TEXT_NODE, str ) ).toXMLString().replace(/"/g,'&#34;');
+      }	    
       public static function arrayToString(a:Array, maxDepth:int=0):String {
          if (!a) {
             return null;
          }
-          var s:String = "[";
-          for (var i:int =0; i < a.length; i++) {
-             if (maxDepth>0 && a[i] is Array) {
+         var s:String = "[";
+         for (var i:int =0; i < a.length; i++) {
+            if (maxDepth>0 && a[i] is Array) {
                s+= arrayToString(a[i] as Array, maxDepth-1);  
-             }  else {
+            }  else {
                s += a[i].toString();
-             }
-             if (i<a.length -1) {
-                s+=", ";
-             }
-          }
-          s+="]";
-          return s;
+            }
+            if (i<a.length -1) {
+               s+=", ";
+            }
+         }
+         s+="]";
+         return s;
       }
       
       public static function cutLineAfterFirstWord(str:String):String {
@@ -165,7 +165,7 @@ package com.broceliand.ui.util
          }
          return true;
       }
-	}
+   }
 }
 
 internal class intRange {

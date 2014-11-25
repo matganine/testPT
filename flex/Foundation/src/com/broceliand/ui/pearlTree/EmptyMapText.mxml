@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PearlComponentAddOn xmlns="com.broceliand.ui.pearlTree.*" xmlns:mx="http://www.adobe.com/2006/mxml"  
-	height="40" horizontalScrollPolicy="off" x="900" y ="212" xmlns:text="flash.text.*" verticalScrollPolicy="off">
+                     height="40" horizontalScrollPolicy="off" x="900" y ="212" xmlns:text="flash.text.*" verticalScrollPolicy="off">
    
    <mx:Label id="label1" text="{line1}" selectable="false" color="#000000" fontSize="10"  fontWeight="bold" textAlign="center" width="50" />
    <mx:Label id="label2" selectable="false" text="{line2}" color="#000000" fontSize="10"  fontWeight="bold" y="12" textAlign="center"  width="50"/>
@@ -30,20 +30,20 @@
          
          import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
          import org.un.cava.birdeye.ravis.utils.events.VNodeMouseEvent;
-       
+         
          private var _stage:EventDispatcher;
          private var _lastEdgeData:EdgeData;
          private var _disappearOnNextAction:Boolean = false;
          private var _ignoreNextNavigationEvent:Boolean;
-      
-
-       
+         
+         
+         
          private var _showPrivateTree:Boolean = false;
          [Bindable]
          private var line1:String;
          [Bindable]
          private var line2:String;
-       
+         
          override protected function resourcesChanged():void{
             if (!_showPrivateTree) {
                if (BroLocale.languageIsFrench()) {
@@ -63,7 +63,7 @@
                }
             }
          }
-       
+         
          private function disappearOnNextAction():void {
             if (!_disappearOnNextAction) {
                _disappearOnNextAction = true;
@@ -77,10 +77,10 @@
          }
          override protected function createChildren():void {
             super.createChildren();
-
-
-
-        }
+            
+            
+            
+         }
          
          private function hideOnEvent(event:Event):void {
             if (_ignoreNextNavigationEvent) {
@@ -108,7 +108,7 @@
                }
                ApplicationManager.getInstance().visualModel.navigationModel.removeEventListener(NavigationEvent.NAVIGATION_EVENT,hideOnEvent);
             }
-
+            
          }
          
          public function hide():void {
@@ -139,7 +139,7 @@
             }
             isPrivateTree = false;
          }
-
+         
          override  protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
             if (node && node.getBusinessNode().owner== ApplicationManager.getInstance().visualModel.navigationModel.getFocusedTree()) {
                return null;
@@ -199,11 +199,11 @@
                resourcesChanged();
             }
          }
-        public function set ignoreNextNavigationEvent (value:Boolean):void
+         public function set ignoreNextNavigationEvent (value:Boolean):void
          {
             _ignoreNextNavigationEvent = value;
          }
-   
+         
          public function get ignoreNextNavigationEvent ():Boolean
          {
             return _ignoreNextNavigationEvent;
@@ -220,7 +220,7 @@
             }
             super.updateScale();
          }
-               
+         
          
       ]]>
    </mx:Script>

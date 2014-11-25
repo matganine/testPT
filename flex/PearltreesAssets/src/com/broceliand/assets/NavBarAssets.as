@@ -2,7 +2,7 @@ package com.broceliand.assets
 {
    public class NavBarAssets
    {  
-    
+      
       
       [Embed(source="/assets/navbar/logoAnonymous.png")]
       public static const LOGO_ANONYMOUS:Class;
@@ -14,7 +14,7 @@ package com.broceliand.assets
       
       [Embed(source="/assets/navbar/logoWithoutPearltrees.png")]
       public static const LOGO_WITHOUT_PEARLTREES:Class;
-
+      
       
       [Embed(source="/assets/navbar/logoWithoutPearltreesHover.png")]
       public static const LOGO_WITHOUT_PEARLTREES_HOVER:Class;
@@ -51,7 +51,7 @@ package com.broceliand.assets
       
       [Embed(source="/assets/navbar/buttonDiscoverCyanHover.png")]
       public static const ITEM_DISCOVER_CYAN_HOVER:Class;
-
+      
       
       [Embed(source="/assets/navbar/buttonHomeHover.png", 
                 scaleGridTop='22', scaleGridBottom='23', 
@@ -94,7 +94,7 @@ package com.broceliand.assets
       
       [Embed(source="/assets/navbar/settingsHover.png")]
       public static const SETTINGS_OVER:Class;
-
+      
       
       [Embed(source="/assets/navbar/help.png")]
       public static const HELP:Class;        
@@ -107,7 +107,7 @@ package com.broceliand.assets
       
       [Embed(source="/assets/navbar/buttonSearchResultCyanHover.png")]
       public static const SEARCH_HOVER:Class;     
-
+      
       [Embed(source="/assets/navbar/searchIcon.png")]
       public static const SEARCH_ICON:Class;
       

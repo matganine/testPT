@@ -22,15 +22,15 @@ package com.broceliand.ui.pearlTree
    import flash.geom.Point;
    
    import mx.core.UIComponent;
-  
+   
    public class CloseButton extends PearlButton
    {
       private static const BUTTON_WIDTH:Number = 33;
       private static const OVER_WIDTH:Number = 33;
-
+      
       public static const X_OFFSET:int= - GeometricalConstants.PEARL_BUTTON_X;
       public static const Y_OFFSET:int= - GeometricalConstants.PEARL_BUTTON_Y;
-
+      
       public function CloseButton()
       {
          super();
@@ -40,17 +40,17 @@ package com.broceliand.ui.pearlTree
       
       override protected function makeExcitableImage():ExcitableImage {
          var image:ExcitableImage = new ExcitableImage(AssetsManager.getEmbededAsset(PearlAssets.CLOSE_BUTTON), 
-                                                       AssetsManager.getEmbededAsset(PearlAssets.CLOSE_BUTTON_OVER));
-
+            AssetsManager.getEmbededAsset(PearlAssets.CLOSE_BUTTON_OVER));
+         
          image.x = OVER_WIDTH - BUTTON_WIDTH;
          image.y = (OVER_WIDTH - BUTTON_WIDTH)/2; 
          image.width = BUTTON_WIDTH;
          image.height = BUTTON_WIDTH;
          return image;
-             
+         
       }
       
-         
+      
       override  protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          var rootNode:PTRootNode = node as PTRootNode;
          if (rootNode) {
@@ -88,7 +88,7 @@ package com.broceliand.ui.pearlTree
          }
          return null;
       }
-
+      
       override protected function updateTargetComponentPosition(point:Point):void{
          point.x = Math.floor(_bindedComponent.x)+ scaleX * (GeometricalConstants.PEARL_X - X_OFFSET) ;
          point.y = Math.floor(_bindedComponent.y)+ scaleY * (GeometricalConstants.PEARL_Y - Y_OFFSET) ;

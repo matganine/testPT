@@ -28,7 +28,7 @@ package com.broceliand.ui.pearl
       
       private var _closeButtonConnector:PearlButtonConnector;
       private var _openTreeButtonConnector:PearlButtonConnector;
-     
+      
       private var _unfocusButton:UnfocusButton;
       private var _backFromAliasButton:BackFromAliasButton;
       private var _needToRecycleButtons:Boolean = false;
@@ -43,7 +43,7 @@ package com.broceliand.ui.pearl
             _openTreeButtonConnector = new PearlButtonConnector(this, new OpenTreeButton(), OpenTreeButton.X_OFFSET, OpenTreeButton.Y_OFFSET);
          }  
       }
-
+      
       
       public function set unfocusButton(value:UnfocusButton):void
       {
@@ -66,12 +66,12 @@ package com.broceliand.ui.pearl
          }
          _backFromAliasButton = value;
       }
-            
+      
       protected function hasCloseButton():Boolean {
          return true;
       }
       override protected function createChildren():void {
-            
+         
          if (hasCloseButton()) {
             _closeButtonConnector.createChildren();
             _openTreeButtonConnector.createChildren();
@@ -81,7 +81,7 @@ package com.broceliand.ui.pearl
       
       override protected function commitProperties():void{
          super.commitProperties(); 
-
+         
          
          if(!node || !node.getBusinessNode()) {
             return;
@@ -106,62 +106,62 @@ package com.broceliand.ui.pearl
          if (hasCloseButton()) {
             var isDisappearing:Boolean = pearl && pearl.markAsDisappearing;
             if (_isFocusButton || isDisappearing) {
-              _closeButtonConnector.forceVisibilityValue(false);
-              _openTreeButtonConnector.forceVisibilityValue(false);
-              
+               _closeButtonConnector.forceVisibilityValue(false);
+               _openTreeButtonConnector.forceVisibilityValue(false);
+               
             }              
             else {
-                if (node && node.getBusinessNode() is BroPTRootNode) {
-                   if (_isSelectedTree) {
-                      
-                      if (ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.draggedPearl != this) {
+               if (node && node.getBusinessNode() is BroPTRootNode) {
+                  if (_isSelectedTree) {
+                     
+                     if (ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.draggedPearl != this) {
                         _closeButtonConnector.forceVisibilityValue(true);
-                      } else {
+                     } else {
                         _closeButtonConnector.updateButtonVisibility();
-                      }
-                   } else {
+                     }
+                  } else {
                      _closeButtonConnector.updateButtonVisibility();
-                   }                   
+                  }                   
                } else {
                   if (_closeButtonConnector != null){
                      _closeButtonConnector.forceVisibilityValue(false);
                   }
                }
                if ((_closeButtonConnector!= null && _closeButtonConnector.isButtonVisible()) || ApplicationManager.getInstance().currentUser.isAnonymous()) {
-                   _openTreeButtonConnector.forceVisibilityValue(false);
+                  _openTreeButtonConnector.forceVisibilityValue(false);
                } else {
                   _openTreeButtonConnector.updateButtonVisibility();
                }
-                   
-            
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
             }
          }
       }
-
-
+      
+      
       public function setButtonVisible(value:Boolean):void{
          if (hasCloseButton() && !_needToRecycleButtons) {
             _closeButtonConnector.setComponentAddOnTemporaryVisible(value);
             _openTreeButtonConnector.setComponentAddOnTemporaryVisible(value);
-               
+            
          }
          updateButtonsVisibility();
       }
-
+      
       public function exciteCloseButton():void {
          if (hasCloseButton()) {
             _closeButtonConnector.button.excite();
@@ -186,8 +186,8 @@ package com.broceliand.ui.pearl
       } 
       public function isPointOnButton(point:Point):Boolean {
          return (hasCloseButton() && _closeButtonConnector.isPointOnComponentAddOn(point));
-
-
+         
+         
       }
       
       override protected function get pearlDefaultWidth():Number {

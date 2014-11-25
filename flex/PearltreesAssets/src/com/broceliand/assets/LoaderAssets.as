@@ -1,7 +1,7 @@
 package com.broceliand.assets
 {
-	public class LoaderAssets
-	{
+   public class LoaderAssets
+   {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"loader/";
       
       
@@ -17,5 +17,5 @@ package com.broceliand.assets
       
       [Embed(source='/assets/loader/loaderGrey.png')]
       public static const LOADER_GREY:Class;     
-	}
+   }
 }

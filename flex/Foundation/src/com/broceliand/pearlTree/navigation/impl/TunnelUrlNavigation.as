@@ -15,22 +15,22 @@ package com.broceliand.pearlTree.navigation.impl
       
       public function TunnelUrlNavigation(tunelModel:TunnelNavigationModel)
       {
-
-
-     
+         
+         
+         
       }
       public function saveState():Object {
          return makeState();
       }
       public function makeState():Object {
-           var state:Object= new Object();
-           var panel:int = getTunnelModel().getPanelDisplayed();;
-           if (panel == TunnelNavigationModel.NOT_DISPLAY) {
-              return null;
-           }
-           state[STEP_FIELD] =panel;
-           return state; 
-           
+         var state:Object= new Object();
+         var panel:int = getTunnelModel().getPanelDisplayed();;
+         if (panel == TunnelNavigationModel.NOT_DISPLAY) {
+            return null;
+         }
+         state[STEP_FIELD] =panel;
+         return state; 
+         
       }
       
       public function loadState(state:Object):void {
@@ -47,9 +47,9 @@ package com.broceliand.pearlTree.navigation.impl
       } 
       
       public function onTunnelNavigate(e:Event):void {
-          UrlNavigationController.save();
+         UrlNavigationController.save();
          
       }
-
+      
    }
 }

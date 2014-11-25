@@ -64,8 +64,8 @@ package com.broceliand.util
                sec = 0;
             }
             return   (hr > 0 ? hr.toString() + "h " : "")
-                     + (min > 0 ? min.toString() + "m " : "") 
-                     + (sec > 0 ? sec.toString() +"s" : "");
+            + (min > 0 ? min.toString() + "m " : "") 
+               + (sec > 0 ? sec.toString() +"s" : "");
          }
       }
       
@@ -79,16 +79,16 @@ package com.broceliand.util
       public function hasRemainingTime():Boolean {
          return _lastStepTime > 0;
       }
-
+      
       public function get batchPosition():uint
       {
          return _batchPosition;
       }
-
+      
       public function set batchPosition(value:uint):void
       {
          _batchPosition = value;
       }
-
+      
    }
 }

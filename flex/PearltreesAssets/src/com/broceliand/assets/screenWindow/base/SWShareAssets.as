@@ -1,7 +1,7 @@
 package com.broceliand.assets.screenWindow.base
 {
-import com.broceliand.assets.AssetsServerPath;
-
+   import com.broceliand.assets.AssetsServerPath;
+   
    public class SWShareAssets 
    {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"pearlWindow/share/sw/";

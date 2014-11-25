@@ -7,14 +7,14 @@ package com.broceliand.ui.highlight.highlighters
    public class MultipleHighlighter extends HighlightableBase
    {
       private var _highlightCommands:Array; 
-
+      
       public function MultipleHighlighter(highlightCommand:String, highlightCommands:Array)
       {
          super(highlightCommand);
          ApplicationManager.getInstance().visualModel.highlightManager.registerHighlightableObject(highlightCommand, this);
          _highlightCommands = highlightCommands;
       }
-
+      
       override protected function highlightInternal():void
       {
          var highlightManager:HighlightManager = ApplicationManager.getInstance().visualModel.highlightManager;

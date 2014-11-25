@@ -2,6 +2,6 @@ package com.broceliand.util
 {
    public interface IUpdatable
    {
-       function update():void;
+      function update():void;
    }
 }

@@ -2,16 +2,16 @@ package com.broceliand.assets.screenWindow
 {
    public class SWAuthorInfoAssets
    {      
-
+      
       [Embed(source="/assets/screenWindow/authorInfo/since.png")]
       public static const SINCE:Class; 
       
       [Embed(source="/assets/screenWindow/authorInfo/bio.png")]
       public static const BIO:Class;
-
+      
       [Embed(source="/assets/screenWindow/authorInfo/location.png")]
       public static const LOCATION:Class; 
-
+      
       [Embed(source="/assets/screenWindow/authorInfo/name.png")]
       public static const NAME:Class;
       

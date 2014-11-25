@@ -17,11 +17,11 @@ package com.broceliand.pearlTree.navigation.impl
          if(!user) return null;
          var rootTree:BroTreeRefNode = user.userWorld;
          var url:String = getRootUrl() + 
-                          getFocusAssociationParam(user.getAssociation().associationId) + "&" +
-                          getUserParam(user.persistentDbId, user.persistentId) + "&" +
-                          getFocusParam(rootTree.treeDB, rootTree.treeId) + "&" +
-                          getSelectionParam(rootTree.treeDB, rootTree.treeId) + "&" +
-                          getPearlParam(user.rootPearlDb, user.rootPearlId);
+            getFocusAssociationParam(user.getAssociation().associationId) + "&" +
+            getUserParam(user.persistentDbId, user.persistentId) + "&" +
+            getFocusParam(rootTree.treeDB, rootTree.treeId) + "&" +
+            getSelectionParam(rootTree.treeDB, rootTree.treeId) + "&" +
+            getPearlParam(user.rootPearlDb, user.rootPearlId);
          if(pwTab != 0) url += "&"+getPearlwindowParam(pwTab);
          return url;
       }
@@ -41,11 +41,11 @@ package com.broceliand.pearlTree.navigation.impl
          var user:User = tree.getMyAssociation().preferredUser;
          
          var url:String = getRootUrl() + 
-                          getFocusAssociationParam(focusedTree.getMyAssociation().associationId) + "&" +
-                          getUserParam(user.persistentDbId, user.persistentId) + "&" +
-                          getFocusParam(focusedTree.dbId, focusedTree.id) + "&" +
-                          getSelectionParam(tree.dbId, tree.id) + "&" +
-                          getPearlParam(pearlDb, pearlId);
+            getFocusAssociationParam(focusedTree.getMyAssociation().associationId) + "&" +
+            getUserParam(user.persistentDbId, user.persistentId) + "&" +
+            getFocusParam(focusedTree.dbId, focusedTree.id) + "&" +
+            getSelectionParam(tree.dbId, tree.id) + "&" +
+            getPearlParam(pearlDb, pearlId);
          if(pwTab != 0) url += "&"+getPearlwindowParam(pwTab);
          if(addOverlayUrl && node is BroPageNode) {
             var playableUrl:String = PlayerUtils.getPlayableUrl(node as BroPageNode);
@@ -93,6 +93,6 @@ package com.broceliand.pearlTree.navigation.impl
          var paramValue:String = encodeURIComponent(url);
          return paramId + paramValue;
       }
-
+      
    }
 }

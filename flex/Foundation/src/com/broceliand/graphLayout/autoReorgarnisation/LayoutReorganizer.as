@@ -13,7 +13,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
       private var _maxDistance:Number;
       private var _maxFirstWeight:Number;
       private var _threshold:Number;
-		public static var DefaultDistance:Number = 375;
+      public static var DefaultDistance:Number = 375;
       public function LayoutReorganizer(maxDistanceBetweenPearls:Number =375)
       {
          maxDistanceBetweenPearls = DefaultDistance; 
@@ -22,7 +22,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          _maxFirstWeight = 2 * Math.PI * maxDistanceBetweenPearls / GeometricalConstants.MIN_NODE_SEPARATION;
          _threshold =  1 + 2 *Math.sqrt(_maxDistance * _maxDistance - GeometricalConstants.LINK_LENGTH *GeometricalConstants.LINK_LENGTH) /GeometricalConstants.MIN_NODE_SEPARATION;
          
-
+         
       }  
       
       
@@ -34,7 +34,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
             endNodeCount= 1 /depth;
          } else {
             for (var i:int=0; i<childCount ; i++) {
-              endNodeCount +=  computeNodeWeights(tree, tree.getChildAt(node, i), result, depth +1);
+               endNodeCount +=  computeNodeWeights(tree, tree.getChildAt(node, i), result, depth +1);
             }
          }
          if (depth >0 ) {
@@ -47,17 +47,17 @@ package com.broceliand.graphLayout.autoReorgarnisation
       public function checkCurrentLayout(tree:ITree):Boolean{
          return false;
          /*if (tree.isDropZone()) {
-            return false;
+         return false;
          }
          var maxLoopCount:int = 10;
          while (checkCurrentLayoutAtLevel(tree,0) && maxLoopCount >0) {
-            maxLoopCount--;
+         maxLoopCount--;
          };
          return maxLoopCount !=  10;  */
       }
       
       public function checkCurrentLayoutAtLevel(tree:ITree, startDepth:int =0, startReorganzingDepth:int=-1):Boolean{
-
+         
          var weights:Dictionary = new Dictionary();
          var rootNode:Object = tree.rootNode;
          var w0:Number = computeNodeWeights(tree, rootNode, weights, 0);
@@ -103,27 +103,27 @@ package com.broceliand.graphLayout.autoReorgarnisation
       }
       private function reorganizeChildren(tree:ITree, rootNode:Object, depth:int):void {
          var children:Array = new Array();
-            for (var i:int=0 ; i<tree.getChildNodeCount(rootNode); i++) {
-               children.push(tree.getChildAt(rootNode,i));
-            }
+         for (var i:int=0 ; i<tree.getChildNodeCount(rootNode); i++) {
+            children.push(tree.getChildAt(rootNode,i));
+         }
+         
+         
+         for (var j:int = depth==0 ? 1 : 0; j<children.length-1;j ++){
             
             
-            for (var j:int = depth==0 ? 1 : 0; j<children.length-1;j ++){
-               
-               
-               
-               var endNode:Object = children[j];
-               var childCount:int;
-               while ((childCount= tree.getChildNodeCount(endNode))>0) {
-                  endNode = tree.getChildAt(endNode, childCount-1);
-               }
-
-               moveNode(tree, children[j+1] ,endNode)
-               j++;
+            
+            var endNode:Object = children[j];
+            var childCount:int;
+            while ((childCount= tree.getChildNodeCount(endNode))>0) {
+               endNode = tree.getChildAt(endNode, childCount-1);
             }
+            
+            moveNode(tree, children[j+1] ,endNode)
+            j++;
+         }
       }
       private function moveNode(tree:ITree, moveNode:Object, newParent:Object):void {
-          tree.moveNode(moveNode, newParent);
+         tree.moveNode(moveNode, newParent);
       }
       private function isNodeTooBig(tree:ITree, node:Object, depth:int, w0:Number, weight:Number, startReorganzingDepth:int):Boolean {
          var firstTry:Boolean = startReorganzingDepth == -1;
@@ -148,7 +148,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          var result:Array = null;
          while (nodeByLevel.length>0) {
             var n:Object = nodeByLevel.shift();
-
+            
             if (isNodeTooBig(tree, n, depth, w0, weights[n], startReorganzingDepth)) {
                result = BroUtilFunction.addToArray(result,n);
             }
@@ -161,44 +161,44 @@ package com.broceliand.graphLayout.autoReorgarnisation
          return result;
       }
       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
    }
 }

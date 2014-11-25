@@ -9,13 +9,13 @@ package com.broceliand.util.error
    
    public class DefaultErrorReporter implements IErrorReporter {
       
-		private var _hasBlockerError:Boolean =false;
-
+      private var _hasBlockerError:Boolean =false;
+      
       public function DefaultErrorReporter() {
          
-
-
-
+         
+         
+         
       }
       
       public function onError(errorType:int, ...context):void {
@@ -52,7 +52,7 @@ package com.broceliand.util.error
             wc.openErrorWindow(ErrorWindowModel.ERROR_EXPLICIT_MESSAGE, false, msg);   
          }
       }      
-
+      
       public function onWarning(errorType:int, ...context):void {
          var msg:String = makeMessage(errorType, context); 
          trace("warning :"+msg);        
@@ -72,25 +72,25 @@ package com.broceliand.util.error
             if (errorType == ErrorConst.ERROR_LOADING_UNKNOWN_TREE) {
                msg = BroLocale.getText("pw.panel.error.wrongURL.title");
             } else {
-                
+               
                for each (var i:Object in context){
                   if (i!=null) 
                      msg += i+"\n";
                }
             }
             return msg;
-        }
-     }
-     public function set hasBlockerError(value:Boolean):void
+         }
+      }
+      public function set hasBlockerError(value:Boolean):void
       {
          _hasBlockerError = value;
       }
-
+      
       public function get hasBlockerError ():Boolean
       {
          return _hasBlockerError;
       }
-
-
+      
+      
    }
 }

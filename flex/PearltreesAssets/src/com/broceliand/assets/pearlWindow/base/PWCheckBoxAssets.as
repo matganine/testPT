@@ -1,8 +1,8 @@
 package com.broceliand.assets.pearlWindow.base
 {
-	public class PWCheckBoxAssets
-	{
-
+   public class PWCheckBoxAssets
+   {
+      
       
       [Embed(source='/assets/pearlWindow/base/checkbox/checkbox.png')]
       public static const CHECKBOX:Class;
@@ -48,6 +48,6 @@ package com.broceliand.assets.pearlWindow.base
       public static const RADIO_BUTTON_ON:Class;     
       [Embed(source='/assets/settings/button/radio/over.png')]
       public static const RADIO_BUTTON_OVER:Class;
-
-	}
+      
+   }
 }

@@ -15,7 +15,7 @@ package com.broceliand.ui.list
       protected var _shadowBottom:ListShadow;
       protected var _shadowTop:ListShadow;      
       protected var _verticalScrollBarCreated:Boolean;
-            
+      
       public function PTRepeater() {
          super();
          setStyle('borderSkin',null);
@@ -33,7 +33,7 @@ package com.broceliand.ui.list
             innerRepeater.percentWidth = value;
          }
       }
-
+      
       public function set dataProvider(value:Object):void {
          if(innerRepeater) {
             innerRepeater.dataProvider = value;
@@ -46,7 +46,7 @@ package com.broceliand.ui.list
          }
          return null;
       }
-
+      
       public function focusLastItem():void {
          verticalScrollPosition = 0;
       }
@@ -73,7 +73,7 @@ package com.broceliand.ui.list
                setStyle('verticalScrollBarStyleName',"scrollBarOnlyArrows");
             }else{
                setStyle('verticalScrollBarStyleName',"scrollBar");  
-			}
+            }
          }
       }      
       private function addListenerToVerticalScrollBar():void{
@@ -102,7 +102,7 @@ package com.broceliand.ui.list
             if(_shadowBottom) _shadowBottom.displayShadow = false;
          }
       }
-            
+      
       public function isVerticalScrollBarVisible():Boolean {
          return (verticalScrollBar && verticalScrollBar.visible);
       }

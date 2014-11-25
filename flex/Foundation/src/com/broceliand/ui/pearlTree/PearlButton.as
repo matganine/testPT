@@ -15,16 +15,16 @@ package com.broceliand.ui.pearlTree
       public function PearlButton(){}
       
       override protected function createChildren():void{
-        super.createChildren();
-        
-        if (!_focusImage) {
-           _focusImage= makeExcitableImage();
-           _focusImage.smoothBitmapContent = true;
-           addChild(_focusImage);
-           addEventListener(MouseEvent.ROLL_OVER, onMouseOver);
-           addEventListener(MouseEvent.ROLL_OUT, onMouseOut);  
-           addEventListener(MouseEvent.CLICK, performAction);
-        }
+         super.createChildren();
+         
+         if (!_focusImage) {
+            _focusImage= makeExcitableImage();
+            _focusImage.smoothBitmapContent = true;
+            addChild(_focusImage);
+            addEventListener(MouseEvent.ROLL_OVER, onMouseOver);
+            addEventListener(MouseEvent.ROLL_OUT, onMouseOut);  
+            addEventListener(MouseEvent.CLICK, performAction);
+         }
       }     
       
       
@@ -37,9 +37,9 @@ package com.broceliand.ui.pearlTree
       private function onMouseOut(event:Event):void {
          relax();
       }
-
- 	   public function excite():void {
- 	      if(_focusImage) {
+      
+      public function excite():void {
+         if(_focusImage) {
             _focusImage.excite();
          }
       }
@@ -52,11 +52,11 @@ package com.broceliand.ui.pearlTree
       }
       override public function end():void {
          super.end();
-        removeEventListener(MouseEvent.ROLL_OVER, onMouseOver);
-        removeEventListener(MouseEvent.ROLL_OUT, onMouseOut);  
-        removeEventListener(MouseEvent.CLICK, performAction);
-        removeAllChildren();
-        _focusImage = null;   
+         removeEventListener(MouseEvent.ROLL_OVER, onMouseOver);
+         removeEventListener(MouseEvent.ROLL_OUT, onMouseOut);  
+         removeEventListener(MouseEvent.CLICK, performAction);
+         removeAllChildren();
+         _focusImage = null;   
       }
       public static function isActionEvent(event:Event):Boolean {
          var target:UIComponent = event.target as UIComponent;
@@ -67,12 +67,11 @@ package com.broceliand.ui.pearlTree
          return _focusImage && _focusImage.visible;
       }
       
-
-
-
-
+      
+      
+      
+      
       
    }
    
 }
-   

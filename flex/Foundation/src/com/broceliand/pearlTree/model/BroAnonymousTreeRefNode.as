@@ -14,7 +14,7 @@ package com.broceliand.pearlTree.model
       }
       public static function GetAnonymousTreeRefNode(isHome:Boolean):BroAnonymousTreeRefNode {
          if (isHome) {
-               if (!_home) {
+            if (!_home) {
                _home= new BroAnonymousTreeRefNode();
                _home._isHome = true;
             } 

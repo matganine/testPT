@@ -28,7 +28,7 @@ package com.broceliand.ui.mouse
       
       
       public static const CURSOR_TYPE_NONE:String = "none";
-        
+      
       public static const CURSOR_TYPE_ARROW:String = "arrow";
       public static const CURSOR_TYPE_ARROW_WITH_UPDATE_REQUESTED:String = "arrowWithUpdate";
       public static const CURSOR_TYPE_OPEN_HAND:String = "openHand";
@@ -36,7 +36,7 @@ package com.broceliand.ui.mouse
       public static const CURSOR_TYPE_FORBIDDEN:String = "forbidden";
       public static const CURSOR_TYPE_SCROLL:String = "scroll";
       public static const CURSOR_TYPE_BUSY:String = "busy";
-
+      
       static private var _cursorId:int; 
       private var _cursorManagementDisabled:Boolean= true;
       private var _cursorType:String = null;
@@ -108,20 +108,20 @@ package com.broceliand.ui.mouse
          updateDistanceToMouseDownLocation(event); 
          update();  
       }
-
+      
       private function onMouseUp(event:MouseEvent):void{
          _mouseDown = false;         
          _mouseDownPoint = null;
          updateDistanceToMouseDownLocation(event); 
          update();  
       }
-
+      
       private function onMouseMove(event:MouseEvent):void {
          _mouseOnStage=true;
          updateDistanceToMouseDownLocation(event); 
          update();  
       }
-
+      
       public function get mouseDown():Boolean {
          return _mouseDown;
       }
@@ -150,7 +150,7 @@ package com.broceliand.ui.mouse
             update();
          }
       }
-
+      
       
       private function updateCursor():void {
          if (_cursorManagementDisabled) {
@@ -160,10 +160,10 @@ package com.broceliand.ui.mouse
          if (_cursorType == CURSOR_TYPE_BUSY && systemCanShowBusyCursor()) {
             cursorManagerSetBusyCursor();
          } else {
-             switch(_cursorType){
+            switch(_cursorType){
                case CURSOR_TYPE_ARROW:
-                 
-                 
+                  
+                  
                   break;
                case CURSOR_TYPE_ARROW_WITH_UPDATE_REQUESTED:
                   break;
@@ -189,7 +189,7 @@ package com.broceliand.ui.mouse
          if(am.isEmbedWindowMode()) {
             return false;
          }
-         
+            
          else if(am.getOS() == ApplicationManager.OS_NAME_MAC && am.getOSVersion().indexOf("10.7") == 0) {
             return false;
          }
@@ -197,7 +197,7 @@ package com.broceliand.ui.mouse
             return true;
          }
       }
-
+      
       private function removeCurrentStateOnStateChange(isBusy:Boolean):void {
          cursorManagerRemoveBusyCursor();
          if (!isBusy ||_cursorManagementDisabled) {
@@ -205,7 +205,7 @@ package com.broceliand.ui.mouse
          }
       } 
       
-       
+      
       private function updateInternal(event:Event = null):void {        
          if (_cursorManagementDisabled) return;
          _updateScheduled = false;
@@ -214,7 +214,7 @@ package com.broceliand.ui.mouse
          var stageWidth:Number = ApplicationManager.flexApplication.width;
          var stageHeight:Number = ApplicationManager.flexApplication.height;
          var wantedCursor:String = null;
-                  
+         
          if((stageX <= 0) || (stageY <= 0) || (stageX > stageWidth) || (stageY > stageHeight)){
             wantedCursor = CURSOR_TYPE_NONE;
          }else if(_showBusy){
@@ -254,13 +254,13 @@ package com.broceliand.ui.mouse
       private function sortOnSetterPriority(a:ICursorSetter, b:ICursorSetter):Number{
          var pa:int = _setters2Priority[a];
          var pb:int = _setters2Priority[b];      
-          if(pa > pb) {
-              return 1;
-          } else if(pa < pb) {
-              return -1;
-          } else  {
-              return 0;
-          }
+         if(pa > pb) {
+            return 1;
+         } else if(pa < pb) {
+            return -1;
+         } else  {
+            return 0;
+         }
          
       }
       public function register(setter:ICursorSetter, priority:int):void{
@@ -279,7 +279,7 @@ package com.broceliand.ui.mouse
             _requestUpdateTimer.start();
          }
       }
-
+      
       private function showMouse():void {
          
          Mouse.show();

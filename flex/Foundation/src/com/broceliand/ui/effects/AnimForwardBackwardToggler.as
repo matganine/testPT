@@ -15,11 +15,11 @@ package com.broceliand.ui.effects
       override protected function handledObjectPlayForward():void{
          _anim.playFoward();
       }
-
+      
       override protected function handledObjectPlayBackward():void{
          _anim.playBackward();
       }
-            
-
+      
+      
    }
 }

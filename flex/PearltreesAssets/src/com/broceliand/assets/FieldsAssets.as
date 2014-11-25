@@ -2,8 +2,6 @@ package com.broceliand.assets
 {
    public class FieldsAssets
    {            
-      
-      
       [Embed(source="/assets/fields/background.png", 
                 scaleGridTop='8', scaleGridBottom='12', 
                 scaleGridLeft='8', scaleGridRight='12')]

@@ -1,7 +1,7 @@
 package com.broceliand.ui.effects
 {
    import mx.effects.Effect;
-
+   
    public class VariableDurationEffectToggler extends EffectToggler
    {
       private var _forwardDuration:int;
@@ -20,14 +20,14 @@ package com.broceliand.ui.effects
          }
          super.handledObjectPlayForward();
       }
-
+      
       override protected function handledObjectPlayBackward():void{
          if(!_effect.isPlaying){         
             _effect.duration = _backwardDuration;
          }
          super.handledObjectPlayBackward();
       }   
-            
+      
       
    }
 }

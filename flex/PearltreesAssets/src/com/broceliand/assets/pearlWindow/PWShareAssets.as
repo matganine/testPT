@@ -1,7 +1,7 @@
 package com.broceliand.assets.pearlWindow
 {
-import com.broceliand.assets.AssetsServerPath;
-
+   import com.broceliand.assets.AssetsServerPath;
+   
    public class PWShareAssets 
    {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"pearlWindow/share/";
@@ -46,7 +46,7 @@ import com.broceliand.assets.AssetsServerPath;
       public static const SHARING_POINT_TWITTER:Class;
       [Embed(source="/assets/pearlWindow/share/sharingPointTwitterOver.png")]
       public static const SHARING_POINT_TWITTER_OVER:Class;
-            
+      
       
       [Embed(source="/assets/pearlWindow/share/sharingPointConnectionsSmall.png")]
       public static const SHARING_POINT_CONNECTIONS_SMALL:Class;

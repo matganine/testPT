@@ -37,11 +37,11 @@ package com.broceliand.util
       }
       public function setSecondValue(value:Object):void {
          _value2Set = true;
-          _value2 = value;
-          if (!_timer.running) {
+         _value2 = value;
+         if (!_timer.running) {
             _timer.reset();
             _timer.start();
-          }
+         }
       }
       private function setValueOnTimer(event:TimerEvent):void {
          if (_valueSet) {
@@ -60,7 +60,7 @@ package com.broceliand.util
       }
       
       public function interrupt():void {
-        
+         
          _timer.stop();
       }
    }

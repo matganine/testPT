@@ -1,32 +1,32 @@
 package com.broceliand.ui.renderers.pageRenderers.pearl
 {
-	import com.broceliand.ApplicationManager;
-	import com.broceliand.assets.PearlAssets;
-	import com.broceliand.pearlTree.model.BroDistantTreeRefNode;
-	import com.broceliand.pearlTree.model.BroLocalTreeRefNode;
-	import com.broceliand.pearlTree.model.BroPTNode;
-	import com.broceliand.pearlTree.model.BroPTRootNode;
-	import com.broceliand.pearlTree.model.BroPearlTree;
-	import com.broceliand.pearlTree.model.BroTreeRefNode;
-	import com.broceliand.pearlTree.model.User;
-	import com.broceliand.ui.customization.avatar.AvatarManager;
-	import com.broceliand.ui.util.AssetsManager;
-	import com.broceliand.util.Assert;
-	import com.broceliand.util.resources.ImageFactory;
-	import com.broceliand.util.resources.RemoteImage;
-	
-	import mx.controls.Image;
-	import mx.core.UIComponent;
-	
-	public class PTRootPearl extends PearlBase
-	{
-	   private static const AVATAR_WIDTH_NORMAL:Number = 52; 
-	   protected static const AVATAR_WIDTH_EXCITED:Number = 52; 
+   import com.broceliand.ApplicationManager;
+   import com.broceliand.assets.PearlAssets;
+   import com.broceliand.pearlTree.model.BroDistantTreeRefNode;
+   import com.broceliand.pearlTree.model.BroLocalTreeRefNode;
+   import com.broceliand.pearlTree.model.BroPTNode;
+   import com.broceliand.pearlTree.model.BroPTRootNode;
+   import com.broceliand.pearlTree.model.BroPearlTree;
+   import com.broceliand.pearlTree.model.BroTreeRefNode;
+   import com.broceliand.pearlTree.model.User;
+   import com.broceliand.ui.customization.avatar.AvatarManager;
+   import com.broceliand.ui.util.AssetsManager;
+   import com.broceliand.util.Assert;
+   import com.broceliand.util.resources.ImageFactory;
+   import com.broceliand.util.resources.RemoteImage;
+   
+   import mx.controls.Image;
+   import mx.core.UIComponent;
+   
+   public class PTRootPearl extends PearlBase
+   {
+      private static const AVATAR_WIDTH_NORMAL:Number = 52; 
+      protected static const AVATAR_WIDTH_EXCITED:Number = 52; 
       public static const PEARL_WIDTH_NORMAL:Number = 58; 
       public static const PEARL_WIDTH_EXCITED:Number = 58; 
       public static const PRIVATE_PADLOCK_WIDTH:Number = 13;
       public static const PRIVATE_PADLOCK_HEIGHT:Number = 17;
-      	   
+      
       private var _isTreeDeleted:Boolean;
       private var _isTreeHidden:Boolean;
       private var _deletedMask:Image = null;
@@ -49,9 +49,9 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       override protected function get normalWidth():Number {
          return PEARL_WIDTH_NORMAL;
       }     
-
-
-
+      
+      
+      
       override protected function getForegroundSelectedAsset():Class {
          return AssetsManager.getEmbededAsset(PearlAssets.TREE_FOREGROUND_SELECTED_PNG);
       }       
@@ -72,7 +72,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             return;
          }
          
-        
+         
          if (_mustLoadAvatar) {
             _mustLoadAvatar = false;
             loadAvatars();
@@ -93,8 +93,8 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             addChild(_deletedMask);
          }
       }           
-		      
-     
+      
+      
       override public function set showRings(value:Boolean):void {
          if(_isTreeDeleted || _isTreeHidden) {
             super.showRings = false;
@@ -130,13 +130,13 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       }
       
       protected function getPearlTreeForAvatar():BroPearlTree {
-      	if(!_node) return null;
+         if(!_node) return null;
          var businessNode:BroPTNode = _node.getBusinessNode(); 
          if(businessNode is BroPTRootNode) {
-         	return businessNode.owner;
+            return businessNode.owner;
          } 
          else if (businessNode is BroTreeRefNode) {
-         	return BroTreeRefNode(businessNode).refTree;
+            return BroTreeRefNode(businessNode).refTree;
          }
          else {
             return null;
@@ -146,7 +146,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       protected function loadAvatars(normalOnly:Boolean = false):void {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var tree:BroPearlTree = getPearlTreeForAvatar();
-
+         
          am.avatarManager.loadAvatarToImage(tree, _avatarImage, AvatarManager.TYPE_PEARL_HUGE);
       }
       
@@ -162,5 +162,5 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       override public function getPearlVisibleWidth():Number {
          return pearlWidth - 4/3;
       }
-	}
+   }
 }

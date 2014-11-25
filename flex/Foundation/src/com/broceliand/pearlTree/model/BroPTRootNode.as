@@ -1,18 +1,18 @@
 package com.broceliand.pearlTree.model{
    import com.broceliand.ApplicationManager;
    
-	
-	public class BroPTRootNode extends BroPTNode
-	{
-		public override function toString():String {
-			return "ROOT NODE";
-		}
-		
-	   override public function get title ():String {
-   	   if (owner){
-   	       return owner.title;
-   	   }
-    	   return super.title;   
+   
+   public class BroPTRootNode extends BroPTNode
+   {
+      public override function toString():String {
+         return "ROOT NODE";
+      }
+      
+      override public function get title ():String {
+         if (owner){
+            return owner.title;
+         }
+         return super.title;   
       }
       
       public function isAssociationHierarchyRoot():Boolean {
@@ -46,6 +46,6 @@ package com.broceliand.pearlTree.model{
             return false;
          } return super.isTitleEditable();
       }
-
+      
    }
 }

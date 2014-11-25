@@ -2,82 +2,13 @@ package com.broceliand.assets.screenWindow.base
 {
    public class SWGaugeAssets
    {
-      
-      
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       [Embed(source='/assets/screenWindow/base/gauge/PicksLow.png')]
       public static const PICKS_LOW:Class;
       [Embed(source='/assets/screenWindow/base/gauge/PicksMedium.png')]
       public static const PICKS_MEDIUM:Class;
       [Embed(source='/assets/screenWindow/base/gauge/PicksBig.png')]
       public static const PICKS_BIG:Class; 
-
+      
       [Embed(source='/assets/screenWindow/base/gauge/PicksLowOver.png')]
       public static const PICKS_LOW_OVER:Class;
       [Embed(source='/assets/screenWindow/base/gauge/PicksMediumOver.png')]
@@ -91,7 +22,7 @@ package com.broceliand.assets.screenWindow.base
       public static const COMMENTS_MEDIUM:Class;
       [Embed(source='/assets/screenWindow/base/gauge/CommentsBig.png')]
       public static const COMMENTS_BIG:Class;      
-
+      
       [Embed(source='/assets/screenWindow/base/gauge/CommentsLowOver.png')]
       public static const COMMENTS_LOW_OVER:Class;
       [Embed(source='/assets/screenWindow/base/gauge/CommentsMediumOver.png')]
@@ -103,10 +34,5 @@ package com.broceliand.assets.screenWindow.base
       public static const HAS_EDITO:Class;
       [Embed(source='/assets/screenWindow/base/gauge/HasEditoOver.png')]
       public static const HAS_EDITO_OVER:Class;
-      
-
-
-
-
    }
 }

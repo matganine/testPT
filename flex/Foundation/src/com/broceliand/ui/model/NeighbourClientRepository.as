@@ -46,7 +46,7 @@ package com.broceliand.ui.model
             if (additionalNeighbour.numberOfItems ==0) {
                delete _nodeIdToNeighbourArray[node.persistentID];
             }
-          
+            
          }
          return addedNeighbours;
       }
@@ -82,6 +82,6 @@ package com.broceliand.ui.model
          return true;
       }
       
-
+      
    }
 }

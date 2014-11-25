@@ -13,10 +13,10 @@ package com.broceliand.ui.interactors
    import com.broceliand.util.logging.Log;
    
    import flash.utils.setTimeout;
-
+   
    public class DisplayPWAtEndOfAnimation implements IAction
    {
-
+      
       private var _node:IPTNode
       private var _selectedPanel:uint;
       private var _playOpenEffect:Boolean;
@@ -25,14 +25,14 @@ package com.broceliand.ui.interactors
       private var _highlightUnseenNotes:Boolean;
       private var _actionToPerform : IAction;
       private var _notForAnonymous: Boolean;
-
+      
       private static const DEBUG:Boolean = false;
       private function debug(msg:String): void {
          if (DEBUG) {
-           Log.debug(msg);
+            Log.debug(msg);
          }
       }
-
+      
       function DisplayPWAtEndOfAnimation(node:IPTNode=null, selectedPanel:uint=0, playOpenEffect:Boolean=false, undockPearlWindow:Boolean=false, highlightUnseenNotes:Boolean=false, actionToPerform:IAction=null, notForAnonymous:Boolean = true) {
          _node = node;
          _selectedPanel = selectedPanel;
@@ -44,7 +44,7 @@ package com.broceliand.ui.interactors
          _actionToPerform = actionToPerform;
          _notForAnonymous = notForAnonymous;
       }
-
+      
       public function performAction():void {
          var arp:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
          displayNodeInPearlWindowInternal();
@@ -55,7 +55,7 @@ package com.broceliand.ui.interactors
             arp.notifyEndAction(this);
          }
       }
-
+      
       public function displayNodeInPearlWindow():void {
          var arp:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
          if (arp.isBusy || _playOpenEffect) {
@@ -65,27 +65,27 @@ package com.broceliand.ui.interactors
             displayNodeInPearlWindowInternal();
          }
       }
-
+      
       public function displayNodeInPearlWindowNow():void {
          displayNodeInPearlWindowInternal();
       }
-
+      
       public function isRunning():Boolean {
          return _isRunning;
       }
-
+      
       public function set selectedPanel(selectedPanel:uint):void {
          _selectedPanel = selectedPanel;
       }
-
+      
       public function set highlightUnseenNotes(value:Boolean):void {
          _highlightUnseenNotes = value;
       }
-
+      
       public function set actionToPerform(value : IAction):void {
          _actionToPerform = value;
       }
-
+      
       private function displayNodeInPearlWindowInternal():void {
          var navModel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
          if (navModel.willShowPlayer) return;

@@ -8,7 +8,7 @@ package com.broceliand.ui.interactors.drag.action
    import com.broceliand.pearlTree.model.BroPTRootNode;
    import com.broceliand.pearlTree.model.BroPearlTree;
    import com.broceliand.ui.pearlTree.IPearlTreeViewer;
-
+   
    public class MoveAction extends CutBNodeAction
    {
       private var _destination:BroPearlTree;
@@ -64,11 +64,11 @@ package com.broceliand.ui.interactors.drag.action
       }
       
       override protected function updateSelection(node:IPTNode):void {
-
-
-
-
-
+         
+         
+         
+         
+         
       }
       
       override protected function sendNodeToDestination(node:IPTNode):void {
@@ -106,9 +106,9 @@ package com.broceliand.ui.interactors.drag.action
          _bnode.setCollectedStatus();
          _destination.importBranch(_destination.getRootNode(),_bnode, index);
          if (!_destination.pearlsLoaded) {
-              
-              
-              ApplicationManager.getInstance().pearlTreeLoader.loadTree(_destination.getMyAssociation().associationId, _destination.id,new PearlTreeLoaderCallback(null,null));
+            
+            
+            ApplicationManager.getInstance().pearlTreeLoader.loadTree(_destination.getMyAssociation().associationId, _destination.id,new PearlTreeLoaderCallback(null,null));
          } 
          ApplicationManager.getInstance().persistencyQueue.registerInQueue(_destination);
       }

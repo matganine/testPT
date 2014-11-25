@@ -18,7 +18,7 @@ package com.broceliand.ui.util.upload
    
    public class FileUploadRequestJS extends FileUploadRequest implements IAmfRetArrayCallback
    {
-
+      
       public static const FILE_API_SUPPORT_YES:uint = 1;
       public static const FILE_API_SUPPORT_NO:uint = 2;
       public static const FILE_API_SUPPORT_UNKNOWN:uint = 0;
@@ -95,7 +95,7 @@ package com.broceliand.ui.util.upload
          if (value != null) {
             urlDataArrayByBatch[fileInfoArrayByBatch.length - 1] = value;
             applyUrlIdsToFiles();
-
+            
          }
       }
       
@@ -172,7 +172,7 @@ package com.broceliand.ui.util.upload
       {
          return _fileInfoArrayByBatch;
       }
-
+      
       public function set fileInfoArrayByBatch(value:Array):void
       {
          _fileInfoArrayByBatch = value;
@@ -185,12 +185,12 @@ package com.broceliand.ui.util.upload
       public function getLastUrlDataArray():Array {
          return urlDataArrayByBatch[getBatchNumber() - 1] as Array;
       }
-
+      
       public function get urlDataArrayByBatch():Array
       {
          return _urlDataArrayByBatch;
       }
-
+      
       public function set urlDataArrayByBatch(value:Array):void
       {
          _urlDataArrayByBatch = value;
@@ -215,6 +215,6 @@ package com.broceliand.ui.util.upload
       public static function decodeFileBatchPositionFromString(data:String):Array {
          return data.split(SEPARATOR_ENCODED_EVENT);
       }
-
+      
    }      
 }

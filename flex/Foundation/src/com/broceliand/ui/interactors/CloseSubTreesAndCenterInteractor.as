@@ -1,16 +1,16 @@
 package com.broceliand.ui.interactors 
 {
-    import com.broceliand.ApplicationManager;
-    import com.broceliand.graphLayout.model.IPTNode;
-    import com.broceliand.graphLayout.model.OpeningState;
-    import com.broceliand.graphLayout.model.PTRootNode;
-    import com.broceliand.pearlTree.model.BroPTNode;
-    import com.broceliand.pearlTree.model.BroPTRootNode;
-    import com.broceliand.pearlTree.model.BroPearlTree;
-    import com.broceliand.pearlTree.navigation.INavigationManager;
-    import com.broceliand.ui.model.SelectionModel;
-    import com.broceliand.ui.pearl.IUIPearl;
-
+   import com.broceliand.ApplicationManager;
+   import com.broceliand.graphLayout.model.IPTNode;
+   import com.broceliand.graphLayout.model.OpeningState;
+   import com.broceliand.graphLayout.model.PTRootNode;
+   import com.broceliand.pearlTree.model.BroPTNode;
+   import com.broceliand.pearlTree.model.BroPTRootNode;
+   import com.broceliand.pearlTree.model.BroPearlTree;
+   import com.broceliand.pearlTree.navigation.INavigationManager;
+   import com.broceliand.ui.model.SelectionModel;
+   import com.broceliand.ui.pearl.IUIPearl;
+   
    public class CloseSubTreesAndCenterInteractor
    {
       private var _interactorManager:InteractorManager;
@@ -20,19 +20,19 @@ package com.broceliand.ui.interactors
       {
          _interactorManager = interactorManager;
          _selectionModel = selectionModel; 
-        
+         
       }
-
-
+      
+      
       
       public function closeFocusSubTrees():Boolean {
          var bnode:BroPTNode =_selectionModel.getSelectedNode().getBusinessNode();
          var  openSubTree:Boolean = hasSubTreeToClose();
-          if (openSubTree) {
-             _interactorManager.pearlTreeViewer.pearlTreeEditionController.closeAllSubtrees(bnode.owner,true);
-          }
+         if (openSubTree) {
+            _interactorManager.pearlTreeViewer.pearlTreeEditionController.closeAllSubtrees(bnode.owner,true);
+         }
          return openSubTree;
-      
+         
       }
       public function hasSubTreeToClose():Boolean {
          var selectedNode:IPTNode = _selectionModel.getSelectedNode();
@@ -56,6 +56,6 @@ package com.broceliand.ui.interactors
          }
          return openSubTree;
       }
-
+      
    }
 }

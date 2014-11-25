@@ -12,7 +12,7 @@ package com.broceliand.graphLayout.model
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
+   
    
    
    public class SavedPearlReference
@@ -58,7 +58,7 @@ package com.broceliand.graphLayout.model
          if (!_node) {
             return null;
          }
-            
+         
          if (!_wasSpecialNode) {
             return _node;
          } else {
@@ -78,7 +78,7 @@ package com.broceliand.graphLayout.model
             }
             else if (!_wasOpen && forParentLink) {
                if (PTRootNode(_node).isOpen()) {
-                 result = PTRootNode(_node).containedPearlTreeModel.endNode;
+                  result = PTRootNode(_node).containedPearlTreeModel.endNode;
                }
             } else if (_wasOpen && PTRootNode(_node).containedPearlTreeModel.openingState == OpeningState.CLOSED) {
                
@@ -91,7 +91,7 @@ package com.broceliand.graphLayout.model
             return result;
          }
       }
-
+      
       public function getVnode(forParentLink:Boolean):IVisualNode {
          var node:IPTNode = getNode(forParentLink);
          if (node) {
@@ -110,7 +110,7 @@ package com.broceliand.graphLayout.model
       public function set isParentTemporaryLink(value:Boolean):void {
          _isTemporaryLink = value;
       }
-         
+      
       
       private function findPearlInVgraph(node:BroPTNode):IPTNode {
          if (node.graphNode) {

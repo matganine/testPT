@@ -1,24 +1,24 @@
 package com.broceliand.ui.sticker.eventBlocker
 {
-	import com.broceliand.ui.util.ColorPalette;
-	
-	import flash.events.Event;
-	import flash.events.IEventDispatcher;
-	import flash.events.MouseEvent;
-	import flash.geom.Point;
-	
-	import mx.containers.Canvas;
-	import mx.core.UIComponent;
-
-	public class EventBlocker extends Canvas implements IEventBlocker, IEventDispatcher
-	{
+   import com.broceliand.ui.util.ColorPalette;
+   
+   import flash.events.Event;
+   import flash.events.IEventDispatcher;
+   import flash.events.MouseEvent;
+   import flash.geom.Point;
+   
+   import mx.containers.Canvas;
+   import mx.core.UIComponent;
+   
+   public class EventBlocker extends Canvas implements IEventBlocker, IEventDispatcher
+   {
       private static const TRACE_DEBUG:Boolean = false;
       
       private var _active:Boolean = false;
       private var _exceptions:Array = new Array();
       
-		public function EventBlocker() {
-			super();
+      public function EventBlocker() {
+         super();
          addEventListener(MouseEvent.CLICK, blockEvent);
          addEventListener(MouseEvent.DOUBLE_CLICK, blockEvent);
          addEventListener(MouseEvent.MOUSE_DOWN, blockEvent);
@@ -30,13 +30,13 @@ package com.broceliand.ui.sticker.eventBlocker
          addEventListener(MouseEvent.ROLL_OUT, blockEvent);
          addEventListener(MouseEvent.ROLL_OVER, blockEvent);
          setActive(false);
-		}
-		
-		private function blockEvent(event:MouseEvent):void {
-			if(_active && !isOverException(event)) {
-			   event.stopPropagation();
-			}
-		}
+      }
+      
+      private function blockEvent(event:MouseEvent):void {
+         if(_active && !isOverException(event)) {
+            event.stopPropagation();
+         }
+      }
       
       private function isOverException(event:MouseEvent):Boolean {
          var isOver:Boolean = false;
@@ -62,22 +62,22 @@ package com.broceliand.ui.sticker.eventBlocker
          }
          return isOver;
       }
-		
+      
       public function getActive():Boolean {
-          return _active;
+         return _active;
       }
       
       public function setActive(value:Boolean, addWhitebackground:Boolean=false):void {
-          if(TRACE_DEBUG) trace("[EventBlocker] active : " + value);
-          _active = value;
-          visible = includeInLayout = value;
-          if(value && addWhitebackground) {
-             setStyle("backgroundColor", 0x000000);
-             setStyle("backgroundAlpha", 0.35);
-          }else{
-             setStyle("backgroundColor", NaN);
-             setStyle("backgroundAlpha", NaN);
-          }
+         if(TRACE_DEBUG) trace("[EventBlocker] active : " + value);
+         _active = value;
+         visible = includeInLayout = value;
+         if(value && addWhitebackground) {
+            setStyle("backgroundColor", 0x000000);
+            setStyle("backgroundAlpha", 0.35);
+         }else{
+            setStyle("backgroundColor", NaN);
+            setStyle("backgroundAlpha", NaN);
+         }
       }
       
       public function addException(comp:UIComponent):void {
@@ -89,5 +89,5 @@ package com.broceliand.ui.sticker.eventBlocker
             _exceptions.splice(compIndex, 1);
          }
       }      
-	}
+   }
 }

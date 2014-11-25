@@ -17,7 +17,7 @@ package com.broceliand.ui
    import mx.styles.CSSStyleDeclaration;
    import mx.styles.IStyleManager;
    import mx.styles.StyleManager;
-
+   
    public class PTStyleManager extends StyleManager
    {
       private var _defaultStylesApplied:Boolean;
@@ -92,14 +92,14 @@ package com.broceliand.ui
             
             currentStyle = styles[i];
             currentStyle.fontSize = currentSize;
-
+            
             currentSize = currentSize + 2;
          }         
       }
       
       public function defineLinkStyle():void {
          A_STYLE.color = '#424a79';
-
+         
       }
       
    }

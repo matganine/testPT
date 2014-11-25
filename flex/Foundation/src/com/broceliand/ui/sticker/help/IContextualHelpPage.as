@@ -6,9 +6,9 @@ package com.broceliand.ui.sticker.help
    
    public interface IContextualHelpPage extends IHighlightable
    {
-       function getMaskValue():int;
-       function getTitle():String;
-       function getText():String;
-       function getImageUrl():String;
+      function getMaskValue():int;
+      function getTitle():String;
+      function getText():String;
+      function getImageUrl():String;
    }
 }

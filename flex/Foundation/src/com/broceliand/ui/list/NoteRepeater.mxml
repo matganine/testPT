@@ -4,9 +4,9 @@
             implements="com.broceliand.ui.list.INoteList"
             xmlns:note="com.broceliand.ui.pearlWindow.ui.note.*"
             updateComplete="FixedSizeScrollThumb.replaceScrollThumb(ScrollBar(verticalScrollBar))"
-			creationComplete="fixMouseWheel()"
+            creationComplete="fixMouseWheel()"
             verticalLineScrollSize="30">
-
+   
    <mx:VBox backgroundColor="{ColorPalette.getInstance().backgroundColor}"
             backgroundAlpha="0"
             verticalGap="0"
@@ -18,7 +18,7 @@
          <note:PWNoteItem item="{noteRepeater.currentItem}" notePanel="{notePanel}" />
       </mx:Repeater>
    </mx:VBox>
-
+   
    <mx:Metadata>
       [Event(name="onDeleteNote", type="flash.events.Event")]
       [Event(name="onReplyToNote", type="flash.events.Event")]
@@ -32,14 +32,14 @@
          import com.broceliand.ui.pearlWindow.ui.note.PWNoteItem;
          import com.broceliand.ui.pearlWindow.ui.note.PWNotePanel;
          import com.broceliand.ui.util.ColorPalette;
-		 import com.broceliand.util.flexWorkaround.FirefoxMacMouseWheelFix;
+         import com.broceliand.util.flexWorkaround.FirefoxMacMouseWheelFix;
          
          import mx.collections.ArrayCollection;
          import mx.controls.scrollClasses.ScrollBar;
          import mx.controls.scrollClasses.ScrollThumb;
          import mx.core.IRepeater;
          import mx.events.FlexEvent;
-
+         
          protected var _notes:ArrayCollection;
          protected var _deletable:Boolean;
          protected var _notifyNewNotes:Boolean;
@@ -48,21 +48,21 @@
          private var notesChanged:Boolean;
          private var refreshDataProvider:Boolean;
          private var _notePanel:PWNotePanel;
-
+         
          use namespace mx_internal;
-
+         
          public static const DELETE_EVENT:String = "onDeleteNote";
          public static const REPLY_EVENT:String = "onReplyToNote";
-
+         
          public function set notePanel(value:PWNotePanel):void {
-         	_notePanel = value;
+            _notePanel = value;
          }
-
+         
          [Bindable]
          public function get notePanel():PWNotePanel {
-         	return _notePanel;
+            return _notePanel;
          }
-
+         
          override public function set dataProvider(value:Object):void {
             if(_notes != value) {
                _notes = value as ArrayCollection;
@@ -70,32 +70,32 @@
             }
             invalidateProperties();
          }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          override protected function commitProperties():void{
             super.commitProperties();
-
+            
             
             
             if(nodeChanged && !notesChanged && _notes) {
@@ -106,11 +106,11 @@
                refreshDataProvider = false;
                super.dataProvider = _notes;
             }
-
+            
             nodeChanged = false;
             notesChanged = false;
          }
-
+         
          public function set node(value:BroPTNode):void {
             if(value != _node) {
                _node = value;
@@ -121,18 +121,18 @@
          public function get node():BroPTNode {
             return _node;
          }
-
+         
          public function isLocalNote(note:BroComment):Boolean {
             return ApplicationManager.getInstance().visualModel.noteModel.isLocalNote(note, _node);
          }
-
+         
          public function set deletable(value:Boolean):void{
             _deletable = value;
          }
          public function get deletable():Boolean{
             return _deletable;
          }
-
+         
          public function get notifyNewNotes():Boolean {
             return _notifyNewNotes;
          }
@@ -146,19 +146,19 @@
                }
             }
          }
-
+         
          public function deleteNote(note:BroComment):void {
             dispatchEvent(new NoteListEvent(note, DELETE_EVENT));
          }
-
+         
          public function replyToNote(note:BroComment):void {
             dispatchEvent(new NoteListEvent(note, REPLY_EVENT));
          }
-
+         
          override protected function get innerRepeater():mx.core.Repeater {
             return noteRepeater as mx.core.Repeater;
          }
-
+         
          public function getNotePosition(note:BroComment):uint {
             return ArrayCollection(noteRepeater.dataProvider).getItemIndex(note) + 1;
          }
@@ -167,16 +167,16 @@
             var numNotes:Number = ArrayCollection(noteRepeater.dataProvider).length;
             return (notePosition == numNotes);
          }
-
+         
          public function autoScroll(noteItem:PWNoteItem):void {
-
+            
             var focusItem : DisplayObject = noteItem;
-
+            
             if(verticalScrollBar && focusItem) {
                if( focusItem == this || !contains(focusItem) ) {
                   return;
                }
-
+               
                var focusTopEdge : int = focusItem.y;
                var thisItem : DisplayObjectContainer = focusItem.parent;
                while(thisItem != this) {
@@ -185,9 +185,9 @@
                }
                var focusBottomEdge : int = focusTopEdge + focusItem.height;
                var scrollbarRange : int = verticalScrollBar.maxScrollPosition;
-
+               
                var visibleWindowHeight : int = height;
-
+               
                var lastVisibleY : int = visibleWindowHeight + verticalScrollPosition;
                if(horizontalScrollBar) {
                   lastVisibleY -= horizontalScrollBar.height;
@@ -201,19 +201,19 @@
                }
             }
          }
-
-      public function loadNextPage():void {
-         if (notePanel.model.noteType == NoteModel.TYPE_NOTE)
-            ApplicationManager.getInstance().visualModel.noteModel.loadNextPage(node);
-         else 
-            ApplicationManager.getInstance().visualModel.teamDiscussionModel.loadNextPage(node);
-      }
-		  
-		  public function fixMouseWheel():void 
-		  {
-			  FirefoxMacMouseWheelFix.fixFirefoxMacWheelOnScroll(this);
-		  }
-
+         
+         public function loadNextPage():void {
+            if (notePanel.model.noteType == NoteModel.TYPE_NOTE)
+               ApplicationManager.getInstance().visualModel.noteModel.loadNextPage(node);
+            else 
+               ApplicationManager.getInstance().visualModel.teamDiscussionModel.loadNextPage(node);
+         }
+         
+         public function fixMouseWheel():void 
+         {
+            FirefoxMacMouseWheelFix.fixFirefoxMacWheelOnScroll(this);
+         }
+         
       ]]>
    </mx:Script>
 </PTRepeater>

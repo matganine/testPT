@@ -9,21 +9,21 @@ package com.broceliand.pearlTree.model
    {
       static private var UID:int = 0;
       private var _debugId:int = UID ++;
- 
+      
       private static var _isDebug:Boolean = true;      
       private var _owner:BroAssociation;
       private var _key2Trees:Dictionary = new Dictionary();
-
+      
       public function TreeHierarchy(association:BroAssociation) 
       {
          _owner = association;
       }
-
+      
       public function get owner():BroAssociation
       {
          return _owner;
       }
-     
+      
       public function getTree(treeId:int):BroPearlTree{
          return _key2Trees[treeId];
       }
@@ -36,16 +36,16 @@ package com.broceliand.pearlTree.model
                Log.getLogger("com.broceliand.pearlTree.model.TreeHierarchy").error("replacing the tree {0} ({1}) in a tree hierarchy {2} by an alias tree", tree.title, tree.id, owner?owner.info.title:"");
             }
          }
-           _key2Trees[tree.id] = tree;
-           
-           if (_owner) {
-
-              if (tree.isOwner && !_owner.isMyAssociation()) {
-                tree.owner = _owner;
-                tree.authorsLoaded=true;
-              }
-              tree.hierarchyOwner= _owner;
-           }
+         _key2Trees[tree.id] = tree;
+         
+         if (_owner) {
+            
+            if (tree.isOwner && !_owner.isMyAssociation()) {
+               tree.owner = _owner;
+               tree.authorsLoaded=true;
+            }
+            tree.hierarchyOwner= _owner;
+         }
       }
       public function removeTreeFromHierarchy(tree:BroPearlTree, targetHierarchy:TreeHierarchy =null):Boolean{
          if (targetHierarchy != this) {
@@ -56,12 +56,12 @@ package com.broceliand.pearlTree.model
             return false;
          }
       }
- 
+      
       public function get orderedTreeHieararchy ():Boolean
       {
          return true;
       }
-       
+      
       public function addSubHierarchy(treeHierarchy:TreeHierarchy):void {
          for each (var tree:BroPearlTree in treeHierarchy._key2Trees) {
             if (getTree(tree.id) == null) {

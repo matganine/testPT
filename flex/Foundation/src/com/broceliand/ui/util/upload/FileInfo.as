@@ -5,7 +5,7 @@ package com.broceliand.ui.util.upload
    import com.broceliand.util.BroLocale;
    
    import mx.utils.StringUtil;
-
+   
    public class FileInfo
    {
       private var _originalFileName:String;
@@ -58,49 +58,49 @@ package com.broceliand.ui.util.upload
       }
       
       public static function nameCleanUp(name0:String):String {
-        return name0;
+         return name0;
       }
-
+      
       public function get originalFileName():String
       {
          return _originalFileName;
       }
-
+      
       public function get fileSize():int
       {
          return _fileSize;
       }
-
+      
       public function get cleanFileName():String
       {
          return _cleanFileName;
       }
-
+      
       public function get targetTree():BroPearlTree
       {
          return _targetTree;
       }
-
+      
       public function get position():int
       {
          return _position;
       }
-
+      
       public function get sizeError():Boolean
       {
          return _sizeError;
       }
-
+      
       public function get hasError():Boolean
       {
          return _hasError;
       }
-
+      
       public function set hasError(value:Boolean):void
       {
          _hasError = value;
       }
-
-
+      
+      
    }
 }

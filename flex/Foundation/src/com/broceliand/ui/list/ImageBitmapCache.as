@@ -1,34 +1,34 @@
 package com.broceliand.ui.list
 {
-import flash.display.Bitmap;
-import flash.display.Loader;
-import flash.utils.ByteArray;
-import flash.utils.Dictionary;
-
-public class ImageBitmapCache {
+   import flash.display.Bitmap;
+   import flash.display.Loader;
+   import flash.utils.ByteArray;
+   import flash.utils.Dictionary;
    
-   private var _url2ImagesBitmap:Dictionary;
-   
-   public function ImageBitmapCache() {
-      clear();
+   public class ImageBitmapCache {
+      
+      private var _url2ImagesBitmap:Dictionary;
+      
+      public function ImageBitmapCache() {
+         clear();
+      }
+      
+      public function getBitmapFromUrl(url:String):Bitmap {
+         return _url2ImagesBitmap[url];      
+      }
+      
+      public function saveBitmapFromUrl(url:String, bitmap:Bitmap):void {
+         _url2ImagesBitmap[url] = bitmap; 
+      }
+      
+      public function setImageBinaryWithCaching(url:String, binary:ByteArray):void {
+         new BitmapCacheSaver(this, url, binary, new Loader());  
+      }
+      
+      public function clear():void {
+         _url2ImagesBitmap = new Dictionary();
+      }
    }
-   
-   public function getBitmapFromUrl(url:String):Bitmap {
-      return _url2ImagesBitmap[url];      
-   }
-   
-   public function saveBitmapFromUrl(url:String, bitmap:Bitmap):void {
-      _url2ImagesBitmap[url] = bitmap; 
-   }
-   
-   public function setImageBinaryWithCaching(url:String, binary:ByteArray):void {
-      new BitmapCacheSaver(this, url, binary, new Loader());  
-   }
-   
-   public function clear():void {
-      _url2ImagesBitmap = new Dictionary();
-   }
-}
 }
 import com.broceliand.ui.list.ImageBitmapCache;
 

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
-         creationComplete="onCreationComplete()" 
-         xmlns:view="com.broceliand.ui.pearlBar.view.*" 
-         preinitialize="init()"
-	      paddingRight="0" paddingLeft="0" rollOver="onRollOver()" rollOut="onRollOut()">
-		
-      <mx:Image
-			id="minusScale"
-         x="0"
-			source="{PearlDeckAssets.ZOOM_MINUS}"
-         mouseDown="minusDown(event)" mouseUp="minusUpOrOut()" mouseOut="minusUpOrOut()"
-			click="onClickMinus()" />		
-		<mx:Image
-         id="zeroZoom"
-         x="26"
-         source="{PearlDeckAssets.ZOOM_ZERO}"
-         click="onClickReset()" />
-      <mx:Canvas id="scaleSliderContainer">
-         <view:ZoomSlider  
-   				id="scaleSlider"
-				   x="16"
-   				thumbOffset="-2"
-   				value="1"
-   				minimum="0"
-   				maximum="1"
-   				snapInterval="{ZoomModel.ZOOM_STEP}"
-   				liveDragging="true"
-   				change="updateScale()"
-   				showDataTip="false" />
-      </mx:Canvas>
-      
-		<mx:Image
-         x="50"
-			id="plusScale"
-			source="{}"
-         mouseDown="plusDown(event)" mouseUp="plusUpOrOut()" mouseOut="plusUpOrOut()"
-			click="onClickPlus()" />
-      <mx:Text id="zoomLabel" y="45" width="100%"
-               htmlText="{BroLocale.getText('pearldeck.zoom')}"
-               textAlign="center" selectable="false"
-               color="#505050"/>
-	
-	<mx:Script>
-		<![CDATA[
+           creationComplete="onCreationComplete()" 
+           xmlns:view="com.broceliand.ui.pearlBar.view.*" 
+           preinitialize="init()"
+           paddingRight="0" paddingLeft="0" rollOver="onRollOver()" rollOut="onRollOut()">
+   
+   <mx:Image
+      id="minusScale"
+      x="0"
+      source="{PearlDeckAssets.ZOOM_MINUS}"
+      mouseDown="minusDown(event)" mouseUp="minusUpOrOut()" mouseOut="minusUpOrOut()"
+      click="onClickMinus()" />		
+   <mx:Image
+      id="zeroZoom"
+      x="26"
+      source="{PearlDeckAssets.ZOOM_ZERO}"
+      click="onClickReset()" />
+   <mx:Canvas id="scaleSliderContainer">
+      <view:ZoomSlider  
+         id="scaleSlider"
+         x="16"
+         thumbOffset="-2"
+         value="1"
+         minimum="0"
+         maximum="1"
+         snapInterval="{ZoomModel.ZOOM_STEP}"
+         liveDragging="true"
+         change="updateScale()"
+         showDataTip="false" />
+   </mx:Canvas>
+   
+   <mx:Image
+      x="50"
+      id="plusScale"
+      source="{}"
+      mouseDown="plusDown(event)" mouseUp="plusUpOrOut()" mouseOut="plusUpOrOut()"
+      click="onClickPlus()" />
+   <mx:Text id="zoomLabel" y="45" width="100%"
+            htmlText="{BroLocale.getText('pearldeck.zoom')}"
+            textAlign="center" selectable="false"
+            color="#505050"/>
+   
+   <mx:Script>
+      <![CDATA[
          import com.broceliand.ApplicationManager;
          import com.broceliand.EmbedManager;
          import com.broceliand.assets.PearlDeckAssets;
@@ -69,50 +69,50 @@
          import org.un.cava.birdeye.ravis.assets.icons.EmbeddedIcons;
          import org.un.cava.birdeye.ravis.utils.LogUtil;
          import org.un.cava.birdeye.ravis.utils.events.VGraphEvent;
-			
+         
          private static const DELAY:int = 400;
          private static const MAX_COUNT:int = 1000;
          
-		  private static var log:BroLogger = Log.getLogger("com.broceliand.ui.pearlbar.view.ZoomScale");
-		  private var _zoomModel:ZoomModel;
-        private var _zoomActionTimer:Timer;
-		  [Bindable]
-		  private var _isEmbed:Boolean;
-		  
-		  private function init():void {
-           var am:ApplicationManager = ApplicationManager.getInstance();
-		     _isEmbed = am.isEmbed();
-           if (_isEmbed) {
-              visible = false;
-           }
-           am.addEventListener(ApplicationManager.FOCUS_CHANGE_EVENT, onApplicationFocusChange);
-		  } 
-		  override protected function createChildren():void {
-		  	super.createChildren();
-		  	
-		  	if (_isEmbed) {
-		  		plusScale.source= AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_PLUS);
-		  		minusScale.source= AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS);
-				plusScale.move(85,0);
-				updateScaleSliderWidth();
-            zeroZoom.visible = zeroZoom.includeInLayout = false;
-				zoomLabel.visible = zoomLabel.includeInLayout = false
-            minusScale.y = -1;
-            plusScale.y = -1;
+         private static var log:BroLogger = Log.getLogger("com.broceliand.ui.pearlbar.view.ZoomScale");
+         private var _zoomModel:ZoomModel;
+         private var _zoomActionTimer:Timer;
+         [Bindable]
+         private var _isEmbed:Boolean;
+         
+         private function init():void {
+            var am:ApplicationManager = ApplicationManager.getInstance();
+            _isEmbed = am.isEmbed();
+            if (_isEmbed) {
+               visible = false;
+            }
+            am.addEventListener(ApplicationManager.FOCUS_CHANGE_EVENT, onApplicationFocusChange);
+         } 
+         override protected function createChildren():void {
+            super.createChildren();
             
-		  	}else {
-		  		plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_PLUS);
-		  		minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_MINUS);
-            scaleSlider.visible = scaleSlider.includeInLayout = false;
-		  		scaleSlider.percentWidth = 95;
-            minusScale.x = 0;
-            zeroZoom.x = 40; 
-            plusScale.x = 69;
-		  	}	
-		  }
-		  public function isEmbedMode():Boolean {
-		  	return _isEmbed;
-		  }
+            if (_isEmbed) {
+               plusScale.source= AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_PLUS);
+               minusScale.source= AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS);
+               plusScale.move(85,0);
+               updateScaleSliderWidth();
+               zeroZoom.visible = zeroZoom.includeInLayout = false;
+               zoomLabel.visible = zoomLabel.includeInLayout = false
+               minusScale.y = -1;
+               plusScale.y = -1;
+               
+            }else {
+               plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_PLUS);
+               minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_MINUS);
+               scaleSlider.visible = scaleSlider.includeInLayout = false;
+               scaleSlider.percentWidth = 95;
+               minusScale.x = 0;
+               zeroZoom.x = 40; 
+               plusScale.x = 69;
+            }	
+         }
+         public function isEmbedMode():Boolean {
+            return _isEmbed;
+         }
          
          public function updateScaleSliderWidth():void {
             if(_isEmbed) {
@@ -131,96 +131,96 @@
             super.updateDisplayList(unscaledWidth, unscaledHeight);
             updateScaleSliderWidth();
          }
-		  
-			public function set model(zoomModel:ZoomModel):void {
-				if (_zoomModel != null) {
-					_zoomModel.removeEventListener(FlexEvent.DATA_CHANGE, onModelChanged); 
-				}
-				_zoomModel = zoomModel;
-				_zoomModel.addEventListener(FlexEvent.DATA_CHANGE, onModelChanged);
-				restoreScaleSliderValue();
-			}
-			public function get model():ZoomModel {
-				return _zoomModel;
-			}
-			
-
-			private function onModelChanged(event:FlexEvent):void {
-				restoreScaleSliderValue();
+         
+         public function set model(zoomModel:ZoomModel):void {
+            if (_zoomModel != null) {
+               _zoomModel.removeEventListener(FlexEvent.DATA_CHANGE, onModelChanged); 
+            }
+            _zoomModel = zoomModel;
+            _zoomModel.addEventListener(FlexEvent.DATA_CHANGE, onModelChanged);
+            restoreScaleSliderValue();
+         }
+         public function get model():ZoomModel {
+            return _zoomModel;
+         }
+         
+         
+         private function onModelChanged(event:FlexEvent):void {
+            restoreScaleSliderValue();
             if(!_isEmbed) {
                visible = _zoomModel.getVisible();
             }
-			}
-
-			private function restoreScaleSliderValue():void {
-				if (scaleSlider) {
+         }
+         
+         private function restoreScaleSliderValue():void {
+            if (scaleSlider) {
                if (_zoomModel.zoomValue >= ZoomModel.ZOOM_DEFAULT) {
                   scaleSlider.value = 0.5 + 0.5 * (_zoomModel.zoomValue - ZoomModel.ZOOM_DEFAULT) / (ZoomModel.MAX_ZOOM - ZoomModel.ZOOM_DEFAULT);   
                } else {
                   scaleSlider.value = 0.5* (_zoomModel.zoomValue - ZoomModel.MIN_ZOOM) / (ZoomModel.ZOOM_DEFAULT - ZoomModel.MIN_ZOOM);
                }
-				}
-			}
-				
-			private function updateScale():void {
-				if (_zoomModel) {
+            }
+         }
+         
+         private function updateScale():void {
+            if (_zoomModel) {
                
                
                
                
-              var scaleValue:Number  = scaleSlider.value;
-              
-              var zoomValue:Number  = 1;
+               var scaleValue:Number  = scaleSlider.value;
+               
+               var zoomValue:Number  = 1;
                var center:Number = (scaleSlider.maximum - scaleSlider.minimum) / 2;
                if (scaleValue >= center) {
                   zoomValue = ZoomModel.ZOOM_DEFAULT + (scaleValue - center) * (ZoomModel.MAX_ZOOM - ZoomModel.ZOOM_DEFAULT) / center;
                } else {
                   zoomValue = ZoomModel.ZOOM_DEFAULT + (scaleValue - center) * (ZoomModel.ZOOM_DEFAULT - ZoomModel.MIN_ZOOM) / center;
                }
-					_zoomModel.zoomValue = Math.floor(zoomValue*100+0.5) / 100
-				}
-			}
-			private function onCreationComplete():void {
-				restoreScaleSliderValue();
-
-			}
-			
-			
-			private function onRollOutMinus():void {
-				if (_isEmbed) {
-					minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS);
-				} else {
-					minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_MINUS);
-				}
-			}
-			private function onRollOverMinus():void {
-				if (_isEmbed) {
-					minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS_OVER);
-				} else {
-					minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_MINUS_OVER);
-				}
-			}
-			private function onRollOutPlus():void {
-				if (_isEmbed) {
-					plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_PLUS);
-				} else {
-					plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_PLUS);
-				}
-			}
-			private function onRollOverPlus():void {
-				if (_isEmbed) {
-					plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_PLUS_OVER);
-				} else {
-					plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_PLUS_OVER);
-				}
-			}
+               _zoomModel.zoomValue = Math.floor(zoomValue*100+0.5) / 100
+            }
+         }
+         private function onCreationComplete():void {
+            restoreScaleSliderValue();
+            
+         }
+         
+         
+         private function onRollOutMinus():void {
+            if (_isEmbed) {
+               minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS);
+            } else {
+               minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_MINUS);
+            }
+         }
+         private function onRollOverMinus():void {
+            if (_isEmbed) {
+               minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS_OVER);
+            } else {
+               minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_MINUS_OVER);
+            }
+         }
+         private function onRollOutPlus():void {
+            if (_isEmbed) {
+               plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_PLUS);
+            } else {
+               plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_PLUS);
+            }
+         }
+         private function onRollOverPlus():void {
+            if (_isEmbed) {
+               plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_PLUS_OVER);
+            } else {
+               plusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_PLUS_OVER);
+            }
+         }
          private function onRollOverZero():void{
             zeroZoom.source = PearlDeckAssets.ZOOM_ZERO_OVER;
          }
          private function onRollOutZero():void{
             zeroZoom.source = PearlDeckAssets.ZOOM_ZERO;
          }
-			private function onRollOver():void{
+         private function onRollOver():void{
             
             onRollOverMinus();
             onRollOverPlus();
@@ -236,68 +236,68 @@
          private function getTextFilters(over:uint):Array {
             return NavBar.getNavBarTextFilters(over);
          }
-			
-			private function onClickPlus():void {
-			   
-			}
-			private function onClickMinus():void {
-			   
-			}
-			private function onClickReset():void {
-			   if (_zoomModel) {
-			      _zoomModel.resetZoom();
-			   }
-			}
          
-		private var _currentDelta:int =0;
-		private static const WheelSpeed:Number = 4;
-		private function onWheelChanged(event:MouseEvent):void {
-			if (event.delta < 0 && event.altKey) {
-				if (_currentDelta >0) {
-					_currentDelta = event.delta;
-				} else {
-					_currentDelta += event.delta
-				}
-			} else if (event.delta > 0 && event.altKey) {
-				if (_currentDelta < 0) {
-					_currentDelta = event.delta;
-				} else {
-					_currentDelta += event.delta
-				}
-			}
-			if (_currentDelta < -WheelSpeed) {
-				_zoomModel.decreaseZoom();
-				_currentDelta = 0;
-			} else if (_currentDelta > WheelSpeed) {
-				_zoomModel.increaseZoom();
-				_currentDelta = 0;
-			}
-		}
-        
-        private var _currentTouchZoom:Number = -1;
-        private var _currentStageZoom:Number = -1;        
-        public function onZoomGesture(scaleX:Number, scaleY:Number):void {   
+         private function onClickPlus():void {
+            
+         }
+         private function onClickMinus():void {
+            
+         }
+         private function onClickReset():void {
+            if (_zoomModel) {
+               _zoomModel.resetZoom();
+            }
+         }
+         
+         private var _currentDelta:int =0;
+         private static const WheelSpeed:Number = 4;
+         private function onWheelChanged(event:MouseEvent):void {
+            if (event.delta < 0 && event.altKey) {
+               if (_currentDelta >0) {
+                  _currentDelta = event.delta;
+               } else {
+                  _currentDelta += event.delta
+               }
+            } else if (event.delta > 0 && event.altKey) {
+               if (_currentDelta < 0) {
+                  _currentDelta = event.delta;
+               } else {
+                  _currentDelta += event.delta
+               }
+            }
+            if (_currentDelta < -WheelSpeed) {
+               _zoomModel.decreaseZoom();
+               _currentDelta = 0;
+            } else if (_currentDelta > WheelSpeed) {
+               _zoomModel.increaseZoom();
+               _currentDelta = 0;
+            }
+         }
+         
+         private var _currentTouchZoom:Number = -1;
+         private var _currentStageZoom:Number = -1;        
+         public function onZoomGesture(scaleX:Number, scaleY:Number):void {   
             if(_zoomModel) {
-                if (_currentStageZoom != _zoomModel.zoomValue) {
-                    _currentStageZoom = _zoomModel.zoomValue;
-                    _currentTouchZoom = _currentStageZoom;
-                }
-                var eventZoom:Number = Math.sqrt(Math.pow(scaleX,2) + Math.pow(scaleY,2))/Math.sqrt(2);
-                _currentTouchZoom *= eventZoom;
-                if (_currentTouchZoom > ZoomModel.MAX_ZOOM) {
-                    _currentTouchZoom = ZoomModel.MAX_ZOOM;
-                } else if (_currentTouchZoom < ZoomModel.MIN_ZOOM) {
-                    _currentTouchZoom = ZoomModel.MIN_ZOOM;
-                }
-                var margin:Number = 0.0000000000001;
-                if (_currentStageZoom - _currentTouchZoom >= ZoomModel.ZOOM_STEP - margin) {
-                    _zoomModel.decreaseZoom();
-                }
-                else if (_currentStageZoom - _currentTouchZoom <= - ZoomModel.ZOOM_STEP + margin){
-                    _zoomModel.increaseZoom();
-                }
+               if (_currentStageZoom != _zoomModel.zoomValue) {
+                  _currentStageZoom = _zoomModel.zoomValue;
+                  _currentTouchZoom = _currentStageZoom;
+               }
+               var eventZoom:Number = Math.sqrt(Math.pow(scaleX,2) + Math.pow(scaleY,2))/Math.sqrt(2);
+               _currentTouchZoom *= eventZoom;
+               if (_currentTouchZoom > ZoomModel.MAX_ZOOM) {
+                  _currentTouchZoom = ZoomModel.MAX_ZOOM;
+               } else if (_currentTouchZoom < ZoomModel.MIN_ZOOM) {
+                  _currentTouchZoom = ZoomModel.MIN_ZOOM;
+               }
+               var margin:Number = 0.0000000000001;
+               if (_currentStageZoom - _currentTouchZoom >= ZoomModel.ZOOM_STEP - margin) {
+                  _zoomModel.decreaseZoom();
+               }
+               else if (_currentStageZoom - _currentTouchZoom <= - ZoomModel.ZOOM_STEP + margin){
+                  _zoomModel.increaseZoom();
+               }
             } 
-        }
+         }
          
          
          private function minusDown(event:Event):void {
@@ -340,26 +340,26 @@
                _zoomModel.increaseZoom();
             }
          }
-        private function executeZoomInOnHold(event:Event):void {
-           zoomActionTimer.reset();
-           zoomActionTimer.removeEventListener(TimerEvent.TIMER, executeZoomInOnHold);
-           plusScale.addEventListener(Event.ENTER_FRAME, executeZoomIn);
-        }         
+         private function executeZoomInOnHold(event:Event):void {
+            zoomActionTimer.reset();
+            zoomActionTimer.removeEventListener(TimerEvent.TIMER, executeZoomInOnHold);
+            plusScale.addEventListener(Event.ENTER_FRAME, executeZoomIn);
+         }         
          
-        
-        private function get zoomActionTimer():Timer
-        {
-           if(!_zoomActionTimer) {
-              _zoomActionTimer = new Timer(DELAY, MAX_COUNT);
-           }
-           return _zoomActionTimer;
-        }
-
-        private function set zoomActionTimer(value:Timer):void
-        {
-           _zoomActionTimer = value;
-        }
-
-		]]>
-	</mx:Script>
+         
+         private function get zoomActionTimer():Timer
+         {
+            if(!_zoomActionTimer) {
+               _zoomActionTimer = new Timer(DELAY, MAX_COUNT);
+            }
+            return _zoomActionTimer;
+         }
+         
+         private function set zoomActionTimer(value:Timer):void
+         {
+            _zoomActionTimer = value;
+         }
+         
+      ]]>
+   </mx:Script>
 </mx:Canvas>

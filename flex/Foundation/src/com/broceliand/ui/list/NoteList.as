@@ -32,17 +32,17 @@ package com.broceliand.ui.list
       }
       
       override public function set dataProvider(value:Object):void {
-            if(_notes != value) {
-               _notes = value as ArrayCollection;
-               refreshDataProvider = true;
-            }
-            invalidateProperties();
-
-
-
-
-
-
+         if(_notes != value) {
+            _notes = value as ArrayCollection;
+            refreshDataProvider = true;
+         }
+         invalidateProperties();
+         
+         
+         
+         
+         
+         
       }
       
       override protected function commitProperties():void{

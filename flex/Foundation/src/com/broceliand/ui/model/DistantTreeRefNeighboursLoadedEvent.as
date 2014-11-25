@@ -15,6 +15,6 @@ package com.broceliand.ui.model
       public function get distantNode():BroDistantTreeRefNode {
          return _distantNode;
       }
-
+      
    }
 }

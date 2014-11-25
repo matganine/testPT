@@ -5,7 +5,7 @@ package com.broceliand.pearlTree.navigation.impl {
    import com.broceliand.pearlTree.navigation.INavigationManager;
    import com.broceliand.pearlTree.navigation.NavigationEvent;
    import com.broceliand.ui.interactors.SelectInteractor;
-      
+   
    public class AuthorNavigationHelper{
       
       public static function navigateOrCenterToAssociation(assoId:int, arrivalPWPanel:int=0):Boolean{

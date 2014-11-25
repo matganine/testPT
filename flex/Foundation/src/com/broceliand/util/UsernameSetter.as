@@ -73,6 +73,6 @@ package com.broceliand.util
          _status = ERROR_USERNAME_TAKEN;
          dispatchEvent(new Event(AVAILABILITY_CHECKED_EVENT));
       }
-
+      
    }
 }

@@ -37,10 +37,10 @@
                  visible="{backImage.visible}"
                  includeInLayout="{backImage.includeInLayout}"/>
       
-
+      
       
       <mx:HBox id="homeContainer" verticalAlign="top">
-
+         
          <mx:Image id="homeImage"
                    source="{getHomeImageSource(false)}" 
                    click="onClickHomeControl()"
@@ -48,7 +48,7 @@
                    rollOut="onRollOutHomeControl()"
                    />
       </mx:HBox>
-
+      
       <button:PTButton id="anonymousButton" 
                        click="onClickAnonymousButton()"
                        skin="{AssetsManager.getEmbededAsset(NavBarAssets.LOGO_WITHOUT_PEARLTREES)}"
@@ -73,7 +73,7 @@
                >
          <!--
          <mx:Spacer width="11" />
-          -->
+         -->
          <mx:HBox id="iconContainer"
                   horizontalAlign="left" horizontalGap="0" 
                   verticalAlign="middle"
@@ -101,8 +101,8 @@
                          visible="false"
                          includeInLayout="false" />
                <!--<mx:Image id="privateMask"
-                         visible="false"
-                         includeInLayout="false" />-->
+               visible="false"
+               includeInLayout="false" />-->
                <mx:Image id="rootAvatarBorder"/>   
             </mx:Canvas>
             <mx:Canvas  id="userAvatarContainer"
@@ -138,17 +138,17 @@
                   verticalScrollPolicy="off"
                   updateComplete="onItemsContainerUpdateComplete()"
                   >
-               <mx:Repeater id="itemsRepeater"
-                            recycleChildren="true" 
-                            startingIndex="0" height="100%">
-                  <navBar:NavBarItem click="onClickItem(event)"
-                                     rollOut="onRollOutItem(event)"
-                                     rollOver="onRollOverItem(event)"
-                                     item="{NavBarModelItem(itemsRepeater.currentItem)}"
-                                     fontFamily="{PTStyleManager.DEFAULT_FONT_FAMILY}"
-                                     index="{itemsRepeater.currentIndex}"
-                                     paddingTop="{TEXT_PADDING_TOP}" paddingLeft="0"/>
-               </mx:Repeater>
+            <mx:Repeater id="itemsRepeater"
+                         recycleChildren="true" 
+                         startingIndex="0" height="100%">
+               <navBar:NavBarItem click="onClickItem(event)"
+                                  rollOut="onRollOutItem(event)"
+                                  rollOver="onRollOverItem(event)"
+                                  item="{NavBarModelItem(itemsRepeater.currentItem)}"
+                                  fontFamily="{PTStyleManager.DEFAULT_FONT_FAMILY}"
+                                  index="{itemsRepeater.currentIndex}"
+                                  paddingTop="{TEXT_PADDING_TOP}" paddingLeft="0"/>
+            </mx:Repeater>
             <premiumsymb:PTPremiumSymbolButtonInCanvas id="premiumSymbol"
                                                        skin="{PTPremiumSymbolButton.SKIN_NAVBAR}"
                                                        clickable="true"
@@ -191,11 +191,11 @@
                verticalAlign="top">
          <!--
          <navBar:PTFacepile id="ptFacepile"
-                            visible="false"
-                            includeInLayout="false"
-                            paddingLeft="10"
-                            height="100%"
-                            maxWidth="{mainContainer.width - homeImage.width - buttonsContainer.width - mostConnectedControl.width}"/>
+         visible="false"
+         includeInLayout="false"
+         paddingLeft="10"
+         height="100%"
+         maxWidth="{mainContainer.width - homeImage.width - buttonsContainer.width - mostConnectedControl.width}"/>
          -->
       </mx:VBox>
       <mx:HBox id="mostConnectedControl"
@@ -218,7 +218,7 @@
                    fontFamily="{PTStyleManager.DEFAULT_FONT_FAMILY}"
                    />
       </mx:HBox>
-
+      
       <mx:HBox id="pearlPickContainer" 
                verticalAlign="top" 
                horizontalGap="-1"
@@ -289,16 +289,16 @@
          public static const ICON_WHATS_HOT:uint = 4;
          public static const ICON_SETTINGS:uint = 5;  
          public static const ICON_HELP:uint = 6;
-
+         
          private static const PADDING_INTER_CONTAINER : int = 12;
          public static const NAVBAR_HEIGHT:Number = 57;
          private static const TEXT_PADDING_TOP:int = 15;
          private static const EMPTY_MESSAGE_TOP:int = 47;
-                  
+         
          
          public static const PEARLTREES_COLOR      : int = 0x505050;
          public static const PEARLTREES_DARK_COLOR : int = 0x009EE0;
-
+         
          private static const COLOR_OUT   : int = 0xFFFFFF;
          private static const COLOR_HOVER : int = 0xFFFFFF;
          private static const COLOR_FILTER : int = 0x000000;
@@ -331,7 +331,7 @@
          
          private var _startAnonymous : Boolean = false;
          private var _frameNumber : int = 0;
-
+         
          private var logger:BroLogger = Log.getLogger("com.broceliand.ui.navBar");
          
          
@@ -339,7 +339,7 @@
          public function get model():INavBarModel {
             return _model;
          }
-
+         
          public function set model(value:INavBarModel):void {
             if(value != _model) {
                if(_model) {
@@ -369,17 +369,17 @@
             if (DEBUG) trace(str);
          }
          
-
-
-
-
-
-
-
-
-
-
-
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          
          
          
@@ -389,7 +389,7 @@
             if (model.avatarTree.isTeamRoot()) return true; 
             return false;
          }
-
+         
          
          private function showBackImage() : Boolean {
             if (model.iconType == ICON_SETTINGS) {
@@ -410,7 +410,7 @@
             }
             return false;
          }
-
+         
          private function isSelectedTreeInMyHome(): Boolean {
             if (!model) return false;
             if (model.iconType != ICON_AVATAR) return false;
@@ -418,7 +418,7 @@
             if (!model.avatarTree.getMyAssociation()) return false;
             return model.avatarTree.getMyAssociation().isMyAssociation();
          }
-                  
+         
          private function commitIconAvatarProperties():void {
             if(model.avatarTree) {
                rootAvatarContainer.visible = rootAvatarContainer.includeInLayout = true;
@@ -518,7 +518,7 @@
                }
             }
          }
-
+         
          override protected function commitProperties():void {            
             super.commitProperties();            
             
@@ -533,7 +533,7 @@
             }
             
             updateAddPearlAction();
-
+            
             
             
             var shouldBeVisible : Boolean = (model && model.isVisible);
@@ -549,10 +549,10 @@
                
                iconContainer.visible = true;
                itemsContainer.visible = true;
-
+               
                modelChanged = false;                 
                mostConnectedControl.visible = mostConnectedControl.includeInLayout = model.isMostConnectedButtonDisplayed;
-
+               
                
                
                itemsRepeater.dataProvider = VectorHelper.vectorToArray(model.items);
@@ -676,7 +676,7 @@
                
             }
          }
-
+         
          
          
          
@@ -705,7 +705,7 @@
                if (shouldResize) {
                   
                   component.setActualSize(newWidth, component.height);
-
+                  
                }else if(!isNaN(component.explicitWidth)) {
                   component.width = Number.NaN;
                   
@@ -726,7 +726,7 @@
                else {
                   
                }
-
+               
                var componentName : String = ""; 
                _resizeItemsOnUpdateDisplay = false;
                _lastWidthMeasured = unscaledWidth;
@@ -779,8 +779,8 @@
                            if (DEBUG) componentName = "item " + (i+1) + "/" + createdItems.length;
                            resizeComponent(itemView, resizableWidth, widthDiff, shouldResize, componentName);
                         }
-
-
+                        
+                        
                         itemView.systemFontFamily = model.isTeamNameOrSearchResult;
                      }
                   }
@@ -824,7 +824,7 @@
             }
             itemsContainer.setStyle("paddingRight", PADDING_INTER_CONTAINER);
          }
-                  
+         
          private function onCreationComplete():void {
             if(rootAvatarBorder) {
                drawRootAvatarBorder();
@@ -849,7 +849,7 @@
          }
          
          private function onWhiteMarkChanged(event:Event):void {
-             
+            
             if (homeImage) {
                homeImage.source = getHomeImageSource(false);
             }
@@ -903,7 +903,7 @@
                userAvatarImage.setStyle('left', 10);
             }
          }
-
+         
          
          private function isInsideMyAccount() : Boolean {
             var targetTree : BroPearlTree = null;
@@ -963,15 +963,15 @@
          }
          
          /*private function updatePadlockAssets():void {
-            if (model.avatarTree.isAssociationRoot()) {
-               privateMask.source = AssetsManager.getEmbededAsset(PearlAssets.PRIVATE_PADLOCK_SMALL_ACTIVE);
-               privateMask.setStyle("top", 20);
-               privateMask.setStyle("left", 20);
-            } else {
-               privateMask.source = AssetsManager.getEmbededAsset(PearlAssets.PRIVATE_PADLOCK_SMALL_ACTIVE);
-               privateMask.setStyle("top", 25);
-               privateMask.setStyle("left", 22);
-            }
+         if (model.avatarTree.isAssociationRoot()) {
+         privateMask.source = AssetsManager.getEmbededAsset(PearlAssets.PRIVATE_PADLOCK_SMALL_ACTIVE);
+         privateMask.setStyle("top", 20);
+         privateMask.setStyle("left", 20);
+         } else {
+         privateMask.source = AssetsManager.getEmbededAsset(PearlAssets.PRIVATE_PADLOCK_SMALL_ACTIVE);
+         privateMask.setStyle("top", 25);
+         privateMask.setStyle("left", 22);
+         }
          }*/
          
          
@@ -981,7 +981,7 @@
                windowController.closeAnyCreationWindowOpen();
             }
          }
-
+         
          private function onClickItem(event:Event):void {
             var itemClicked:NavBarModelItem = UIComponent(event.currentTarget).getRepeaterItem() as NavBarModelItem;
             model.performItemAction(itemClicked);
@@ -1105,10 +1105,10 @@
          private function rollOverHomeControl(value : Boolean) : void {
             homeImage.source = getHomeImageSource(value);
          }
-
-
-
-
+         
+         
+         
+         
          
          private function onRollOverMostConnectedControl() : void {
             if( model.iconType != ICON_MOST_CONNECTED ) {
@@ -1149,7 +1149,7 @@
          private function onRollOutPearlAdd() : void {
             rollOverPearlAddContainer(false);
          }
-
+         
          private function onClickPearlAdd(event:MouseEvent = null):void {
             clearSelection();
             if (navModel.getFocusedTree().isPrivatePearltreeOfCurrentUserNotPremium()) {
@@ -1167,7 +1167,7 @@
             clearSelection();
             windowController.displayPickNodeTo(navModel.getFocusedTree().getRootNode().graphNode, true, true);
          }
-                  
+         
          private function onRollOverItem(event:Event):void{
             var item:NavBarItem = event.currentTarget as NavBarItem;
             item.rollOverStyle=true;
@@ -1238,14 +1238,14 @@
          }
          
          public function layoutEmptyMessageOnDiscover(toShow:Boolean):void {
-           emptyMessage.move(mostConnectedControl.localToGlobal(new Point(0,0)).x - 7, EMPTY_MESSAGE_TOP);
-           emptyMessage.visible = emptyMessage.includeInLayout = toShow;
-           var navModel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
-           if (toShow) {
-              navModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigation);
-           } else {
-              navModel.removeEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigation);
-           }
+            emptyMessage.move(mostConnectedControl.localToGlobal(new Point(0,0)).x - 7, EMPTY_MESSAGE_TOP);
+            emptyMessage.visible = emptyMessage.includeInLayout = toShow;
+            var navModel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
+            if (toShow) {
+               navModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigation);
+            } else {
+               navModel.removeEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigation);
+            }
          }
          
          private function onNavigation(event:Event):void {

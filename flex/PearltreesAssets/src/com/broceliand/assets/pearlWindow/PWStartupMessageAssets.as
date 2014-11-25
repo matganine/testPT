@@ -1,10 +1,10 @@
 package com.broceliand.assets.pearlWindow {
-import com.broceliand.assets.AssetsServerPath;
-
+   import com.broceliand.assets.AssetsServerPath;
+   
    public class PWStartupMessageAssets  {
-
+      
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"startupMessage/";
-
+      
       public static const INVITATION_BLOCKED:String = SERVER_PATH+"invitationBlocked.png";
       public static const LOGO_PEARLTREES:String = SERVER_PATH+"logoPearltrees28x24.png";
       public static const CONNECT_FAIL:String = SERVER_PATH+"decoConnectFail.png";

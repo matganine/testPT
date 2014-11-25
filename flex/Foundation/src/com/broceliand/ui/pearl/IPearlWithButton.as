@@ -4,6 +4,6 @@ package com.broceliand.ui.pearl
    {
       function relaxButtons():void;
       function exciteButtons():void;
-
+      
    }
 }

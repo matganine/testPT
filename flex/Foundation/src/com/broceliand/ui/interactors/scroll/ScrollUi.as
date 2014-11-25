@@ -20,7 +20,7 @@ package com.broceliand.ui.interactors.scroll
    import mx.containers.Canvas;
    import mx.core.Application;
    import mx.core.ScrollPolicy;
-
+   
    public class ScrollUi extends Canvas
    {
       public static const NONE_BUTTON:uint = 0;
@@ -28,7 +28,7 @@ package com.broceliand.ui.interactors.scroll
       public static const RIGHT_BUTTON:uint = 2;
       public static const BOTTOM_BUTTON:uint = 3;
       public static const LEFT_BUTTON:uint = 4;
-
+      
       private static const PEARLTREES_ARROW_SIZE:Number = 40;
       private static const EMBED_ARROW_SIZE:Number = 20;
       private static const PEARLTREES_ARROW_PADDING:Number = 15;
@@ -36,15 +36,15 @@ package com.broceliand.ui.interactors.scroll
       public static const GROW_EFFECT_DURATION:Number = 3500;
       private static const GROW_EFFECT_ARROW_SCALE:Number = 2;
       
-		private var _topButton:PTArrowButton;
-		private var _leftButton:PTArrowButton;
-		private var _rightButton:PTArrowButton;
-		private var _bottomButton:PTArrowButton;
+      private var _topButton:PTArrowButton;
+      private var _leftButton:PTArrowButton;
+      private var _rightButton:PTArrowButton;
+      private var _bottomButton:PTArrowButton;
       
       private var _buttons:Vector.<PTArrowButton>;
       
-		private var _excitedButtonId:uint;
-		private var _excitedButtonIdChanged:Boolean = true;
+      private var _excitedButtonId:uint;
+      private var _excitedButtonIdChanged:Boolean = true;
       
       private var _growEffectTimer:Timer;
       private var _effectStartTime:Number;
@@ -81,7 +81,7 @@ package com.broceliand.ui.interactors.scroll
          for each(var button:PTArrowButton in _buttons) {
             button.maxWidthAndHeight = newArrowSize;
             button.isRoundCorner = true;
-
+            
             if(button != excitedButton) {
                button.unhighlight();
             }
@@ -129,7 +129,7 @@ package com.broceliand.ui.interactors.scroll
          
          ApplicationManager.getInstance().visualModel.applicationMessageBroadcaster.addEventListener(ApplicationMessageBroadcaster.WHITE_MARK_CHANGED_EVENT, onWhiteMarkChanged);
       }
-
+      
       private function onWhiteMarkChanged(event:Event):void {
          invalidateDisplayList();
       }
@@ -193,7 +193,7 @@ package com.broceliand.ui.interactors.scroll
             }
          }
       }
-
+      
       public function set excitedButtonId(value:uint):void {
          if(value != _excitedButtonId) {
             _excitedButtonId = value;

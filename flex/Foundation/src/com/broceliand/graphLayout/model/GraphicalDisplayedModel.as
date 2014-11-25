@@ -10,19 +10,19 @@ package com.broceliand.graphLayout.model
    
    import flash.utils.Dictionary;
    
-
-
+   
+   
    public class GraphicalDisplayedModel
    {
       private var _vgraph:IPTVisualGraph;
-   
+      
       private var _tree2RootNodes:Dictionary=new Dictionary();
-
+      
       public function GraphicalDisplayedModel(vgraph:IPTVisualGraph)
       {
          _vgraph = vgraph;
       }
-
+      
       
       public function getCurrentFocusedTree():BroPearlTree {
          
@@ -44,14 +44,14 @@ package com.broceliand.graphLayout.model
          return null;
       }
       
-   
+      
       public function getNode(tree:BroPearlTree):IPTNode {
          return   _tree2RootNodes[tree];
       }
       
       public function onTreeGraphBuilt(rootOfTheTree:IPTNode):void {
          if (rootOfTheTree is PTRootNode) {
-
+            
             _tree2RootNodes[getTreeFromRootNode(rootOfTheTree)] =rootOfTheTree;
          } else throw Error("Invalid rootTree"); 
       } 
@@ -59,17 +59,17 @@ package com.broceliand.graphLayout.model
          var tree:BroPearlTree = getTreeFromRootNode(node as PTRootNode);
          
          if (tree && _tree2RootNodes[tree] == node) {
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
             delete _tree2RootNodes[tree];
          }
       }
       
       
-                   
+      
    }
 }

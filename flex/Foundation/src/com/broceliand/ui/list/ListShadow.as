@@ -38,7 +38,7 @@ package com.broceliand.ui.list
          displayShadowChanged = true;
          invalidateDisplayList();         
       }
-       
+      
       
       override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
          super.updateDisplayList(unscaledWidth, unscaledHeight);
@@ -50,7 +50,7 @@ package com.broceliand.ui.list
             if(_displayShadow) {
                var shadowWidth:uint = width;
                var shadowHeight:uint = height;
-                           
+               
                var type:String = GradientType.LINEAR;
                var alphas:Array = null;
                if(getStyle('shadowDirection')=="top") {
@@ -62,7 +62,7 @@ package com.broceliand.ui.list
                var interp:String = InterpolationMethod.LINEAR_RGB;         
                var colors:Array = [ColorPalette.getInstance().backgroundColor, ColorPalette.getInstance().backgroundColor];
                var ratios:Array = [0, 255];
-              
+               
                var matrix:Matrix = new Matrix();       
                var boxWidth:Number = width;
                var boxHeight:Number = height;
@@ -70,14 +70,14 @@ package com.broceliand.ui.list
                var tx:Number = 0;
                var ty:Number = 0;
                matrix.createGradientBox(boxWidth, boxHeight, boxRotation, tx, ty);
-
+               
                graphics.beginGradientFill(type, colors, alphas, ratios, matrix, spreadMethod, interp);
                graphics.drawRect(0,0, shadowWidth,shadowHeight);
                graphics.endFill();
             }
          }
       }       
-            
+      
       
       private static var defaultStyleConstructed:Boolean = constructDefaultStyle(); 
       public static function constructDefaultStyle(applyNow:Boolean=true):Boolean {
@@ -87,7 +87,7 @@ package com.broceliand.ui.list
             
             var defaultStyles:CSSStyleDeclaration = new CSSStyleDeclaration();
             defaultStyles.defaultFactory = function():void {
-                this.shadowDirection = 'top';
+               this.shadowDirection = 'top';
             }
             styleManager.addStyleDeclaration("ListShadow", defaultStyles, applyNow);
          }

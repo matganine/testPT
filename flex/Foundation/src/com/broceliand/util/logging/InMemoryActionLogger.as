@@ -26,6 +26,6 @@ package com.broceliand.util.logging
          }
          return result;
       }
-
+      
    }
 }

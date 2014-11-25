@@ -1,36 +1,36 @@
 package com.broceliand.ui.renderers.pageRenderers.pearl
 {  
-	import com.broceliand.pearlTree.model.BroPTNode;
-	
-	import flash.display.Graphics;
-	
-	public class InnerColorRing extends ColorRing
-	{
-		 
+   import com.broceliand.pearlTree.model.BroPTNode;
+   
+   import flash.display.Graphics;
+   
+   public class InnerColorRing extends ColorRing
+   {
+      
       private var _pearl:PearlBase;
-		
-		public function InnerColorRing(pearl:PearlBase)
-		{
-	       _pearl = pearl;
-		}
-		
-		override protected function getPearlRadius():Number {
+      
+      public function InnerColorRing(pearl:PearlBase)
+      {
+         _pearl = pearl;
+      }
+      
+      override protected function getPearlRadius():Number {
          return _pearl.pearlWidth/2.0;
       }
-
+      
       override  protected function getPearlCenterX():Number {
          return _pearl.width/2.0;
       }
-
+      
       override protected function drawNeighbourRing():void {
-          var g:Graphics = _neighbourRing.graphics;  
-          g.clear();
-          if(getPearlRadius()> 0 && _neighbourRingThickNess > 0) {
-             var ringThickness:Number = _neighbourRingThickNess;
-             g.lineStyle(ringThickness + 5, 0X0000FF);
-             var pearlRadius:Number = getPearlRadius() - ringThickness/2;            
-             g.drawCircle(getPearlCenterX(), getPearlCenterX(), pearlRadius);
-          }
+         var g:Graphics = _neighbourRing.graphics;  
+         g.clear();
+         if(getPearlRadius()> 0 && _neighbourRingThickNess > 0) {
+            var ringThickness:Number = _neighbourRingThickNess;
+            g.lineStyle(ringThickness + 5, 0X0000FF);
+            var pearlRadius:Number = getPearlRadius() - ringThickness/2;            
+            g.drawCircle(getPearlCenterX(), getPearlCenterX(), pearlRadius);
+         }
          g.endFill();
       }
       
@@ -38,15 +38,15 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          var g:Graphics = _noteRing.graphics;
          g.clear();
          if(getPearlRadius()> 0 && _noteRingThickNess > 0) {
-             var ringThickness:Number = _noteRingThickNess;
-             g.lineStyle(ringThickness + 5 , 0XFF0000);
-             var pearlRadius:Number = getPearlRadius()- ringThickness/2;            
-             g.drawCircle(getPearlCenterX(), getPearlCenterX(), pearlRadius);
+            var ringThickness:Number = _noteRingThickNess;
+            g.lineStyle(ringThickness + 5 , 0XFF0000);
+            var pearlRadius:Number = getPearlRadius()- ringThickness/2;            
+            g.drawCircle(getPearlCenterX(), getPearlCenterX(), pearlRadius);
          }
          g.endFill();
-     }
-     
-     override protected function get noteCount():Number{
+      }
+      
+      override protected function get noteCount():Number{
          var count:Number = super.noteCount;
          if (count == 0 && _pearl.pearlNotificationState.notifyingNewNote) {
             count = 1;
@@ -83,13 +83,13 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       
       override protected function get showNeighbourRing():Boolean {
          return true;
-       
-       
+         
+         
       }
       
       override protected function get showNoteRing():Boolean {
          return true; 
-       
+         
       }      
-	}
+   }
 }

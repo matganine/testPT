@@ -9,9 +9,6 @@
            alpha="{ColorPalette.PEARLTREES_BAR_ALPHA}"
            >
    
-   <!-- <mx:UIComponent id="shadow" width="100%" height="{HEIGHT}" bottom="0" alpha="1" />
-   -->
-   
    <mx:Canvas id="bannerContent"
               height="{HEIGHT}"
               horizontalScrollPolicy="off"
@@ -19,15 +16,6 @@
               alpha="1"
               visible="false" includeInLayout="false">
       
-      <!--      <mx:VBox top="30" bottom="0" 
-               verticalAlign="middle" verticalGap="2" width="100%" horizontalAlign="center">
-         <mx:Label id="subMessage"
-                   fontSize="16"
-                   fontWeight="bold"
-                   selectable="false"
-                   maxHeight="20"
-                   color="{ColorPalette.PEARLTREES_COLOR}" /> </mx:VBox>
-      -->
       <mx:Label id="message"
                 fontWeight="normal" selectable="false" maxHeight="42"
                 color="#FFFFFF" fontSize="{Footer.FONT_SIZE_LABEL}"
@@ -35,18 +23,6 @@
                 textAlign="center"
                 />
       
-<!--      <button:PTButton id="joinButton" right="10" top="38"
-                       label="{BroLocale.getInstance().getText('footer.banner.joinButton')}"
-                       fontSize="18" width="{JOIN_BUTTON_WIDTH}" fontWeight="bold"
-                       paddingTop="4"
-                       color="{ColorPalette.getInstance().backgroundColor}"
-                       textRollOverColor="{ColorPalette.getInstance().backgroundColor}"
-                       textSelectedColor="{ColorPalette.getInstance().backgroundColor}"
-                       click="onClickJoinButton()"
-                       skin="{PearlDeckAssets.JOIN}"
-                       overSkin="{PearlDeckAssets.JOIN_OVER}"
-                       downSkin="{PearlDeckAssets.JOIN_OVER}" />-->
-       
    </mx:Canvas>   
    
    <mx:Script>
@@ -114,7 +90,7 @@
             if(modelChanged && visible) {
                modelChanged = false;
                if(model.state == FooterBannerModel.STATE_DEFAULT) {
-
+                  
                   bannerContent.visible = bannerContent.includeInLayout = false;
                   
                   if(model.isShowingPTW) {
@@ -159,9 +135,9 @@
                
                
                
-
-
-
+               
+               
+               
                updateTextPosition();
                _currentState = model.state;
             }
@@ -182,25 +158,25 @@
             }
             
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
          }
          
@@ -212,7 +188,7 @@
             footer.addEventListener(Footer.FOOTER_SHOW, onFooterVisibilityChange);
             footer.addEventListener(Footer.FOOTER_HIDE, onFooterVisibilityChange);
          }
-  
+         
          
          private function onFooterVisibilityChange(event:Event):void {
             var am:ApplicationManager = ApplicationManager.getInstance();
@@ -234,18 +210,18 @@
          }
          
          
-
-
-
-
-
-
-
-
-
-
-
-
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          
          public function getTextFilters():Array{
             return NavBar.getNavBarTextFilters(NavBar.FILTERS_NOT_OVER);
@@ -255,34 +231,34 @@
          }
          
          private function getBannerLeftPosition():Number {
-
-
-
-
-
+            
+            
+            
+            
+            
             return 0;
          }
          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
          
-
-
-
-
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          
          
          

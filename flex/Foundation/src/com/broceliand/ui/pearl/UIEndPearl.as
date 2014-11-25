@@ -5,7 +5,7 @@ package com.broceliand.ui.pearl
    import com.broceliand.ui.renderers.pageRenderers.PearlRendererStateManager;
    import com.broceliand.ui.renderers.pageRenderers.pearl.PTRootPearl;
    import com.broceliand.util.resources.IRemoteResourceManager;
-
+   
    public class UIEndPearl extends EndPearlRenderer
    {
       private static const DEFAULT_PEARL_WIDTH:Number = PTRootPearl.PEARL_WIDTH_NORMAL;
@@ -44,7 +44,7 @@ package com.broceliand.ui.pearl
             value =0;
          }
          super.alpha = value;
-        
+         
       }
    }
 }

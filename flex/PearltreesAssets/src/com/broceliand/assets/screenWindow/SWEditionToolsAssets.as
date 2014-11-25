@@ -13,13 +13,13 @@ package com.broceliand.assets.screenWindow
       public static const COPY:Class; 
       [Embed(source="/assets/screenWindow/editionTools/copyOver.png")]
       public static const COPY_OVER:Class;
-
+      
       
       [Embed(source="/assets/screenWindow/editionTools/move.png")]
       public static const MOVE:Class; 
       [Embed(source="/assets/screenWindow/editionTools/moveOver.png")]
       public static const MOVE_OVER:Class;
-
+      
       
       [Embed(source="/assets/screenWindow/editionTools/customize.png")]
       public static const CUSTOMIZE:Class; 
@@ -31,7 +31,7 @@ package com.broceliand.assets.screenWindow
       public static const BACKGROUND:Class; 
       [Embed(source="/assets/screenWindow/editionTools/backgroundOver.png")]
       public static const BACKGROUND_OVER:Class;
-
+      
       
       [Embed(source="/assets/screenWindow/editionTools/profile.png")]
       public static const PROFILE:Class; 

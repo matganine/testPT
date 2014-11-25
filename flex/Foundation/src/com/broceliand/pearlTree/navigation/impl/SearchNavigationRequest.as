@@ -23,10 +23,10 @@ package com.broceliand.pearlTree.navigation.impl
    
    public class SearchNavigationRequest extends NavigationRequestBase implements IAmfRetArrayCallback {
       private var _keyword:String;   
-   
+      
       private var _userId:Number;   
       private var _userOnly:Boolean;   
-   
+      
       public function SearchNavigationRequest(navDesc:NavigationDescription)
       {
          super(navDesc);
@@ -52,7 +52,7 @@ package com.broceliand.pearlTree.navigation.impl
          _event.searchUserId = _userId
          _event.searchUserOnly= _userOnly;
       }
-
+      
       private function launchSearch():void {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var user:User = am.currentUser;
@@ -90,7 +90,7 @@ package com.broceliand.pearlTree.navigation.impl
          }
          _navigator.dispatchEvent(new SearchEvent(_keyword, count, hasMoreThanThreshold, _userId, _userOnly, spatialTreeList));
       }
-     
+      
       public function onError(message:FaultEvent):void {
          _navigator.dispatchEvent(new SearchEvent(_keyword, 0, false, _userId, _userOnly, null, true));
       }

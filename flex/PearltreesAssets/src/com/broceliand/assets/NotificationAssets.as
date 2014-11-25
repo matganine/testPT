@@ -1,9 +1,6 @@
 package com.broceliand.assets {
-
+   
    public class NotificationAssets {
-      
-      
-      
       public static const NOTIFICATION_PICTO_WIDTH:Number = 32;
       
       [Embed(source='/assets/notifications/comment.png')]

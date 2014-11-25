@@ -42,11 +42,11 @@ package com.broceliand.ui.model
       public static const NEIGHBOUR_COUNT_CHANGED_EVENT:String = "NeighbourCountChanged";
       
       public static const MAX_NEIGHBOUR_TO_USE_AS_COUNT:uint = 95;
-            
+      
       protected var _neighbourLoader:INeighbourLoader;
       private   var _clientNeighbourRepository:NeighbourClientRepository;
       protected var _inProgress:Array;
-               	
+      
       public function NeighbourModel(dataRepository:BroDataRepository) {
          super();
          _inProgress = new Array();
@@ -68,19 +68,19 @@ package com.broceliand.ui.model
          
          if(!isInProgress(node)) {
             
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             _neighbourLoader.loadNeighbours(node);
             addInProgressList(node);             
          }
@@ -143,11 +143,11 @@ package com.broceliand.ui.model
          dispatchEvent(event);
       }
       
-     
+      
       public function declareClientNeighbour(nodeNeighbour:BroPTNode, destinationTree:BroPearlTree, crossingNode:BroPTNode=null):Boolean{
          return _clientNeighbourRepository.declareClientNeighbour(nodeNeighbour, destinationTree, crossingNode);
       }
-
+      
       private function onNeighboursLoaded(event:NeighbourLoaderEvent):void{
          
          
@@ -185,7 +185,7 @@ package com.broceliand.ui.model
       public function loadNextPage(node:BroPTNode):void {
          
          
-
+         
          
          if(!isInProgress(node)) {
             _neighbourLoader.loadNeighbours(node, node.neighbours.paginationState);
@@ -199,22 +199,22 @@ package com.broceliand.ui.model
       }
       
       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
    }
 }

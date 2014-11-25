@@ -12,7 +12,7 @@ package com.broceliand.assets.pearlWindow
                 scaleGridTop='5', scaleGridBottom='18', 
                 scaleGridLeft='10', scaleGridRight='11')]
       public static const ITEM_CONFIRM_BUTTON_OVER:Class;
-            
+      
       
       [Embed(source="/assets/pearlWindow/association/buttonPending.png", 
                 scaleGridTop='5', scaleGridBottom='18', 

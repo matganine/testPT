@@ -8,18 +8,18 @@
          verticalScrollPolicy="off" horizontalScrollPolicy="off" xmlns:util="com.broceliand.ui.util.*">
    <mx:Canvas width="100%">
       <mx:Image id="backgroundAsset" 
-               source="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCHBOX_BACKGROUND)}" top="0"
-               width="100%" maintainAspectRatio="false" />
+                source="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCHBOX_BACKGROUND)}" top="0"
+                width="100%" maintainAspectRatio="false" />
       <mx:HBox id="buttonsAndTextContainer"
                horizontalScrollPolicy="off" 
                horizontalAlign="left" verticalAlign="middle"
                horizontalGap="0" width="100%">
          <button:PTButton id="modeButton" width="35" height="54"
-                         skin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_BUTTON)}"
-                         overSkin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_BUTTON_OVER)}"
-                         downSkin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_BUTTON_OVER)}"
-                         disabledSkin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_MAGNIFIER)}"
-                         click="onClickModeButton()"/>
+                          skin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_BUTTON)}"
+                          overSkin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_BUTTON_OVER)}"
+                          downSkin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_BUTTON_OVER)}"
+                          disabledSkin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_MAGNIFIER)}"
+                          click="onClickModeButton()"/>
          <mx:Canvas id="noModeButtonContainer" creationPolicy="none">
             <button:PTButton id="noModeButtonInNavBar" width="35" height="54" x="1"
                              skin="{AssetsManager.getEmbededAsset(NavBarAssets.SEARCH_ICON)}"
@@ -45,38 +45,38 @@
                                 color="{ColorPalette.getInstance().pearltreesColorForSystemFont}"/>
          <!--
          <button:PTButton id="okButton"
-                    visible="false" includeInLayout="false"
-                    height="30"
-                    width="30"
-                    upSkin="{AssetsManager.getEmbededAsset(SearchBoxAssets.OK)}"
-                    downSkin="{AssetsManager.getEmbededAsset(SearchBoxAssets.OK_OVER)}"
-                    overSkin="{AssetsManager.getEmbededAsset(SearchBoxAssets.OK_OVER)}"
-                    skin="{SearchOkButtonRoundSkin}"
-                    paddingTop="0" paddingBottom="0" paddingLeft="0" paddingRight="0"
-                    letterSpacing="1" textAlign="center"
-                    fontWeight="normal"
-                    color="{ColorPalette.getInstance().backgroundColor}"
-                    textRollOverColor="{ColorPalette.getInstance().backgroundColor}"
-                    textSelectedColor="{ColorPalette.getInstance().backgroundColor}"
-                    click="onClickSearch()"/>
+         visible="false" includeInLayout="false"
+         height="30"
+         width="30"
+         upSkin="{AssetsManager.getEmbededAsset(SearchBoxAssets.OK)}"
+         downSkin="{AssetsManager.getEmbededAsset(SearchBoxAssets.OK_OVER)}"
+         overSkin="{AssetsManager.getEmbededAsset(SearchBoxAssets.OK_OVER)}"
+         skin="{SearchOkButtonRoundSkin}"
+         paddingTop="0" paddingBottom="0" paddingLeft="0" paddingRight="0"
+         letterSpacing="1" textAlign="center"
+         fontWeight="normal"
+         color="{ColorPalette.getInstance().backgroundColor}"
+         textRollOverColor="{ColorPalette.getInstance().backgroundColor}"
+         textSelectedColor="{ColorPalette.getInstance().backgroundColor}"
+         click="onClickSearch()"/>
          -->
       </mx:HBox>
    </mx:Canvas>
    <mx:VBox verticalGap="-3" width="100%" horizontalAlign="center" verticalScrollPolicy="off" horizontalScrollPolicy="off">
       <util:NonScrollableText id="message"
                               selectable="false"
-                width="100%" paddingLeft="13"
-                visible="false" includeInLayout="false"
-                fontWeight="bold" fontSize="11"
-                color="{ColorPalette.getInstance().pearltreesDarkColor}" />
+                              width="100%" paddingLeft="13"
+                              visible="false" includeInLayout="false"
+                              fontWeight="bold" fontSize="11"
+                              color="{ColorPalette.getInstance().pearltreesDarkColor}" />
       <util:NonScrollableText id="messageLine2"
                               selectable="false"
-                width="100%" paddingLeft="13"
-                visible="false" includeInLayout="false"
-                fontWeight="bold" fontSize="11"
-                color="{ColorPalette.getInstance().pearltreesDarkColor}" />
+                              width="100%" paddingLeft="13"
+                              visible="false" includeInLayout="false"
+                              fontWeight="bold" fontSize="11"
+                              color="{ColorPalette.getInstance().pearltreesDarkColor}" />
    </mx:VBox>
-
+   
    <mx:Metadata>
       [Event(name="search", type="flash.events.Event")]
    </mx:Metadata>
@@ -120,7 +120,7 @@
          public static const SEARCH_PEARLTREES:Number = 1;
          public static const SEARCH_MY_ACCOUNT:Number = 2;
          public static const SEARCH_PEOPLE:Number = 3;
-
+         
          public static const SEARCH_INPUT_HEIGHT:Number = 27;
          public static const SEARCH_BOX_WIDTH:Number = 288;
          public static const SEARCH_BOX_WIDTH_ANONYMOUS:Number = 200;
@@ -133,7 +133,7 @@
          private var _searchDefaultTextString:String;
          private var _searchPeopleDefaultTextString:String;
          private var _searchAccountDefaultTextString:String;
-
+         
          private var _lastKeyword:String;
          private var _lastSearchMode:Number;
          private var _lastUserSearchId:Number = 0;
@@ -152,7 +152,7 @@
                if(_displayMode != DISPLAY_MODE_DEFAULT
                   && _displayMode != DISPLAY_MODE_PRIVATE_MESSAGE_PANEL 
                   && _displayMode != DISPLAY_MODE_SW_PRIVATE_MESSAGE_PANEL                  
-                  ) {
+               ) {
                   _searchMode = SEARCH_PEARLTREES;
                }
                invalidateProperties();
@@ -161,25 +161,25 @@
          public function get displayMode():uint {
             return _displayMode;
          }
-
+         
          public function set searchMode(mode:int):void {
             var keyword:String = StringUtil.trim(searchInput.text);
             var isEmpty:Boolean = (keyword == "" || keyword == searchInput.defaultText);
-      
+            
             _searchMode = mode;
             updateDefaultLabel();
             if (!isEmpty){
                search(_searchMode);
             }
          }
-
+         
          private function updateDefaultLabel():void {
             if (_searchMode == SEARCH_PEOPLE) {
                searchInput.defaultText = _searchPeopleDefaultTextString;
-      	   } else if (_searchMode == SEARCH_MY_ACCOUNT) {
+            } else if (_searchMode == SEARCH_MY_ACCOUNT) {
                searchInput.defaultText = _searchAccountDefaultTextString;
             } else {
-            	searchInput.defaultText = _searchDefaultTextString;
+               searchInput.defaultText = _searchDefaultTextString;
             }
          }
          
@@ -216,7 +216,7 @@
                   width = SEARCH_BOX_WIDTH;
             }
          }
-
+         
          private function updateMessages(event:Event = null):void {
             if (_displayMode == DISPLAY_MODE_HOME) {
                _searchDefaultTextString=BroLocale.getInstance().getText('searchBox.home.defaultText');
@@ -232,17 +232,17 @@
             }
             
          }
-
+         
          private function set hidePWOnSearchEmpty(v:Boolean):void {
             if(_hidePWOnSearchEmpty != v) {
                _hidePWOnSearchEmpty = v;
                ApplicationManager.getInstance().components.windowController.temporaryHidePearlWindow(_hidePWOnSearchEmpty);
             }
          }
-
+         
          private function isSearchModeActivated() : Boolean {
             if (_displayMode == DISPLAY_MODE_PRIVATE_MESSAGE_PANEL
-                  || _displayMode == DISPLAY_MODE_SW_PRIVATE_MESSAGE_PANEL) {
+               || _displayMode == DISPLAY_MODE_SW_PRIVATE_MESSAGE_PANEL) {
                return false;
             }
             else {
@@ -250,16 +250,16 @@
                return !isAnonymous;
             }
          }
-
+         
          public function updateSearchModeButton() : void {
             if (isSearchModeActivated()) {
-              activateSearchMode(); 
+               activateSearchMode(); 
             } else {
-              deactivateSearchMode(); 
+               deactivateSearchMode(); 
             }
             invalidateProperties();
          }
-
+         
          public function activateSearchMode() : void {
             modeButton.includeInLayout = modeButton.visible = true;
             if ( getRightNoModeButton() != null) {
@@ -267,7 +267,7 @@
             }
             invalidateProperties();
          }
-
+         
          public function deactivateSearchMode() : void {
             modeButton.includeInLayout = modeButton.visible = false;
             if (!noModeButtonContainer.processedDescriptors) {
@@ -276,34 +276,34 @@
             getRightNoModeButton().includeInLayout = getRightNoModeButton().visible = true;
             invalidateProperties();
          }
-
+         
          private function onCreationComplete():void {
-              _navigationModel = ApplicationManager.getInstance().visualModel.navigationModel;
-              _navigationModel.addEventListener(SearchEvent.SEARCH_EVENT, onSearchEnd);
-              _navigationModel.addEventListener(SearchEvent.SEARCH_EVENT_ERROR, onSearchEndError);
-              _navigationModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigationChange);
-              message.filters = getMessageFilters();
-              messageLine2.filters = getMessageFilters();
-              
-              updateBackgroundAsset();
-              updateLayoutParameters();
-              updateWidth();
-              updateMessages();
-              updateSearchModeButton();
-              updateDefaultLabel();
-              BroLocale.getInstance().addEventListener(BroLocale.LANG_CHANGED_EVENT, updateMessages);
+            _navigationModel = ApplicationManager.getInstance().visualModel.navigationModel;
+            _navigationModel.addEventListener(SearchEvent.SEARCH_EVENT, onSearchEnd);
+            _navigationModel.addEventListener(SearchEvent.SEARCH_EVENT_ERROR, onSearchEndError);
+            _navigationModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigationChange);
+            message.filters = getMessageFilters();
+            messageLine2.filters = getMessageFilters();
+            
+            updateBackgroundAsset();
+            updateLayoutParameters();
+            updateWidth();
+            updateMessages();
+            updateSearchModeButton();
+            updateDefaultLabel();
+            BroLocale.getInstance().addEventListener(BroLocale.LANG_CHANGED_EVENT, updateMessages);
          }
-
+         
          private function onSearchEnd(event:SearchEvent):void {
             messageLine2.visible = messageLine2.includeInLayout = false;
             if (_displayMode != DISPLAY_MODE_HOME) {
                if (event.keyword != _lastKeyword && searchInput.focusManager.getFocus() != searchInput ) {
-                   searchInput.displayDefaultText = false;
-                   searchInput.text = event.keyword;
-                   _lastKeyword = event.keyword;
+                  searchInput.displayDefaultText = false;
+                  searchInput.text = event.keyword;
+                  _lastKeyword = event.keyword;
                }
             }
-
+            
             if (event.keyword == _lastKeyword) {
                var searchPeople:String = "";
                if (event.isPeopleSearched) {
@@ -312,29 +312,29 @@
                else if (event.searchUserId > 0) {
                   searchPeople = "account."
                }
-
+               
                hidePWOnSearchEmpty = event.resultCount == 0;
-
+               
                message.visible = message.includeInLayout = false;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
             }
             hideModeBox();
          }
@@ -347,7 +347,7 @@
             }
             hideModeBox();
          }
-
+         
          
          private function hideModeBox():void {
             var wc:IWindowController = ApplicationManager.getInstance().components.windowController;
@@ -362,26 +362,26 @@
                hidePWOnSearchEmpty = false;
             }
          }
-
+         
          private function onTextInput():void {
             if (_isFirstKey) {
                updateDefaultLabel();
                _isFirstKey = false;
             }
-
+            
          }
-
+         
          private function onClickSearch():void {
             search(_searchMode);
          }
-
+         
          private function search(searchMode:Number):void {
             Profiler.getInstance().startSession("search");
             var am:ApplicationManager = ApplicationManager.getInstance();
             var keyword:String = StringUtil.trim(searchInput.text);
             var isKeywordEmpty:Boolean = (keyword == "" || keyword == searchInput.defaultText);
             var isSearchable:Boolean = ((keyword != _lastKeyword || _lastSearchMode != searchMode )|| !_navigationModel.isShowingSearchResult());
-
+            
             if(isSearchable) {
                _lastKeyword = keyword;
                _lastSearchMode = searchMode;
@@ -404,7 +404,7 @@
             }
             searchInput.unfocus();
          }
-
+         
          private function onClickModeButton():void {
             var am:ApplicationManager = ApplicationManager.getInstance();
             var wc:IWindowController = am.components.windowController;
@@ -414,7 +414,7 @@
                wc.openSearchModeWindow();
             }
          }
-
+         
          public function getSearchModeWindowPosition():Rectangle {
             var point:Point = modeButton.localToGlobal(new Point(0, 0));
             var posX:Number = point.x + 5;
@@ -422,7 +422,7 @@
             var position:Rectangle = new Rectangle(posX, posY, 0, 0);
             return position;
          }
-
+         
          public function getSearchModeWindowDockPosition():Rectangle {
             var point:Point = modeButton.localToGlobal(new Point(0, 0));
             var posX:Number = point.x + (modeButton.width / 2.0) + 2;
@@ -430,15 +430,15 @@
             var position:Rectangle = new Rectangle(posX, posY, 0, 0);
             return position;
          }
-
+         
          private function onCancelSearch():void {
             setDefaultState();
          }
-
+         
          public function setDefaultState():void {
             searchInput.text = "";
             searchInput.displayDefaultText = true;
-
+            
             message.visible = message.includeInLayout = false;
             messageLine2.visible = messageLine2.includeInLayout = false;
             _lastKeyword = null;
@@ -455,7 +455,7 @@
                updateDefaultLabel();
             }
          }
-
+         
          private function onFocusOutSearch():void {
             if(searchInput.text == "" || searchInput.text == searchInput.defaultText) {
                onCancelSearch();
@@ -494,7 +494,7 @@
             buttonsAndTextContainer.setStyle('paddingLeft', shadowedStyle ? 0 : 8);
             searchInput.setStyle('paddingLeft', shadowedStyle ? 0 : 5);
          }
-
+         
          override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
             
             super.updateDisplayList(unscaledWidth, unscaledHeight);
@@ -513,7 +513,7 @@
                g.endFill();
             }
          }
-
+         
          private function getMessageFilters():Array{
             return new Array(SkinHelper.getDropShadowFilter());
          }

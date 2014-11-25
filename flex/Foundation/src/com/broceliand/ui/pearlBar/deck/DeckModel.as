@@ -613,12 +613,12 @@ package com.broceliand.ui.pearlBar.deck {
          _timesHasBeenClicked++;
          dispatchChangeEvent();
       }
-
+      
       public function get timesHasBeenClicked():int
       {
          return _timesHasBeenClicked;
       }
-
+      
       public function set timesHasBeenClicked(value:int):void
       {
          _timesHasBeenClicked = value;
@@ -652,6 +652,6 @@ package com.broceliand.ui.pearlBar.deck {
       public function getPearlNumber():int {
          return items.length;
       }
-
+      
    }
 }

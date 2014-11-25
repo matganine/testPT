@@ -8,7 +8,7 @@ package com.broceliand.ui.renderers.factory
    
    public class PTCenterPTWPearlRendererFactory extends PearlRendererFactoryBase
    {
-       public function PTCenterPTWPearlRendererFactory(resourceManager:IRemoteResourceManager, interactorManager:InteractorManager, pearlRendererStateManager:PearlRendererStateManager){
+      public function PTCenterPTWPearlRendererFactory(resourceManager:IRemoteResourceManager, interactorManager:InteractorManager, pearlRendererStateManager:PearlRendererStateManager){
          super(resourceManager, interactorManager, pearlRendererStateManager);         
       }
       

@@ -11,9 +11,9 @@ package com.broceliand.ui.navBar {
       public static const TREE_MODEL_CHANGED:String = "treeModelChanged";
       
       private var _treeFollowed:Dictionary = new Dictionary();
-
+      
       public function NavBarTreeListener() {
-
+         
       }  
       
       public function updateFollowedTrees(treeArray:Array):void {

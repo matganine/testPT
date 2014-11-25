@@ -19,12 +19,12 @@ package com.broceliand.util.resources
       
       public static const ERROR_CODE_RESOURCE_NOT_AVAILABLE:int = -1;
       public static const ERROR_CODE_RESOURCE_BUILDING:int = -2;
-
+      
       private static const SERVER_CODE_BUILDING_PREVIEW:String = "1";     
-            
+      
       private static const MAX_ATTEMPT:uint = 10;
       private static const ATTEMPT_DELAY:uint = 2000; 
-
+      
       private var _timer2Url:Dictionary;
       private var _url2Timer:Dictionary;
       
@@ -34,7 +34,7 @@ package com.broceliand.util.resources
          _url2Timer = new Dictionary();
          _timer2Url = new Dictionary();
       }
-            
+      
       override protected function doWithResourceThatIsAlreadyLoaded(callback:IResourceLoadedCallback, resource:Object, url:String=null):void{
          var resourceAsString:String = StringUtil.trim(resource.toString());
          if(resourceAsString == SERVER_CODE_BUILDING_PREVIEW) {
@@ -60,9 +60,9 @@ package com.broceliand.util.resources
       override protected function urlLoadCompleted(event:Event, isSuccess:Boolean = true, errorCode:int = -1):void{
          var loader:URLLoader = URLLoader(event.target);
          var url:String = getUrlFromLoader(loader);
-
-           
-
+         
+         
+         
          if(!isSuccess) {
             var mloader:MonitorableUrlLoader = _loader2MULoader[loader];
             if (mloader.isForPreloadingOnly) {

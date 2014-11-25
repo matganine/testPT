@@ -27,7 +27,7 @@ package com.broceliand.graphLayout.controller
          _logger = Log.getLogger("com.broceliand.graphLayout.controller.GraphicalAnimationRequestProcessor");
       }
       private function onTimeOut():void {
-
+         
          _logger.warn("timeout: current action was {0}", _currentProcessAction);
          _currentProcessAction = null;
          _currentTimout =0;
@@ -40,7 +40,7 @@ package com.broceliand.graphLayout.controller
             processAction();
          }         
       }
-
+      
       public function insertFirstInQueue(action:IAction, timeOutMs:int= 5000):void {
          _logger.log(LogEventLevel.INFO, "POST FIRST {0}",action);
          _requests.unshift(new InternalRequest(action,timeOutMs));
@@ -79,7 +79,7 @@ package com.broceliand.graphLayout.controller
       private function startTimout(delay:int):void {
          cancelTimeout();
          _currentTimout = setTimeout(onTimeOut, delay);
-           
+         
       }
       private function cancelTimeout():void {
          if (_currentTimout) {
@@ -94,7 +94,7 @@ package com.broceliand.graphLayout.controller
    }
 }
 import com.broceliand.util.IAction;
-   
+
 class InternalRequest {
    public var actionToPerform:IAction;
    public var timeOut:int;

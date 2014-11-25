@@ -18,7 +18,7 @@ package com.broceliand.ui.pearlTree
    import mx.core.IUIComponent;
    import mx.core.UIComponent;
    import mx.events.ToolTipEvent;
-
+   
    public class BackFromAliasButton extends PearlButton
    {
       private static const BUTTON_WIDTH:Number= 28;
@@ -29,19 +29,19 @@ package com.broceliand.ui.pearlTree
          _aliasNavigationModel = ApplicationManager.getInstance().visualModel.navigationModel.getAliasNavigationModel();
          toolTip = PTGenericTooltip.TOOLTIP_ENABLER_PREFIX + BroLocale.getInstance().getText("tooltip.backfromalias");
       }
-
+      
       override protected function makeExcitableImage():ExcitableImage {
          var image:ExcitableImage = new ExcitableImage(PearlAssets.BACK_FROM_ALIAS_BUTTON, PearlAssets.BACK_FROM_ALIAS_BUTTON_OVER, PearlAssets.BACK_FROM_ALIAS_BUTTON_DISABLED);   
          image.width = image.height = BUTTON_WIDTH;
          return image;
       }
-
+      
       override protected function createChildren():void {
          super.createChildren();
          visible = includeInLayout = false;
       }
- 
-     
+      
+      
       override   protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          if (node is PTRootNode) {
             if (_aliasNavigationModel.isBackFromAlias) {
@@ -52,11 +52,11 @@ package com.broceliand.ui.pearlTree
             return super.getUIComponentFromNode(node, uiComponent);
          }
          return null;
-       }
-          
+      }
+      
       override protected function updateTargetComponentPosition(point:Point):void{         
-          point.x = Math.floor(_bindedComponent.x) + scaleX * (GeometricalConstants.PEARL_X + GeometricalConstants.PEARL_BACK_BUTTON_X);
-          point.y = Math.floor(_bindedComponent.y) + scaleY * (GeometricalConstants.PEARL_Y + GeometricalConstants.PEARL_BACK_BUTTON_Y);
+         point.x = Math.floor(_bindedComponent.x) + scaleX * (GeometricalConstants.PEARL_X + GeometricalConstants.PEARL_BACK_BUTTON_X);
+         point.y = Math.floor(_bindedComponent.y) + scaleY * (GeometricalConstants.PEARL_Y + GeometricalConstants.PEARL_BACK_BUTTON_Y);
       }
       override protected function performAction(event:Event=null):void {
          ApplicationManager.getInstance().visualModel.selectionModel.saveCrossingBusinessNode(_node);
@@ -65,7 +65,7 @@ package com.broceliand.ui.pearlTree
       public function setInSelection(value:Boolean):void {
          _focusImage.setDisabled(!value);          
       }
-
+      
       override protected function onChangeBoundComponent(oldComponent:IUIComponent, newComponent:IUIComponent):void {
          var oldPearl:UIRootPearl = oldComponent as UIRootPearl;
          if (oldPearl) {
@@ -76,7 +76,7 @@ package com.broceliand.ui.pearlTree
             newPearl.backFromAliasButton= this;
          }
       }
-
+      
    }
    
 }

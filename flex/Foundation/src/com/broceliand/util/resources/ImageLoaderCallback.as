@@ -6,7 +6,7 @@ package com.broceliand.util.resources
    import flash.utils.ByteArray;
    
    import mx.controls.Image;
-
+   
    public class ImageLoaderCallback extends EventDispatcher implements IResourceLoadedCallback
    {
       protected var _targetImage:Image = null;
@@ -24,7 +24,7 @@ package com.broceliand.util.resources
       {
          _targetImage.source = loadedData as ByteArray;
          if(_callback){
-         	_callback.call(this);
+            _callback.call(this);
          }
       }
       

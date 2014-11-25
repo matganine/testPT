@@ -1,27 +1,27 @@
 package com.broceliand.pearlTree.navigation.impl
 {
-import com.broceliand.ApplicationManager;
-import com.broceliand.graphLayout.model.IPTNode;
-import com.broceliand.pearlTree.model.BroPTNode;
-import com.broceliand.pearlTree.model.BroPearlTree;
-import com.broceliand.pearlTree.model.User;
-import com.broceliand.pearlTree.navigation.INavigationManager;
-import com.broceliand.pearlTree.navigation.INavigationResultCallback;
-import com.broceliand.pearlTree.navigation.NavigationEvent;
-import com.broceliand.ui.controller.AliasNavigationModel;
-import com.broceliand.ui.controller.startPolicy.StartPolicyLogger;
-import com.broceliand.ui.welcome.tunnel.TunnelNavigationModel;
-import com.broceliand.util.Alert;
-import com.broceliand.util.logging.Log;
-
-import flash.events.Event;
-import flash.events.EventDispatcher;
-
+   import com.broceliand.ApplicationManager;
+   import com.broceliand.graphLayout.model.IPTNode;
+   import com.broceliand.pearlTree.model.BroPTNode;
+   import com.broceliand.pearlTree.model.BroPearlTree;
+   import com.broceliand.pearlTree.model.User;
+   import com.broceliand.pearlTree.navigation.INavigationManager;
+   import com.broceliand.pearlTree.navigation.INavigationResultCallback;
+   import com.broceliand.pearlTree.navigation.NavigationEvent;
+   import com.broceliand.ui.controller.AliasNavigationModel;
+   import com.broceliand.ui.controller.startPolicy.StartPolicyLogger;
+   import com.broceliand.ui.welcome.tunnel.TunnelNavigationModel;
+   import com.broceliand.util.Alert;
+   import com.broceliand.util.logging.Log;
+   
+   import flash.events.Event;
+   import flash.events.EventDispatcher;
+   
    public class NavigationManagerImpl extends EventDispatcher implements INavigationManager 
    {
       
       public static const FIRST_FOCUS_HAS_BEEN_PERFORMED_EVENT:String = "first_focus_performed";
-
+      
       private static const WHATS_HOT_ID:int=0;
       private var _currentRequestPerformed:NavigationRequestBase;
       private var _user:User;
@@ -59,11 +59,11 @@ import flash.events.EventDispatcher;
          _navigationHistory = new NavigationHistoryModel(this);
          _applicationDisplayedPageModel = new ApplicationDisplayedPageModel();
       }
-
+      
       public function get urlSynchro():Url2NavigationSynchronizer {
          return _urlSynchro
       }
-
+      
       public function getTunnelModel():TunnelNavigationModel {
          return _tunnelModel;
       }
@@ -106,7 +106,7 @@ import flash.events.EventDispatcher;
          var pearlId:int = user.rootPearlId;
          goTo(user.getAssociation().associationId, userId, treeId, treeId, pearlId, -1, -1, pearlWindowPreferredState, false, NavigationEvent.ADD_ON_RESET_GRAPH);         
       }
-
+      
       public function setPlayState(playState:int):void {
          var event:NavigationEvent = setPlayStateInternal(playState);
          if (event) {
@@ -134,9 +134,9 @@ import flash.events.EventDispatcher;
          }
          return null;
       }    
-
+      
       public function getFocusNeighbourTree():BroPearlTree {
-          return _focusNeighbourTree;
+         return _focusNeighbourTree;
       }
       public function isInMyWorld():Boolean {
          return _isInMyWorld;
@@ -147,7 +147,7 @@ import flash.events.EventDispatcher;
       public function isHomePage():Boolean {
          return _isHomePage;
       }  
-
+      
       public function getSelectionIntersectionIndex():int  { 
          return _selectionIntersection;
       } 
@@ -165,11 +165,11 @@ import flash.events.EventDispatcher;
          }
          return _focusedTree;
       }
-
+      
       public function getPearlWindowPreferredState():int {
          return _pearlWindowPreferredState;
       }
-
+      
       public function getSelectedTree():BroPearlTree {
          return _selectedTree;
       }
@@ -195,11 +195,11 @@ import flash.events.EventDispatcher;
       public function get focusAssoId():int{
          return _focusAssoId;
       }
-
+      
       public function isShowingPearlTreesWorld():Boolean{
          return _isShowingPTW;
       }
-
+      
       public function isInPlayer():Boolean {
          return (_playState == 1);
       }
@@ -207,11 +207,11 @@ import flash.events.EventDispatcher;
       public function isInScreenLine():Boolean {
          return (_playState == 2);
       }
-
+      
       public function isShowingDiscover():Boolean {
          return (_isShowingPTW /* && !isShowingSearchResult() && !isWhatsHot() */ && !isHomePage());
       }
-
+      
       
       public function notifyNavigation(request:NavigationRequestBase, event:NavigationEvent):void {
          if (_currentRequestPerformed == request) {
@@ -228,10 +228,10 @@ import flash.events.EventDispatcher;
             _searchKeyword = event.searchKeyword;
             _searchUserId = event.searchUserId;
             _isSearchingUserOnly = event.searchUserOnly;
-			   _revealState = event.revealState;
+            _revealState = event.revealState;
             _isInMyWorld = !_isShowingPTW && _user == ApplicationManager.getInstance().currentUser;
-
-
+            
+            
             if (ApplicationManager.getInstance().components.windowController.toUndockPWImediatelyForAnonymousUser()
                && ApplicationManager.getInstance().currentUser.isAnonymous() && _pearlWindowPreferredState == 0) {
                _pearlWindowPreferredState = 1;
@@ -241,9 +241,9 @@ import flash.events.EventDispatcher;
                StartPolicyLogger.getInstance().setFirstNavigationEnded();
                event.isFirstNavigation = true;
             }
-
+            
             var playEvent:NavigationEvent = setPlayStateInternal(event.playState);
-
+            
             try {
                _isDispatchingEvent = true;            
                dispatchNavigationEvent(event);
@@ -256,7 +256,7 @@ import flash.events.EventDispatcher;
             }
          }
       }
-
+      
       public function isCurrentRequest(request:NavigationRequestBase):Boolean {
          return _currentRequestPerformed == request;
       }
@@ -275,39 +275,39 @@ import flash.events.EventDispatcher;
       private function dispatchNavigationEvent(event:NavigationEvent):void {
          dispatchEvent(event);
       }
-
+      
       public function getPlayState():int {
          return _playState;
       }
-
+      
       public function isTreeInCurrentUserDropZone(tree:BroPearlTree):Boolean {
          var currentUser:User = ApplicationManager.getInstance().currentUser;
          return NavigationManagerImpl.isTreeInUserDropZone(tree,currentUser);
       }
-
+      
       public static function isTreeInUserDropZone(tree:BroPearlTree, user:User):Boolean {
-        if(user.isAnonymous() || !user.dropZoneTreeRef) {
-           if (tree.getMyAssociation().isUserRootAssociation()) {
-              user = tree.getMyAssociation().preferredUser;
-           }
-           if (!user || !user.dropZoneTreeRef) {
-              return false;
-           }
-        }
-	     var parents:Array = tree.treeHierarchyNode.getTreePath();
-	     var dropZoneId:int = user.dropZoneTreeRef.treeId;
-	     var dropZoneDB:int = user.dropZoneTreeRef.treeDB;
-	     for each(var parentTree:BroPearlTree in parents) {
-	        if (parentTree.id == dropZoneId && parentTree.dbId == dropZoneDB) {
-	           return true;
-	        }
-	     }
-	     return false;
+         if(user.isAnonymous() || !user.dropZoneTreeRef) {
+            if (tree.getMyAssociation().isUserRootAssociation()) {
+               user = tree.getMyAssociation().preferredUser;
+            }
+            if (!user || !user.dropZoneTreeRef) {
+               return false;
+            }
+         }
+         var parents:Array = tree.treeHierarchyNode.getTreePath();
+         var dropZoneId:int = user.dropZoneTreeRef.treeId;
+         var dropZoneDB:int = user.dropZoneTreeRef.treeDB;
+         for each(var parentTree:BroPearlTree in parents) {
+            if (parentTree.id == dropZoneId && parentTree.dbId == dropZoneDB) {
+               return true;
+            }
+         }
+         return false;
       }
       public function getAliasNavigationModel():AliasNavigationModel {
          return _aliasNavigationModel;
       }
-
+      
       public function getNavigationHistoryModel():NavigationHistoryModel {
          return _navigationHistory;
       }
@@ -315,7 +315,7 @@ import flash.events.EventDispatcher;
       public function getApplicationDisplayedPageModel():ApplicationDisplayedPageModel {
          return _applicationDisplayedPageModel;
       }      
-
+      
       public function isAddOnNavigation():Boolean {
          return _revealState ==1;
       }
@@ -371,7 +371,7 @@ import flash.events.EventDispatcher;
          }
          processRequest(request);
       }
-
+      
       public function get willShowPlayer():Boolean
       {
          return _willShowPlayer;
@@ -380,7 +380,7 @@ import flash.events.EventDispatcher;
       public function isAbTestingUser():Boolean {
          return _revealState < -1;
       }
-	
+      
       public function get hasDisplayedABTestingEffectForAnonymous():Boolean
       {
          return _hasDisplayedABTestingEffectForAnonymous;

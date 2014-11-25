@@ -3,7 +3,7 @@ package com.broceliand.ui.model
    import com.broceliand.pearlTree.model.BroPTNode;
    
    import flash.events.Event;
-
+   
    public class NeighbourCountChangedEvent extends Event
    {
       private var _node:BroPTNode;

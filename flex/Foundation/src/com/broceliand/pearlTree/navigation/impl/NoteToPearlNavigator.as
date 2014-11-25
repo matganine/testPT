@@ -74,14 +74,14 @@ package com.broceliand.pearlTree.navigation.impl
       
       private function goTo(user:User, tree:BroPearlTree, node:BroPTNode):void{
          var navigationModel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
-
+         
          
          navigationModel.goTo(tree.getMyAssociation().associationId, 
-                              user.persistentId,  
-                              tree.id, 
-                              tree.id, 
-                              node.persistentID, 
-                              -1, -1, -1);         
+            user.persistentId,  
+            tree.id, 
+            tree.id, 
+            node.persistentID, 
+            -1, -1, -1);         
       }
       public function goToUser(userkey:String):void {
          var uk:Array = User.parseUserKey(userkey);

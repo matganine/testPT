@@ -1,10 +1,10 @@
 package com.broceliand.pearlTree.model
 {
-    import com.broceliand.pearlTree.model.notification.TreeNotification;
-    import com.broceliand.pearlTree.model.treeEdito.TreeEdito;
-    
-     
-    
+   import com.broceliand.pearlTree.model.notification.TreeNotification;
+   import com.broceliand.pearlTree.model.treeEdito.TreeEdito;
+   
+   
+   
    public class BroPearlTreeDelegate extends BroPearlTree
    {
       private var _delegate:BroPearlTree;
@@ -18,8 +18,8 @@ package com.broceliand.pearlTree.model
          
       }
       
-     
-         
+      
+      
       override internal function get cachedValues ():HierarchicalTreeCachedValues
       {
          if (_delegate) {
@@ -31,11 +31,11 @@ package com.broceliand.pearlTree.model
             _delegate.assignAutoId(node);
          else super.assignAutoId(node);
       }
-            
+      
       
       override public function get treeHierarchyNode ():BroTreeHierarchyNode
       {
-        return super.treeHierarchyNode;
+         return super.treeHierarchyNode;
       }
       
       override public function get notifications():TreeNotification{
@@ -44,8 +44,8 @@ package com.broceliand.pearlTree.model
       override public function set notifications(value:TreeNotification):void{
          _delegate.notifications=value;
       }
-     
-
+      
+      
       
       override public function get rank():int{
          return _delegate.rank;
@@ -53,7 +53,7 @@ package com.broceliand.pearlTree.model
       override public function set rank(value:int):void{
          _delegate.rank = value;
       }      
-
+      
       override public function get state():int{
          return _delegate.state;
       }
@@ -66,7 +66,7 @@ package com.broceliand.pearlTree.model
       override public function isHidden():Boolean{
          return _delegate.isHidden();
       }
-            
+      
       override public function get neighbourPearlId():int{
          return _delegate.neighbourPearlId;
       }
@@ -88,12 +88,12 @@ package com.broceliand.pearlTree.model
       override public function set isOwner(value:Boolean):void{
          _isOwner = value;
       }      
-   
+      
       override public function get pearlsLoaded():Boolean{
-          return _delegate.pearlsLoaded;
+         return _delegate.pearlsLoaded;
       }
       override public function notifyEndLoadingPearl():void{
-          _delegate.notifyEndLoadingPearl();
+         _delegate.notifyEndLoadingPearl();
       }
       override public function getTreeNodes():Array{
          return _delegate.getTreeNodes();
@@ -102,7 +102,7 @@ package com.broceliand.pearlTree.model
       override public function isEditoAvailableForCurrentUser():Boolean{
          return _delegate.isEditoAvailableForCurrentUser();
       }
-
+      
       override public function get pearlCount():uint{
          return _delegate.pearlCount;
       }     
@@ -119,24 +119,24 @@ package com.broceliand.pearlTree.model
          _delegate.hasEdito = value;
       }
       
-
       
       
-
-
-
-
-
-
-
-
-
-
       
       
-
-
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       override public function set owner(association:BroAssociation):void{
          _delegate.owner= association;
       }
@@ -147,7 +147,7 @@ package com.broceliand.pearlTree.model
          return _delegate.authorsLoaded;
       }
       override public function set authorsLoaded(value:Boolean):void{
-          _delegate.authorsLoaded = value;
+         _delegate.authorsLoaded = value;
       }
       override public function get refInParent():BroLocalTreeRefNode {
          return _delegate.refInParent;
@@ -169,18 +169,18 @@ package com.broceliand.pearlTree.model
       
       override public function set dbId (value:int):void
       {
-          _delegate.dbId = value;
+         _delegate.dbId = value;
       }
       
       override public function get dbId ():int
       {
-          return _delegate.dbId;
+         return _delegate.dbId;
       }
       override public function set creationTime (value:Number):void
       {
          _delegate.creationTime = value;
       }
-
+      
       override public function get creationTime ():Number
       {
          return _delegate.creationTime;
@@ -194,19 +194,19 @@ package com.broceliand.pearlTree.model
       {
          return _delegate.title;
       }
-
+      
       override public function makeNode(pageNode:BroPage):BroPageNode {
          return _delegate.makeNode(pageNode);
       }
-         
+      
       override public function addToRoot(node:BroPTNode, index:int=-1):void {
-        _delegate.addToRoot(node,index);
+         _delegate.addToRoot(node,index);
       }  
-
+      
       override public function removeBranch(branchRoot:BroPTNode):void{
          _delegate.removeBranch(branchRoot);
       }
-           
+      
       override public function importBranch(newBranchParent:BroPTNode, branchStart:BroPTNode, index:int = -1):void{
          _delegate.importBranch(newBranchParent, branchStart, index);
       }
@@ -219,38 +219,38 @@ package com.broceliand.pearlTree.model
       override internal function notifyPearlTreeChanged():void {
          _delegate.notifyPearlTreeChanged();
       }
-
+      
       override public function notifyPearlTreeSaved():void {
          _delegate.notifyPearlTreeSaved();
       }
-
+      
       override public function shouldBeSaved():Boolean{
-          return _delegate.shouldBeSaved();
+         return _delegate.shouldBeSaved();
       }
       
       override public function isCurrentUserAuthor():Boolean{
          return _delegate.isCurrentUserAuthor();        
       }
-
-     override internal function notifyNewNeighbour():void {
-        _delegate.notifyNewNeighbour();
-     }     
-     override internal function notifyNewNote():void {
-        _delegate.notifyNewNote();
-     }
-     override public function notifyNotificationUnvalidated():void {
+      
+      override internal function notifyNewNeighbour():void {
+         _delegate.notifyNewNeighbour();
+      }     
+      override internal function notifyNewNote():void {
+         _delegate.notifyNewNote();
+      }
+      override public function notifyNotificationUnvalidated():void {
          _delegate.notifyNotificationUnvalidated();
-     }     
-     override public function hasNotesNotificationInDescendant(descendant:Boolean=true):Boolean{
+      }     
+      override public function hasNotesNotificationInDescendant(descendant:Boolean=true):Boolean{
          return  _delegate.hasNotesNotificationInDescendant(descendant);
-     }
-     override public function hasCrossNotificationInDescendant(descendant:Boolean=true):Boolean{
+      }
+      override public function hasCrossNotificationInDescendant(descendant:Boolean=true):Boolean{
          return  _delegate.hasCrossNotificationInDescendant(descendant);
-     }
-     
-     override public function notifyHierarchyChanged():void {
-        _delegate.notifyHierarchyChanged();
-     }
+      }
+      
+      override public function notifyHierarchyChanged():void {
+         _delegate.notifyHierarchyChanged();
+      }
       override public function getPearl(id:int, clientId:int =0):BroPTNode {
          return _delegate.getPearl(id,clientId);
       }
@@ -268,7 +268,7 @@ package com.broceliand.pearlTree.model
          _delegate.removeEventListener(type, listener, useCapture);
       }
       override public function get avatarHash():String {
-      	return _delegate.avatarHash;
+         return _delegate.avatarHash;
       }
       override public function isAssociationRoot():Boolean {
          return _delegate.isAssociationRoot();
@@ -287,7 +287,7 @@ package com.broceliand.pearlTree.model
          return _delegate.hasTeamRequestsToAccept();
       }
       /*override public function hasParentsWithTeamRequestsToAccept():Boolean {
-         return _delegate.hasParentsWithTeamRequestsToAccept();
+      return _delegate.hasParentsWithTeamRequestsToAccept();
       }*/
       
       override public function isPrivate():Boolean {

@@ -22,7 +22,7 @@ package com.broceliand.util
          _f = f;
          _thisObject = thisObject;
          uiComponent.addEventListener(FlexEvent.CREATION_COMPLETE, invokeOnCreationComplete);
-        
+         
       }
       private function invokeOnCreationComplete(event:FlexEvent):void {
          UIComponent(event.target).removeEventListener(FlexEvent.CREATION_COMPLETE, invokeOnCreationComplete);

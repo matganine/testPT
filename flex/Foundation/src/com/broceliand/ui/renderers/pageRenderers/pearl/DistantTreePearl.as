@@ -8,9 +8,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       public function DistantTreePearl()
       {
       }
-
-
-
+      
       override protected function getForegroundSelectedAsset():Class {
          return AssetsManager.getEmbededAsset(PearlAssets.DISTANT_TREE_FOREGROUND_SELECTED_PNG);
       }       

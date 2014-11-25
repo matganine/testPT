@@ -17,13 +17,13 @@ package com.broceliand.ui.renderers
       private var _listeners:Array= new Array();
       private var _vgraph:IPTVisualGraph;
       private var _uicomponent:UIComponent;
-
+      
       private var _lastX:Number;
       private var _lastY:Number;
       private var _lastAlpha:Number;
       private var _lastWidth:Number;
       
-
+      
       
       public function MoveNotifier(uiComponent:UIComponent=null)
       {
@@ -33,16 +33,16 @@ package com.broceliand.ui.renderers
             uiComponent.addEventListener("alpha", onAlphaChange);
             uiComponent.addEventListener(UIPearl.WILL_MOVE_EVENT, willMove);
             uiComponent.addEventListener(FORCE_REPOSITION_NOW_EVENT, reposition);
-
+            
          }
          _vgraph = ApplicationManager.getInstance().components.pearlTreeViewer.vgraph; 
       }
       public function end():void {
-
-
-
-
-
+         
+         
+         
+         
+         
          _listeners = new Array();
       }
       public function addMoveListener(update:IRepositionable):void {
@@ -67,15 +67,15 @@ package com.broceliand.ui.renderers
       public function afterMove(event:Event=null):void {
          if (hasChanged()) {
             if (!_vgraph.isSilentReposition()) {
-                  reposition();
+               reposition();
             } 
-
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
+            
          }
       }
       public function onAlphaChange(event:Event=null):void {
@@ -107,7 +107,7 @@ package com.broceliand.ui.renderers
          }
          return hasChanged;
       }
-
-     
+      
+      
    }
 }

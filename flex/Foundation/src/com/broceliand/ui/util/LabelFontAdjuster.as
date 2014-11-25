@@ -47,7 +47,7 @@ package com.broceliand.ui.util
             if (_label.measureText(_label.text).width> maxWidth) {
                labelFontSize =  startSize;
             }
-        }
+         }
       }
    }
 }

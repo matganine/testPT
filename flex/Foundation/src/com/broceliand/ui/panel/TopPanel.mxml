@@ -9,7 +9,7 @@
            horizontalScrollPolicy="off" verticalScrollPolicy="off" 
            creationComplete="onCreationComplete()" 
            initialize="onInitialize()">
-
+   
    <eventBlocker:EventBlocker id="mapEventBlocker" width="100%" height="100%"/>
    
    <tools:ToolsContainer id="toolsContainer" />
@@ -43,7 +43,7 @@
          private var _mainPanel:MainPanel; 
          private static const TRACE_DEBUG:Boolean = false;
          
-                 
+         
          private function onInitialize():void{
             var comps:ComponentsAccessPoint = ApplicationManager.getInstance().components;
             comps.topPanel = this;
@@ -56,7 +56,7 @@
          private function onCreationComplete():void {
             if(TRACE_DEBUG) trace("[TOP PANEL] Creation Complete " +getTimer());
          }
-   
+         
          public function createHomeOnFirstVisibility(event:Event):void {
             if (homePageModel.visible) {
                homePageModel.removeEventListener(Event.CHANGE, createHomeOnFirstVisibility);
@@ -99,19 +99,19 @@
          }
          
          /*public function showHomeVideo():void {
-            showHomePage();
-            _homePage.showHomeVideo();
+         showHomePage();
+         _homePage.showHomeVideo();
          }
          
          public function hideHomeVideo():void {
-            if(_homePage) {
-               _homePage.hideHomeVideo();
-            }
+         if(_homePage) {
+         _homePage.hideHomeVideo();
+         }
          }*/
-
-
-
-
+         
+         
+         
+         
          private function get homePageModel():HomePageModel {
             return ApplicationManager.getInstance().visualModel.homePageModel;
          }
@@ -148,7 +148,7 @@
          
          public function hideHomePage():void{
             homePageModel.visible  = false;
-         	
+            
          }           
          public function get isSideBarVisible():Boolean {
             return (homePageModel.visible);

@@ -17,16 +17,6 @@ package com.broceliand.ui
       private static const END_LINE_SYMBOL:String = "...";
       private static const LEFT_RIGHT_PADDING:Number = 2;
       
-
-
-
-
-
-
-
-
-
-
       public static function formatPearlTitle(title:String, lineContainer:Label, maxLines:int) :Array {
          var result:Array = TitleManager.formatTitleLines(title, lineContainer, maxLines);
          if (result.length == 1 && maxLines > 1) {
@@ -50,7 +40,7 @@ package com.broceliand.ui
       
       public static function formatTitleLines(title:String, lineContainer:Label, maxLines:uint=1):Array{
          if(!title) return new Array();
-
+         
          var lines:Array = splitTitleByLines(title, lineContainer, maxLines);
          if(lines.length > maxLines) {
             
@@ -63,7 +53,7 @@ package com.broceliand.ui
             var symbolWidth:Number = lineContainer.measureHTMLText(END_LINE_SYMBOL).width;
             if(lastLineWidth + symbolWidth > lineMaxWidth) {
                lastLine = lastLine.substr(0, indexOfCharAtWidth(lastLine, lineContainer, lastLineWidth - symbolWidth));
-
+               
             }
             lines[lines.length-1] = lastLine + END_LINE_SYMBOL;
          }
@@ -93,7 +83,7 @@ package com.broceliand.ui
                lines[i] = titleToSplit;
                break;
             }
-               
+            
             var titleToSplitWidth:Number = lineContainer.measureHTMLText(titleToSplit).width;
             
             if(titleToSplitWidth > lineMaxWidth) {

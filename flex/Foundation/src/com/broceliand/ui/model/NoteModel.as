@@ -298,7 +298,7 @@ package com.broceliand.ui.model
       public function getNoteCount(node:BroPTNode, mode:int=-1):uint {
          mode = nodeMode(node, mode);
          if (mode == -1) return null;
-
+         
          var feedKey:String = this.getFeedKey(node, mode);
          var noteCount:int = -1;
          
@@ -1301,17 +1301,17 @@ package com.broceliand.ui.model
       
       public static function formatNoteToEdit(value:String):String {
          
-
+         
          
          value = value.replace(/<br>/g, "\n");
          return value;
       }
       
       public static function formatNoteToSave(value:String):String {
-
-
-
-
+         
+         
+         
+         
          
          
          

@@ -1,9 +1,9 @@
 package com.broceliand.ui.controller
 {
-	import com.broceliand.graphLayout.model.IPTNode;
-	import com.broceliand.pearlTree.model.BroPTNode;
-	import com.broceliand.pearlTree.model.BroPearlTree;
-	
+   import com.broceliand.graphLayout.model.IPTNode;
+   import com.broceliand.pearlTree.model.BroPTNode;
+   import com.broceliand.pearlTree.model.BroPearlTree;
+   
    public interface IEditionController
    {
       function deleteSelection(cutNode:IPTNode=null, skipConfirmation:Boolean = false):void;

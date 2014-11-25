@@ -1,7 +1,7 @@
 package com.broceliand.assets.pearlWindow
 {
    import com.broceliand.assets.AssetsServerPath;
-
+   
    public class PWCustomizationAssets
    {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"pearlWindow/customization/";

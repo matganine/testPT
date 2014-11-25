@@ -5,7 +5,7 @@ package com.broceliand.ui.renderers.factory
    import com.broceliand.ui.renderers.pageRenderers.DistantDeletedTreeRefPearlRenderer;
    import com.broceliand.ui.renderers.pageRenderers.PearlRendererStateManager;
    import com.broceliand.util.resources.IRemoteResourceManager;
-
+   
    public class DistantDeletedTreeRefPearlRendererFactory extends PearlRendererFactoryBase
    {
       

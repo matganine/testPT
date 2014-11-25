@@ -20,9 +20,9 @@ package com.broceliand.ui.interactors.drag.action
       protected var _originChildNodes:Array;
       protected var _pearltreeViewer:IPearlTreeViewer;      
       protected var _isValidAction:Boolean=true;
-
-     
-
+      
+      
+      
       public function RemovePearlActionBase(pearltreeViewer:IPearlTreeViewer, node:IPTNode, parentNode:IPTNode = null, originalIndex:int = -1, originChildNodes:Array = null)
       {
          if (node==null  ||  node.getBusinessNode() == null) {
@@ -30,21 +30,21 @@ package com.broceliand.ui.interactors.drag.action
             return;
          } 
          var bnode:BroPTNode = node.getBusinessNode();
-            
+         
          var ownerTree:BroPearlTree = bnode.owner;
-           if (bnode is BroPTRootNode && bnode.owner.refInParent) {
+         if (bnode is BroPTRootNode && bnode.owner.refInParent) {
             ownerTree= bnode.owner.refInParent.owner;
          }
          if (ownerTree && !ownerTree.isCurrentUserAuthor()) {
             _isValidAction = false;
          } else {
-              var rootNode:BroPTRootNode = node.getBusinessNode() as BroPTRootNode;
-              if (rootNode) {
-                 if(rootNode.isAssociationHierarchyRoot()) {
-                    _isValidAction = false;
-                 }
-              }
-          
+            var rootNode:BroPTRootNode = node.getBusinessNode() as BroPTRootNode;
+            if (rootNode) {
+               if(rootNode.isAssociationHierarchyRoot()) {
+                  _isValidAction = false;
+               }
+            }
+            
          }
          if (!_isValidAction) {
             return;
@@ -91,30 +91,30 @@ package com.broceliand.ui.interactors.drag.action
       }
       
       private function moveChildNodeeToAnotherParent(newParentNode:IPTNode, insertionIndex:int = 0):void{
-        var editionController:IPearlTreeEditionController = _pearltreeViewer.pearlTreeEditionController;
-        var endNodeToReposition:EndNode = null;        
-        var excludeClosingNode:Boolean = false;
-        if (_cutNode is PTRootNode ){ 
-           excludeClosingNode = PTRootNode(_cutNode).containedPearlTreeModel.openingState == OpeningState.CLOSING;
-        }
-        var firstChild:IPTNode = null;
-        for each(var successor:IPTNode in _originChildNodes){
-           if (excludeClosingNode && successor.containingPearlTreeModel.openingState == OpeningState.CLOSING) {
-              continue;
-           }
-           if (successor.parent) {
-             editionController.tempUnlinkNodes(successor.parent.vnode, successor.vnode);
-           } 
-           if (successor is EndNode) {
-              endNodeToReposition = successor as EndNode;
-           } else {
-              editionController.tempLinkNodes(newParentNode.vnode, successor.vnode, insertionIndex);
-              editionController.confirmNodeParentLink(successor.vnode, true, insertionIndex);
-           }
-        }        
-        if (endNodeToReposition) {
-           editionController.reattachEndNode(endNodeToReposition.vnode);
-        }
+         var editionController:IPearlTreeEditionController = _pearltreeViewer.pearlTreeEditionController;
+         var endNodeToReposition:EndNode = null;        
+         var excludeClosingNode:Boolean = false;
+         if (_cutNode is PTRootNode ){ 
+            excludeClosingNode = PTRootNode(_cutNode).containedPearlTreeModel.openingState == OpeningState.CLOSING;
+         }
+         var firstChild:IPTNode = null;
+         for each(var successor:IPTNode in _originChildNodes){
+            if (excludeClosingNode && successor.containingPearlTreeModel.openingState == OpeningState.CLOSING) {
+               continue;
+            }
+            if (successor.parent) {
+               editionController.tempUnlinkNodes(successor.parent.vnode, successor.vnode);
+            } 
+            if (successor is EndNode) {
+               endNodeToReposition = successor as EndNode;
+            } else {
+               editionController.tempLinkNodes(newParentNode.vnode, successor.vnode, insertionIndex);
+               editionController.confirmNodeParentLink(successor.vnode, true, insertionIndex);
+            }
+         }        
+         if (endNodeToReposition) {
+            editionController.reattachEndNode(endNodeToReposition.vnode);
+         }
       }
       
       protected function unlinkRemoveNode(removedNode:IPTNode):void {

@@ -41,7 +41,7 @@ package com.broceliand.ui.model {
          _specificNewPearlList.setNewsListFromTeamHistoryItem(pearls, assoId);
          currentMode = MODE_TEAM_HISTORY;
       }
-
+      
       public function launchNoveltyNewsLabelMode(novelty:Novelty): void {
          _noveltyNavigation.setNewsListFromNovelty(novelty);
          currentMode = MODE_NOVELTY;
@@ -50,7 +50,7 @@ package com.broceliand.ui.model {
       public function cancelSpecificListModeOnClickInTeamHistory():void {
          currentMode = MODE_INACTIVE;
       }
-     
+      
       private function set currentMode(value:int):void {
          if (value != _currentMode) {
             removeOldListeners();

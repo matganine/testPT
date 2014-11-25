@@ -1,7 +1,7 @@
 package com.broceliand.ui.settings
 {
    import flash.events.Event;
-
+   
    public class SettingsEvent extends Event
    {
       public static const EVENT_SETTINGS_SAVED:String = "settingsSaved";
@@ -15,7 +15,7 @@ package com.broceliand.ui.settings
       public static const INVALID_USERNAME:String = "invalidUsername";
       public static const SOCIAL_SYNC:String = "socialSync";
       public static const SOCIAL_NOT_SYNC:String = "socialNotSync";
-
+      
       public function SettingsEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
       {
          super(type, bubbles, cancelable);

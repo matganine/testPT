@@ -43,13 +43,13 @@ package com.broceliand.ui.navBar {
          _isDiscoverMode = !event.isFirstLoad;
          refreshModel();
       }
-            
+      
       public function refreshModel():void {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var navigationModel:INavigationManager = am.visualModel.navigationModel;
          
          isHomeButtonDisplayed = !am.currentUser.isAnonymous();
-          
+         
          var searchKeyword:String = navigationModel.getSearchKeyword();
          
          if(_isDiscoverMode) {
@@ -89,9 +89,9 @@ package com.broceliand.ui.navBar {
          }
       }
       
-
-
-
+      
+      
+      
       
       public function performItemAction(item:NavBarModelItem):void {
          if(_isDiscoverMode) {
@@ -175,7 +175,7 @@ package com.broceliand.ui.navBar {
       public function get iconActionOnFirstItem():Boolean{
          return true;      
       }
-
+      
       public function get useLargeGap():Boolean{
          return false;
       }

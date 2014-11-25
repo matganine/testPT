@@ -18,11 +18,6 @@ package com.broceliand.ui.interactors
    import mx.events.CollectionEventKind;
    import mx.events.FlexEvent;
    
-   
-   
-    
-    
-   
    public class DepthInteractor
    {
       private var _interactorManager:InteractorManager = null;
@@ -39,7 +34,7 @@ package com.broceliand.ui.interactors
       }
       
       public function moveBranchAboveAllElse(branchNodes:Array):void{
-
+         
          for each (var renderer:IUIPearl in branchNodes) {
             
          }
@@ -83,7 +78,7 @@ package com.broceliand.ui.interactors
       }
       
       public function movePearlUp(renderer:IUIPearl):void{
-
+         
          if(!renderer || !renderer.parent){
             return;
          }
@@ -95,7 +90,7 @@ package com.broceliand.ui.interactors
          }else{
             newDepth = controlLayerDepth - 1;
          }
-          
+         
          moveUIComponentToDepth(renderer.uiComponent, newDepth);
       }      
       
@@ -189,6 +184,6 @@ package com.broceliand.ui.interactors
          }
          
       }
-         
+      
    }
 }

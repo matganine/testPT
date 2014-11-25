@@ -131,7 +131,7 @@ package com.broceliand.assets.screenWindow
       public static const DOWNLOAD:Class;
       [Embed(source='/assets/screenWindow/contentMenu/downloadHover.png')]
       public static const DOWNLOAD_OVER:Class;
-
+      
    }
    
 }

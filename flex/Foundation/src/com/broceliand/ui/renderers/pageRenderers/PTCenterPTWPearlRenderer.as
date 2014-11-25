@@ -11,13 +11,13 @@ package com.broceliand.ui.renderers.pageRenderers
       
       function PTCenterPTWPearlRenderer(stateManager:PearlRendererStateManager, remoteResourceManager:IRemoteResourceManager){
          super(stateManager, remoteResourceManager);
-
+         
       }
-               
+      
       override protected function instanciatePearl():void{
          _pearl = new PTRootPearl();
       }
-
+      
       
       override public function invalidateProperties():void{
          super.invalidateProperties();
@@ -29,6 +29,6 @@ package com.broceliand.ui.renderers.pageRenderers
                endPearlRenderer.invalidateProperties();
             }            
          }  
-       }                
+      }                
    }
 }

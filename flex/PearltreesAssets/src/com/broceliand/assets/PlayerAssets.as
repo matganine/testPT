@@ -3,7 +3,7 @@ package com.broceliand.assets
    public class PlayerAssets
    {
       private static const SERVER_PATH:String = AssetsServerPath.ROOT+"player/";
-
+      
       
       [Embed(source="/assets/player/pearltrees.png")]
       public static const PEARLTREES:Class;
@@ -15,7 +15,7 @@ package com.broceliand.assets
       public static const COMMENT:Class;
       [Embed(source="/assets/player/commentOver.png")]
       public static const COMMENT_OVER:Class;
-
+      
       
       [Embed(source="/assets/player/pick.png")]
       public static const PICK:Class;
@@ -72,7 +72,7 @@ package com.broceliand.assets
       public static const CLOSE_FRAME:Class;
       [Embed(source="/assets/player/closeFrameOver.png")]
       public static const CLOSE_FRAME_OVER:Class;
-
+      
       
       [Embed(source="/assets/player/newTab.png")]
       public static const NEW_TAB:Class;
@@ -91,7 +91,7 @@ package com.broceliand.assets
       
       public static const OVERLAY_TWITTER:String = SERVER_PATH+"overlay/twitter.png";
       public static const OVERLAY_TWITTER_OVER:String = SERVER_PATH+"overlay/twitterOver.png";   
-           
+      
       
       public static const OVERLAY_NEW_TAB:String = SERVER_PATH+"overlay/newTab.png";
       public static const OVERLAY_NEW_TAB_OVER:String = SERVER_PATH+"overlay/newTabOver.png";    

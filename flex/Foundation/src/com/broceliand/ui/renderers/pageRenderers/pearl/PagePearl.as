@@ -19,7 +19,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       private static const TITLE_MARGIN_TOP:Number = -3;
       private static const ICON_WIDTH:Number = 16;
       private static const CUSTOM_ICON_WIDTH:Number = 36;
-       
+      
       
       private var iconChanged:Boolean = false;
       protected var _iconImageNormalState:RemoteImage = null;
@@ -37,7 +37,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       override protected function get excitedWidth():Number {
          return PEARL_WIDTH_EXCITED;
       }
-
+      
       override protected function get normalWidth():Number {
          return PEARL_WIDTH_NORMAL;
       }
@@ -50,7 +50,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          return null;
       }
       
-
+      
       
       override protected function commitProperties():void{
          if (_nodeChanged) {
@@ -81,7 +81,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          super.updateDisplayList(unscaledWidth, unscaledHeight);
          updateIconPostion(_iconImageNormalState);
       }
-
+      
       private function updateIconPostion(icon:RemoteImage):void {
          if (icon) {
             icon.x = (icon.parent.width - icon.width) / 2.0;
@@ -130,9 +130,9 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          
       }
       
-
-
-
+      
+      
+      
       
       override protected function getForegroundOverAsset():Class {
          return AssetsManager.getEmbededAsset(PearlAssets.PEARL_FOREGROUND_OVER_PNG);

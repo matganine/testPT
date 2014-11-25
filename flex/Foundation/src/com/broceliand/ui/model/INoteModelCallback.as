@@ -1,9 +1,9 @@
 package com.broceliand.ui.model
 {
-	public interface INoteModelCallback
-	{
-        function onNotesLoaded():void;
-        function onNoteAdded():void;
-        function onNoteRemoved():void;
-	}
+   public interface INoteModelCallback
+   {
+      function onNotesLoaded():void;
+      function onNoteAdded():void;
+      function onNoteRemoved():void;
+   }
 }

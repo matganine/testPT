@@ -7,6 +7,6 @@ package com.broceliand.ui.effects
       function playFoward():void;
       function playBackward():void; 
       [Event(name=AnimForwardBackwardToggler.EVENT_END_ANIM, type="flash.events.Event")]
-
+      
    }
 }

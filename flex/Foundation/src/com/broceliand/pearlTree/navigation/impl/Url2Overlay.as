@@ -6,14 +6,14 @@ package com.broceliand.pearlTree.navigation.impl
    import flash.external.ExternalInterface;
    
    import mx.managers.IHistoryManagerClient;
-
+   
    public class Url2Overlay implements IHistoryManagerClient
    {
       public static const OVERLAY_CLIENT_NAME:String="overlay";
       public static const URL_FIELD:String="url";
       public static const PARENT_FIELD:String="parent";
       public static const EMBED_TYPE_FIELD:String="embedType";
-
+      
       public function Url2Overlay() {
          UrlNavigationController.registerHistory(OVERLAY_CLIENT_NAME, this);     
       }
@@ -44,7 +44,7 @@ package com.broceliand.pearlTree.navigation.impl
             try {
                currentUrl = ExternalInterface.call("getStartLocationFromURL");
             }catch(error:Error) {
-            
+               
             }
          }
          return (currentUrl && currentUrl.lastIndexOf(OVERLAY_CLIENT_NAME+"-"+URL_FIELD) != -1);

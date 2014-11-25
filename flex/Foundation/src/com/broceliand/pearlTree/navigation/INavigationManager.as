@@ -20,7 +20,7 @@ package com.broceliand.pearlTree.navigation
       function navigate(desc:NavigationDescription):void;
       function get urlSynchro():Url2NavigationSynchronizer;
       
-    
+      
       
       function goTo(associationId:int=-1, userId:int=-1, focusTreeId:int=-1, selectedTreeId:int=-1, pearlId:int=-1, onIntersection:int= -1, showPlayer:int= -1, pearlWindowPreferredState:int=0, navigateFromNode:Boolean=false, revealState:int=-1, followMoved:Boolean = false, resultCallback:INavigationResultCallback = null):void;  
       function goToUser(user:User, pearlWindowPreferredState:int=-1):void;
@@ -30,9 +30,9 @@ package com.broceliand.pearlTree.navigation
       function getNavigationHistoryModel():NavigationHistoryModel;
       
       function goToAssociationParentPearl(assoId:int):void;  
-
+      
       function goToWhatsHot(isHomePage:Boolean):void;
-
+      
       function setPlayState(playState:int):void; 
       function getSelectedUser():User;
       function getFocusedTree():BroPearlTree;

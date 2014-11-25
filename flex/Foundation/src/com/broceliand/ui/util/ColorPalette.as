@@ -3,7 +3,7 @@ package com.broceliand.ui.util
    import com.broceliand.ApplicationManager;
    
    import flash.net.SharedObject;
-
+   
    [Bindable]
    public class ColorPalette
    {
@@ -13,7 +13,7 @@ package com.broceliand.ui.util
       public static const PEARLTREES_WELCOME_DARK_GRAY:int = 0x989898;
       public static const PEARLTREES_WELCOME_LIGHT_BLUE:int = 0x619AC2;
       public static const PEARLTREES_WELCOME_DARK_BLUE:int = 0x446B87;
-
+      
       public static const PEARLTREES_LIGHT_COLOR:int = 0x4cbbe9;
       public static const PEARLTREES_COLOR:int = 0x505050;
       public static const PEARLTREES_COLOR_FOR_SYSTEM_FONT:int = 0x5E5E5E;
@@ -34,11 +34,11 @@ package com.broceliand.ui.util
       public static const NOTE_COLOR:int = 0xFFBA00;
       public static const NOTE_TEXT_COLOR:int = 0xAAAAAA;
       public static const NOTE_DARK_COLOR:int = 0xFF9C00;
-
+      
       public static const CONNECTION_LIGHT_COLOR:int = 0x00D8FF;
       public static const CONNECTION_COLOR:int = 0x00A8FF;
       public static const CONNECTION_DARK_COLOR:int = 0x0072FF;
-
+      
       public static const ERROR_COLOR:int = 0xFF6C00;
       public static const PEARLTREES_EMBED_COLOR:int = 0x000000;
       public static const BACKGROUND_COLOR:int = 0xFFFFFF;
@@ -64,21 +64,21 @@ package com.broceliand.ui.util
       private var _homeDarkColor:int = PEARLTREES_WELCOME_DARK_GRAY;
       private var _homeLightBlueColor:int = PEARLTREES_WELCOME_LIGHT_BLUE;
       private var _homeDarkBlueColor:int = PEARLTREES_WELCOME_DARK_BLUE;
-
+      
       private var _customColors:SharedObject;
-
+      
       public function ColorPalette()
       {
       }
-
+      
       public static function getInstance():ColorPalette {
-      	if (!_singleton) {
-      		_singleton = new ColorPalette();
-      		_singleton.init();
-      	}
-      	return _singleton;
+         if (!_singleton) {
+            _singleton = new ColorPalette();
+            _singleton.init();
+         }
+         return _singleton;
       }
-
+      
       private function init():void {
          loadCustomColorsFromCache();
          var am:ApplicationManager = ApplicationManager.getInstance();
@@ -86,13 +86,13 @@ package com.broceliand.ui.util
             pearltreesColor = PEARLTREES_EMBED_COLOR;
          }
       }
-
+      
       public static function uintToHex(value:uint):String {
-          var prefix:String = "000000";
-          var str:String = String(prefix + value.toString(16));
-          return str.substr(-6).toUpperCase();
+         var prefix:String = "000000";
+         var str:String = String(prefix + value.toString(16));
+         return str.substr(-6).toUpperCase();
       }
-
+      
       private function loadCustomColorsFromCache():void {
          try {
             _customColors = SharedObject.getLocal("customColors");
@@ -170,18 +170,18 @@ package com.broceliand.ui.util
          try {
             _customColors.flush();
          } catch (e:Error) {
-
+            
          }
       }
-
-
+      
+      
       public function get pearltreesColor():int {
          return _pearltreesColor;
       }
       public function set pearltreesColor(value:int):void {
          _pearltreesColor = value;
       }
-
+      
       public function get pearltreesColorForSystemFont():int {
          return _pearltreesColorForSystemFont;
       }
@@ -196,89 +196,89 @@ package com.broceliand.ui.util
          _pearltreesColorForSystemFontLight = value;
       }
       
-
+      
       public function get pearltreesDarkColor():int {
          return _pearltreesDarkColor;
       }
       public function set pearltreesDarkColor(value:int):void {
          _pearltreesDarkColor = value;
       }
-
+      
       public function get pearltreesUltraDarkColor():int {
          return _pearltreesUltraDarkColor;
       }
       public function set pearltreesUltraDarkColor(value:int):void {
          _pearltreesUltraDarkColor = value;
       }
-
+      
       public function get pearltreesLightColor():int {
          return _pearltreesLightColor;
       }
       public function set pearltreesLightColor(value:int):void {
          _pearltreesLightColor = value;
       }
-
-
+      
+      
       public function get noteColor():int {
          return _noteColor;
       }
       public function set noteColor(value:int):void {
          _noteColor = value;
       }
-
+      
       public function get noteTextColor():int {
          return _noteTextColor;
       }
       public function set noteTextColor(value:int):void {
          _noteTextColor = value;
       }
-
+      
       public function get noteDarkColor():int {
          return _noteDarkColor;
       }
       public function set noteDarkColor(value:int):void {
          _noteDarkColor = value;
       }
-
-
+      
+      
       public function get noteLightColor():int {
          return _noteLightColor;
       }
       public function set noteLightColor(value:int):void {
          _noteLightColor = value;
       }
-
-
+      
+      
       public function get connectionColor():int {
          return _connectionColor;
       }
       public function set connectionColor(value:int):void {
          _connectionColor = value;
       }
-
-
+      
+      
       public function get connectionDarkColor():int {
          return _connectionDarkColor;
       }
       public function set connectionDarkColor(value:int):void {
          _connectionDarkColor = value;
       }
-
+      
       public function get connectionLightColor():int {
          return _connectionLightColor;
       }
       public function set connectionLightColor(value:int):void {
          _connectionLightColor = value;
       }
-
+      
       public function get backgroundColor():int {
          return _backgroundColor;
       }
       public function set backgroundColor(value:int):void {
          _backgroundColor = value;
       }
-
-
+      
+      
       public function get errorColor():int {
          return _errorColor;
       }
@@ -286,13 +286,13 @@ package com.broceliand.ui.util
          _errorColor = value;
       }
       public function set pearltreesEmbedColor (value:int):void {
-		_pearltreesEmbedColor = value;
-	  }
-
-		public function get pearltreesEmbedColor ():int
-		{
-			return _pearltreesEmbedColor;
-		}
+         _pearltreesEmbedColor = value;
+      }
+      
+      public function get pearltreesEmbedColor ():int
+      {
+         return _pearltreesEmbedColor;
+      }
       
       public function set homeLightColor (value:int):void {
          _homeLightColor  = value;
@@ -311,27 +311,27 @@ package com.broceliand.ui.util
       {
          return _homeDarkColor ;
       }
-
+      
       public function get homeBlue():int
       {
          return _homeLightBlueColor;
       }
-
+      
       public function set homeBlue(value:int):void
       {
          _homeLightBlueColor = value;
       }
-
+      
       public function get homeDarkBlue():int
       {
          return _homeDarkBlueColor;
       }
-
+      
       public function set homeDarkBlue(value:int):void
       {
          _homeDarkBlueColor = value;
       }
-
-
+      
+      
    }
 }

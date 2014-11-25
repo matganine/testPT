@@ -1,5 +1,5 @@
 package com.broceliand.ui.renderers.pageRenderers.pearl{
-
+   
    
    import com.broceliand.ApplicationManager;
    import com.broceliand.graphLayout.model.EndNode;
@@ -23,7 +23,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
    import mx.core.UIComponent;
    import mx.events.FlexEvent;
    import mx.skins.halo.HaloBorder;
-
+   
    
    
    public class PearlBase extends Canvas implements IUIPearlView {
@@ -31,19 +31,19 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       static public const NORMAL_STATE:int =0;
       static public const OVER_STATE:int =1;
       static public const SELECTED_STATE:int =2;
- 
+      
       private var _scale:Number = 1;
       protected var _isWarmedHighlighted:Boolean= false;
       protected var _state:int = NORMAL_STATE;
       protected var _normalState:UIComponent;
       
-
+      
       private var _selectedForeground:Image;
       private var _overForeground:Image;
       
       
       protected var _pearlWidth:Number;
-		private var _markAsDisappearing:Boolean;
+      private var _markAsDisappearing:Boolean;
       private  var _pearlWidthChanged:Boolean;
       private var _inSelection:Boolean = true;
       private var _maskSprite :Sprite;
@@ -58,12 +58,12 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       protected var _isParentInLayout:Boolean = true;
       protected var _mask:UIComponent = null;
       protected var _nodeChanged:Boolean = false;
-
+      
       public function PearlBase():void {
          _colorRing = new PearlRing(this);
          clipContent = false;
       } 
-
+      
       public function get pearlCenter():Point {
          if(!_pearlCenterPoint) _pearlCenterPoint = new Point();
          if (width) {
@@ -109,14 +109,14 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       }
       
       override protected function createChildren():void {
-          super.createChildren();
-          clipContent = false;
-          mouseChildren = false;
-          showRings = false;
-          addEventListener(FlexEvent.CREATION_COMPLETE, addRing);
-          
+         super.createChildren();
+         clipContent = false;
+         mouseChildren = false;
+         showRings = false;
+         addEventListener(FlexEvent.CREATION_COMPLETE, addRing);
+         
          ApplicationManager.getInstance().components.pearlTreeViewer.vgraph.ringLayer.addChild(_colorRing);
-
+         
          _normalState = makeNormalState();
          addChild(_normalState);
          
@@ -146,15 +146,15 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       }
       
       protected function createWhiteBackground(width:Number):UIComponent{
-            var whiteBackground:UIComponent = new UIComponent();
-            var g:Graphics = whiteBackground.graphics;
-            g.clear();
-            g.beginFill(0xFFFFFF);
-            g.drawCircle(width/ 2.0, width / 2.0, width/ 2.0 - 2);
-            g.endFill();
-            return whiteBackground;
+         var whiteBackground:UIComponent = new UIComponent();
+         var g:Graphics = whiteBackground.graphics;
+         g.clear();
+         g.beginFill(0xFFFFFF);
+         g.drawCircle(width/ 2.0, width / 2.0, width/ 2.0 - 2);
+         g.endFill();
+         return whiteBackground;
       }
-            
+      
       public function warm():void{
          setState(OVER_STATE);
       }
@@ -185,12 +185,12 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       {
          _markAsDisappearing = value;
       }
-
+      
       public function get markAsDisappearing ():Boolean
       {
          return _markAsDisappearing;
       }
-
+      
       public function warmNoteRing():void{
          _colorRing.warmNoteRing();
       } 
@@ -247,13 +247,13 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          
       }
       
-     protected function clearMemory():void {
+      protected function clearMemory():void {
          removeAllChildren();
          _mask = null;
          _node = null;
          _colorRing.clearMemory();
          _colorRing = null;
-
+         
          _selectedForeground = _overForeground = null;
          _normalState = null;
       }
@@ -269,7 +269,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       public function get showRings():Boolean {
          return _colorRing.showRings;
       }
-
+      
       public function set showRings(value:Boolean):void {
          if (_mask && _mask.visible) {
             value =false;
@@ -283,12 +283,12 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       public function set canRingBeVisible(value:Boolean):void {
          _colorRing.canRingBeVisible = value;
       }
-
+      
       public static function getPearlRendererUnderPoint(point:Point):IUIPearl {                          
          if(!ApplicationManager.flexApplication.stage){
             return null;
          }        
-
+         
          var pearlUnderPoint:IUIPearl = null; 
          var objUnderPoint:DisplayObject = null;
          var objParent:DisplayObjectContainer = null;
@@ -313,11 +313,11 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          if(!pearlUnderPoint) {
             for (var i:int = objectsUnderPoint.length ; i-->0;) {
                objUnderPoint = objectsUnderPoint[i];
-   
+               
                if((objUnderPoint is HaloBorder) || (objUnderPoint is FlexSprite)) {
                   continue;
                }            
-   
+               
                
                objParent = objUnderPoint.parent;
                while(objParent) {
@@ -333,13 +333,13 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
                if(pearlUnderPoint) break;
             }
          }
-        
+         
          if(pearlUnderPoint && pearlUnderPoint.node is EndNode && !EndNode(pearlUnderPoint.node).canBeVisible) {
             return null;
          }
          return pearlUnderPoint;     
       }
-            
+      
       override public function set visible(value:Boolean):void {
          super.visible = value;
          _colorRing.visible = value;
@@ -357,7 +357,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          return _pearlNotificationState;
          
       }
-
+      
       private function setState(state:int):void {
          if (_state != state) {
             _state = state; 
@@ -376,15 +376,15 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          if (_selectedForeground) {
             _selectedForeground.visible = selectedStateVisbile;
          } 
-
+         
          _overForeground.visible = (state ==  OVER_STATE);
          setPearlWidth((state == OVER_STATE)? excitedWidth : normalWidth); 
       }
-
+      
       protected function get state():int {
          return _state;
       }
-
+      
       protected function makeNormalState():UIComponent {
          return makeBasicState(normalWidth);
       }
@@ -392,9 +392,9 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       protected function makeForegroundImage(state:int, basePearl:UIComponent):Image {
          var foregroundImage:Image = ImageFactory.newImage();
          foregroundImage.smoothBitmapContent=true;
-
-
-
+         
+         
+         
          if (state == OVER_STATE) {
             foregroundImage.source = getForegroundOverAsset();
          } else {
@@ -405,11 +405,11 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          basePearl.addChild(foregroundImage);
          return foregroundImage;
       }
-  
       
-
-
-
+      
+      
+      
+      
       protected function getForegroundOverAsset():Class {
          return null;
       }
@@ -459,7 +459,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       
       
       public function getPearlVisibleWidth():Number {
-          return pearlWidth;  
+         return pearlWidth;  
       }
       
       protected function makeAndAddMask(img:UIComponent):void {

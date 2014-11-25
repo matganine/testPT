@@ -11,7 +11,7 @@ package com.broceliand.assets {
       [Embed(source="/assets/teamFeed/buttonShare.png",
                 scaleGridTop='4', scaleGridBottom='17',
                 scaleGridLeft='10', scaleGridRight='11')]
-     
+      
       public static const ITEM_SHARE_BUTTON:Class;
       
       [Embed(source="/assets/teamFeed/buttonShareOver.png",

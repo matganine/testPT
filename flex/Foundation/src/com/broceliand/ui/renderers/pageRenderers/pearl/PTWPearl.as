@@ -12,10 +12,5 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       public function PTWPearl()
       {
       }
-      
-
-
-
-
    }
 }

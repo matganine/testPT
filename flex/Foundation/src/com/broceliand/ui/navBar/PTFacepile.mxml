@@ -22,7 +22,7 @@
              paddingTop="8"
              color="{ColorPalette.getInstance().pearltreesColorForSystemFont}"
              text="{BroLocale.getInstance().getText('welcome.facebookAcceleratedSignup.yourFriends')}"/>
-
+   
    <mx:Script>
       <![CDATA[
          import com.broceliand.ApplicationManager;

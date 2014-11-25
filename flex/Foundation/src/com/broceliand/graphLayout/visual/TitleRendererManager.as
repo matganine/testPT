@@ -25,57 +25,57 @@ package com.broceliand.graphLayout.visual
          _pearlRenderer2TitleLayer = new Dictionary(true);
       }
       
-       public function showNodeTitle(pearlRenderer:IUIPearl, above:Boolean, onTop:Boolean, inDockedSpace:Boolean):void{
-          if(pearlRenderer && pearlRenderer.titleRenderer && pearlRenderer.titleRenderer.isMarkedForDestruction){
-             trace("title renderer marked for destruction, can't show it " + pearlRenderer.titleRenderer.text);
-             return;
-          }      
-                   
-          var destTitleLayer:TitleLayer = null;
-          if(inDockedSpace){
-             if(above){
-                destTitleLayer = _titleLayerDockedAbove;
-             }else{
-                destTitleLayer = _titleLayerDockedBelow;
-             }
-          }else{
-             if(above){
-                if (onTop) {
-                   destTitleLayer = _titleLayerNotDockedTop;
-                }
-                else {
-                   destTitleLayer = _titleLayerNotDockedAbove;
-                }
-             }else{
-                destTitleLayer = _titleLayerNotDockedBelow;
-             }
-          }
-          
-          var currentLayer:TitleLayer = _pearlRenderer2TitleLayer[pearlRenderer]; 
-          if(currentLayer == destTitleLayer){
-             return;
-          }
-          if(currentLayer) {
-             currentLayer.removeTitle(pearlRenderer);
-          }
-
-          destTitleLayer.addTitle(pearlRenderer);
-          _pearlRenderer2TitleLayer[pearlRenderer] = destTitleLayer;
+      public function showNodeTitle(pearlRenderer:IUIPearl, above:Boolean, onTop:Boolean, inDockedSpace:Boolean):void{
+         if(pearlRenderer && pearlRenderer.titleRenderer && pearlRenderer.titleRenderer.isMarkedForDestruction){
+            trace("title renderer marked for destruction, can't show it " + pearlRenderer.titleRenderer.text);
+            return;
+         }      
          
-          
-          if (inDockedSpace) {
-             
-             inDockedSpace = !pearlRenderer.node.getDock().isDropZone();
-          }
-          pearlRenderer.titleRenderer.editable = above && !inDockedSpace;         
-       }
+         var destTitleLayer:TitleLayer = null;
+         if(inDockedSpace){
+            if(above){
+               destTitleLayer = _titleLayerDockedAbove;
+            }else{
+               destTitleLayer = _titleLayerDockedBelow;
+            }
+         }else{
+            if(above){
+               if (onTop) {
+                  destTitleLayer = _titleLayerNotDockedTop;
+               }
+               else {
+                  destTitleLayer = _titleLayerNotDockedAbove;
+               }
+            }else{
+               destTitleLayer = _titleLayerNotDockedBelow;
+            }
+         }
+         
+         var currentLayer:TitleLayer = _pearlRenderer2TitleLayer[pearlRenderer]; 
+         if(currentLayer == destTitleLayer){
+            return;
+         }
+         if(currentLayer) {
+            currentLayer.removeTitle(pearlRenderer);
+         }
+         
+         destTitleLayer.addTitle(pearlRenderer);
+         _pearlRenderer2TitleLayer[pearlRenderer] = destTitleLayer;
+         
+         
+         if (inDockedSpace) {
+            
+            inDockedSpace = !pearlRenderer.node.getDock().isDropZone();
+         }
+         pearlRenderer.titleRenderer.editable = above && !inDockedSpace;         
+      }
       
-       public function removeTitleRenderer(pearlRenderer:IUIPearl):void {
-          var currentLayer:TitleLayer = _pearlRenderer2TitleLayer[pearlRenderer]; 
-          if(currentLayer) {
-             currentLayer.removeTitle(pearlRenderer);
-          }
-          delete _pearlRenderer2TitleLayer[pearlRenderer];          
-       }
+      public function removeTitleRenderer(pearlRenderer:IUIPearl):void {
+         var currentLayer:TitleLayer = _pearlRenderer2TitleLayer[pearlRenderer]; 
+         if(currentLayer) {
+            currentLayer.removeTitle(pearlRenderer);
+         }
+         delete _pearlRenderer2TitleLayer[pearlRenderer];          
+      }
    }
 }

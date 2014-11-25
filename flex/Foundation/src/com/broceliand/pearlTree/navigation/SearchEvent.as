@@ -8,10 +8,10 @@ package com.broceliand.pearlTree.navigation
    {
       public static const SEARCH_EVENT:String  = "SearchEvent";
       public static const SEARCH_EVENT_ERROR:String  = "SearchErrorEvent";
-		private var _keyword:String;
-		private var _resultCount:int;
-		private var _hasMoreResult:Boolean;
-		private var _searchPeople:Boolean;
+      private var _keyword:String;
+      private var _resultCount:int;
+      private var _hasMoreResult:Boolean;
+      private var _searchPeople:Boolean;
       private var _spatialTreeList:Vector.<SpatialTree>;
       private var _searchUserId:Number;
       

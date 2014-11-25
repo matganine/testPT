@@ -1,11 +1,11 @@
 package com.broceliand.pearlTree.model {
-import com.broceliand.ApplicationManager;
-import com.broceliand.pearlTree.io.object.tree.AssociationData;
-import com.broceliand.pearlTree.io.services.AmfUserService;
-import com.broceliand.ui.util.HexaHelper;
-import com.broceliand.util.BroLocale;
-
-import flash.utils.ByteArray;
+   import com.broceliand.ApplicationManager;
+   import com.broceliand.pearlTree.io.object.tree.AssociationData;
+   import com.broceliand.pearlTree.io.services.AmfUserService;
+   import com.broceliand.ui.util.HexaHelper;
+   import com.broceliand.util.BroLocale;
+   
+   import flash.utils.ByteArray;
    
    public class BroAssociationInfo {
       
@@ -76,11 +76,11 @@ import flash.utils.ByteArray;
       public function get versionId():Number {
          return _versionId;
       }
-
+      
       public function set versionId(value:Number):void {
          _versionId = value;
       }
-
+      
       public function get title():String {
          if (BroPearlTree.isDefaultPrivateName(_title)) {
             return BroPearlTree.foreignInvisiblePrivateTeamName();
@@ -130,7 +130,7 @@ import flash.utils.ByteArray;
       public function set ownerCount(value:int):void {
          _ownerCount = value;
       }
-    
+      
       public function get rootAssoOfUserId():int {
          return _rootAssoOfUserId;
       }
@@ -140,11 +140,11 @@ import flash.utils.ByteArray;
             _ownerCount = associationData.memberCount;
          }
       }
-
+      
       public function get teamDiscussionCount():int {
          return _teamDiscussionCount;
       }
-
+      
       public function set teamDiscussionCount(value:int):void {
          _teamDiscussionCount = value;
       }     

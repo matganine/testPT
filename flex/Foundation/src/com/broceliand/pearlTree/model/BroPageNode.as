@@ -1,102 +1,102 @@
 package com.broceliand.pearlTree.model {
-
-import com.broceliand.ApplicationManager;
-import com.broceliand.pearlTree.io.LazyValueAccessor;
-import com.broceliand.pearlTree.io.services.AmfTreeService;
-import com.broceliand.ui.model.NoteModel;
-
-
-public class BroPageNode extends BroPTNode {
    
-   private var _refPage:BroPage;
-   private var _createdFromHistory:Boolean;
-   private var _lastEditorAccessor:LastEditorAccessor;
+   import com.broceliand.ApplicationManager;
+   import com.broceliand.pearlTree.io.LazyValueAccessor;
+   import com.broceliand.pearlTree.io.services.AmfTreeService;
+   import com.broceliand.ui.model.NoteModel;
    
-   public function BroPageNode(p:BroPage) {
-      super();
-      _refPage=p;
-      _noteMode = 0;
-      _lastEditorAccessor = null;
-   }
    
-   public override function set title (value:String):void{
-      if(_refPage) {
-         _refPage.title = value;
+   public class BroPageNode extends BroPTNode {
+      
+      private var _refPage:BroPage;
+      private var _createdFromHistory:Boolean;
+      private var _lastEditorAccessor:LastEditorAccessor;
+      
+      public function BroPageNode(p:BroPage) {
+         super();
+         _refPage=p;
+         _noteMode = 0;
+         _lastEditorAccessor = null;
       }
-      super.title = title;
-   }
-   public override function get title ():String {
-      if(_refPage) {
-         return _refPage.title;
-      }
-      return super.title;
-   }
-   
-   public function get refPage():BroPage {
-      return _refPage;
-   }      
-   public function set refPage(value:BroPage):void {
-      _refPage = value;
-   }
-   
-   public function get createdFromHistory ():Boolean {
-      return _createdFromHistory;
-   }		
-   public function set createdFromHistory (value:Boolean):void {
-      _createdFromHistory = value;
-   }
-   
-   public override function toString():String {
-      return _refPage.toString();
-   }
-   public function isWelcomePage():Boolean {
-      return _refPage.isWelcomePage(); 
-   }
-   override public function makeCopy():BroPTNode {
-      var newBroPageNode:BroPageNode = new BroPageNode(refPage.clone());
-      newBroPageNode.serverFullFeedNoteCount = serverFullFeedNoteCount;
-      newBroPageNode.neighbourCount = neighbourCount;
-      return newBroPageNode;
-   }          		
-   override public function get noteMode():uint{
-      if (_noteMode == 0) {
-         if (WelcomePearlsExceptions.isWelcomePage(_refPage) && !WelcomePearlsExceptions.isWelcomePearlFromPearltreesAccount(this)) {
-            _noteMode = NoteModel.MODE_LOCAL;
-         } else {
-            _noteMode = NoteModel.MODE_PAGE_DEFAULT;
+      
+      public override function set title (value:String):void{
+         if(_refPage) {
+            _refPage.title = value;
          }
-      } 
-      return super.noteMode;
-   }
-   override public function isRefTreePrivate():Boolean {
-      return isOwnerPrivate();
-   }
-   
-   override public function canBeCopy():Boolean {
-      if (isRefTreePrivate() && refPage.isUserContent()) {
-         if (!isCurrentUserOwner()) {
-            return false;
-         } 
+         super.title = title;
       }
-      return true;
+      public override function get title ():String {
+         if(_refPage) {
+            return _refPage.title;
+         }
+         return super.title;
+      }
+      
+      public function get refPage():BroPage {
+         return _refPage;
+      }      
+      public function set refPage(value:BroPage):void {
+         _refPage = value;
+      }
+      
+      public function get createdFromHistory ():Boolean {
+         return _createdFromHistory;
+      }		
+      public function set createdFromHistory (value:Boolean):void {
+         _createdFromHistory = value;
+      }
+      
+      public override function toString():String {
+         return _refPage.toString();
+      }
+      public function isWelcomePage():Boolean {
+         return _refPage.isWelcomePage(); 
+      }
+      override public function makeCopy():BroPTNode {
+         var newBroPageNode:BroPageNode = new BroPageNode(refPage.clone());
+         newBroPageNode.serverFullFeedNoteCount = serverFullFeedNoteCount;
+         newBroPageNode.neighbourCount = neighbourCount;
+         return newBroPageNode;
+      }          		
+      override public function get noteMode():uint{
+         if (_noteMode == 0) {
+            if (WelcomePearlsExceptions.isWelcomePage(_refPage) && !WelcomePearlsExceptions.isWelcomePearlFromPearltreesAccount(this)) {
+               _noteMode = NoteModel.MODE_LOCAL;
+            } else {
+               _noteMode = NoteModel.MODE_PAGE_DEFAULT;
+            }
+         } 
+         return super.noteMode;
+      }
+      override public function isRefTreePrivate():Boolean {
+         return isOwnerPrivate();
+      }
+      
+      override public function canBeCopy():Boolean {
+         if (isRefTreePrivate() && refPage.isUserContent()) {
+            if (!isCurrentUserOwner()) {
+               return false;
+            } 
+         }
+         return true;
+      }
+      
+      public function setCurrentUserAsLastEditor():void {
+         (getLastEditorAccessor() as LastEditorAccessor).setLastEditor(ApplicationManager.getInstance().currentUser);
+      }
+      
+      public function getLastEditor():User{
+         return (getLastEditorAccessor() as LastEditorAccessor).getLastEditor();
+      }
+      
+      public function getLastEditorAccessor():LazyValueAccessor {
+         if (_lastEditorAccessor == null) {
+            _lastEditorAccessor = new LastEditorAccessor();
+            _lastEditorAccessor.owner = this;
+         }        
+         return _lastEditorAccessor;
+      }
    }
-   
-   public function setCurrentUserAsLastEditor():void {
-      (getLastEditorAccessor() as LastEditorAccessor).setLastEditor(ApplicationManager.getInstance().currentUser);
-   }
-   
-   public function getLastEditor():User{
-      return (getLastEditorAccessor() as LastEditorAccessor).getLastEditor();
-   }
-   
-   public function getLastEditorAccessor():LazyValueAccessor {
-      if (_lastEditorAccessor == null) {
-         _lastEditorAccessor = new LastEditorAccessor();
-         _lastEditorAccessor.owner = this;
-      }        
-      return _lastEditorAccessor;
-   }
-}
 }
 
 

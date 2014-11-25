@@ -9,7 +9,7 @@ package com.broceliand.ui.renderers.pageRenderers
       function DistantDeletedTreeRefPearlRenderer(stateManager:PearlRendererStateManager, remoteResourceManager:IRemoteResourceManager){
          super(stateManager, remoteResourceManager);
       }
-               
+      
       override protected function instanciatePearl():void{
          
          var rootPearl:PTRootPearl = new PTRootPearl();

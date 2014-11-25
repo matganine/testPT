@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
-         xmlns:button="com.broceliand.ui.button.*"
-         xmlns:premiumsymb="com.broceliand.ui.premiumsymbol.*"
-         clipContent="false">
-      <premiumsymb:PTPremiumSymbolButton  id="symbol"
-                                          bindMouseOver="{premiumLabel}"/>
-      <button:PTLinkButton id="premiumLabel"
-                           height="100%"
-                           fontWeight="normal" fontSize="13"
-                           fontFamily="{PTStyleManager.DEFAULT_FONT_FAMILY}"           
-                           click="onClick(event)"
-                           color="{COLOR_PREMIUM_LABEL}"
-                           textRollOverColor="{COLOR_PREMIUM_LABEL_OVER_BLUE}"
-                           textSelectedColor="{COLOR_PREMIUM_LABEL_OVER_BLUE}"
-                           bindMouseOver="{symbol}" />
+           xmlns:button="com.broceliand.ui.button.*"
+           xmlns:premiumsymb="com.broceliand.ui.premiumsymbol.*"
+           clipContent="false">
+   <premiumsymb:PTPremiumSymbolButton  id="symbol"
+                                       bindMouseOver="{premiumLabel}"/>
+   <button:PTLinkButton id="premiumLabel"
+                        height="100%"
+                        fontWeight="normal" fontSize="13"
+                        fontFamily="{PTStyleManager.DEFAULT_FONT_FAMILY}"           
+                        click="onClick(event)"
+                        color="{COLOR_PREMIUM_LABEL}"
+                        textRollOverColor="{COLOR_PREMIUM_LABEL_OVER_BLUE}"
+                        textSelectedColor="{COLOR_PREMIUM_LABEL_OVER_BLUE}"
+                        bindMouseOver="{symbol}" />
    
    <mx:Script>
       <![CDATA[
@@ -46,14 +46,14 @@
                setLayout();
                _parametersChanged = false;
             }
-
-
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
+            
+            
          }
          
          override protected function createChildren():void {
@@ -67,8 +67,8 @@
             premiumLabel.setStyle('textSelectedColor', _withOverLabel ? _colorOver : COLOR_PREMIUM_LABEL);
             premiumLabel.setStyle('fontWeight', _fontWeight);
             setLayout();
-
-
+            
+            
          }
          
          public function get withOver():Boolean {
@@ -128,8 +128,8 @@
          }
          
          public function setLayoutParams( premiumSymbolYValue:int, premiumLabelYValue:int, 
-                                          distanceSymbolToLabelValue:int, fontSizeValue:int, 
-                                          labelVersionValue:String = LABEL_LONG):void {
+                                                                   distanceSymbolToLabelValue:int, fontSizeValue:int, 
+                                                                                                   labelVersionValue:String = LABEL_LONG):void {
             premiumSymbolY = premiumSymbolYValue;
             premiumLabelY = premiumLabelYValue;
             distanceSymbolToLabel = distanceSymbolToLabelValue;
@@ -146,13 +146,13 @@
          public function isCurrentTargetOfEvent(event:MouseEvent):Boolean {
             return event.target == this || event.target == symbol || event.target == premiumLabel;
          }
-
+         
          public function set labelVersion(value:String):void
          {
             _labelVersion = value;
             notifyOnChange();
          }
-
+         
          public function set premiumLabelY(value:int):void
          {
             if (_premiumLabelY != value) {
@@ -160,7 +160,7 @@
                notifyOnChange();
             }
          }
-
+         
          public function set premiumSymbolY(value:int):void
          {
             if (_premiumSymbolY != value) {
@@ -168,7 +168,7 @@
                notifyOnChange();
             }         
          }
-
+         
          public function set distanceSymbolToLabel(value:int):void
          {
             if (_distanceSymbolToLabel != value) {
@@ -176,7 +176,7 @@
                notifyOnChange();
             }
          }
-
+         
          public function set fontSize(value:int):void
          {
             if (_fontSize != value) {
@@ -193,39 +193,39 @@
          public function get fontSize():int {
             return _fontSize;
          }
-
+         
          public function get withOverLabel():Boolean
          {
             return _withOverLabel;
          }
-
+         
          public function set withOverLabel(value:Boolean):void
          {
             _withOverLabel = value;
          }
-
+         
          public function get fontWeight():String
          {
             return _fontWeight;
          }
-
+         
          public function set fontWeight(value:String):void
          {
             _fontWeight = value;
          }
-
+         
          public function get colorOver():int
          {
             return _colorOver;
          }
-
+         
          public function set colorOver(value:int):void
          {
             _colorOver = value;
          }
-
-
-
+         
+         
+         
       ]]>
    </mx:Script>  
 </mx:Canvas>

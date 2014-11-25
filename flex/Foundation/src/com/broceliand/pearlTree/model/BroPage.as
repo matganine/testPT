@@ -393,7 +393,7 @@ package com.broceliand.pearlTree.model {
             return "square";
          }
       }
-
+      
       private function createPreviewUrl(type:uint, requestServer:Boolean):String {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var service:String = "preview/image/";      
@@ -509,9 +509,9 @@ package com.broceliand.pearlTree.model {
             logoType = LogoManager.TEMPORARY_TYPE;
             return LogoManager.getTemporaryLogoUrl(this);
          } 
-
-
-
+         
+         
+         
          
          var h:String = getUsedLogoHashHex();         
          var typeSuffix:String ;
@@ -804,7 +804,7 @@ package com.broceliand.pearlTree.model {
       {
          _extension = value;
       }
-
+      
    }
 }
 

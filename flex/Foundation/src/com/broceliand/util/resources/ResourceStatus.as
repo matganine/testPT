@@ -7,6 +7,6 @@ package com.broceliand.util.resources {
       public static const STATUS_LOADED:int = 2; 
       public static const STATUS_FIRST_TIME_LOADING:int = 3; 
       public static const STATUS_SERVER_PROCESSING:int = 4; 
-            
+      
    }
 }

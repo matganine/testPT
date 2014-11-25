@@ -1,14 +1,13 @@
 package com.broceliand.pearlTree.model
 {
-import com.broceliand.util.logging.Log;
-
+   import com.broceliand.util.logging.Log;
+   
    internal class BroTreeOwnership
    {
-
-		private var _tree:BroPearlTree;
-		private var _association:BroAssociation;
-
-
+      
+      private var _tree:BroPearlTree;
+      private var _association:BroAssociation;
+      
       public function BroTreeOwnership(tree:BroPearlTree, association:BroAssociation) {
          _tree = tree;
          _association = association;         
@@ -29,6 +28,6 @@ import com.broceliand.util.logging.Log;
       {
          return _association;
       }
-
+      
    }
 }

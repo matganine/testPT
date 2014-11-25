@@ -22,7 +22,7 @@ package com.broceliand.assets.pearlWindow.base
       public static const EXPAND_BUTTON:Class;
       [Embed(source='/assets/pearlWindow/base/expandHover.png')]
       public static const EXPAND_BUTTON_OVER:Class;
-
+      
       
       [Embed(source='/assets/pearlWindow/base/minimize.png')]
       public static const MINIMIZE_BUTTON:Class;

@@ -4,12 +4,12 @@
                      creationComplete="onCreationComplete()"
                      xmlns:button="com.broceliand.ui.button.*"
                      >
-      <mx:Label id="newsLabel" 
-                fontWeight="bold"
-                fontSize="12"
-                height="{NEWS_BUTTON_HEIGHT}"
-                color="#FFFFFF" letterSpacing="1"
-                text="{BroLocale.getInstance().getText('pearl.newsbutton')}"/>
+   <mx:Label id="newsLabel" 
+             fontWeight="bold"
+             fontSize="12"
+             height="{NEWS_BUTTON_HEIGHT}"
+             color="#FFFFFF" letterSpacing="1"
+             text="{BroLocale.getInstance().getText('pearl.newsbutton')}"/>
    <mx:Script>
       <![CDATA[
          import com.broceliand.ApplicationManager;
@@ -69,54 +69,54 @@
          
          
          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          
          public static function getNewLabelFilters(color:int, scaleX:Number = 1.0):Array {
             var angle:Number = 0;
@@ -131,7 +131,7 @@
             var filter:DropShadowFilter = new DropShadowFilter(distance,angle,color,alpha,blurX,blurY,strength,quality,inner,knockout);
             return new Array(filter);
          }
-
+         
          
          override public function end():void {
             super.end();

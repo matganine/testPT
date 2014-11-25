@@ -40,7 +40,7 @@ package com.broceliand.util
             _keyDownDelegate = null;
          }
       }
-         
+      
       
       
       public function listenStage(value:Stage):void {
@@ -57,14 +57,14 @@ package com.broceliand.util
       }
       
       public function listenComponent(value:UIComponent):void {
-          value.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+         value.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
       }
       
       public function stopListeningComponent(value:UIComponent):void {
          value.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
       }
-
-     
+      
+      
       public function addKeyboardListener(listener:Function, keyCode:uint, ctrlKey:Boolean=false, shiftKey:Boolean=false):void {
          var keyListener:KeyCodeListener = new KeyCodeListener();
          keyListener.listener = listener;
@@ -94,9 +94,9 @@ package com.broceliand.util
          }
          
       }
-       
+      
       public function addCharKeyListener(listener:Function, charCode:uint, ctrlKey:Boolean=false):void  {
-      	 var keyListener:CharListener= new CharListener();
+         var keyListener:CharListener= new CharListener();
          keyListener.listener = listener;
          keyListener.charCode = charCode;
          keyListener.ctrlKey = ctrlKey;
@@ -113,7 +113,7 @@ package com.broceliand.util
       
       private function onKeyDown(event:KeyboardEvent):void {
          for each(var ketListener:KeyListener in _keyListeners) {
-         	if(ketListener.matchEvent(event)) {
+            if(ketListener.matchEvent(event)) {
                ketListener.listener.apply();
             }
          }
@@ -122,7 +122,7 @@ package com.broceliand.util
          }
          event.stopImmediatePropagation();
       }
-
+      
       public static function charToKeyCode(char:String):int {
          var strNums:String = "0123456789";
          var strCaps:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -153,8 +153,8 @@ package com.broceliand.util
       }
    }
 }
-	import flash.events.KeyboardEvent;
-	
+import flash.events.KeyboardEvent;
+
 
 internal class KeyListener {
    public var listener:Function;
@@ -172,7 +172,7 @@ internal class KeyCodeListener extends KeyListener {
    public var keyCode:uint;
    public var shiftKey:Boolean;
    public override function matchEvent(ev:KeyboardEvent):Boolean {
-   		return super.matchEvent(ev) && ev.keyCode == keyCode && shiftKey == ev.shiftKey;	
+      return super.matchEvent(ev) && ev.keyCode == keyCode && shiftKey == ev.shiftKey;	
    }
    override public function equalsTo(k:KeyListener):Boolean {
       if (super.equalsTo(k) &&  k is KeyCodeListener) {

@@ -1,7 +1,7 @@
 package com.broceliand.ui.list
 {
-import com.broceliand.util.BroLocale;
-
+   import com.broceliand.util.BroLocale;
+   
    public class UserList extends PTList {
       
       protected var _displayUserInfo:Boolean;

@@ -9,19 +9,19 @@ package com.broceliand.util
    public class FrameDebugId
    {
       private static var _frameDebugId:FrameDebugId;
-		private var _frameId:int;
-
-		public function set frameId (value:int):void
-		{
-			_frameId = value;
-		}
-
-		public function get frameId ():int
-		{
-			return _frameId;
-		}
-
-
+      private var _frameId:int;
+      
+      public function set frameId (value:int):void
+      {
+         _frameId = value;
+      }
+      
+      public function get frameId ():int
+      {
+         return _frameId;
+      }
+      
+      
       public function FrameDebugId()
       {
          Assert.assert(_frameDebugId==null, "frame debugger already instanciated");
@@ -31,7 +31,7 @@ package com.broceliand.util
          if(!_frameDebugId) _frameDebugId = new FrameDebugId()
          return _frameDebugId;
       }
-
+      
       public function onFrameEnter(event:Event):void {
          _frameId ++;
       }

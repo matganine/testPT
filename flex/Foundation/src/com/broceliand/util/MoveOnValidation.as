@@ -46,6 +46,6 @@ package com.broceliand.util
       public function resetMove():void {
          _targetPoint = null;
       }
-
+      
    }
 }

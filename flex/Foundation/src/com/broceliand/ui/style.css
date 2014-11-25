@@ -39,13 +39,13 @@
    upArrowOverSkin:       Embed(source="assets/scrollbar/upNoteHover16.png");
    upArrowDownSkin:       Embed(source="assets/scrollbar/upNoteHover16.png");
    upArrowDisabledSkin:   Embed(source="assets/scrollbar/upNote16.png");
-
+   
    downArrowSkin:         Embed(source="assets/scrollbar/downNote16.png"); 
    downArrowUpSkin:       Embed(source="assets/scrollbar/downNote16.png");
    downArrowOverSkin:     Embed(source="assets/scrollbar/downNoteHover16.png");
    downArrowDownSkin:     Embed(source="assets/scrollbar/downNoteHover16.png");   
    downArrowDisabledSkin: Embed(source="assets/scrollbar/downNote16.png");   
-
+   
    trackSkin: Embed(source="assets/scrollbar/scrollbarNoteBackgroundWhite16.png",
       scaleGridLeft="9", scaleGridRight="10", scaleGridTop="27", scaleGridBottom="28");
    thumbSkin: Embed(source="assets/scrollbar/scrollbarNoteForeground16.png",

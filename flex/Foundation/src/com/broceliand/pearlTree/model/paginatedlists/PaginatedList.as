@@ -6,13 +6,13 @@ package com.broceliand.pearlTree.model.paginatedlists {
    
    
    public class PaginatedList implements IPaginatedList {
-
+      
       private var _items:ArrayCollection; 
       private var _state:PaginatedListData;
       
       private static var _ref:int = 0;
       private var _myRef:int;
-
+      
       public function PaginatedList() {
          _items = new ArrayCollection();
          _state = new PaginatedListData;
@@ -29,11 +29,11 @@ package com.broceliand.pearlTree.model.paginatedlists {
       public function get innerArray():Array {
          return _items.source;
       }
-
+      
       public function get innerList():ArrayCollection {
          return _items;   
       }
-    
+      
       public function set paginationState(state:PaginatedListData):void {
          _state = state;
          refreshMorePlaceholder();
@@ -126,6 +126,6 @@ package com.broceliand.pearlTree.model.paginatedlists {
          }
       }
       
-
+      
    }
 }

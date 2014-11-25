@@ -9,7 +9,7 @@ package com.broceliand.pearlTree.navigation.impl
       protected var _navigator:NavigationManagerImpl;
       protected var _startTime:Number;
       protected var _navDesc:NavigationDescription;
-
+      
       public function NavigationRequestBase(navDesc:NavigationDescription) {
          _navDesc = navDesc;
       }

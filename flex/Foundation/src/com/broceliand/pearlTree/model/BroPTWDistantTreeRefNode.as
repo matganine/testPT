@@ -18,7 +18,7 @@ package com.broceliand.pearlTree.model
          _position = position;
       }
       
-     
+      
       override public function get neighbourCount():Number {
          return refTree.getRootNode().neighbourCount;
       }     
@@ -26,13 +26,13 @@ package com.broceliand.pearlTree.model
       override public function get neighbours():IPaginatedList {
          return refTree.getRootNode().neighbours;
       } 
-            
+      
       public function get preferredRadialPosition():BroRadialPosition {
          return _position;
       }
       
       public function set preferredRadialPosition(pos:BroRadialPosition ):void {
-          _position= pos;
+         _position= pos;
       }     
       
       public function get absolutePosition():Point {
@@ -62,7 +62,7 @@ package com.broceliand.pearlTree.model
       }
       
       public function get indexKey():String {
-        return  BroPearlTree.getTreeKey(this.treeDB, this.treeId);
+         return  BroPearlTree.getTreeKey(this.treeDB, this.treeId);
       }
       
       public function navigateToPearl(selectedNode:IPTNode):void {

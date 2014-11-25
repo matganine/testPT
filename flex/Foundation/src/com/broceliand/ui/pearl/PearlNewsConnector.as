@@ -7,7 +7,7 @@ package com.broceliand.ui.pearl {
    import flash.geom.Point;
    
    import mx.core.UIComponent;
-
+   
    public class PearlNewsConnector extends PearlComponentConnector  {
       
       private static const MASK_DEFAULT_WIDTH:int = 47;

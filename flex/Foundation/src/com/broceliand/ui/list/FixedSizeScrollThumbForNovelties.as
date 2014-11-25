@@ -38,14 +38,14 @@ package com.broceliand.ui.list {
                fixedSizeScrollThumbForNovelties.downSkinName = "thumbDownSkin";
                fixedSizeScrollThumbForNovelties.iconName = "thumbIcon";
                fixedSizeScrollThumbForNovelties.skinName = "thumbSkin";
-
                
-
-
-
-
-
-
+               
+               
+               
+               
+               
+               
+               
                scrollBar.scrollTrack.skinName = "trackSkin";
                scrollBar.scrollTrack.upSkinName = "trackSkin";
                scrollBar.scrollTrack.overSkinName = "trackSkin";

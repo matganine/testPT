@@ -34,10 +34,10 @@ package com.broceliand.ui.highlight.highlighters
       protected function highlightInternal():void{
          
       }
-
+      
       protected function unhighlightInternal():void{
          
       }
-
+      
    }
 }

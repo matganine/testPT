@@ -2,7 +2,6 @@ package com.broceliand.assets
 {
    public class PremiumSymbolAssets
    {  
-  
       
       [Embed(source="/assets/premiumSymbol/small.png")]
       public static const SMALL:Class;

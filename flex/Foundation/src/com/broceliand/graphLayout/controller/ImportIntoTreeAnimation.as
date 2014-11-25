@@ -32,7 +32,7 @@ package com.broceliand.graphLayout.controller
          _rootOfTheTree = rootOfTheTree;
          _displayModel = displayModel; 
       }
-
+      
       
       public function performAction():void {
          if (PTRootNode(_rootOfTheTree).isOpen()) {
@@ -97,8 +97,8 @@ package com.broceliand.graphLayout.controller
                n.undock();
             }
             if (canceLRemove) {
-             n.pearlVnode.pearlView.setScale(scale);
-             n.pearlVnode.pearlView.pearl.markAsDisappearing = false;
+               n.pearlVnode.pearlView.setScale(scale);
+               n.pearlVnode.pearlView.pearl.markAsDisappearing = false;
             } else {
                _displayModel.onNodeRemovedFromGraph(n);
                _vgraph.removeNode(n.vnode);
