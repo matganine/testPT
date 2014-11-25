@@ -8,7 +8,7 @@ This project contains the core of our application. It includes:
 * pearls and pearltrees interactions
 * data model
 
-## Visualization
+#### Visualization
 In this project, we implement a simple and ergonomic tree structure visualization. The
 Ravis library is extended in order to create our customized tree representation and 
 layout. Automatic organization algorithms are implemented to balance pearls around 
@@ -18,7 +18,7 @@ representation for each type of pearl in Pearltrees; trees, aliases, teams, page
 notes, photos and documents have all their own mask and decoration.
 
 
-## Animations
+#### Animations
 In Pearltrees, pearls manipulation is a core feature, and animations are necessary to
 enhance the user experience. Animations have been implemented for many manipulations
 among them:
@@ -31,7 +31,7 @@ among them:
 * etc...
 
 
-## Interactions
+#### Interactions
 Interaction classes allow to dynamically edit, move, delete pearls and pearltrees.
 There are many interactors in Pearltrees. Each interactor will handle specific gestures
 on the user interface:
@@ -49,7 +49,7 @@ For each of these interactors, we also set rules to allow or forbid user interac
 with pearls. For instance, dragging a pearl into a tree that has too many pearls is not
 allowed.
 
-## Data Model
+#### Data Model
 The data model used in pearltrees is the core of our tree representation. We distinguish two types
 of nodes: pearltrees and pearls ; and each one of these types has several subtypes. Pearls for
 instance, can either be pages (website urls), notes, photos or files while pearltrees can be trees
