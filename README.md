@@ -25,7 +25,7 @@ among them:
 * adding a new pearl
 * opening a new pearltree
 * either zooming in or zooming out
-* flinging a pearl for example
+* flinging a pearl
 * detaching a branch from a tree
 * selecting several pearls and moving them around or positioning them in your dropzone
 * etc...
