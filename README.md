@@ -5,16 +5,55 @@ This project contains the core of our application. It includes:
 
 * tree structure visualization
 * animations
-* pearls interactions
-* pearls data model
+* pearls and pearltrees interactions
+* data model
 
 ## Visualization
+In this project, we implement a simple and ergonomic tree structure visualization. The
+Ravis library is extended in order to create our customized tree representation and 
+layout. Automatic organization algorithms are implemented to balance pearls around 
+pearltrees and reorganize them in order to have simple and appealing layouts. We also
+use the PearltreesAssets project to shape our pearls. This allows us to give a unique 
+representation for each type of pearl in Pearltrees; trees, aliases, teams, pages,
+notes, photos and documents have all their own mask and decoration.
+
 
 ## Animations
+In Pearltrees, pearls manipulation is a core feature, and animations are necessary to
+enhance the user experience. Animations have been implemented for many manipulations
+among them:
+* adding a new pearl
+* opening a new pearltree
+* either zooming in or zooming out
+* flinging a pearl for example
+* detaching a branch from a tree
+* selecting several pearls and moving them around or positioning them in your dropzone
+* etc...
+
 
 ## Interactions
+Interaction classes allow to dynamically edit, move, delete pearls and pearltrees.
+There are many interactors in Pearltrees. Each interactor will handle specific gestures
+on the user interface:
+
+* PearlDetachmentInteractor handles the gesture of separating a pearl from another one
+or from a pearltree.
+* DraggingOnStringInteractor allows moving a pearl along a line
+* DragIntoTreeInteractor allows to move dragged pearls into a pearltree
+* EmptyTreeOpenerInteractor opens a tree while drag pearls and placing them
+long enough above an empty pearltree
+* DropZoneInteractor allows to move pearls from and to the user's dropzone
+* etc...
+
+For each of these interactors, we also set rules to allow or forbid user interactions 
+with pearls. For instance, dragging a pearl into a tree that has too many pearls is not
+allowed.
 
 ## Data Model
+The data model used in pearltrees is the core of our tree representation. We distinguish two types
+of nodes: pearltrees and pearls ; and each one of these types has several subtypes. Pearls for
+instance, can either be pages (website urls), notes, photos or files while pearltrees can be trees
+or aliases (which are links to other existing trees).
 
 
 ## Requirements
