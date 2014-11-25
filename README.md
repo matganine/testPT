@@ -85,7 +85,7 @@ Ravis and PearltreesAssets projects in your Library Path.
 #### PearlExample
 PearlExample is a separate project that can be found [here](https://github.com/pearltrees/PearlExample), it is an example
 code to easily draw a tree and its pearls. Here is an example output tree representation that
-you can make with this example:
+you can make with it:
 
 ![Alt text](/pearlExample.png?raw=true "Example Pearltree Representation")
 
