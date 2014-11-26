@@ -10,7 +10,7 @@ This project contains the core of our application. It includes:
 
 #### Visualization
 In this project, we implement a simple and ergonomic tree structure visualization. The
-Ravis library is extended in order to create our customized tree representation and 
+Ravis library is extended to create our customized tree representation and 
 layout. Automatic organization algorithms are implemented to balance pearls around 
 pearltrees and reorganize them in order to have simple and appealing layouts. We also
 use the PearltreesAssets project to shape our pearls. This allows us to give a unique 
@@ -53,7 +53,13 @@ allowed.
 The data model used in pearltrees is the core of our tree representation. We distinguish two types
 of nodes: pearltrees and pearls ; and each one of these types has several subtypes. Pearls for
 instance, can either be pages (website urls), notes, photos or files while pearltrees can be trees
-or aliases (which are links to other existing trees).
+or aliases (which are links to other existing trees). In this project, we only provide the client-side
+data model for the pearls (you can find it in the AssociationData, OwnerData, PearlData, TreeData, TreeEditoData
+and UrlData classes). You can use this model to implement your own server that will communicate 
+with the client and store data relative to your pearls. Following our data model, you could create for instance, 
+a simplified "pearl" table in your SQL database with the following attributes: pearlId (id of the current pearl), 
+treeId (id of the parent tree of the current pearl), title, urlID (id of the UrlData relative to your pearl) 
+and ownerId (id of the user who owns the pearl).
 
 
 ## Requirements
