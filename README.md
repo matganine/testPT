@@ -1,7 +1,7 @@
 # PearlExample
 
 ## Presentation
---> TODO FR
+TODO
 
 ## Overview
 This is an example code showing how to use our extension of the RaVis (Relational 
