@@ -1,72 +1,14 @@
-# PearltreesCore
+# PearlExample
+
+## Presentation
+--> TODO FR
 
 ## Overview
-This project contains the core of our application. It includes:
-
-* tree structure visualization
-* animations
-* pearls and pearltrees interactions
-* data model
-
-#### Visualization
-In this project, we implement a simple and ergonomic tree structure visualization. The
-Ravis library is extended to create our customized tree representation and 
-layout. Automatic organization algorithms are implemented to balance pearls around 
-pearltrees and reorganize them in order to have simple and appealing layouts. We also
-use the PearltreesAssets project to shape our pearls. This allows us to give a unique 
-representation for each type of pearl in Pearltrees; trees, aliases, teams, pages,
-notes, photos and documents have all their own mask and decoration.
-
-
-#### Animations
-In Pearltrees, pearls manipulation is a core feature, and animations are necessary to
-enhance the user experience. Animations have been implemented for many manipulations
-among them:
-* adding a new pearl
-* opening a new pearltree
-* either zooming in or zooming out
-* flinging a pearl
-* detaching a branch from a tree
-* selecting several pearls and moving them around or positioning them in your dropzone
-* etc...
-
-
-#### Interactions
-Interaction classes allow to dynamically edit, move, delete pearls and pearltrees.
-There are many interactors in Pearltrees. Each interactor will handle specific gestures
-on the user interface:
-
-* PearlDetachmentInteractor handles the gesture of separating a pearl from another one
-or from a pearltree.
-* DraggingOnStringInteractor allows moving a pearl along a line
-* DragIntoTreeInteractor allows to move dragged pearls into a pearltree
-* EmptyTreeOpenerInteractor opens a tree while drag pearls and placing them
-long enough above an empty pearltree
-* DropZoneInteractor allows to move pearls from and to the user's dropzone
-* etc...
-
-For each of these interactors, we also set rules to allow or forbid user interactions 
-with pearls. For instance, dragging a pearl into a tree that has too many pearls is not
-allowed.
-
-#### Data Model
-The data model used in pearltrees is the core of our tree representation. We distinguish two types
-of nodes: pearltrees and pearls ; and each one of these types has several subtypes. Pearls for
-instance, can either be pages (website urls), notes, photos or files while pearltrees can be trees
-or aliases (which are links to other existing trees). In this project, we only provide the client-side
-data model for the pearls (you can find it in the AssociationData, OwnerData, PearlData, TreeData, TreeEditoData
-and UrlData classes). You can use this model to implement your own server that will communicate 
-with the client and store data relative to your pearls. Following our data model, you could create for instance, 
-a simplified "pearl" table in your SQL database with the following attributes: pearlId (id of the current pearl), 
-treeId (id of the parent tree of the current pearl), title, urlID (id of the UrlData relative to your pearl) 
-and ownerId (id of the user who owns the pearl).
-
+This is an example code showing how to use our extension of the RaVis (Relational 
+Analysis Components) library in order to layout pearls and pearltrees.
 
 ## Requirements
-This example requires:
-
-* the RaVis library that can be found [here](https://github.com/pearltrees/ravis)
-* the PearltreesAssets library that can be found [here] (https://github.com/pearltrees.com/PearltreesAssets)
+This example requires the RaVis library that can be found [here](https://github.com/pearltrees/ravis).
 
 ## Setting up project and components
 
@@ -79,21 +21,32 @@ file in {YOUR_FLASH_BUILDER_PATH}\sdks\3.5\frameworks\libs\player\10\playergloba
 Ravis is the library used for the visualization of our tree organization. You need to
 import it as a separate project in your workspace. You can find it [here](https://github.com/pearltrees/ravis).
 
-#### PearltreesAssets Project Import
-PearltreesAssets project is necessary to get the assets used in the layout of our pearls.
-Therefore, you also need to import it as a separate project in your workspace. You
-can find it [here] (https://github.com/pearltrees/PearltreesAssets).
-
-#### PearltreesCore
-You finally need to import the PearltreesCore project in your workspace and add the above
-Ravis and PearltreesAssets projects in your Library Path. 
-
 #### PearlExample
-PearlExample is a separate project that can be found [here](https://github.com/pearltrees/PearlExample), it is an example
-code to easily draw a tree and its pearls. Here is an example output tree representation that
-you can make with it:
+You finally need to import the PearlExample project in your workspace and add the above
+Ravis project in your Library Path. Building the project and executing it should show you
+an example of Pearltree representation.
+
+## Usage
+
+Once you have set up the project and components, you can easily draw the following
+pearltree example:
 
 ![Alt text](/pearlExample.png?raw=true "Example Pearltree Representation")
+
+The data for this example is easily loaded with the xml file: graph.xml.
+For example creating a pearltree and a pearl and linking them together takes as little as
+this code:
+
+``` xml
+<!-- pearltree -->
+<Node id="1" name="Trending" nodeColor="0x1e51c3" nodeSize="70" nodeClass="earth" />
+
+<!-- pearl -->
+<Node id="2" name="Music" nodeColor="0xcf39f8" nodeSize="50" nodeClass="leaf"/>
+
+<!-- Link between the pearltree and the pearl -->
+<Edge fromID="1" toID="2" color="0x000000" />
+```
 
 ## License
 
