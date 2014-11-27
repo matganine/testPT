@@ -1,78 +1,77 @@
 # Tree Shape Visualization
 
 ## Presentation
-With this project we are open-sourcing 
-Pearltrees core visualization modules from  our 1.6 "tree shape" version.
+With this project we are open-sourcing key visualization modules from our 1.6 "tree shape" version.
 
-![Alt text](/readme/pearltrees.png?raw=true "Pearltrees 1.6")
+![Alt text](/readme/pearltrees.png?raw=true "1.6 Tree Shape Visualization")
 
 ## Overview
 This project contains the core of our application. It includes:
 
 * tree structure visualization
 * animations
-* pearls and pearltrees interactions
+* nodes and trees interactions
 * data model
 
 #### Visualization
 In this project, we implement a simple and ergonomic tree structure visualization. The
 Ravis library is extended to create our customized tree representation and 
-layout. Automatic organization algorithms are implemented to balance pearls around 
-pearltrees and reorganize them in order to have simple and appealing layouts. We also
-use the flash-assets-box project to shape our pearls. This allows us to give a unique 
-representation for each type of pearl in Pearltrees; trees, aliases, teams, pages,
+layout. Automatic organization algorithms are implemented to balance nodes around 
+trees and reorganize them in order to have simple and appealing layouts. We also
+use the flash-tree-shape-visualization-assets-box project to shape our nodes. This allows us to give a unique 
+representation for each type of node; trees, aliases, teams, pages,
 notes, photos and documents have all their own mask and decoration.
 
 
 #### Animations
-In Pearltrees, pearls manipulation is a core feature, and animations are necessary to
+In the Tree Shape Visualization, nodes manipulation is a core feature, and animations are necessary to
 enhance the user experience. Animations have been implemented for many manipulations
 among them:
-* adding a new pearl
-* opening a new pearltree
+* adding a new node
+* opening a new tree
 * either zooming in or zooming out
-* flinging a pearl
+* flinging a node
 * detaching a branch from a tree
-* selecting several pearls and moving them around or positioning them in your dropzone
+* selecting several nodes and moving them around or positioning them in your dock
 * etc...
 
 
 #### Interactions
-Interaction classes allow to dynamically edit, move, delete pearls and pearltrees.
-There are many interactors in Pearltrees. Each interactor will handle specific gestures
+Interaction classes allow to dynamically edit, move, delete nodes and trees.
+There are many interactors in the Tree Shape Visualization. Each interactor will handle specific gestures
 on the user interface:
 
-* PearlDetachmentInteractor handles the gesture of separating a pearl from another one
-or from a pearltree.
-* DraggingOnStringInteractor allows moving a pearl along a line
-* DragIntoTreeInteractor allows to move dragged pearls into a pearltree
-* EmptyTreeOpenerInteractor opens a tree while drag pearls and placing them
-long enough above an empty pearltree
-* DropZoneInteractor allows to move pearls from and to the user's dropzone
+* PearlDetachmentInteractor handles the gesture of separating a node from another one
+or from a tree.
+* DraggingOnStringInteractor allows moving a node along a line
+* DragIntoTreeInteractor allows to move dragged nodes into a tree
+* EmptyTreeOpenerInteractor opens a tree while dragging nodes and placing them
+long enough above an empty tree
+* DropZoneInteractor allows to move nodes from and to the user's dock
 * etc...
 
 For each of these interactors, we also set rules to allow or forbid user interactions 
-with pearls. For instance, dragging a pearl into a tree that has too many pearls is not
+with nodes. For instance, dragging a node into a tree that has too many nodes is not
 allowed.
 
 #### Data Model
-The data model used in pearltrees is the core of our tree representation. We distinguish two types
-of nodes: pearltrees and pearls ; and each one of these types has several subtypes. Pearls for
-instance, can either be pages (website urls), notes, photos or files while pearltrees can be trees
+The data model used in Tree Shape Visualization is the skeleton of our tree representation. We distinguish two types
+of nodes: the trees and the (simple) nodes ; and each one of these types has several subtypes. Nodes for
+instance, can either be pages (website urls), notes, photos or files while trees can be trees
 or aliases (which are links to other existing trees). In this project, we only provide the client-side
-data model for the pearls (you can find it in the AssociationData, OwnerData, PearlData, TreeData, TreeEditoData
+data model for the nodes (you can find it in the AssociationData, OwnerData, PearlData, TreeData, TreeEditoData
 and UrlData classes). You can use this model to implement your own server that will communicate 
-with the client and store data relative to your pearls. Following our data model, you could create for instance, 
-a simplified "pearl" table in your SQL database with the following attributes: pearlId (id of the current pearl), 
-treeId (id of the parent tree of the current pearl), title, urlID (id of the UrlData relative to your pearl) 
-and ownerId (id of the user who owns the pearl).
+with the client and store data relative to your nodes. Following our data model, you could create for instance, 
+a simplified "pearl" table in your SQL database with the following attributes: pearlId (id of the current node), 
+treeId (id of the parent tree of the current node), title, urlID (id of the UrlData relative to your node) 
+and ownerId (id of the user who owns the node).
 
 
 ## Requirements
 This example requires:
 
 * the Ravis library that can be found [here](https://code.google.com/p/birdeye/wiki/RaVis).
-* the flash-assets-box library that can be found [here] (https://github.com/pearltrees/flash-assets-box)
+* the flash-tree-shape-visualization-assets-box library that can be found [here] (https://github.com/pearltrees/flash-tree-shape-visualization-assets-box)
 
 ## Setting up project and components
 
@@ -85,21 +84,21 @@ file in {YOUR_FLASH_BUILDER_PATH}\sdks\3.5\frameworks\libs\player\10\playergloba
 Ravis is the library used for the visualization of our tree organization. You need to
 import it as a separate project in your workspace. You can find it [here](https://code.google.com/p/birdeye/wiki/RaVis).
 
-#### Assets Box Project Import
-flash-assets-box project is necessary to get the assets used in the layout of our pearls.
+#### Tree Shape Visualization Assets Box Project Import
+flash-tree-shape-visualization-assets-box project is necessary to get the assets used in the layout of our nodes.
 Therefore, you also need to import it as a separate project in your workspace. You
-can find it [here] (https://github.com/pearltrees/flash-assets-box).
+can find it [here] (https://github.com/pearltrees/flash-tree-shape-visualization-assets-box).
 
 #### Tree Shape Visualization
 You finally need to import the flash-tree-shape-visualization in your workspace and add the above
 Ravis and flash-assets-box projects in your Library Path. 
 
-#### Tree Shape Displayer
-flash-tree-shap-displayer is a separate project that can be found [here](https://github.com/pearltrees/flash-tree-shape-displayer), it is an example
-code to easily draw a tree and its pearls. Here is an example output tree representation that
+#### Tree Shape Example
+flash-tree-shape-example is a separate project that can be found [here](https://github.com/pearltrees/flash-tree-shape-example), it is an example
+code to easily draw a tree and its nodes. Here is an example output tree representation that
 you can make with it:
 
-![Alt text](/readme/pearlExample.png?raw=true "Example Pearltree Representation")
+![Alt text](/readme/pearlExample.png?raw=true "Example Basic Tree Shape Visualization")
 
 ## License
 
