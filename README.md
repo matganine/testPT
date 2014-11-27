@@ -73,7 +73,7 @@ and ownerId (id of the user who owns the pearl).
 ## Requirements
 This example requires:
 
-* the Ravis library that can be found [here](https://github.com/pearltrees/ravis) or [here](https://code.google.com/p/birdeye/wiki/RaVis)
+* the Ravis library that can be found [here](https://github.com/pearltrees/ravis).
 * the flash-assets-box library that can be found [here] (https://github.com/pearltrees/flash-assets-box)
 
 ## Setting up project and components
