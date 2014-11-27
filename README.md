@@ -1,4 +1,4 @@
-# PearltreesCore
+# Flash Visualization Project
 
 ## Presentation
 Pearltrees is a place to organize all your interests. With this project we are open-sourcing 
@@ -6,7 +6,7 @@ Pearltrees core visualization modules from  our 1.6 "tree shape" version. These 
 represent a significant part of a 5 years iteration process of our 10 people technical 
 team. 
 
-![Alt text](/pearltrees.png?raw=true "Pearltrees 1.6")
+![Alt text](/readme/pearltrees.png?raw=true "Pearltrees 1.6")
 
 ## Overview
 This project contains the core of our application. It includes:
@@ -21,7 +21,7 @@ In this project, we implement a simple and ergonomic tree structure visualizatio
 Ravis library is extended to create our customized tree representation and 
 layout. Automatic organization algorithms are implemented to balance pearls around 
 pearltrees and reorganize them in order to have simple and appealing layouts. We also
-use the PearltreesAssets project to shape our pearls. This allows us to give a unique 
+use the flash-assets-box project to shape our pearls. This allows us to give a unique 
 representation for each type of pearl in Pearltrees; trees, aliases, teams, pages,
 notes, photos and documents have all their own mask and decoration.
 
@@ -73,35 +73,35 @@ and ownerId (id of the user who owns the pearl).
 ## Requirements
 This example requires:
 
-* the RaVis library that can be found [here](https://github.com/pearltrees/ravis)
-* the PearltreesAssets library that can be found [here] (https://github.com/pearltrees.com/PearltreesAssets)
+* the Ravis library that can be found [here](https://github.com/pearltrees/ravis) or [here](https://code.google.com/p/birdeye/wiki/RaVis)
+* the flash-assets-box library that can be found [here] (https://github.com/pearltrees/flash-assets-box)
 
 ## Setting up project and components
 
 #### Flash Library
 This is a Flex 3.5 project and is compiled using playerglobal.swc for 10.1. You can
-download it in the following [zip file](/Playerglobal.10.1.zip) and replace the existing
+download it in the following [zip file](/readme/Playerglobal.10.1.zip) and replace the existing
 file in {YOUR_FLASH_BUILDER_PATH}\sdks\3.5\frameworks\libs\player\10\playerglobal.swc
 
 #### Ravis Project Import
 Ravis is the library used for the visualization of our tree organization. You need to
 import it as a separate project in your workspace. You can find it [here](https://github.com/pearltrees/ravis).
 
-#### PearltreesAssets Project Import
-PearltreesAssets project is necessary to get the assets used in the layout of our pearls.
+#### Assets Box Project Import
+flash-assets-box project is necessary to get the assets used in the layout of our pearls.
 Therefore, you also need to import it as a separate project in your workspace. You
-can find it [here] (https://github.com/pearltrees/PearltreesAssets).
+can find it [here] (https://github.com/pearltrees/flash-assets-box).
 
-#### PearltreesCore
-You finally need to import the PearltreesCore project in your workspace and add the above
-Ravis and PearltreesAssets projects in your Library Path. 
+#### Visualization Project
+You finally need to import the flash visualization project in your workspace and add the above
+Ravis and flash-assets-box projects in your Library Path. 
 
-#### PearlExample
-PearlExample is a separate project that can be found [here](https://github.com/pearltrees/PearlExample), it is an example
+#### Tree Shape Displayer
+flash-tree-shap-displayer is a separate project that can be found [here](https://github.com/pearltrees/flash-tree-shape-displayer), it is an example
 code to easily draw a tree and its pearls. Here is an example output tree representation that
 you can make with it:
 
-![Alt text](/pearlExample.png?raw=true "Example Pearltree Representation")
+![Alt text](/readme/pearlExample.png?raw=true "Example Pearltree Representation")
 
 ## License
 
