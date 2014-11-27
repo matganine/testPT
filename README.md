@@ -1,4 +1,4 @@
-# Tree Shape Project
+# Tree Shape Visualization
 
 ## Presentation
 Pearltrees is a place to organize all your interests. With this project we are open-sourcing 
@@ -92,8 +92,8 @@ flash-assets-box project is necessary to get the assets used in the layout of ou
 Therefore, you also need to import it as a separate project in your workspace. You
 can find it [here] (https://github.com/pearltrees/flash-assets-box).
 
-#### Tree Shape Project
-You finally need to import the flash-tree-shape-project in your workspace and add the above
+#### Tree Shape Visualization
+You finally need to import the flash-tree-shape-visualization in your workspace and add the above
 Ravis and flash-assets-box projects in your Library Path. 
 
 #### Tree Shape Displayer
