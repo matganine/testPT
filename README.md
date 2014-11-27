@@ -1,7 +1,7 @@
 # Tree Shape Visualization
 
 ## Presentation
-Pearltrees is a place to organize all your interests. With this project we are open-sourcing 
+With this project we are open-sourcing 
 Pearltrees core visualization modules from  our 1.6 "tree shape" version. These modules 
 represent a significant part of a 5 years iteration process of our 10 people technical 
 team. 
