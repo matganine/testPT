@@ -73,7 +73,7 @@ and ownerId (id of the user who owns the pearl).
 ## Requirements
 This example requires:
 
-* the Ravis library that can be found [here](https://github.com/pearltrees/ravis).
+* the Ravis library that can be found [here](https://code.google.com/p/birdeye/wiki/RaVis).
 * the flash-assets-box library that can be found [here] (https://github.com/pearltrees/flash-assets-box)
 
 ## Setting up project and components
@@ -85,7 +85,7 @@ file in {YOUR_FLASH_BUILDER_PATH}\sdks\3.5\frameworks\libs\player\10\playergloba
 
 #### Ravis Project Import
 Ravis is the library used for the visualization of our tree organization. You need to
-import it as a separate project in your workspace. You can find it [here](https://github.com/pearltrees/ravis).
+import it as a separate project in your workspace. You can find it [here](https://code.google.com/p/birdeye/wiki/RaVis).
 
 #### Assets Box Project Import
 flash-assets-box project is necessary to get the assets used in the layout of our pearls.
