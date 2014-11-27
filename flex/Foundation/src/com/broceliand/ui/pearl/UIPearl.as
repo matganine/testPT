@@ -21,10 +21,7 @@ package com.broceliand.ui.pearl
    
    import mx.controls.Image;
    import mx.events.PropertyChangeEvent;
-   
-   
-   
-   
+
    public class UIPearl extends PearlRendererBase implements IUIPearl
    {
       
@@ -72,17 +69,11 @@ package com.broceliand.ui.pearl
          super.createChildren();
          _pearl.setScale(getScale());
       }
-      
-      
-      
-      
-      
+
       public function isPointOnPearlOrAddon(point:Point):Boolean {
          if (super.isPointOnPearl(point)) {
             return true;
-            
-            
-            
+
          }
          else if (_newLabel) {
             return _newLabel.isPointOnComponentAddOn(point);
@@ -90,9 +81,7 @@ package com.broceliand.ui.pearl
          else {
             return false;
          }
-         
-         
-         
+
       }
       override protected function commitProperties():void {
          commitMove();
@@ -137,52 +126,11 @@ package com.broceliand.ui.pearl
             
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       public function isNewLabelVisible():Boolean  {
          return  _newLabel && _newLabel.addOn.visible;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       protected function setNewLabelInSelection(value:Boolean):void {
          if (value != _newLabelInSelection) {
             _newLabelInSelection = value;
@@ -409,10 +357,7 @@ package com.broceliand.ui.pearl
          }
          
       }
-      
-      
-      
-      
+
       public function showPadlock(isActive:Boolean, isTeam:Boolean):void {
          if (_wasActive != isActive) {
             if (_padlockImage) {
@@ -427,9 +372,7 @@ package com.broceliand.ui.pearl
             _padlockImage.setStyle("top", 37);
             } else {*/
             _padlockImage.move(42,37);
-            
-            
-            
+
             _padlockImage.visible = _padlockImage.includeInLayout = true;
             _wasActive = isActive;
          }

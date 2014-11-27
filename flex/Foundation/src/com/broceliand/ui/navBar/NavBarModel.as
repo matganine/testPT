@@ -203,14 +203,10 @@ package com.broceliand.ui.navBar {
          var selectedTree:BroPearlTree = navigationModel.getSelectedTree();
          refreshDiscoverAvailability();
          isWhatsHotButtonDisplayed = true;
-         
-         
-         
+
          var newItems:Vector.<NavBarModelItem> = new Vector.<NavBarModelItem>();
          var itemsChanged:Boolean = false;
-         
-         
-         
+
          var rootTree:BroPearlTree = null;
          if(focusedTree && focusedTree.getMyAssociation()) {
             var focusAssociation:BroAssociation = focusedTree.getMyAssociation();

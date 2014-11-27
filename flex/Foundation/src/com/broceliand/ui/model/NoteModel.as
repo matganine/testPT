@@ -77,9 +77,7 @@ package com.broceliand.ui.model
       
       
       private var _feedKeyToLastNoteReadDate:Dictionary;
-      
-      
-      
+
       private var _feedKeyToNotesToSave:Dictionary;
       private var _notesToUpdate:Array;
       
@@ -684,11 +682,7 @@ package com.broceliand.ui.model
             node.serverNoteCount = node.serverNoteCount + 1;
             node.serverFullFeedNoteCount = node.serverFullFeedNoteCount + 1;
          }
-         
-         
-         
-         
-         
+
          this.notifyNodesForChange(localFeedKey, MODE_LOCAL);
          this.notifyNodesForChange(allFeedKey, MODE_ALL);
          this.callFeedKeyCallbacksNoteAdded(localFeedKey);
@@ -1281,13 +1275,7 @@ package com.broceliand.ui.model
          bbcodesToHTML[new RegExp(/\[i\](.*?)\[\/i\]/gi)] = "<i>$1</i>";
          
          bbcodesToHTML[new RegExp(/\[u\](.*?)\[\/u\]/gi)] = "<u>$1</u>";
-         
-         
-         
-         
-         
-         
-         
+
          for (var bbcode:Object in bbcodesToHTML) {
             if(bbcode is RegExp && bbcodesToHTML[bbcode]) {
                result = result.replace(bbcode as RegExp, bbcodesToHTML[bbcode]);
@@ -1300,21 +1288,13 @@ package com.broceliand.ui.model
       }
       
       public static function formatNoteToEdit(value:String):String {
-         
-         
-         
+
          value = value.replace(/<br>/g, "\n");
          return value;
       }
       
       public static function formatNoteToSave(value:String):String {
-         
-         
-         
-         
-         
-         
-         
+
          value = value.replace(/\r\n/g, "<br>");
          value = value.replace(/\r/g, "<br>");
          value = value.replace(/\n/g, "<br>");
@@ -1333,13 +1313,7 @@ package com.broceliand.ui.model
          bbcodesToHTML[new RegExp(/<i>(.*?)<\/i>/gi)] = "[i]$1[/i]";
          
          bbcodesToHTML[new RegExp(/<u>(.*?)<\/u>/gi)] = "[u]$1[/u]";
-         
-         
-         
-         
-         
-         
-         
+
          for (var bbcode:Object in bbcodesToHTML) {
             if(bbcode is RegExp && bbcodesToHTML[bbcode]) {
                result = result.replace(bbcode as RegExp, bbcodesToHTML[bbcode]);
@@ -1364,19 +1338,7 @@ package com.broceliand.ui.model
          note.date = date;
          note.author = author;
          note.toUser = toUser;
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          note.text = noteText;
          
          return note;

@@ -91,8 +91,6 @@ package  com.broceliand.ui.interactors.drag.action
       override protected function moveEffect(renderer:IUIPearl, x:Number, y:Number, duration:int):Move {
          return null;
       }
-      
-      
-      
+
    }
 }

@@ -90,9 +90,7 @@ package com.broceliand.ui.interactors.drag
       private var _endAction:IAction = null;
       
       private var _isAnonymous:Boolean = false;
-      
-      
-      
+
       static internal var Logger:BroLogger= Log.getLogger("com.broceliand.ui.interactors.drag.DistantDragEditInteractor");
       
       public function DistantDragEditInteractor(interactorManager:InteractorManager, isHome:Boolean, isAnoynmous:Boolean = false){
@@ -107,20 +105,7 @@ package com.broceliand.ui.interactors.drag
       
       internal function detachNodeFromParent(vn:IVisualNode, updateManipulatedNodes:Boolean = true):void {
          var shouldLayout:Boolean= false;
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          var animProcessor:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
          if (!_interactorManager.draggedPearlIsDetached) {
             _interactorManager.draggedPearlIsDetached = true;
@@ -197,9 +182,7 @@ package com.broceliand.ui.interactors.drag
       
       private function handleTrashWarning(ev:MouseEvent):Boolean{
          var renderer:IUIPearl = _interactorManager.draggedPearl;
-         
-         
-         
+
          if (isPrivatePearlForExpiredPremium(renderer.node)) {
             return false;
          }
@@ -250,9 +233,7 @@ package com.broceliand.ui.interactors.drag
             }
             var newParentRootNode:PTRootNode= newParentVNode.node as PTRootNode; 
             var isLastNode:Boolean = newParentRootNode && (true || newParentRootNode.successors.length==0  || !IPTNode(newParentRootNode.successors[0]).vnode.isVisible); 
-            
-            
-            
+
             var sm:SelectionModel = ApplicationManager.getInstance().visualModel.selectionModel;
             var highlightChange:Boolean = false;
             if (newParentRootNode && newParentRootNode.isOpen()) {
@@ -269,9 +250,7 @@ package com.broceliand.ui.interactors.drag
             }
          }
       }
-      
-      
-      
+
       private function linkToOriginalParent(parentNodeRef:SavedPearlReference, n:IVisualNode):void{
          var parentNode:IPTNode = null;
          if (parentNodeRef) {
@@ -356,10 +335,7 @@ package com.broceliand.ui.interactors.drag
             var childAngle:Number = Geometry.polarAngle(childPoint);
             if (childAngle>Math.PI+parentAngle) childAngle -= 2 * Math.PI;
             var successors:Array = parent.successors;
-            
-            
-            
-            
+
             for each (var node:INode in successors) {
                if (node == child) { 
                   childIndex = index;
@@ -479,9 +455,7 @@ package com.broceliand.ui.interactors.drag
             var distanceToNode:Number =  BroceliandMath.getSquareDistanceBetweenPoints(newNearestNode.pearlVnode.viewCenter, renderer.pearlCenter);
             var currentRoot:IVisualNode = newNearestNode.vnode.vgraph.currentRootVNode;
             if (newNearestNode.parent) {
-               
-               
-               
+
                var distanceToRoot:Number = BroceliandMath.getSquareDistanceBetweenPoints(currentRoot.viewCenter, node.vnode.viewCenter);
                var distanceofNearestToRoot:Number =  BroceliandMath.getSquareDistanceBetweenPoints(currentRoot.viewCenter, newNearestNode.vnode.viewCenter);
                if ((distanceToRoot + 100)< distanceofNearestToRoot) {
@@ -562,9 +536,7 @@ package com.broceliand.ui.interactors.drag
             }               
          }
          if(newNearestNode != _nearestNode){
-            
-            
-            
+
             _dragIntoTreeInteractor.onClosestNodeChange(newNearestNode);
          }
          
@@ -679,31 +651,7 @@ package com.broceliand.ui.interactors.drag
             handleTrashWarning(ev);  
             _interactorManager.pearlTreeViewer.vgraph.controls.dropZoneDeckModel.unhighlight();
          }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
       }
       override public function handleDrag(ev:MouseEvent):void{
          _vgraph.handleDragPearl(ev);
@@ -752,9 +700,7 @@ package com.broceliand.ui.interactors.drag
          }
       }
       public function canDragBeEnded():Boolean {
-         
-         
-         
+
          if (_dragIntoTreeInteractor) { 
             if (_dragIntoTreeInteractor.shouldImportBranchIntoParentNode()) {
                
@@ -814,11 +760,7 @@ package com.broceliand.ui.interactors.drag
          _vgraph.dragEndEventSafe(ev);
          
          dragEndInternal(ev);
-         
-         
-         
-         
-         
+
       }
       
       private function dragEndInternal(ev:MouseEvent):void {
@@ -855,9 +797,7 @@ package com.broceliand.ui.interactors.drag
          if (renderer.pearl) {
             renderer.pearl.moveRingOutPearl();
          }
-         
-         
-         
+
          if (renderer.vnode ==null) {
             super.dragEnd(ev);
             return;
@@ -988,9 +928,7 @@ package com.broceliand.ui.interactors.drag
             if(parentNode){
                treeToCheck = BroUtilFunction.addToArray(treeToCheck, _pearlDetachmentInteractor.commitDrag());
                var shouldLinkToParent:Boolean = true;
-               
-               
-               
+
                if (_dragIntoTreeInteractor && _dragIntoTreeInteractor.shouldImportBranchIntoParentNode()) {
                   
                   var openingNode:IPTNode = _dragIntoTreeInteractor.getClosestRefOpened();
@@ -1033,10 +971,7 @@ package com.broceliand.ui.interactors.drag
                         }
                         
                         shouldResetOpenRefTree = false; 
-                        
-                        
-                        
-                        
+
                         var endNode:IVisualNode = _interactorManager.pearlTreeViewer.pearlTreeEditionController.detachEndNode(renderer.node.containingPearlTreeModel);
                         
                         var wasDocked:Boolean = renderer.node.isDocked;
@@ -1138,9 +1073,7 @@ package com.broceliand.ui.interactors.drag
                oldDock.repositionNodes();
             }
          }
-         
-         
-         
+
          cleanInteractorManager(ev);
          
          var stillnode:BroPTNode = _interactorManager.draggedPearl.node.getBusinessNode();

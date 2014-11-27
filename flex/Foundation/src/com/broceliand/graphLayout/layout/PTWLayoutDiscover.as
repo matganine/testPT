@@ -17,9 +17,7 @@ package com.broceliand.graphLayout.layout
    
    
    public class PTWLayoutDiscover extends ConcentricRadialLayout implements ILayoutAlgorithm{
-      
-      
-      
+
       public var centeredLayout:Boolean;
       
       
@@ -28,9 +26,7 @@ package com.broceliand.graphLayout.layout
          disableAnimation=true;
          
       }
-      
-      
-      
+
       override public function layoutPass():Boolean {
          
          
@@ -64,9 +60,7 @@ package com.broceliand.graphLayout.layout
          if(_layoutChanged) {
             super.initDrawing();
          }
-         
-         
-         
+
          /* set the coordinates in the drawing of root
          * to 0,0 */
          _currentDrawing.setCartCoordinates(_root,new Point(0,0));
@@ -77,21 +71,12 @@ package com.broceliand.graphLayout.layout
          computeLayout();
          /* calculate the relative width and the
          * new max Depth */
-         
-         
-         
+
          /* calculate the radius increment to fit the screen */
-         
-         
-         
-         
+
          /* we may have preset angular bounds
          * XXX this is untested, yet */
-         
-         
-         
-         
-         
+
          /* now if we have no previous drawing we can just
          * apply the result and display it
          * if we do have (but maybe even if we don't have)
@@ -107,14 +92,7 @@ package com.broceliand.graphLayout.layout
       
       public function computeLayout():void {
          var nodes:Array = _stree.getChildren(_stree.root);
-         
-         
-         
-         
-         
-         
-         
-         
+
          var node:IPTNode;
          var pos:Point;
          var distantPTWRefNode:IBroPTWNode;
@@ -128,22 +106,9 @@ package com.broceliand.graphLayout.layout
                }
                _currentDrawing.setCartCoordinates(node, pos);
             }
-            
-            
-            
-            
-            
-            
-            
-            
+
          }
-         
-         
-         
-         
-         
-         
-         
+
       }
       private function coefFromCenter(coef:Number, radius:Number, maxR:Number):Number {
          

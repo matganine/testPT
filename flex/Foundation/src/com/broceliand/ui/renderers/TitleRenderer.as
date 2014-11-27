@@ -575,13 +575,7 @@ package com.broceliand.ui.renderers
          }
          return new Point(x + titleMaxWidth / 2.0, y + measuredHeight / 2.0);
       }
-      
-      
-      
-      
-      
-      
-      
+
       public function calculateVisibleWidth():Number {
          var result:Number;
          refreshLines();
@@ -603,10 +597,7 @@ package com.broceliand.ui.renderers
                var line1Width:Number = _titleTextLine1.measureText(_titleTextLine1.text).width;
                if(line1Width > _visibleWidth) _visibleWidth = line1Width;
             }
-            
-            
-            
-            
+
          }
          var titleMaxWidth:Number = getTitleMaxWidth();
          if(_visibleWidth > titleMaxWidth) {
@@ -679,9 +670,7 @@ package com.broceliand.ui.renderers
          var candidate:TitleRenderer = null;
          
          for each(var objUnderPoint:DisplayObject in objectsUnderPoint) {
-            
-            
-            
+
             if((objUnderPoint is HaloBorder) || (objUnderPoint is Sprite)){
                continue;
             }

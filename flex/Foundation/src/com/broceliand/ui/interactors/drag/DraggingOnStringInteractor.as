@@ -99,11 +99,7 @@ package com.broceliand.ui.interactors.drag
                _canSwapWithPrevious = false;
             }
          }
-         
-         
-         
-         
-         
+
          _dx = nextNode.vnode.x - _previousVNode.x;
          _dy = nextNode.vnode.y - _previousVNode.y;
          
@@ -175,9 +171,7 @@ package com.broceliand.ui.interactors.drag
          }
          if (currentPosition > _stringLength && _canSwapWithNext) {
             hasSwapped = swapPearlWithNext(draggedNode);
-            
-            
-            
+
          }
          if (_canSwapBetweenChild) {
             
@@ -195,9 +189,7 @@ package com.broceliand.ui.interactors.drag
          }
          return hasSwapped;
       }
-      
-      
-      
+
       private function findNewBestChildIndex(draggedNode:IVisualNode ):int {
          draggedNode.refresh();
          var parent:IPTNode = (draggedNode.node as IPTNode).parent;

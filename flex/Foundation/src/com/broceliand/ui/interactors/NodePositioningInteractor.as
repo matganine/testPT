@@ -84,9 +84,7 @@ package com.broceliand.ui.interactors
          }
          return false;
       }
-      
-      
-      
+
    }
 }
 import com.broceliand.ApplicationManager;
@@ -222,17 +220,7 @@ class CreateEmptyTreeUndockNodeAndSelectAfterLayoutAction extends UndockNodeAndS
          
       }
    }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
 }
 
 class CreateEmptyTreeReplaceLastNodeAndSelectAfterLayoutAction extends CreateEmptyTreeUndockNodeAndSelectAfterLayoutAction implements IAction {

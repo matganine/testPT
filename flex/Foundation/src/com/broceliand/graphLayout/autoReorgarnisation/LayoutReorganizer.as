@@ -21,11 +21,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          _maxDistance = maxDistanceBetweenPearls;
          _maxFirstWeight = 2 * Math.PI * maxDistanceBetweenPearls / GeometricalConstants.MIN_NODE_SEPARATION;
          _threshold =  1 + 2 *Math.sqrt(_maxDistance * _maxDistance - GeometricalConstants.LINK_LENGTH *GeometricalConstants.LINK_LENGTH) /GeometricalConstants.MIN_NODE_SEPARATION;
-         
-         
       }  
-      
-      
       
       public function computeNodeWeights(tree:ITree, node:Object, result:Dictionary, depth:int):Number{
          var childCount:Number = tree.getChildNodeCount(node);
@@ -46,14 +42,6 @@ package com.broceliand.graphLayout.autoReorgarnisation
       
       public function checkCurrentLayout(tree:ITree):Boolean{
          return false;
-         /*if (tree.isDropZone()) {
-         return false;
-         }
-         var maxLoopCount:int = 10;
-         while (checkCurrentLayoutAtLevel(tree,0) && maxLoopCount >0) {
-         maxLoopCount--;
-         };
-         return maxLoopCount !=  10;  */
       }
       
       public function checkCurrentLayoutAtLevel(tree:ITree, startDepth:int =0, startReorganzingDepth:int=-1):Boolean{
@@ -65,9 +53,6 @@ package com.broceliand.graphLayout.autoReorgarnisation
          if (theta0 > 2* Math.PI) {
             theta0 = 2* Math.PI;
          }
-         
-         
-         
          var nodeByLevel:Array = new Array();
          nodeByLevel.push(tree.rootNode);
          var nextLevelNodes:Array = new Array();
@@ -106,12 +91,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          for (var i:int=0 ; i<tree.getChildNodeCount(rootNode); i++) {
             children.push(tree.getChildAt(rootNode,i));
          }
-         
-         
          for (var j:int = depth==0 ? 1 : 0; j<children.length-1;j ++){
-            
-            
-            
             var endNode:Object = children[j];
             var childCount:int;
             while ((childCount= tree.getChildNodeCount(endNode))>0) {
@@ -160,45 +140,5 @@ package com.broceliand.graphLayout.autoReorgarnisation
          }
          return result;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
    }
 }

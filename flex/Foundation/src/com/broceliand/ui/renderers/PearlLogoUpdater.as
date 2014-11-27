@@ -78,16 +78,9 @@ package com.broceliand.ui.renderers
             _timeOutId = 0;
          }
       } 
-      
-      
+
       private function checkIfLogosAreReady():void {
-         
-         
-         
-         
-         
-         
-         
+
          if (!_isWaitingForServerAnswer) {
             cancelTimeout();
             var user:CurrentUser = ApplicationManager.getInstance().currentUser;

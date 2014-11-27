@@ -20,9 +20,7 @@ package com.broceliand.ui.interactors.drag.action
       protected var _originChildNodes:Array;
       protected var _pearltreeViewer:IPearlTreeViewer;      
       protected var _isValidAction:Boolean=true;
-      
-      
-      
+
       public function RemovePearlActionBase(pearltreeViewer:IPearlTreeViewer, node:IPTNode, parentNode:IPTNode = null, originalIndex:int = -1, originChildNodes:Array = null)
       {
          if (node==null  ||  node.getBusinessNode() == null) {

@@ -82,10 +82,6 @@ package com.broceliand.graphLayout.controller
       }
       
       public function createPTW(newPTW:BroPearlTree, crossingNode:BroPTNode, request:IAction):void {                
-         
-         
-         
-         
          var am:ApplicationManager = ApplicationManager.getInstance();
          _vgraph.controls.unfocusButton.visible=false;
          _currentRequest = request;
@@ -116,8 +112,6 @@ package com.broceliand.graphLayout.controller
          if(_navModel.isShowingDiscover() && am.useDiscover() && !_navModel.isShowingSearchResult() && !_navModel.isWhatsHot() && newPTW && newPTW.equals(vgraphCurrentRootTree)) {
             vnodeToKeep = _vgraph.currentRootVNode;
          }
-         
-         
          var tree:BroPearlTree = findTreeInCurrentGraph(newPTW);
          if (tree) {
             _selectionModel.highlightTree(tree);
@@ -250,18 +244,11 @@ package com.broceliand.graphLayout.controller
             if (!rootNode.getBusinessNode().owner.isWhatsHot()) {
                ApplicationManager.getInstance().components.windowController.displayNodeInfo(vnode.node as IPTNode);
             }
-            
-            
             var newNodes:Array = newPTW.getRootNode().getDescendants();
             if (oldVRoot){
                newNodes.splice(newNodes.lastIndexOf(oldVRoot.node), 1);
             }
             createNodes(vnode, newPTW.getRootNode().getDescendants(), vnodesFromOutsideScreen);         
-            
-            
-            
-            
-            
             if (vnodesFromOutsideScreen.length || am.useDiscover()) {
                var gsynchro:GraphicalActionSynchronizer = new GraphicalActionSynchronizer(new CreateNewPTWAction(this, _vgraph, vnodesFromOutsideScreen, null, clearTreeEffect, vnodeToKeep, _selectionModel));
                var view:IUIPearl = _vgraph.currentRootVNode.view as IUIPearl;
@@ -337,24 +324,17 @@ package com.broceliand.graphLayout.controller
          }
          
          Profiler.getInstance().startSession("movePTW");
-         
-         
          var rootNode:BroNeighbourRootPearl = newPTW.getRootNode() as BroNeighbourRootPearl;
          var newRootTree:BroPearlTree = (rootNode.delegateNode as BroTreeRefNode).refTree;
          var rootTreeKey:String = BroPearlTree.getTreeKey(newRootTree.dbId, newRootTree.id);
-         
          var key:String;
          var vnode:IPTVisualNode;
-         
          var allowMultipleNodeByTree:Boolean = (_navModel.isShowingDiscover() && ApplicationManager.getInstance().useDiscover());
          var tree2Node :Dictionary = makeTreeAlias2VnodeFromCurrentVgraph(_vgraph, true, allowMultipleNodeByTree);
-         
-         
          var newNodes:Array = new Array();
          var descendants:Array = newPTW.getRootNode().getDescendants();
          var refNode:BroPTWDistantTreeRefNode; 
          var nodesToKeep:Array = new Array();
-         
          var newRootVNode:IPTVisualNode = _vgraph.createNode("[ptw.root."+rootNode.persistentID+"]:" + rootNode.title, rootNode) as IPTVisualNode;
          
          newRootVNode.view.alpha=0;
@@ -534,34 +514,24 @@ package com.broceliand.graphLayout.controller
             vgraph.unlinkNodes(oldVRootNode, newRootVnode);
             createInvisibleLink(newRootVnode, oldVRootNode);
          }
-         
-         
          vgraph.currentRootVNode = newRootVnode;
-         
       }
       
       public function cleanPTWLayout(vgraph:IPTVisualGraph, newVNodes:Array, nodesToGoAway:Array):void {
          Profiler.getInstance().addMarker("-", "search");
          var am:ApplicationManager = ApplicationManager.getInstance();
          var navModel:INavigationManager = am.visualModel.navigationModel;
-         
-         
          vgraph.PTLayouter.setPearlTreesWorldLayout(true);
          var rootVNode:IPTVisualNode = _vgraph.currentRootVNode as IPTVisualNode;
          var positions:Dictionary = vgraph.PTLayouter.computeLayoutPositionOnly();
          var vnode:IPTVisualNode;
          var center:Point = _vgraph.currentRootVNode.viewCenter;
          var targetPoint:Point;
-         
-         
          var distanceToCenter:Number = 1; 
          var farDistance:Number = Math.sqrt( _vgraph.width* _vgraph.width +_vgraph.height * _vgraph.height) / 2.0;
-         
          var layoutPar:Parallel = new Parallel;
          
          rootVNode.pearlView.moveWithoutZoomOffset(positions[rootVNode].x, positions[rootVNode].y);
-         
-         
          
          var m:Effect;
          var speed:Number = _vgraph.height / 1000;
@@ -710,9 +680,7 @@ internal class CreateNewPTWAction implements IAction {
       }
       _selectionModel.highlightTree(null);
    }
-   
-   
-   
+
 }
 
 internal class MoveINPTWAction implements IAction {

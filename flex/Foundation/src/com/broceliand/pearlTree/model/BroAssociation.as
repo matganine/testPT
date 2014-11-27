@@ -107,9 +107,7 @@ package com.broceliand.pearlTree.model
       public function amIFounder():Boolean {
          return _info && _info.foundingUser == ApplicationManager.getInstance().currentUser;
       }
-      
-      
-      
+
       public function get info():BroAssociationInfo {
          return _info;
       }

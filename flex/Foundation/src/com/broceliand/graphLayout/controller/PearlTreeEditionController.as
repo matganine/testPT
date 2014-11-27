@@ -236,16 +236,12 @@ package com.broceliand.graphLayout.controller
          var pqueue:IPearlTreeQueue = am.persistencyQueue;
          var nodesToDelete:Array ;
          if (businessNode is BroPTRootNode) {
-            
             tree = businessNode.owner.refInParent.owner;
-            
-            
             nodesToDelete = new Array();
             nodesToDelete.push(businessNode.owner.refInParent);
          } else if (businessNode) {
             nodesToDelete = businessNode.getDescendants();
             nodesToDelete.splice(0,0, businessNode);
-            
          }
          
          if(tree){
@@ -298,14 +294,6 @@ package com.broceliand.graphLayout.controller
          var parentBNode:BroPTNode = refNode.parent;
          var treeToModify:BroPearlTree = parentBNode.owner;
          var indexToInsertNewNodes:int = parentBNode.getChildIndex(refNode);
-         
-         
-         
-         
-         
-         
-         
-         
          nodesToDelete.push(refNode);
          treeToModify.removeBranch(refNode);
          
@@ -400,10 +388,6 @@ package com.broceliand.graphLayout.controller
       }
       
       public function linkBusinessNode(newParentBusinessNode:BroPTNode, childBusinessNode:BroPTNode, index:int = -1):void  {
-         
-         
-         
-         
          var oldOwnerOfTheMovingNode:BroPearlTree = null;
          if (childBusinessNode != null) {
             if(childBusinessNode is BroPTRootNode){
@@ -496,8 +480,6 @@ package com.broceliand.graphLayout.controller
       }
       
       public function swapNodeWithParent(stringVNode:IVisualNode, parentVNode:IVisualNode):Boolean {
-         
-         
          if (stringVNode == parentVNode || parentVNode==null) {
             trace("Problem parent is myself in swapNodeWithParent");
             return false;
@@ -523,8 +505,6 @@ package com.broceliand.graphLayout.controller
          linkNodesAtIndexWithBusinessUpdate(stringVNode, parentVNode);
          
          refreshEdgeWeights(_vgraph.currentRootVNode);
-         
-         
          return true;
          
       }
@@ -645,9 +625,7 @@ package com.broceliand.graphLayout.controller
          var node2RemoveFromTheGraph:Array = new Array();
          while(nodes2Process.length>0) {
             var node:IPTNode = nodes2Process.pop();
-            
-            
-            
+
             for each (var n:IPTNode in node.successors) {
                nodes2Process.push(n);
             }
@@ -660,8 +638,6 @@ package com.broceliand.graphLayout.controller
             }
             node2RemoveFromTheGraph.push(node);
             
-            
-            
          }
          var action:IAction =  new ImportIntoTreeAnimation(_vgraph, localRefTreeVnode.node as IPTNode, node2RemoveFromTheGraph, _graphicalAnimationController.displayModel, onAnimationEnd);
          am.visualModel.animationRequestProcessor.postActionRequest(action);   
@@ -672,9 +648,6 @@ package com.broceliand.graphLayout.controller
             am.pearlTreeLoader.loadTree(refTree.getMyAssociation().associationId, refTree.id,new PearlTreeLoaderCallback(null,null));
          }
          saveQueue.registerInQueue(refTree);
-         
-         
-         
       }
       
       public function clearGraph(removeNodes:Boolean=true):Array {
@@ -754,8 +727,5 @@ package com.broceliand.graphLayout.controller
       {
          return _vgraph;
       }
-      
-      
    }
-   
 }

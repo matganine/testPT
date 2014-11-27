@@ -68,13 +68,8 @@ package com.broceliand.graphLayout.controller
       }
       override protected function onEndDisapparition(e:Event):void {
          callAfterDisparition();
-         
-         
       }
       private function callAfterDisparition():void {
-         
-         
-         
          super.updateCloseTreeStates();
          var depthInteractor:DepthInteractor= ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.depthInteractor;
          depthInteractor.movePearlToNormalDepth(_fixedVNode.view as IUIPearl);

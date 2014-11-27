@@ -17,9 +17,7 @@ package com.broceliand.ui.tooltip {
       private var _label:Label;
       private var _text:String;
       private var _textChanged:Boolean;
-      
-      
-      
+
       public static const TOOLTIP_ENABLER_PREFIX:String = "²µ°"
       public static const TOOLTIP_SHOW_DELAY:int = 3000;
       public static const TOOLTIP_SHOW_DELAY_SHORT:int = 750;

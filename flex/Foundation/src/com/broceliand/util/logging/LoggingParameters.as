@@ -2,9 +2,7 @@ package com.broceliand.util.logging
 {
    import mx.logging.LogEventLevel;
    import mx.logging.targets.LineFormattedTarget;
-   
-   
-   
+
    public class LoggingParameters
    {
       private static var _initialized:Boolean = false;
@@ -51,12 +49,7 @@ package com.broceliand.util.logging
          target.filters = new Array(
             "*"
          );
-         
-         
-         
-         
-         
-         
+
          target.includeTime = true;
          target.includeCategory = true;
          Log.addTarget(target);

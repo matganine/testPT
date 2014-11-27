@@ -79,9 +79,7 @@ package com.broceliand.ui.controller
          var am:ApplicationManager = ApplicationManager.getInstance();
          am.components.pearlTreePlayer.hidePlayer();
          am.visualModel.selectionModel.selectNode(null);
-         
-         
-         
+
          var currentVNode:IPTVisualNode = _pearlTreeViewer.vgraph.currentRootVNode as IPTVisualNode;
          if (currentVNode && currentVNode.ptNode.getBusinessNode() is BroNeighbourRootPearl)  {
             _pearlTreeViewer.pearlTreeEditionController.moveInPTWTree(neighbourTree);

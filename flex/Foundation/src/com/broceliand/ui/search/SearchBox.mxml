@@ -316,25 +316,7 @@
                hidePWOnSearchEmpty = event.resultCount == 0;
                
                message.visible = message.includeInLayout = false;
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
+
             }
             hideModeBox();
          }

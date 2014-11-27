@@ -50,9 +50,7 @@ package com.broceliand.pearlTree.model
          }
          _isResetted = true;
       }
-      
-      
-      
+
       internal function getTotalHitCount():Number {
          return getValue(TOTAL_HIT_COUNT) as Number;
       }      
@@ -177,15 +175,11 @@ package com.broceliand.pearlTree.model
          else 
             saveValue(HAS_CROSS_NOTIFICATIONS, 0);
       }      
-      
-      
-      
+
       internal function hasCrossNotification():Number {
          return getValue(HAS_CROSS_NOTIFICATIONS) as Number;
       }
-      
-      
-      
+
       internal function resetHasNotesNotification(owner:BroPearlTree):void {
          resetValue(HAS_NEW_NOTES_NOTIFICATIONS, owner, true);
       }
@@ -195,9 +189,7 @@ package com.broceliand.pearlTree.model
          else 
             saveValue(HAS_NEW_NOTES_NOTIFICATIONS, 0);
       }      
-      
-      
-      
+
       internal function hasNotesNotification():Number {
          return getValue(HAS_NEW_NOTES_NOTIFICATIONS) as Number;
       }
@@ -208,9 +200,7 @@ package com.broceliand.pearlTree.model
       internal function saveHasStructureNotification(value:Number):void {
          saveValue(HAS_STRUCTURE_CHANGED_NOTIFICATIONS, value);
       }      
-      
-      
-      
+
       internal function hasStructureNotification():Number {
          return getValue(HAS_STRUCTURE_CHANGED_NOTIFICATIONS) as Number;
       }
@@ -222,9 +212,7 @@ package com.broceliand.pearlTree.model
       internal function saveHasSubTeam(value:Number):void {
          saveValue(HAS_SUB_TEAM, value);
       }
-      
-      
-      
+
       internal function hasSubTeam():Number {
          return getValue(HAS_SUB_TEAM) as Number;
       }
@@ -235,9 +223,7 @@ package com.broceliand.pearlTree.model
       internal function saveHasSubTeamRequest(value:Number):void {
          saveValue(HAS_SUB_TEAM_REQUEST, value);
       }
-      
-      
-      
+
       internal function hasSubTeamRequest():Number {
          return getValue(HAS_SUB_TEAM_REQUEST) as Number;
       }

@@ -4,9 +4,7 @@ package com.broceliand.util {
    import flash.utils.ByteArray;
    
    public class Debug {
-      
-      
-      
+
       public static function pad(n:int, len:int) : String {
          var res:String = n.toString();
          while (res.length < len) {

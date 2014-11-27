@@ -5,8 +5,7 @@ package com.broceliand.util.flexWorkaround
    import flash.display.Stage;
    import flash.events.MouseEvent;
    import flash.external.ExternalInterface;
-   
-   
+
    public class MouseWheelEnabler
    {
       static private var initialised : Boolean = false;
@@ -35,8 +34,7 @@ package com.broceliand.util.flexWorkaround
                }
             );
       }
-      
-      
+
       private static function registerJS() : void
       {
          if( ExternalInterface.available )
@@ -94,8 +92,7 @@ class MouseWheelEnabler_JavaScript
                mozilla: /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent),
                chrome: /chrome/.test(userAgent)
             };
-            
-            
+
             eb.findSwf = function(id) 
             {
                var objects = document.getElementsByTagName("object");
@@ -180,14 +177,12 @@ class MouseWheelEnabler_JavaScript
                {
                   
                   var mouseOver = false;
-   
-                  
+
                   function _mousemove(event) 
                   {
                      mouseOver = event && event.target && (event.target == swf);
                   }
-   
-                  
+
                   var _mousewheel = function(event) 
                   {
                      if(mouseOver) 
@@ -201,8 +196,7 @@ class MouseWheelEnabler_JavaScript
                      }
                      return false;
                   }
-   
-                  
+
                   if(typeof window.addEventListener != 'undefined') 
                   {
                      window.addEventListener('DOMMouseScroll', _mousewheel, false);

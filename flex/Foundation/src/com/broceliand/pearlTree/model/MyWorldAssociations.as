@@ -44,9 +44,7 @@ package com.broceliand.pearlTree.model
             if (treesToEnter) {
                treeHierarchy.addSubHierarchy(treesToEnter);
             }
-            
-            
-            
+
             association.setTreeHierarchy(_treeHierarchy);
             association.preferredUser = _currentUser;
          }

@@ -36,10 +36,7 @@ package com.broceliand.graphLayout.visual
    import mx.core.UIComponent;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
-   
-   
+
    public class PearlRendererFactories
    {
       private var _coeditPtwRootPearlRendererFactory:IFactory;

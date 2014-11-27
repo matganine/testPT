@@ -12,9 +12,7 @@ package com.broceliand.graphLayout.model
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
-   
+
    public class SavedPearlReference
    {
       private var _node:IPTNode;

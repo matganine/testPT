@@ -23,9 +23,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
    import mx.core.UIComponent;
    import mx.events.FlexEvent;
    import mx.skins.halo.HaloBorder;
-   
-   
-   
+
    public class PearlBase extends Canvas implements IUIPearlView {
       
       static public const NORMAL_STATE:int =0;
@@ -119,9 +117,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          
          _normalState = makeNormalState();
          addChild(_normalState);
-         
-         
-         
+
          _overForeground = makeForegroundImage(OVER_STATE, _normalState);
          _selectedForeground = makeForegroundImage(SELECTED_STATE, _normalState);
          updtateVisibleState();
@@ -392,9 +388,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       protected function makeForegroundImage(state:int, basePearl:UIComponent):Image {
          var foregroundImage:Image = ImageFactory.newImage();
          foregroundImage.smoothBitmapContent=true;
-         
-         
-         
+
          if (state == OVER_STATE) {
             foregroundImage.source = getForegroundOverAsset();
          } else {
@@ -405,11 +399,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          basePearl.addChild(foregroundImage);
          return foregroundImage;
       }
-      
-      
-      
-      
-      
+
       protected function getForegroundOverAsset():Class {
          return null;
       }

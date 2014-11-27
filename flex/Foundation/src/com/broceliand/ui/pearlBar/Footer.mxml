@@ -559,10 +559,7 @@
          premiumBox.visible = premiumBox.includeInLayout = firstPartSpacer.includeInLayout = !am.isEmbed() && !isAnonymous ;
          socialSyncContainer.visible = socialSyncContainer.includeInLayout = socialSyncSpacer.includeInLayout = !isAnonymous;
          findFriendsContainer.visible = findFriendsContainer.includeInLayout = findFriendsSpacer.includeInLayout =  !isAnonymous;
-         
-         
-         
-         
+
          beforePWSpacer.includeInLayout = dropzoneSpacer.includeInLayout = !isAnonymous;
          
          trashBox.visible = trashBox.includeInLayout = trashSpacer.includeInLayout = !isAnonymous || !am.isWhiteMark();
@@ -856,21 +853,7 @@
             
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       public function hidePearlWindowContainer():void {
          if (pearlWindowContainer) {
             pearlWindowContainer.visible = pearlWindowContainer.includeInLayout = false;
@@ -921,10 +904,7 @@
       public function onPearlerStatusChange():void {
          updateActionsAvailable();
       }
-      
-      
-      
-      
+
    ]]></mx:Script>
    
 </mx:Canvas>

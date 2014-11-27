@@ -6,9 +6,7 @@ package com.broceliand.util
       private var _parentNode:TreeNode;
       private var _childNodes:Array;
       private var _index:int;
-      
-      
-      
+
       public function TreeNode(data:Object)
       {
          _data = data;

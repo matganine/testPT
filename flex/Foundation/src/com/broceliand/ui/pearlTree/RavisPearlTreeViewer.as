@@ -42,9 +42,7 @@ package com.broceliand.ui.pearlTree{
       private var _pearlTreeLoaderManager:IPearlTreeLoaderManager = null;
       private var _pearlRendererStateManager:PearlRendererStateManager = null;
       private var _browserScrollLocker:BrowserScrollLocker = new BrowserScrollLocker();
-      
-      
-      
+
       private var _mustDraw:Boolean = false;
       
       private var _vgraph:IPTVisualGraph;
@@ -88,9 +86,7 @@ package com.broceliand.ui.pearlTree{
       public function get vgraph ():IPTVisualGraph{
          return _vgraph; 
       }
-      
-      
-      
+
       public function init():void {
          _mustBeInitialized =true;
          var am:ApplicationManager = ApplicationManager.getInstance();
@@ -115,9 +111,7 @@ package com.broceliand.ui.pearlTree{
             visualModel.selectionModel,
             am.components.windowController);
          _vgraph.pearlRendererFactories = new PearlRendererFactories(_remoteResourceManager, _interactorManager, _pearlRendererStateManager);
-         
-         
-         
+
          _vgraph.origin.x = 0;
          _vgraph.origin.y = 0;
          invalidateDisplayList();   

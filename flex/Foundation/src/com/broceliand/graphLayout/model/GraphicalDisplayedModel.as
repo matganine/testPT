@@ -9,9 +9,7 @@ package com.broceliand.graphLayout.model
    import com.broceliand.util.logging.Log;
    
    import flash.utils.Dictionary;
-   
-   
-   
+
    public class GraphicalDisplayedModel
    {
       private var _vgraph:IPTVisualGraph;
@@ -59,17 +57,10 @@ package com.broceliand.graphLayout.model
          var tree:BroPearlTree = getTreeFromRootNode(node as PTRootNode);
          
          if (tree && _tree2RootNodes[tree] == node) {
-            
-            
-            
-            
-            
-            
+
             delete _tree2RootNodes[tree];
          }
       }
-      
-      
-      
+
    }
 }

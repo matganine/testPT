@@ -576,9 +576,6 @@ package com.broceliand.graphLayout.controller {
                effect.addEventListener(TweenEvent.TWEEN_UPDATE,  onStart.performActionOnFirstEvent);
                effect.addEventListener(EffectEvent.EFFECT_END,  onEnd.performActionOnFirstEvent);
                effect.play();
-               
-               
-               
             }
             if(nodeToSelect) {
                var am:ApplicationManager = ApplicationManager.getInstance();
@@ -714,8 +711,6 @@ internal class OnHexReadyToShowAction implements IAction {
    
    public function performAction():void {
       var time:Number = getTimer();
-      
-      
       if(_isStartAnimation) {
          _delay = 500;
       }else{

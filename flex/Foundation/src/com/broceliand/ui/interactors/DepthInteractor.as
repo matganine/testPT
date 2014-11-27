@@ -146,10 +146,7 @@ package com.broceliand.ui.interactors
          if(!renderer || !renderer.parent){
             return;
          }        
-         
-         
-         
-         
+
          moveUIComponentToDepth(renderer, 3);
       }
       

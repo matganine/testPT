@@ -13,7 +13,5 @@ package com.broceliand
       public function broadcastMessage(event:Event):void {
          dispatchEvent(event);
       }
-      
-      
    }
 }

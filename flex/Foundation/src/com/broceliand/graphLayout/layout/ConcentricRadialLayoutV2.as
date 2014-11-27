@@ -32,9 +32,7 @@ package com.broceliand.graphLayout.layout {
       
       public static const DEBUG:Boolean = false;
       public static var   REPOSITION_PARENT:int = 1;
-      
-      
-      
+
       public static var OVERLOAD_FACTOR:Number = 90;
       
       public static var FIRST_LEVEL_MAX_NODE_SEPARATION:Number = 100;
@@ -50,9 +48,7 @@ package com.broceliand.graphLayout.layout {
       
       private static var _preferredRadius:Array;
       private static var _preferredRadiusSO:SharedObject;
-      
-      
-      
+
       private var _previousRoot:INode;        
       
       
@@ -99,15 +95,7 @@ package com.broceliand.graphLayout.layout {
             i = 0;
          }
          if (!_preferredRadius) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             if (!_preferredRadius) {
                _preferredRadius = new Array();  
             }
@@ -252,9 +240,7 @@ package com.broceliand.graphLayout.layout {
          if(_layoutChanged || true) {
             initDrawing();
          }
-         
-         
-         
+
          /* set the coordinates in the drawing of root
          * to 0,0 */
          _currentDrawing.setCartCoordinates(_root,new Point(0,0));
@@ -373,14 +359,7 @@ package com.broceliand.graphLayout.layout {
          return Math.abs(_currentDrawing.getPolarR(lNode)*phi);
          
       }
-      
-      
-      
-      
-      
-      
-      
-      
+
       public function computeRadiusForLevel( level:int, nodesByLevel:Array, tetaByLevel:Array):Number {
          var nbNode:int= (level +1) <nodesByLevel.length ? (nodesByLevel[level +1 ] as Array).length  :0;
          var currentRadius:Number = 0;
@@ -414,9 +393,7 @@ package com.broceliand.graphLayout.layout {
       override protected function commitNode(vn: IVisualNode ):void {
          
       }
-      
-      
-      
+
       private function getOverlapBetweenChildGroup(r:Number, nodesOnPreviousLevel:Array, tetaAtLevel:Array, leftIndex:int, rightIndex:int):Number {
          var leftNode:IPTNode = nodesOnPreviousLevel[leftIndex];
          var rightNode:IPTNode = nodesOnPreviousLevel[rightIndex];
@@ -451,10 +428,7 @@ package com.broceliand.graphLayout.layout {
             return;
          }
          var logger:BroLogger = Log.getLogger("com.broceliand.graphLayout.layout.ConcentricRadialLayoutV2");
-         
-         
-         
-         
+
          var r:Number = computeRadiusForLevel(level, nodesByLevel, tetaByLevel);
          
          if (DEBUG) logger.info("-------------------- Radius at level {0} = {1}  -----------------", level, r);
@@ -482,10 +456,7 @@ package com.broceliand.graphLayout.layout {
             
             if (indexWithChildren.length > 1) {
                var offsetBetweenDeltasInGroup:Array = new Array(indexWithChildren.length);
-               
-               
-               
-               
+
                for (i = 0; i < offsetBetweenDeltasInGroup.length; i++) {
                   var leftIndex:int  = i>0? indexWithChildren[i-1]:indexWithChildren[indexWithChildren.length-1];
                   var rightIndex:int = indexWithChildren[i];
@@ -526,10 +497,7 @@ package com.broceliand.graphLayout.layout {
                   (groups[0] as PearlGroup).positionNodesInGroup(parentNodes, indexWithChildren, deltaByParent, offsetBetweenDeltasInGroup);
                }
             }
-            
-            
-            
-            
+
             var childIndex:int = 0;
             var parentIndex:int = 0;
             var parentNode:IPTNode;
@@ -565,10 +533,7 @@ package com.broceliand.graphLayout.layout {
             if (DEBUG) logger.info("-------------------- End  Repositioning : level {0}  -----------------", level);
             
          }
-         
-         
-         
-         
+
          performLayoutAtLevelWithMinSquareDeviation(nodesByLevel, level + 1, deltasByLevel, tetaByLevel);
       }
       
@@ -595,10 +560,7 @@ package com.broceliand.graphLayout.layout {
                offsetBetweenDeltasInGroup[i] += 2 * Math.PI;
             }
          }
-         
-         
-         
-         
+
          var groups:Array = new Array();
          for (i=0; i < nodes.length;i++) {
             groups.push(new PearlGroup(i));
@@ -826,7 +788,5 @@ class PearlGroup {
       s += "]";
       return (parentNodes[indexWithChildren[_groupLeftIndex]] as IPTNode).name + s;
    }
-   
-   
-   
+
 }

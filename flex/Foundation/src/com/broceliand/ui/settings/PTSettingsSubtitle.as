@@ -16,8 +16,7 @@ package com.broceliand.ui.settings
          percentWidth = 100;
          height = 28;
       }
-      
-      
+
       override protected function createChildren():void {
          super.createChildren()
          

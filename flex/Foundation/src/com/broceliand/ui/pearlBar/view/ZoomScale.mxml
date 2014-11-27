@@ -164,10 +164,7 @@
          
          private function updateScale():void {
             if (_zoomModel) {
-               
-               
-               
-               
+
                var scaleValue:Number  = scaleSlider.value;
                
                var zoomValue:Number  = 1;
@@ -321,9 +318,7 @@
             zoomActionTimer.removeEventListener(TimerEvent.TIMER, executeZoomOutOnHold);
             minusScale.addEventListener(Event.ENTER_FRAME, executeZoomOut);
          }  
-         
-         
-         
+
          private function plusDown(event:Event):void {
             executeZoomIn(event);
             zoomActionTimer.addEventListener(TimerEvent.TIMER, executeZoomInOnHold);

@@ -242,9 +242,7 @@ package com.broceliand.graphLayout.layout{
       protected function set currentDrawing(dr:BaseLayoutDrawing):void {
          _currentDrawing = dr;
       }
-      
-      
-      
+
       protected function applyTargetCoordinates(n:INode):void {
          
          var coords:Point;

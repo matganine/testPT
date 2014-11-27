@@ -13,9 +13,7 @@ package com.broceliand.ui.effects
    import mx.core.mx_internal;
    import mx.effects.EffectManager;
    import mx.effects.effectClasses.MoveInstance;
-   
-   
-   
+
    public class MoveWithScrollInstance extends MoveInstance
    {
       private var _startOrigin:Point;
@@ -97,9 +95,7 @@ package com.broceliand.ui.effects
             }
          }
          if (!cancelDragged) {
-            
-            
-            
+
             if (target is IUIPearl) {
                IUIPearl(target).moveWithoutZoomOffset(value[0], value[1]);
             } else {

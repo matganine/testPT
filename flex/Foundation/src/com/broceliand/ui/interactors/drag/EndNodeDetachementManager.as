@@ -113,12 +113,7 @@ package com.broceliand.ui.interactors.drag
                   }
                }
             }
-            
-            
-            
-            
-            
-            
+
          }
       }
       
@@ -248,16 +243,7 @@ package com.broceliand.ui.interactors.drag
             }
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function resetMovingOnArc() :void{
          if (_detachedEndVNodeForDraggingOnArc) {
             reattachEndNode(_detachedEndVNodeForDraggingOnArc);

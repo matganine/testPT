@@ -234,10 +234,6 @@ package com.broceliand.graphLayout.controller {
          
          updateShowDetailTitle(_optionNotAnonymousAndHome[i]);
          _optionNotAnonymousAndHome[i++].enabled = true;
-         
-         
-         
-         
          var isCurrentUserRoot:Boolean = contextMenuNode.isTopRoot ;
          if (isCurrentUserRoot) {
             isCurrentUserRoot = (contextMenuNode.getBusinessNode() as BroPTRootNode).isAssociationHierarchyRoot() && !contextMenuNode.getBusinessNode().owner.isInATeam();
@@ -250,18 +246,10 @@ package com.broceliand.graphLayout.controller {
          if (_optionNotAnonymousAndHome[i-1].enabled ) {
             setRightToPickPearltreeOrPrivateUGC(_optionNotAnonymousAndHome[i-1], pearlRenderer);
          }
-         
-         
          var t:BroPearlTree = getTreeNode(contextMenuNode);
-         
          _optionNotAnonymousAndHome[i++].enabled = !contextMenuNode.isTopRoot && !isExpiredPearl && (!t || !t.isAssociationRoot());
-         
-         
          _optionNotAnonymousAndHome[i++].enabled = !contextMenuNode.isTopRoot && !isExpiredPearl;
-         
-         
          _optionNotAnonymousAndHome[i++].enabled = userHasRightToEditNodeTitle(contextMenuNode);
-         
          return ;
       }
       

@@ -84,9 +84,7 @@ package com.broceliand.ui.pearlBar.deck {
          _defaultUndockPosition = new Point();
          _itemWidth = ITEM_WIDTH;
       }
-      
-      
-      
+
       public function addItem(value:DeckItem):void {
          _items.unshift(value);
          _page = 0;
@@ -114,9 +112,7 @@ package com.broceliand.ui.pearlBar.deck {
       private function invalidateNodesToShow():void {
          dispatchChangeEvent();
       }
-      
-      
-      
+
       public function refreshNodesToShow():void {
          
          if(!StartPolicyLogger.getInstance().isFirstOpenAnimationStarted()) {

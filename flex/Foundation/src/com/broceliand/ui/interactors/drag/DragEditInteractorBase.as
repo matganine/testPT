@@ -29,9 +29,7 @@ package com.broceliand.ui.interactors.drag
       public function handleDrag(ev:MouseEvent):void{
          
       }
-      
-      
-      
+
       public function dragEnd(ev:MouseEvent):void{
          
          _interactorManager.draggedPearl = null;

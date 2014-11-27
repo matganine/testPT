@@ -38,8 +38,7 @@ $(document).ready(function() {
    iframesContainer = $('#iframesContainer');
    flashContainer = $('#mainContainer');
    shadowContainer = $('#shadowContainer');
-   
-   
+
    var curUrl = window.location.toString();
    if(!swfobject.hasFlashPlayerVersion(minFlashVersion)) {
       
@@ -185,30 +184,24 @@ $.fn.extend({
     }
 });
 
-
 function handler(event) {
     var orgEvent = event || window.event, args = [].slice.call( arguments, 1 ), delta = 0, returnValue = true, deltaX = 0, deltaY = 0;
     event = $.event.fix(orgEvent);
     event.type = "mousewheel";
-    
-    
+
     if ( orgEvent.wheelDelta ) { delta = orgEvent.wheelDelta/120; }
     if ( orgEvent.detail     ) { delta = -orgEvent.detail/3; }
-    
-    
+
     deltaY = delta;
-    
-    
+
     if ( orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
         deltaY = 0;
         deltaX = -1*delta;
     }
-    
-    
+
     if ( orgEvent.wheelDeltaY !== undefined ) { deltaY = orgEvent.wheelDeltaY/120; }
     if ( orgEvent.wheelDeltaX !== undefined ) { deltaX = -1*orgEvent.wheelDeltaX/120; }
-    
-    
+
     args.unshift(event, delta, deltaX, deltaY);
     
     return ($.event.dispatch || $.event.handle).apply(this, args);
@@ -421,9 +414,7 @@ function onCurrentIFrameAnimationEnd() {
    }
    hideTargetIFrame();
    setTimeout("unloadTargetIFrameIfPossible('"+getTargetIFrameSource()+"')", UNLOAD_DELAY);
-   
-   
-   
+
    
 }
 
@@ -452,9 +443,7 @@ function onTargetIFrameAnimationEnd() {
    }
    hideTargetIFrame();
    setTimeout("unloadTargetIFrameIfPossible('"+getTargetIFrameSource()+"')", UNLOAD_DELAY);
-   
-   
-   
+
    
 }
 
@@ -676,8 +665,7 @@ function updateState() {
          iframesContainer.css({width:0});
       }
    }
-   
-   
+
    if(state == STATE_NO_SPLIT) {
       if(currentIFrame) {    
          currentIFrame.height(0);
@@ -693,8 +681,7 @@ function updateState() {
          flashContainer.width('100%');
       }
    }
-   
-   
+
    else if(state == STATE_SPLIT_WITH_CONTAINED_PAGE || state == STATE_SPLIT_WITH_BIG_FLASH || state == STATE_FAST_PLAYER_LOAD) {
       
       var zoomFactor = getZoomFactor();
@@ -738,9 +725,7 @@ function updateState() {
           iframesContainer.height((100-playerHeightPercent)+"%");
           flashContainer.height(playerHeightPercent+"%");
           flashContainer.width('100%');
-          
-          
-          
+
           
           iframesContainer.css({top:playerHeightPercent+"%"});
       }
@@ -773,9 +758,7 @@ function updateState() {
       if(isTargetIFrameVisible()) {
          targetIFrame.height("100%");
       }
-      
-      
-         
+
       iframeLog("update state: "+state);
    }
    

@@ -48,18 +48,7 @@ package com.broceliand.pearlTree.navigation.impl
       private var _currentState:Object;
       private var _navigator:INavigationManager;
       private var _abModel:Number;
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private var _updateStateWhenFocusChangeOnly:Boolean = false;
       public function Url2NavigationSynchronizer(navBar:INavigationManager) {
          _navigator = navBar;
@@ -339,10 +328,7 @@ package com.broceliand.pearlTree.navigation.impl
                      new PreLoadingRequest(focustTreeId, focusAssociationId).load();
                      return;
                   }
-                  
-                  
-                  
-                  
+
                   _navigator.goTo(focusAssociationId, 
                      userId,
                      focustTreeId,

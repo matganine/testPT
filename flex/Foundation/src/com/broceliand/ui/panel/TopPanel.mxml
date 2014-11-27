@@ -108,10 +108,7 @@
          _homePage.hideHomeVideo();
          }
          }*/
-         
-         
-         
-         
+
          private function get homePageModel():HomePageModel {
             return ApplicationManager.getInstance().visualModel.homePageModel;
          }

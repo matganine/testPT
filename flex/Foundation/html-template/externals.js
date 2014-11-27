@@ -60,7 +60,6 @@ function updateFirefoxAddon(addonTitle, addonURL, addonIcon) {
    }
 
 
-
 }
 
 function callPearlbarCommand(commandName, param) {
@@ -335,8 +334,7 @@ function loadIFrame(frameID, iframeID, url) {
       encodeURIComponent(window.location) + "&action_name=" + encodeURIComponent(title) + "&idsite=" + pkSite + "&title=" +
       encodeURIComponent(title) + "&urlref=" + encodeURIComponent(document.referrer)+"&rec=1&rand=" + Math.random(); 
    }
-   
-   
+
    var app = getMainApplication();
    if(app && app.onSendPageViewStat) {
       app.onSendPageViewStat();
@@ -475,7 +473,6 @@ function closeMonitoredPopup() {
    }
 }
 
-
 function isMonitoredPopupClosed() {
    if (monitoredPopup && monitoredPopupAnswer == null) {
       try {
@@ -499,7 +496,6 @@ function isMonitoredPopupClosed() {
 }
 
 
-
 function waitForPopupClose() {
    if (isMonitoredPopupClosed()) {
       monitoredPopup = null;
@@ -519,7 +515,6 @@ function getMonitoredPopupAnswer() {
 }
 
 
-
 function getCenteredCoords(width, height) {
    var parentSize = this.getWindowInnerSize();
    var parentPos = this.getParentCoords();
@@ -529,9 +524,6 @@ function getCenteredCoords(width, height) {
    Math.max(0, Math.floor((parentSize[1] - height) / 2));
    return [xPos, yPos];
 }
-
-
-
 
 function getWindowInnerSize() {
    var width = 0;
@@ -558,7 +550,6 @@ function getWindowInnerSize() {
 }
 
 
-
 function getParentCoords() {
    var width = 0;
    var height = 0;
@@ -573,7 +564,6 @@ function getParentCoords() {
    }
    return [width, height];
 }
-
 
 
 function isBrowserMSIE() { return (getBrowserName() == 'Explorer') }
@@ -669,8 +659,7 @@ function resizeFacepile(z_index, banner_width, offset_x, offset_y, _width, _heig
 }
 
 function openFacepile(z_index, banner_width, offset_x, offset_y, _width, _height, url) {
-   
-   
+
    var node = document.getElementById("facepile");
    if (node != null) return;
    var body = document.getElementsByTagName("body")[0];
@@ -705,10 +694,6 @@ function openFacepile(z_index, banner_width, offset_x, offset_y, _width, _height
    body.appendChild(div);
 }
 
-
-
-
-
    var fbSdkInitialized;
    var facebookId = null;
    var facebookIdIsLoading = true;
@@ -731,8 +716,7 @@ function openFacepile(z_index, banner_width, offset_x, offset_y, _width, _height
           facebookId = response.authResponse.userID;
         } 
        });
-      
-    
+
   };
 
   
@@ -791,23 +775,6 @@ function openFacepile(z_index, banner_width, offset_x, offset_y, _width, _height
         }
      }
   }
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-  
-
 
 function installChromeExtension() {
     var apiAvailable = typeof chrome !== 'undefined' && chrome.webstore && chrome.webstore.install;
@@ -828,7 +795,6 @@ function installChromeExtension() {
     }
 }
 
-
 function getLocationName() {
    return locationName;
 }
@@ -836,11 +802,6 @@ function getLocationName() {
 function getBackgroundHash() {
    return backgroundHash;
 }
-
-
-
-
-
 
 function downloadURL(url) {
     var hiddenIFrameID = 'hiddenDownloader',
@@ -853,7 +814,6 @@ function downloadURL(url) {
     }
     iframe.src = url;
 };
-
 
 
 function isFileApiSupported() {
@@ -873,7 +833,6 @@ function protectTabDuringUpload(message) {
 function unprotectTabAfterUpload() {
    window.onbeforeunload = onApplicationExit;
 }
-
 
 
 var UploadHelper = (function () {

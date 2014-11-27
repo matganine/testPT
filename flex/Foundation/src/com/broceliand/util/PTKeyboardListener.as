@@ -40,9 +40,7 @@ package com.broceliand.util
             _keyDownDelegate = null;
          }
       }
-      
-      
-      
+
       public function listenStage(value:Stage):void {
          if(value != _stage) {
             if(_stage) {

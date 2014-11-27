@@ -40,9 +40,7 @@ package com.broceliand.ui.model
       }
       
       public function saveZoomValue(value:Number):void {
-         
-         
-         
+
          if (_zoomLevel != value) {
             _zoomLevel = value;
             _so.data["zoomLevel2"] = _zoomLevel;

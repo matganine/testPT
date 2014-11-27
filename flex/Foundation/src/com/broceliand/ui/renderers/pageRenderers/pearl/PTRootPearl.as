@@ -49,9 +49,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       override protected function get normalWidth():Number {
          return PEARL_WIDTH_NORMAL;
       }     
-      
-      
-      
+
       override protected function getForegroundSelectedAsset():Class {
          return AssetsManager.getEmbededAsset(PearlAssets.TREE_FOREGROUND_SELECTED_PNG);
       }       

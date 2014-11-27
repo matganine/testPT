@@ -67,9 +67,7 @@ package com.broceliand.graphLayout.layout {
       
       
       private var _scaleFactor:Number;
-      
-      
-      
+
       private var _centeredLayout:Boolean = true;
       
       /* we need the polar coordinates AND the relative
@@ -103,9 +101,7 @@ package com.broceliand.graphLayout.layout {
       /*
       * getters and setters 
       * */
-      
-      
-      
+
       [Bindable]
       public function get originOffset():Point {
          return _originOffset;
@@ -134,9 +130,7 @@ package com.broceliand.graphLayout.layout {
       public function set centeredLayout(c:Boolean):void {
          _centeredLayout = c;
       }
-      
-      
-      
+
       public function nodeDataValid(n:INode):Boolean {
          return _nodeDataValid[n];
       }
@@ -160,9 +154,7 @@ package com.broceliand.graphLayout.layout {
          _nodePolarRs[n] = polarR;
          _nodePolarPhis[n] = polarPhi;
          _nodeCartCoordinates[n] = Geometry.cartFromPolarDeg(polarR*scaleFactor, polarPhi) ;
-         
-         
-         
+
          _nodeDataValid[n] = true;
       }
       

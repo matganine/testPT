@@ -30,9 +30,7 @@ package com.broceliand.ui.controller
             _timer.start();
          } 
       }
-      
-      
-      
+
       private function getLastNode():BroPTNode {
          var node:BroPTNode = _myWorld.getRootNode();
          while (node.childLinks.length>0) {
@@ -57,8 +55,6 @@ package com.broceliand.ui.controller
             ApplicationManager.getInstance().distantServices.stopCurrentHistoryOnce();
          }
       }
-      
-      
-      
+
    }
 }

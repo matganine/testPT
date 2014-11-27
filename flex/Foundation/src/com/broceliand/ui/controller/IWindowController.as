@@ -179,13 +179,9 @@ package com.broceliand.ui.controller {
       
       
       function getPWPanelTypeDisplaying():uint;
-      
-      
-      
+
       function getNodeDisplayed():IPTNode;
-      
-      
-      
+
       function displaySaveTreeDialog(node:IPTNode):void;
       
       

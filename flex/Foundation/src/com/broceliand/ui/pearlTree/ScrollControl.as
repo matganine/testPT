@@ -82,9 +82,7 @@ package com.broceliand.ui.pearlTree
          var mousePoint:Point = _scrollUi.globalToLocal(point);
          var distanceToPoint:Number;
          var warp:Boolean = false;
-         
-         
-         
+
          if (_scrollDirection == HORIZONTAL) {
             distanceToPoint = BroceliandMath.getSquareDistanceBetweenPoints(_pointToCompareWith, mousePoint);
          }

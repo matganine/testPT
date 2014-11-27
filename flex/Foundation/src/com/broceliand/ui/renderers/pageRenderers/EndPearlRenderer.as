@@ -29,11 +29,6 @@ package com.broceliand.ui.renderers.pageRenderers
       override public function markHasNotificationsForNewLabel(value:Boolean):void {
          super.markHasNotificationsForNewLabel(false);
       }
-      
-      
-      
-      
-      
-      
+
    }
 }

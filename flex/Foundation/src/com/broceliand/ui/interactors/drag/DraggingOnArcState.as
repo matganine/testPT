@@ -172,9 +172,7 @@ package com.broceliand.ui.interactors.drag
             }
             
          } 
-         
-         
-         
+
       }
       private function exciteNode(parentNode:IVisualNode, vnode:IVisualNode, toLeft:Boolean):void {
          var root:IVisualNode = vnode.vgraph.currentRootVNode;
@@ -194,12 +192,7 @@ package com.broceliand.ui.interactors.drag
          var pearlYOffset:Number = target.pearlCenter.y - target.y;        	  
          target.move(x - pearlXOffset , y - pearlYOffset); 
       }
-      
-      
-      
-      
-      
-      
+
       private function restoreNodePosition(node:IVisualNode, wasLeft:Boolean):void {
          moveVnodeTo(node, node.x, node.y);
       }

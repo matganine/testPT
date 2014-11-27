@@ -80,9 +80,7 @@ package com.broceliand.ui.interactors.drag
             _interactorManager.nodeTitleModel.setNodeMessageType(node, NodeTitleModel.MESSAGE_NO_COPY_PEARL_WHEN_FULL_STORAGE);
          }
       }
-      
-      
-      
+
       private function testCopyValid(node:IPTNode):Boolean{
          if (node.isDocked) {
             return false;

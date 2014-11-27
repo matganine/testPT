@@ -33,25 +33,7 @@
    import com.broceliand.graphLayout.layout.PTHierarchicalLayout;
    [Bindable]
    public var layout :PTHierarchicalLayout;
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
    public function buttonClicked():void{
    var ls:Number = parseInt(linkSize.text);
    if (!isNaN( ls)) {

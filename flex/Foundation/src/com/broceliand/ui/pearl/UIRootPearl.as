@@ -132,22 +132,7 @@ package com.broceliand.ui.pearl
                } else {
                   _openTreeButtonConnector.updateButtonVisibility();
                }
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
+
             }
          }
       }

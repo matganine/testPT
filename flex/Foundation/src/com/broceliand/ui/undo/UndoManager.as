@@ -117,9 +117,7 @@ package com.broceliand.ui.undo
       public function canRedo():Boolean {
          return _redoStack != null && _redoStack.length>0;   
       }
-      
-      
-      
+
       public function undo():void{
          _isPerformingUndoRedoAction = true;
          _historyIndex--;
@@ -162,8 +160,6 @@ package com.broceliand.ui.undo
       {
          return _historyMaxSize;
       }
-      
-      
-      
+
    }
 }

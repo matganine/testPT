@@ -56,9 +56,7 @@ package com.broceliand.ui.pearlTree
          image.width = image.height = BUTTON_WIDTH;
          return image;
       }
-      
-      
-      
+
       override  protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          var rootNode:PTRootNode = node as PTRootNode;
          

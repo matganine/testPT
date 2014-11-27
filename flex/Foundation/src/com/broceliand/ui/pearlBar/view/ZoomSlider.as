@@ -17,10 +17,7 @@ package com.broceliand.ui.pearlBar.view
       public function ZoomSlider() {
          _isEmbedSkin = ApplicationManager.getInstance().isEmbed()
       }
-      
-      
-      
-      
+
       override protected function createChildren():void{
          super.createChildren();
          if (isEmbedSkin) {

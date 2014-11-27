@@ -280,10 +280,7 @@ package com.broceliand.graphLayout.visual
             }
          }           
       } 
-      
-      
-      
-      
+
       public function applyLineStyle(ve:IVisualEdge):void {
          /* apply the style to the drawing */
          Assert.assert(ve.data is EdgeData, "data obj is not an EdgeData");
@@ -346,11 +343,7 @@ package com.broceliand.graphLayout.visual
             edgeColorVar = COLOR_TEMPORARY 
          } else if (edgeData.highlighted){
             edgeColorVar = ColorPalette.getInstance().pearltreesColor;
-            
-            
-            
-            
-            
+
          } else  if (_withBackgroundColorlink) {
             edgeColorVar = COLOR_WITH_BACKGROUND;
          } else {
@@ -393,15 +386,7 @@ package com.broceliand.graphLayout.visual
          
          graphic.endFill();
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function set selected (value:Boolean):void
       {
          if (_selected != value) {
@@ -415,27 +400,7 @@ package com.broceliand.graphLayout.visual
       {
          return _selected;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function isInTree(selectedTree:BroPearlTree):Boolean {
          if (!selectedTree) {
             return false;

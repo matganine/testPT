@@ -99,12 +99,7 @@ function onDocumentUnload() {
    
 }
 function onWindowUnfocus() {
-   
-   
-   
-   
-   
-   
+
 }
 function onWindowFocus() {
    

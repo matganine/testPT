@@ -129,9 +129,7 @@ package com.broceliand.graphLayout.controller
          if (_userEdition.hierarchyUpdate) {
             _userEdition.hierarchyUpdate.updateTreeHierarchy(am.visualModel.dataRepository);
          }
-         
-         
-         
+
          for each (t in _userEdition.getTreesEdition()) {
             shouldUpdateVisibility = changeNodesType(t.getChangeNodeTypes(), id2IptNodes) || shouldUpdateVisibility;
             t.performTreeHierarchyUpdates();
@@ -155,9 +153,7 @@ package com.broceliand.graphLayout.controller
                am.components.pearlTreeViewer.interactorManager.updatePearlUnderCursorAfterCross();
             }
          }
-         
-         
-         
+
          _vgraph.endNodeVisibilityManager.updateAllNodes();
          if (_inPTW) {
             endAnimation(null);
@@ -299,9 +295,7 @@ package com.broceliand.graphLayout.controller
          }
          dispatchEvent(new Event(ANIMATION_ENDED_EVENT));
       }
-      
-      
-      
+
       private function createGraphicalNodes(t:TreeEdition, id2IptNodes:Dictionary):Array{
          var newNodes:Array;
          var newNodeEditions:Array = t.createdNodesEdition;
@@ -461,14 +455,7 @@ package com.broceliand.graphLayout.controller
             layoutUpdatedTree();
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function unlinkNode(node:BroPTNode, oldParentNode:BroPTNode, shouldRemove:Boolean, id2IptNodes:Dictionary):IPTNode {
          if (oldParentNode){
             unlinkBusinessNodeFromParent(node,oldParentNode);
@@ -630,9 +617,7 @@ package com.broceliand.graphLayout.controller
             removeNode(node);
          }
       }
-      
-      
-      
+
       private function changeNodesType(changeTypesNode:Array, id2IptNodes:Dictionary ):Boolean{
          var updateVisibility:Boolean = false;
          var displayedNode:IPTNode = ApplicationManager.getInstance().components.windowController.getNodeDisplayed();
@@ -655,11 +640,6 @@ package com.broceliand.graphLayout.controller
                         oldIPTNode = oldIPTNode.rootNodeOfMyTree;
                      }
                      if (PTRootNode(oldIPTNode).isOpen()) { 
-                        
-                        
-                        
-                        
-                        
                         var focusTree:BroPearlTree =ApplicationManager.getInstance().visualModel.navigationModel.getFocusedTree();
                         var focusTreePath:Array = focusTree.treeHierarchyNode.getTreePath();
                         if (focusTreePath.lastIndexOf(oldNode.refTree) != -1 || focusTreePath.lastIndexOf(edition.newNode.refTree) != -1) {

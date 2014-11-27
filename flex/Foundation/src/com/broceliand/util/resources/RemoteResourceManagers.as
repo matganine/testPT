@@ -24,9 +24,7 @@ package com.broceliand.util.resources
       public function get previewImageManager():IRetryingResourceManager {
          return _previewImageManager;
       }
-      
-      
-      
+
       public function get helpImageManager():IRemoteResourceManager{
          return _previewImageManager;
       }

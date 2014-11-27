@@ -22,14 +22,7 @@ package com.broceliand.ui.interactors
    
    public class InteractorRightsManager
    {
-      
-      
-      
-      
-      
-      
-      
-      
+
       public static const USER_RIGHT_EDIT:int = 0;
       public static const MAX_NUM_NODES_IN_MAP:int = 100;
       public static const MAX_NUM_IMMEDIATE_DESCENDANTS_ROOT:int = 16;
@@ -189,11 +182,7 @@ package com.broceliand.ui.interactors
          if(treeToCheck.isCurrentUserAuthor()){
             return false;
          }
-         
-         
-         
-         
-         
+
          return true;
       }
       

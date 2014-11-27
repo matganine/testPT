@@ -9,17 +9,15 @@ package com.broceliand.pearlTree.model
    import flash.utils.Dictionary;
    
    import mx.events.FlexEvent;
-   
-   
-   public class BroDataRepository implements IDataRepository
+
+	public class BroDataRepository implements IDataRepository
    {
       private var _myWorldAssociation:BroAssociation;
       private var _associationId2Association:Dictionary = new Dictionary();
       private var _userId2Association:Dictionary = new Dictionary();
       private var _id2Trees:Dictionary = new Dictionary();
-      
-      
-      public function BroDataRepository()
+
+	public function BroDataRepository()
       {
       }
       public function getTree(treeId:Number):BroPearlTree {

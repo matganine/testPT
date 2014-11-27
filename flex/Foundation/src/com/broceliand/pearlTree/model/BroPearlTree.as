@@ -96,9 +96,7 @@ package com.broceliand.pearlTree.model{
       private var _mustRecomputeChildrenCount:Boolean=true;
       private var _treeEdito:TreeEdito = null;
       private var _totalMembershipCount:int;
-      
-      
-      
+
       public function BroPearlTree() {
          _treeHierarchy = new BroTreeHierarchyNode(this);
          _id = _debugId;

@@ -45,9 +45,7 @@ package com.broceliand.ui
       public static const SCROLL_CORNER_BUTTON_SPEED:Number = 0.6; 
       public static const SCROLL_MIN_SPEED:Number = 0.05; 
       public static const SCROLL_BUTTON_LEFT_HEIGHT:int = 16;
-      
-      
-      
+
       public static const SCROLL_ZONE_FRACTION_OF_HEIGHT:Number = 2.5 / 15;
       public static const SCROLL_ZONE_VERTICAL_HEIGHT_REDUCTION:Number = 2.5 / 4;
       public static const SCROLL_HORIZONTAL_FACTOR_IN_VERTCALSCROLL:int = 4;

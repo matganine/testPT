@@ -63,6 +63,3 @@ class searchFile:
 
         return  wordList
 
-
-
-    

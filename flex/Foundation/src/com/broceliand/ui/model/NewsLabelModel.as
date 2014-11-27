@@ -90,21 +90,6 @@ package com.broceliand.ui.model {
             currentMode = MODE_INACTIVE;
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
    }
 }

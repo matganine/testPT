@@ -64,18 +64,14 @@ package com.broceliand.ui.model.analytics
          if(event.newUser == ApplicationManager.getInstance().currentUser) {
             isVisingMyTree = true;
          }
-         
-         
-         
+
          if(event.newSelectedPearl != event.oldSelectedPearl) {
             var tree:BroPearlTree = event.newSelectedTree;
             if(!tree) return;
             if (!isVisingMyTree) {
                trackTreeHit(tree);
             }
-            
-            
-            
+
             if(event.newSelectedTree != event.oldSelectedTree) {
                trackUniqueTreeHit(tree, isVisingMyTree);
                
@@ -118,9 +114,7 @@ package com.broceliand.ui.model.analytics
             loader.load(request);
          }
          catch (error:Error){}
-         
-         
-         
+
       }
       private function addLoaderListeners(loader:URLLoader):void {
          loader.addEventListener(IOErrorEvent.IO_ERROR, onSaveIOError);

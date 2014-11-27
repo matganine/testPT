@@ -105,13 +105,7 @@ package com.broceliand.pearlTree.navigation.impl
          if (_userId == WHATS_HOT_ID) {
             _event.newUser = User.GetWhatsHotUser();
          } else { 
-            
-            
-            
-            
-            
-            
-            
+
             var uf:UserFactory = ApplicationManager.getInstance().userFactory;
             _event.newUser = uf.getOrMakeUser(1, _userId);
             if (_associationId != -1) {
@@ -209,9 +203,7 @@ package com.broceliand.pearlTree.navigation.impl
       
       private function loadPTW(focusTree:BroPearlTree, ptLoader:IPearlTreeLoaderManager):void {
          if(ApplicationManager.getInstance().useDiscover()) {
-            
-            
-            
+
             var positionnedTrees:Vector.<SpatialTree> = new Vector.<SpatialTree>();
             if (focusTree) {
                var spacialTree:SpatialTree = new SpatialTree();
@@ -486,13 +478,7 @@ package com.broceliand.pearlTree.navigation.impl
                   return;
                }
             }
-            
-            
-            
-            
-            
-            
-            
+
             args.push(errorCode);
             for each (var o:Object in context) {
                args.push(o);

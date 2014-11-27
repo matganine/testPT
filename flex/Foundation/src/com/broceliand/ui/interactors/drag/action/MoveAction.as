@@ -64,11 +64,7 @@ package com.broceliand.ui.interactors.drag.action
       }
       
       override protected function updateSelection(node:IPTNode):void {
-         
-         
-         
-         
-         
+
       }
       
       override protected function sendNodeToDestination(node:IPTNode):void {

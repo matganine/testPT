@@ -112,15 +112,7 @@ package com.broceliand.ui.interactors
             tree = bnode.owner;   
          } else if (bnode is BroLocalTreeRefNode) {
             tree = BroLocalTreeRefNode(bnode).refTree;
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
          }
          if (tree) {
             var subTrees:Array = tree.treeHierarchyNode.getDescendantTrees(true,false);
@@ -221,26 +213,6 @@ package com.broceliand.ui.interactors
       public function savePearlRef(node:IPTNode):SavedPearlReference {
          return new SavedPearlReference(node);
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
    }
 }

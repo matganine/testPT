@@ -185,87 +185,14 @@ package com.broceliand {
       
       public function getCustomStartLocation():String {
          var startLocation:String = null;
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
          return startLocation;
       }
-      
       
       private function getCustomLoaderParameters():ILoaderParameters {
          var customParameters:ILoaderParameters = null;
          
          return customParameters;
       }
-      
       
       public static function getInstance(createInstance:Boolean=false):ApplicationManager {
          if (!_singleton) {
@@ -275,7 +202,6 @@ package com.broceliand {
          }
          return _singleton;
       }
-      
       
       public static function get flexApplication():Application {
          return Application.application as Application;
@@ -348,29 +274,6 @@ package com.broceliand {
          }
       }
       
-      /*private function initFacebookNavigationMonitorWhenReady():void {
-      if (currentUser.isLoggedOnFacebook()) {
-      
-      var action:GenericAction;
-      if (currentUser.facebookAccount.getAccountAccessor().isLoaded()) {
-      startFacebookNavigationMonitor();
-      }
-      else {
-      action = new GenericAction(null, this, startFacebookNavigationMonitor);
-      currentUser.facebookAccount.getAccountAccessor().loadValue(action);
-      }
-      } else if (currentUser.userSettings == null) {
-      _userLoader = new UserLoader();
-      _userLoader.addEventListener(UserLoader.SETTINGS_LOADED_EVENT, onSettingsLoaded);
-      _userLoader.addEventListener(UserLoader.SETTINGS_NOT_LOADED_EVENT, onSettingsLoaded);
-      _userLoader.loadUserSettings();
-      } else {
-      if (currentUser.isLoggedUserSharingDiscoveries()) {
-      startFacebookNavigationMonitor();
-      }
-      }
-      }*/
-      
       private function onSettingsLoaded(event:Event):void {
          if (_userLoader) {
             _userLoader.removeEventListener(UserLoader.SETTINGS_LOADED_EVENT, onSettingsLoaded);
@@ -378,17 +281,7 @@ package com.broceliand {
             _userLoader = null;
             
          }
-         /*if (currentUser.isLoggedUserSharingDiscoveries()) {
-         startFacebookNavigationMonitor();
-         }*/
       }
-      
-      /*private function startFacebookNavigationMonitor():void {
-      var am:ApplicationManager = ApplicationManager.getInstance();
-      if (am.currentUser.shareDiscoveries()) {
-      _visualModel.fbNavigationMonitor.start();
-      }
-      }*/
       
       private function unfocusOnMouseLeaveApplication():Boolean {
          return (isEmbed() || getBrowserName() == BROWSER_NAME_CHROME);
@@ -979,9 +872,7 @@ package com.broceliand {
          return _htmlStartTime;
       }
       public function getSessionID():String {
-         
-         
-         
+
          return _externalInterface.getSessionID();
       }
       public function hideWaitingPanel():void {

@@ -192,14 +192,7 @@ package com.broceliand.ui.interactors {
                _dragEditInteractor.dragBegin(ev);
             }
          }
-         
-         
-         
-         
-         
-         
-         
-         
+
          _userInteractionMode = o;
       }
       public function ensureEndDrag(event:MouseEvent=null):Boolean{

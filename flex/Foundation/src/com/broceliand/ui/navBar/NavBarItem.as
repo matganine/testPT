@@ -50,15 +50,10 @@ package com.broceliand.ui.navBar {
             }
             if (_item.isBold){
                setStyle('fontSize', 14);
-               
-               
-               
+
                setStyle('fontWeight', 'bold');
             }else{
-               
-               
-               
-               
+
                setStyle('fontWeight', 'normal');
                setStyle('fontSize', 14);
             }

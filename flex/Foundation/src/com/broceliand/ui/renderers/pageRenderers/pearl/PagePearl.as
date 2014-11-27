@@ -49,9 +49,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          }
          return null;
       }
-      
-      
-      
+
       override protected function commitProperties():void{
          if (_nodeChanged) {
             iconChanged = true;
@@ -129,11 +127,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          return normalState;
          
       }
-      
-      
-      
-      
-      
+
       override protected function getForegroundOverAsset():Class {
          return AssetsManager.getEmbededAsset(PearlAssets.PEARL_FOREGROUND_OVER_PNG);
       }

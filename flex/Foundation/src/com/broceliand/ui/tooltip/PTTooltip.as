@@ -7,9 +7,7 @@ package com.broceliand.ui.tooltip {
    import mx.core.IToolTip;
    import mx.core.UIComponent;
    import mx.events.ToolTipEvent;
-   
-   
-   
+
    public class PTTooltip extends Canvas implements IToolTip {
       
       private var _target:UIComponent;

@@ -44,11 +44,7 @@ package com.broceliand.util.logging
       {
          if (hasEventListener(LogEvent.LOG))
          {
-            
-            
-            
-            
-            
+
             dispatchEvent(new BroLogEvent(level, msg ,rest));
          }
          

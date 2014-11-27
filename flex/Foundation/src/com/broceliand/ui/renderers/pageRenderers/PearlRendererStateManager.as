@@ -85,9 +85,7 @@ package com.broceliand.ui.renderers.pageRenderers
          if(!selectedNode){
             return false;
          }
-         
-         
-         
+
          var selectedBusinessNode:BroPTNode = _navigationManager.getSelectedPearl();
          
          if (selectedNode != null && selectedNode.isDocked) {
@@ -101,50 +99,14 @@ package com.broceliand.ui.renderers.pageRenderers
          if(node is IBroPTWNode && selectedNode == renderer.node) {
             return true;
          }
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          if(node is BroLocalTreeRefNode && isMouseOverNode(renderer)) {
             return true;
          }
          return false;
          
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function isNodeInSelectedTree(node:BroPTNode, withRootException:Boolean= true):Boolean{
          var selectedTree:BroPearlTree = _selectionModel.getHighlightedTree(); 
          
@@ -256,9 +218,7 @@ package com.broceliand.ui.renderers.pageRenderers
             }
          return state; 
       }
-      
-      
-      
+
       private function isRootOfSelectedPearlTree(inode:IPTNode):Boolean {
          if (inode is EndNode) {
             inode = inode.rootNodeOfMyTree;   
@@ -293,10 +253,7 @@ package com.broceliand.ui.renderers.pageRenderers
          }
          var isInSelectedTree:Boolean = false;
          var refNode:BroLocalTreeRefNode = node.getBusinessNode() as BroLocalTreeRefNode;
-         
-         
-         
-         
+
          if (isNodeInSelectedTree(refNode, false)) {
             isInSelectedTree = true; 
          } 
@@ -342,9 +299,7 @@ package com.broceliand.ui.renderers.pageRenderers
          var showHalo:Boolean = false;
          var isManipulated:Boolean = _interactorManager.draggedPearl != null && renderer.node && _interactorManager.manipulatedNodesModel.isNodeManipulated(renderer.node);
          var am:ApplicationManager = ApplicationManager.getInstance();
-         
-         
-         
+
          if(businessNode is BroNeighbourRootPearl /*|| isSearchCenter */ ){
             showHalo = true;
             titleAbove = true;
@@ -491,22 +446,7 @@ package com.broceliand.ui.renderers.pageRenderers
          }else{
             renderer.relax();
          }    
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          renderer.pearl.showRings = showRings;
          renderer.setShowHalo(showHalo);   
          
@@ -542,10 +482,7 @@ package com.broceliand.ui.renderers.pageRenderers
          }
          updateVisualState(renderer, false, isExciteSource);
       } 
-      
-      
-      
-      
+
       public function excitePearlRenderer(renderer:IUIPearl, isPearlUnderCursor:Boolean = false, showButtons:Boolean= true):void{
          excitePearlRendererInternal(renderer);
          if(showButtons && renderer is UIRootPearl){

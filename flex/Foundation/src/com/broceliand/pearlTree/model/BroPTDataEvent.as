@@ -19,9 +19,7 @@ package com.broceliand.pearlTree.model{
       private var _tree:BroPearlTree;
       
       private var _node:BroPTNode;
-      
-      
-      
+
       private var _treeID:int;
       private var _treeDB:int;
       private var _isErrorReported:Boolean; 
@@ -40,16 +38,12 @@ package com.broceliand.pearlTree.model{
       {
          return _treeID;
       }
-      
-      
+
       public function get treeDB ():int
       {
          return _treeDB;
       }
-      
-      
-      
-      
+
       public function set tree (value:BroPearlTree):void
       {
          _tree = value;
@@ -60,9 +54,7 @@ package com.broceliand.pearlTree.model{
       {
          return _tree;
       }
-      
-      
-      
+
       public function BroPTDataEvent(broceliandData:BroPearlTree, type:String, treeDb:int=-1, treeId:int=-1, node:BroPTNode=null) {
          super(type);
          this._tree= broceliandData;

@@ -67,20 +67,7 @@ package com.broceliand.ui.model
       public function loadPageNeighbours(node:BroPageNode):void {
          
          if(!isInProgress(node)) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             _neighbourLoader.loadNeighbours(node);
             addInProgressList(node);             
          }
@@ -183,10 +170,7 @@ package com.broceliand.ui.model
       }
       
       public function loadNextPage(node:BroPTNode):void {
-         
-         
-         
-         
+
          if(!isInProgress(node)) {
             _neighbourLoader.loadNeighbours(node, node.neighbours.paginationState);
             if (node is BroPTRootNode) {
@@ -197,24 +181,6 @@ package com.broceliand.ui.model
             }
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
    }
 }

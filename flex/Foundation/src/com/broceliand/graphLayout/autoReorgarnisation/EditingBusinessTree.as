@@ -40,10 +40,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          } else {
             _movingNodeBrothers = _targetNodeChildren; 
          }
-         
-         
       }
-      
       
       public function get rootNode():Object {
          return _tree.getRootNode();

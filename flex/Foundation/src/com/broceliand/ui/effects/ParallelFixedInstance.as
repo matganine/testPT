@@ -72,10 +72,7 @@ package com.broceliand.ui.effects
          doneEffectQueue = [];
          activeEffectQueue = [];
          replayEffectQueue = [];
-         
-         
-         
-         
+
          super.play();
          
          var n:int;
@@ -90,9 +87,7 @@ package com.broceliand.ui.effects
             for (var j:int = 0; j < m && activeEffectQueue != null; j++)
             {
                var childEffect:EffectInstance = instances[j];
-               
-               
-               
+
                if (playReversed &&
                   childEffect.actualDuration < durationWithoutRepeat)
                {
@@ -104,10 +99,7 @@ package com.broceliand.ui.effects
                   childEffect.playReversed = playReversed;
                   activeEffectQueue.push(childEffect);
                }
-               
-               
-               
-               
+
                if (childEffect.suspendBackgroundProcessing)
                   UIComponent.suspendBackgroundProcessing();		
                
@@ -116,10 +108,7 @@ package com.broceliand.ui.effects
          
          if (activeEffectQueue.length > 0)
          {
-            
-            
-            
-            
+
             var queueCopy:Array = activeEffectQueue.slice(0);
             
             for (i = 0; i < queueCopy.length; i++)
@@ -186,9 +175,7 @@ package com.broceliand.ui.effects
          
          if (isReversed)
          {
-            
-            
-            
+
             n = activeEffectQueue.length;
             for (i = 0; i < n; i++)
             {
@@ -200,9 +187,7 @@ package com.broceliand.ui.effects
          else
          {
             replayEffectQueue = doneEffectQueue.splice(0);
-            
-            
-            
+
             n = activeEffectQueue.length;
             for (i = 0; i < n; i++)
             {
@@ -241,9 +226,7 @@ package com.broceliand.ui.effects
       {
          if (Object(childEffect).suspendBackgroundProcessing)
             UIComponent.resumeBackgroundProcessing();
-         
-         
-         
+
          if (endEffectCalled || activeEffectQueue == null)
             return;
          

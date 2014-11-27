@@ -18,9 +18,7 @@ package com.broceliand.util.flexWorkaround
    
    
    [Event(name="applicationURLChange", type="mx.events.BrowserChangeEvent")]
-   
-   
-   
+
    public class BrowserManagerImpl extends EventDispatcher implements IBrowserManager
    {
       private static var instance:IBrowserManager;

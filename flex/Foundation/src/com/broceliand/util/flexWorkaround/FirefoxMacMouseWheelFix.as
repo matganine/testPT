@@ -16,8 +16,7 @@ package com.broceliand.util.flexWorkaround
    public class FirefoxMacMouseWheelFix
    {
       private var _myContainer:Container;
-      
-      
+
       static public function fixFirefoxMacWheelOnScroll(container:Container):FirefoxMacMouseWheelFix {
          var browser:String = ApplicationManager.getInstance().getBrowserName();
          var os:String = ApplicationManager.getInstance().getOS();
@@ -38,8 +37,7 @@ package com.broceliand.util.flexWorkaround
       }
       
       private function registerListener():void {
-         
-         
+
          _myContainer.addEventListener(MouseEvent.MOUSE_WHEEL, mouseWheelHandler,false,1);
       }
       
@@ -50,9 +48,7 @@ package com.broceliand.util.flexWorkaround
          }
          if (_myContainer.verticalScrollBar && _myContainer.verticalScrollBar.visible)
          {
-            
-            
-            
+
             
             var scrollDirection:int = event.delta < 0 ? 1 : -1;
             var scrollAmount:Number;

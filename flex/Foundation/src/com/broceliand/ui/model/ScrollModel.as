@@ -26,8 +26,7 @@ package com.broceliand.ui.model
       private var _scrollType:int;
       private var _isBoundingBoxValid:Boolean;
       private var _vetoOnScrollEnd:int;
-      
-      
+
       public function ScrollModel()
       {
          _vetoOnScrollEnd = -1;

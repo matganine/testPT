@@ -300,14 +300,7 @@ package com.broceliand.util {
             var nameValuePair:Array = pieces[i].split(NAME_VALUE_SEPARATOR);
             stateVars[nameValuePair[0]] = parseString(nameValuePair[1]);
          }
-         
-         
-         
-         
-         
-         
-         
-         
+
          for (p in stateVars)
          {
             var crclen:int = p.indexOf(ID_NAME_SEPARATOR)

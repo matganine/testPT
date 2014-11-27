@@ -66,12 +66,7 @@ package com.broceliand.ui.pearlTree
       protected function get isImageVisible():Boolean {
          return _focusImage && _focusImage.visible;
       }
-      
-      
-      
-      
-      
-      
+
    }
    
 }

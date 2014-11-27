@@ -53,9 +53,7 @@ package com.broceliand.pearlTree.model.discover {
          updateSearchMode();
          clearModel();
       }
-      
-      
-      
+
       public function init(discoverDisplayModel:DiscoverDisplayModel):void {
          _discoverDisplayModel = discoverDisplayModel;
          if(_navModel.isShowingDiscover() && _navModel.getFocusNeighbourTree() && !_navModel.isShowingSearchResult()) {

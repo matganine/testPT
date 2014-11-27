@@ -66,9 +66,7 @@ package com.broceliand.graphLayout.controller
             
             m= _vgraph.moveNodeTo(descendantNode.vnode,xTarget, yTarget, DISAPPEAR_DURATION,false);
             p.addChild(m); 
-            
-            
-            
+
             zoom = new Zoom(descendantNode.renderer);
             zoom.zoomHeightFrom = 1;
             zoom.zoomHeightTo = 0;

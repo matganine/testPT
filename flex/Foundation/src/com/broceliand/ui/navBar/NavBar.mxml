@@ -36,9 +36,7 @@
                  width="1"
                  visible="{backImage.visible}"
                  includeInLayout="{backImage.includeInLayout}"/>
-      
-      
-      
+
       <mx:HBox id="homeContainer" verticalAlign="top">
          
          <mx:Image id="homeImage"
@@ -333,9 +331,7 @@
          private var _frameNumber : int = 0;
          
          private var logger:BroLogger = Log.getLogger("com.broceliand.ui.navBar");
-         
-         
-         
+
          public function get model():INavBarModel {
             return _model;
          }
@@ -368,22 +364,7 @@
          private function debug(str : String) : void {
             if (DEBUG) trace(str);
          }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          private function showHomeImage() : Boolean {
             if (!isSelectedTreeInMyHome()) return true; 
             if (model.avatarTree.isTeamRoot()) return true; 
@@ -533,9 +514,7 @@
             }
             
             updateAddPearlAction();
-            
-            
-            
+
             var shouldBeVisible : Boolean = (model && model.isVisible);
             var becomingVisible : Boolean = (!visible && shouldBeVisible) || justLogged;
             
@@ -552,9 +531,7 @@
                
                modelChanged = false;                 
                mostConnectedControl.visible = mostConnectedControl.includeInLayout = model.isMostConnectedButtonDisplayed;
-               
-               
-               
+
                itemsRepeater.dataProvider = VectorHelper.vectorToArray(model.items);
                
                if (justLogged) { 
@@ -676,12 +653,7 @@
                
             }
          }
-         
-         
-         
-         
-         
-         
+
          private function resizeComponent(
             component       : UIComponent, 
             resizableWidth : Number, 
@@ -689,10 +661,7 @@
             shouldResize   : Boolean,
             componentName  : String = ""
          ) : void {
-            
-            
-            
-            
+
             var widthToResize : Number = Math.round((component.measuredMinWidth / resizableWidth) * widthDiff);
             var newWidth      : Number = component.measuredMinWidth;
             if(widthToResize > 0) {
@@ -755,9 +724,7 @@
                         }
                      }
                   }
-                  
-                  
-                  
+
                   if (mostConnectedControl.visible && mostConnectedText.visible) {
                      resizableItems += 1;
                      resizableWidth += mostConnectedText.measuredMinWidth;                     
@@ -768,9 +735,7 @@
                      resizableWidth += pearlAddText.measuredMinWidth;
                      
                   }
-                  
-                  
-                  
+
                   for(i=0; i < createdItems.length; i++) {
                      itemView = createdItems[i] as NavBarItem;
                      if (itemView) {
@@ -973,9 +938,7 @@
          privateMask.setStyle("left", 22);
          }
          }*/
-         
-         
-         
+
          private function closeCreationWindowIfNeeded() : void {
             if (model.iconType == ICON_AVATAR) { 
                windowController.closeAnyCreationWindowOpen();
@@ -1105,11 +1068,7 @@
          private function rollOverHomeControl(value : Boolean) : void {
             homeImage.source = getHomeImageSource(value);
          }
-         
-         
-         
-         
-         
+
          private function onRollOverMostConnectedControl() : void {
             if( model.iconType != ICON_MOST_CONNECTED ) {
                rollOverMostConnectedControl(true);

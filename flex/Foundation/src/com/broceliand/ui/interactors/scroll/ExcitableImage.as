@@ -80,11 +80,6 @@ package com.broceliand.ui.interactors.scroll
             invalidateProperties();
          }
       }
-      
-      
-      
-      
-      
-      
+
    }
 }

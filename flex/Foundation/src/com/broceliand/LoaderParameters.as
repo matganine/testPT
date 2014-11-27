@@ -28,22 +28,22 @@ package com.broceliand
       
       private function init():void {
          _parameters = ApplicationManager.flexApplication.stage.loaderInfo.parameters;
-
+         
          if(_parameters) {
             setEmbedId(_parameters.embedId);
          }
-            
+         
          _isInitialized = true;         
       }
       
       public function isInPearltrees():Boolean {
          return (getParamValue("inPearltrees") == "true");
       }
-
+      
       public function getClientLang():String {
          return getParamValue("lang");
       }
-
+      
       public function getEmbedId():String {
          if(!_embedId) _embedId = getParamValue("embedId");
          return _embedId;
@@ -72,18 +72,16 @@ package com.broceliand
       
       private function getParamValue(param:String):String {
          Assert.assert(_isInitialized, "LoaderParameters is not initialized");
-
+         
          var value:String = null;
          
          if(!_parameters) {
             value = null;
          }
-         
+            
          else if(_parameters[param]) {
             value = _parameters[param];
          }
-         
-         
          else {
             for(var key:String in _parameters) {               
                if(key.indexOf(param) != -1) {

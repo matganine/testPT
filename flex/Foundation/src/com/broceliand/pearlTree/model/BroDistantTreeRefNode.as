@@ -8,11 +8,7 @@ package com.broceliand.pearlTree.model
    {
       
       private var _treeOwnership:BroTreeOwnership;
-      
-      
-      
-      
-      
+
       public function BroDistantTreeRefNode(tree:BroPearlTree, user:User=null)
       {
          super(tree.dbId, tree.id);
@@ -38,20 +34,7 @@ package com.broceliand.pearlTree.model
       public function get user():User {
          return _treeOwnership.association.preferredUser;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       override public function set refTree(o:BroPearlTree):void {
          _treeOwnership = TreeOwnershipFactory.getInstance().setTreeOwnership(o, o.getMyAssociation());
          super.refTree = o;

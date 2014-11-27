@@ -94,11 +94,7 @@ package com.broceliand.ui.interactors
          if(!renderer || !renderer.vnode || !renderer.vnode.view) {
             return;
          }
-         
-         
-         
-         
-         
+
          _interactorManager.pearlTreeViewer.pearlRendererStateManager.relaxPearlRenderer(renderer, true);
          renderer.pearl.moveRingOutPearl();
       }			

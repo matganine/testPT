@@ -15,9 +15,7 @@ package com.broceliand.pearlTree.navigation.impl
       
       public function TunnelUrlNavigation(tunelModel:TunnelNavigationModel)
       {
-         
-         
-         
+
       }
       public function saveState():Object {
          return makeState();

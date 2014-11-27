@@ -184,10 +184,6 @@ package com.broceliand.graphLayout.controller
                   nodesToProcess.push(child.vnode);
                }
             }
-            
-            
-            
-            
          } 
          if (m!=null) {
             m.addEventListener(TweenEvent.TWEEN_UPDATE, redrawEdgesOnTweenUpdate);
@@ -200,8 +196,5 @@ package com.broceliand.graphLayout.controller
       public function redrawEdgesOnTweenUpdate(event:Event=null):void {
          _vgraph.refresh();
       }
-      
-      
-      
    }
 }

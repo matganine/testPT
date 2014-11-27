@@ -15,8 +15,6 @@ package com.broceliand.graphLayout.visual
       function get isExcited():Boolean;
       function get distanceToClosestBrother():Number;      
       function set distanceToClosestBrother(value:Number):void;
-      
-      
-      
+
    }
 }

@@ -9,9 +9,7 @@ package com.broceliand.graphLayout.model
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    
    public class PTRootNode extends PTNode{
-      
-      
-      
+
       private var _containedPearlTreeModel:IPearlTreeModel;
       
       
@@ -78,9 +76,7 @@ package com.broceliand.graphLayout.model
          displayModel.onTreeGraphBuilt(targetNode);
       }
       public function setBusinessNode(node:BroPTNode):void {
-         
-         
-         
+
          if (_businessNode!= node) {
             if (_businessNode) {
                _businessNode.graphNode = null;

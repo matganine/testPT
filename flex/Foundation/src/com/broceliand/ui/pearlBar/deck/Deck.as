@@ -61,9 +61,7 @@ package com.broceliand.ui.pearlBar.deck {
          this.setStyle("backgroundColor",0xFFFFFF);
          this.setStyle("backgroundAlpha",0);
       }
-      
-      
-      
+
       protected function get model():DeckModel {
          return _model as DeckModel;
       }
@@ -91,9 +89,7 @@ package com.broceliand.ui.pearlBar.deck {
          invalidateSize();
          invalidateDisplayList();
       }
-      
-      
-      
+
       override protected function createChildren():void {
          super.createChildren();
          
@@ -195,10 +191,7 @@ package com.broceliand.ui.pearlBar.deck {
             }
          }
       }
-      
-      
-      
-      
+
       private function refreshNodesPosition(deckGlobalPosition:Point):void {
          if(model.isScollEffectPlaying) return;
          
@@ -241,9 +234,7 @@ package com.broceliand.ui.pearlBar.deck {
                if(!nodeView) continue;
                
                if(nodeView.getScale() != PEARL_SCALE && !model.repositionWithEffect) continue;            
-               
-               
-               
+
                var navButtonSpace:Number = (model.isNavButtonVisible)?NAV_BUTTON_WIDTH:0;
                nodeX = 20 + navButtonSpace + extraPaddingLeft + deckGlobalPosition.x + i * nodeWidth; 
                nodeY = deckGlobalPosition.y + 2;
@@ -393,11 +384,7 @@ package com.broceliand.ui.pearlBar.deck {
          var filter:DropShadowFilter = new DropShadowFilter(distance,angle,color,alpha,blurX,blurY,strength,quality,inner,knockout);
          return [filter];
       }
-      
-      
-      
-      
-      
+
       private function onClickNextPageButton(event:Event):void {
          if(!model.isScollEffectPlaying) {
             model.goToNextPage();

@@ -11,8 +11,6 @@ function ControlVersion()
 	var axo;
 	var e;
 
-	
-
 	try {
 		
 		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
@@ -25,12 +23,7 @@ function ControlVersion()
 		try {
 			
 			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
-			
-			
-			
-			
-			
-			
+
 			version = "WIN 6,0,21,0";
 
 			

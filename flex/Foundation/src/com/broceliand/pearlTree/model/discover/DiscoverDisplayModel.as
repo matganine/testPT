@@ -277,9 +277,7 @@ package com.broceliand.pearlTree.model.discover
       
       
       private function shouldFillHexagonsWithSpeed(speed:Point, centerRef:Point):Array{
-         
-         
-         
+
          if (speed.length == 0) {
             speed = null;
          }
@@ -357,11 +355,7 @@ package com.broceliand.pearlTree.model.discover
             return;
          if (!_toLoadHexagons.length)
             return;
-         
-         
-         
-         
-         
+
          var neighbourHexs:Dictionary = new Dictionary();
          
          
@@ -454,9 +448,7 @@ package com.broceliand.pearlTree.model.discover
          }
          return false;
       }
-      
-      
-      
+
       public function addHexesTowardsPoint(x:int, y:int):void {
          var mainHex:SpatialHex = getTreeHexUnderPoint(x,y); 
          var mainCenter:Point = new Point(mainHex.centerX, mainHex.centerY);
@@ -612,60 +604,7 @@ package com.broceliand.pearlTree.model.discover
             }
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
    }
    
 }

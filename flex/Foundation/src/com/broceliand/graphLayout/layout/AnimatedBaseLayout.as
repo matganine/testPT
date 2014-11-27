@@ -48,10 +48,7 @@ package com.broceliand.graphLayout.layout {
       
       private var _currentDrawing:BaseLayoutDrawing;
       
-      
-      
       public function AnimatedBaseLayout(vg:IVisualGraph = null):void {
-         
          super(vg);
          _animInProgress = false;
       }
@@ -74,9 +71,7 @@ package com.broceliand.graphLayout.layout {
          /* also set in the super class */
          super.currentDrawing = dr;
       }
-      
-      
-      
+
       protected function set animationType(type:int):void {
          _animationType = type;
       }
@@ -124,10 +119,6 @@ package com.broceliand.graphLayout.layout {
          
          /* make sure the edges are redrawn */
          _layoutChanged = true;
-         
-         
-         
-         
          /* check if we ran out of anim cycles, but are not finished */
          if (cyclefinished) {
             
@@ -310,10 +301,7 @@ package com.broceliand.graphLayout.layout {
             vn.x = stepPoint.x;
             vn.y = stepPoint.y;
             
-            
             vn.orientAngle = Geometry.rad2deg(Geometry.normaliseAngle(Geometry.deg2rad(_currentDrawing.getPolarPhi(vn.node))));
-            
-            
             /* commit, i.e. move the node */
             vn.commit();
          }
@@ -326,7 +314,6 @@ package com.broceliand.graphLayout.layout {
          var vn:IVisualNode;
          var n:INode;
          var targetPoint:Point;
-         
          
          /* careful for invisible nodes, the values are not
          * calculated (obviously), so we need to make sure
@@ -365,9 +352,7 @@ package com.broceliand.graphLayout.layout {
             
             vn.orientAngle = Geometry.rad2deg(Geometry.normaliseAngle(Geometry.deg2rad(_currentDrawing.getPolarPhi(vn.node))));
             var tr:TitleRenderer = (vn as IPTVisualNode).pearlView.titleRenderer; 
-            
-            
-            
+
          }
          return true;
       }
@@ -389,21 +374,15 @@ package com.broceliand.graphLayout.layout {
          * timing interval and the current signed animation step */
          factorinput = _ANIMATIONTIMINGINTERVALSIZE * (signedAnimStep / _ANIMATIONSTEPS);            
          
-         
-         
          /* calculate the timing factor using the atan() function
          * since we take the absolute value, 
          * its range goes from PI / 2 to 0 back to PI / 2 */
          factor = Math.abs(Math.atan(factorinput));
          
-         
-         
          /* now the delay for our timer is now the factors fraction
          * of PI/2 times the maximum timer delay, i.e. the full timer
          * delay if the factor has a value of PI / 2 */
          timerdelay = (factor / (Math.PI / 2)) * _MAXANIMTIMERDELAY;
-         
-         
          
          /* now creating the new timer with the specified delay
          * and ask for one execution, then the event handler will be
@@ -419,7 +398,6 @@ package com.broceliand.graphLayout.layout {
          }
          _animTimer.start();
       }
-      
       
       private function animTimerFired(event:TimerEvent = null):void {
          

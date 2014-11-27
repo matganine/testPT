@@ -35,9 +35,7 @@
          private var _lastEdgeData:EdgeData;
          private var _disappearOnNextAction:Boolean = false;
          private var _ignoreNextNavigationEvent:Boolean;
-         
-         
-         
+
          private var _showPrivateTree:Boolean = false;
          [Bindable]
          private var line1:String;
@@ -77,9 +75,7 @@
          }
          override protected function createChildren():void {
             super.createChildren();
-            
-            
-            
+
          }
          
          private function hideOnEvent(event:Event):void {

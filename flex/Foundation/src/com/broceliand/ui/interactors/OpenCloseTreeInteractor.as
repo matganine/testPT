@@ -123,16 +123,7 @@ package com.broceliand.ui.interactors
          var model:IPearlTreeModel = rootNode.containedPearlTreeModel;
          var navmodel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
          var selectedTree:BroPearlTree = model.businessTree;
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          if(((model.openingState == OpeningState.CLOSED) || (model.openingState == OpeningState.CLOSING)) && !rootNode.isDocked) {
             var selectionModel:SelectionModel = ApplicationManager.getInstance().visualModel.selectionModel;
             selectionModel.saveCrossingBusinessNode(node);

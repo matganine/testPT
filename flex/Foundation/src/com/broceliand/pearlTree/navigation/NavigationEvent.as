@@ -96,9 +96,7 @@ package com.broceliand.pearlTree.navigation
       {
          return _isEndPearl;
       }
-      
-      
-      
+
       public function set newPearlWindowPreferredState (value:Number):void
       {
          _newPearlWindowPreferredState = value;

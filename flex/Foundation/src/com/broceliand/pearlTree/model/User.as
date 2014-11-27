@@ -7,9 +7,7 @@ package com.broceliand.pearlTree.model {
    import flash.events.EventDispatcher;
    
    import mx.events.FlexEvent;
-   
-   
-   
+
    public class User extends EventDispatcher {
       private var _association:BroAssociation;
       private var _name:String;

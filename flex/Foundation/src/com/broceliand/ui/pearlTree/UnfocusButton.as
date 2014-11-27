@@ -160,11 +160,7 @@ package com.broceliand.ui.pearlTree
          _centerPoint.y = y + height/2;
          return _centerPoint;
       }
-      
-      
-      
-      
-      
+
    }
    
 }

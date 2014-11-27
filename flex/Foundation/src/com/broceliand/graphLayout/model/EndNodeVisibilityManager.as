@@ -93,35 +93,7 @@ package com.broceliand.graphLayout.model
             }
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function computeEndNodeVisibilityInStaticMode(node:EndNode):void {
          var focusTree:BroPearlTree = ApplicationManager.getInstance().visualModel.navigationModel.getFocusedTree();
          var rootNode:PTRootNode = node.rootNodeOfMyTree as PTRootNode;

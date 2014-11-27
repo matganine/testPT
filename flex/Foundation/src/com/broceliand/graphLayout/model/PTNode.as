@@ -135,14 +135,7 @@ package com.broceliand.graphLayout.model
             
          }
          return deducedRootNode;
-         
-         
-         
-         
-         
-         
-         
-         
+
       }
       
       public function get parent():IPTNode {
@@ -251,9 +244,7 @@ package com.broceliand.graphLayout.model
       override public function set vnode(v:IVisualNode):void {
          super.vnode = v;
          if(isDocked && pearlVnode) {
-            
-            
-            
+
             pearlVnode.pearlView.setScale(Deck.PEARL_SCALE);
             
          }

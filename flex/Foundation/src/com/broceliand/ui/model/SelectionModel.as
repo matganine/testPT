@@ -515,9 +515,7 @@ internal class CenterGraphWithTimer {
       
       
       if (!_withAnimation) {
-         
-         
-         
+
          if (new Point(deltaX, deltaY).length > 100) {
             var position:Dictionary = vgraph.PTLayouter.computeLayoutPositionOnly();
             vgraph.scroll(deltaX, deltaY);

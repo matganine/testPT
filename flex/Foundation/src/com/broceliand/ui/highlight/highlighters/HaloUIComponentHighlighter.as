@@ -5,9 +5,7 @@ package com.broceliand.ui.highlight.highlighters {
    import flash.filters.DropShadowFilter;
    
    import mx.core.UIComponent;
-   
-   
-   
+
    public class HaloUIComponentHighlighter extends UIComponentsHighlighter  {
       
       public function HaloUIComponentHighlighter(highlightCommand:String, targetComponents:Array) {

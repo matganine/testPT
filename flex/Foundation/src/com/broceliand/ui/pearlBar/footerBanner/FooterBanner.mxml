@@ -50,9 +50,7 @@
          private var modelChanged:Boolean;
          private var _currentState:uint = FooterBannerModel.STATE_DEFAULT;
          private var _isPlayingBannerEffect:Boolean;
-         
-         
-         
+
          public function get bannerModel():FooterBannerModel {
             return model;
          }
@@ -80,9 +78,7 @@
             invalidateDisplayList();
             invalidateSize();
          }
-         
-         
-         
+
          override protected function commitProperties():void {
             super.commitProperties();
             visible = includeInLayout = model.isVisible;
@@ -131,13 +127,7 @@
                      message.text = BroLocale.getInstance().getText('footer.banner.message.onePearl');
                   }
                }
-               
-               
-               
-               
-               
-               
-               
+
                updateTextPosition();
                _currentState = model.state;
             }
@@ -156,28 +146,7 @@
                setStyle('left', getBannerLeftPosition());
                
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
          }
          
          private function onCreationComplete():void {
@@ -208,21 +177,7 @@
                am.components.pearlTreeViewer.vgraph.controls.invalidateDisplayList();
             }
          }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          public function getTextFilters():Array{
             return NavBar.getNavBarTextFilters(NavBar.FILTERS_NOT_OVER);
          }
@@ -231,37 +186,10 @@
          }
          
          private function getBannerLeftPosition():Number {
-            
-            
-            
-            
-            
+
             return 0;
          }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          private function onClickJoinButton():void {
             ApplicationManager.getInstance().menuActions.signUp();
          }

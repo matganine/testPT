@@ -109,9 +109,7 @@ package com.broceliand.util.resources
             return ResourceStatus.UNKOWN_STATUS;
          }
       } 
-      
-      
-      
+
       protected function freeRemoteResourceFromCache(url:String):void{
          delete _loadedResources[url];
       }
@@ -157,10 +155,7 @@ package com.broceliand.util.resources
             }
             delete _loader2CallbacksArray[loader];
             var result:Object = loader.data;
-            
-            
-            
-            
+
             if(isSuccess) {
                _loadedResources[url] = result;
             }

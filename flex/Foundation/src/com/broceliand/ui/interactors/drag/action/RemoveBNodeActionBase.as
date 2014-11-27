@@ -23,9 +23,7 @@ package com.broceliand.ui.interactors.drag.action
       private   var _originChildNodes:Array;
       protected var _pearltreeViewer:IPearlTreeViewer;      
       protected var _isValidAction:Boolean=true;
-      
-      
-      
+
       public function RemoveBNodeActionBase(pearltreeViewer:IPearlTreeViewer, ptNode:IPTNode, parentNode:BroPTNode= null, originalIndex:int = -1, originChildNodes:Array = null)
       {
          if (ptNode==null || !ptNode.getBusinessNode()) {
@@ -112,40 +110,7 @@ package com.broceliand.ui.interactors.drag.action
          }
          
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function moveFirstChildrenOneUp(removedNode:IPTNode, newParentBNode:BroPTNode, insertionIndex:int):void {
          var editionController:IPearlTreeEditionController = _pearltreeViewer.pearlTreeEditionController;
          var endNodeToReposition:EndNode = null;        

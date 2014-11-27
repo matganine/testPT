@@ -35,9 +35,7 @@ package com.broceliand.ui.pearl
       function addChild(child:DisplayObject):DisplayObject;
       function get titleRenderer():TitleRenderer;
       function set titleRenderer(value:TitleRenderer):void;
-      
-      
-      
+
       function set senderInfo(value:String):void;
       function get senderInfo():String;
       function forbidMove(value:Boolean):void;
@@ -68,9 +66,7 @@ package com.broceliand.ui.pearl
       function isCreationCompleted():Boolean;
       function restoreInitialState():void;
       function markHasNotificationsForNewLabel(value:Boolean):void;
-      
-      
-      
+
       function setScale(value:Number):void;
       function getScale():Number;
       
@@ -81,14 +77,7 @@ package com.broceliand.ui.pearl
       function get positionWithoutZoom():Point;
       function moveWithoutZoomOffset(toX:Number, toY:Number):void;
       function isNewLabelVisible():Boolean;
-      
-      
-      
-      
-      
-      
-      
-      
+
       function showPadlock(isActive:Boolean, isTeam:Boolean):void;
       function hidePadlock():void;
    }

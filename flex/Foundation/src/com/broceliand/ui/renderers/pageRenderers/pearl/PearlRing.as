@@ -135,18 +135,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
                alpha = _pearl.parent.alpha;
             }
             if (hasRings()) {
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
+
                updatePosition();
             }
             
@@ -165,18 +154,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             }
             var offsetX:Number = 0;
             var offsetY:Number = 0;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             move(p.x - p2.x + offsetX, p.y- p2.y + offsetY);
             _positionChanged = false;
          }

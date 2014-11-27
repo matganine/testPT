@@ -69,8 +69,6 @@ package com.broceliand.util.flexWorkaround
          _lastMousePoint = null;
          _lastObject = null;
       }
-      
-      
-      
+
    }
 }

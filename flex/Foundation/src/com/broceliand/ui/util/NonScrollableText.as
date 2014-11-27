@@ -36,10 +36,7 @@ package com.broceliand.ui.util {
             textField.selectable = pSelectable;
          }
          else {
-            
-            
-            
-            
+
             callLater(function(pSelectable:Boolean):void {
                textField.selectable = pSelectable;
             }, [pSelectable]);

@@ -199,8 +199,6 @@ package com.broceliand.graphLayout.controller
          
       }
       
-      
-      
       private function focusZoomInStep2(ev:Event):void{
          _vgraph.currentRootVNode = _focusedVNode;
          if (ev) {
@@ -227,9 +225,6 @@ package com.broceliand.graphLayout.controller
             
             openTreeModel.closeAllTees();   
          }
-         
-         
-         
          if (shouldPerformLayout) {
             _vgraph.layouter.addEventListener(PTLayouterBase.EVENT_LAYOUT_FINISHED, focusZoomInStep3);
             if (IPTNode(focusNode).isRendererInScreen()) {

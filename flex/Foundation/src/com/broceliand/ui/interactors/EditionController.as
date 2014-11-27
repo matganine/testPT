@@ -35,9 +35,7 @@ package com.broceliand.ui.interactors{
       
       public function EditionController(sm:SelectionModel, keyboardListener:PTKeyboardListener) {
          _selectionModel= sm;
-         
-         
-         
+
       }
       
       private function getControls():IGraphControls {

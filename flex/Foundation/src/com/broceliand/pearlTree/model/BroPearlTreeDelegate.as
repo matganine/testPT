@@ -2,9 +2,7 @@ package com.broceliand.pearlTree.model
 {
    import com.broceliand.pearlTree.model.notification.TreeNotification;
    import com.broceliand.pearlTree.model.treeEdito.TreeEdito;
-   
-   
-   
+
    public class BroPearlTreeDelegate extends BroPearlTree
    {
       private var _delegate:BroPearlTree;
@@ -17,9 +15,7 @@ package com.broceliand.pearlTree.model
          treeHierarchyNode.isAlias = true;
          
       }
-      
-      
-      
+
       override internal function get cachedValues ():HierarchicalTreeCachedValues
       {
          if (_delegate) {
@@ -44,9 +40,7 @@ package com.broceliand.pearlTree.model
       override public function set notifications(value:TreeNotification):void{
          _delegate.notifications=value;
       }
-      
-      
-      
+
       override public function get rank():int{
          return _delegate.rank;
       }
@@ -118,25 +112,7 @@ package com.broceliand.pearlTree.model
       override public function set hasEdito(value:Boolean):void {
          _delegate.hasEdito = value;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       override public function set owner(association:BroAssociation):void{
          _delegate.owner= association;
       }
@@ -303,19 +279,4 @@ package com.broceliand.pearlTree.model
       }
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -85,10 +85,7 @@ package com.broceliand.ui.interactors.drag
          if (!_hasMoved) {
             detachBranch();
             IPTVisualGraph(draggedVNode.vgraph).endNodeVisibilityManager.editMode =true;
-            
-            
-            
-            
+
          }
       }
       private function tryDetachPearl(event:TimerEvent):void{
@@ -112,12 +109,7 @@ package com.broceliand.ui.interactors.drag
             var animationProcess:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
             setTemporaryLinksVisible(false);
             _hasMoved = true;
-            
-            
-            
-            
-            
-            
+
          }
          _endNodeDetachmentManager.onDetachDraggedPearlFromTree();
       }
@@ -139,10 +131,7 @@ package com.broceliand.ui.interactors.drag
          afterTreeClosed();
          
       }
-      
-      
-      
-      
+
       public function detachBranch():void {
          
          _interactorManager.selectInteractor.commitPendingSelection();

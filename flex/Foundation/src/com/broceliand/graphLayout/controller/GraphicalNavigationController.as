@@ -779,10 +779,7 @@ package com.broceliand.graphLayout.controller
             }
          }
          var windowController:IWindowController = am.components.windowController;
-         
-         
-         
-         
+
          if (pwState<0) {
             pwState =-pwState; 
          }
@@ -1023,8 +1020,6 @@ internal class Request implements IAction {
       return msg;
       
    }
-   
-   
 }
 internal class InternalSynchronizeRequest extends Request {
    public var synchroRequest:SynchronizationRequest;

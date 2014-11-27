@@ -114,15 +114,9 @@ package com.broceliand.graphLayout.model
          cancelLinkToLastNode();
          
          removeTemporaryLinks();
-         
-         
-         
-         
-         
+
          tempAtachEndNodes();
-         
-         
-         
+
       }
       public function restoreVisualGraphModificationAfterLayout():void {
          restoreLinkToLastNode();
@@ -131,9 +125,7 @@ package com.broceliand.graphLayout.model
          tempDetachEndNodes();
          restoreTmpLastNode();
          restoreDetachedChildren();
-         
-         
-         
+
       }
       private function removeTemporaryLinks():void {
          if (_tempParent != null) {
@@ -150,14 +142,7 @@ package com.broceliand.graphLayout.model
             if (orignalParentVNode) {
                _vgraph.linkNodesAtIndex(orignalParentVNode , _draggedVNode, _originalNodeIndex);
             }
-            
-            
-            
-            
-            
-            
-            
-            
+
          }
       }
       private function restoreTemporaryLinks():void {
@@ -182,9 +167,7 @@ package com.broceliand.graphLayout.model
             }
             
             var parentEndNode:EndNode =_detachedEndVnodesParents[i].node as EndNode;
-            
-            
-            
+
             var parentVnode :IVisualNode = checkDisappearedLeftNode(_detachedEndVnodesParents[i]); 
             if (parentVnode && !_detachedEndVnodes[i].node.isEnded()) {
                _vgraph.linkNodes(parentVnode,_detachedEndVnodes[i]);
@@ -207,29 +190,7 @@ package com.broceliand.graphLayout.model
             _detachedEndVnodesParents[index] = newParentOfDeachedEndNode;
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       private function tempDetachEndNodes():void {
          for (var i:int=0; i<_detachedEndVnodes.length; i++) {
             detachEndNode(_detachedEndVnodes[i]);

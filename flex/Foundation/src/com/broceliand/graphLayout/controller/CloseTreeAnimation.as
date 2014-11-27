@@ -198,12 +198,6 @@ package com.broceliand.graphLayout.controller
                nodesConnectedToEndNodeByTree[t] = changeGraphForComputeNodes(t.visualRootOfTheClosedTree, t.endVNode, edgeDataOfEndNodeByTree[t]);
             }
          }
-         
-         
-         
-         
-         
-         
          nodesPositions = _vgraph.PTLayouter.computeLayoutPositionOnly();
          
          if (_fixedVNode && _fixedVNode.view && nodesPositions[_fixedVNode]) {

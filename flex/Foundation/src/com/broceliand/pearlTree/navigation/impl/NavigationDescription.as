@@ -54,9 +54,7 @@ package com.broceliand.pearlTree.navigation.impl
          navDesc._searchUserOnly = false;
          return navDesc;  
       }
-      
-      
-      
+
       public static function searchInMyAccount(keyword:String, userId:int):NavigationDescription {
          var navDesc:NavigationDescription = search(keyword);
          navDesc._userId = userId;
@@ -159,12 +157,7 @@ package com.broceliand.pearlTree.navigation.impl
          }
          return navDesc;
       }
-      
-      
-      
-      
-      
-      
+
       public function withIntersection(intersection:int):NavigationDescription {
          _onIntersection = intersection;
          return this;

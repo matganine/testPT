@@ -149,8 +149,7 @@ package com.broceliand.ui.interactors
          } else if (_selectedPanel == PWModel.TEAM_FREEZE_MEMBER_PANEL) {
             wc.displayOrHideFreezeTeamMember(_node, false);
          } else if (_selectedPanel == PWModel.TEAM_NOTIFICATION_PANEL) {
-            
-            
+
          } else {
             if (wc.toUndockPWImediatelyForAnonymousUser() || !_notForAnonymous || !ApplicationManager.getInstance().currentUser.isAnonymous()) {
                wc.displayNodeInfo(_node, false, _undockPearlWindow);   

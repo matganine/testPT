@@ -186,12 +186,6 @@ package com.broceliand.graphLayout.controller
       }
       
       private function closeAllTrees(editionController:IPearlTreeEditionController):void {
-         
-         
-         
-         
-         
-         
       }
       
       private function onEnterFrame(event:Event):void {

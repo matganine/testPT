@@ -5,11 +5,7 @@ package com.broceliand.pearlTree.navigation.impl
    import com.broceliand.pearlTree.model.BroPTNode;
    import com.broceliand.pearlTree.model.BroPearlTree;
    import com.broceliand.pearlTree.model.User;
-   
-   
-   
-   
-   
+
    public class PermaLinkBuilder
    {
       private static const ROOT_URL:String = ApplicationManager.getInstance().getWebSiteUrl();

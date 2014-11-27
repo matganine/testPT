@@ -88,11 +88,7 @@ package com.broceliand.ui.navBar {
             dispatchChangeEvent();
          }
       }
-      
-      
-      
-      
-      
+
       public function performItemAction(item:NavBarModelItem):void {
          if(_isDiscoverMode) {
             displayOrHideRelatedInfoWindow();

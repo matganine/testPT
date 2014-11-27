@@ -78,9 +78,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
       }
       
       private function checkChildCountOnMove(targetNode:BroPTNode, movedNode:BroPTNode):Boolean {
-         
-         
-         
+
          return true;
       }
       

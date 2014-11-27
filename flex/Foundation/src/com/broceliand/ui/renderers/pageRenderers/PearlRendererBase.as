@@ -30,9 +30,7 @@ package com.broceliand.ui.renderers.pageRenderers{
    
    import mx.controls.Image;
    import mx.core.UIComponent;
-   
-   
-   
+
    public class PearlRendererBase extends PageRendererBase  {
       
       
@@ -49,9 +47,7 @@ package com.broceliand.ui.renderers.pageRenderers{
       private var _movNotifier:MoveNotifier;
       private var _hideTitleToDisplayInfo:Boolean = false;
       private var _zoomEffectToggler:EffectToggler;
-      
-      
-      
+
       protected var _showHaloExternal:Boolean = false;
       private var _haloChangedExternal:Boolean = false;
       
@@ -88,9 +84,7 @@ package com.broceliand.ui.renderers.pageRenderers{
       public function relax():void{
          pearl.unwarm();
       }
-      
-      
-      
+
       protected function instanciatePearl():void{
          throw new Error("instanciatePearl not implemented");
       }
@@ -363,11 +357,7 @@ package com.broceliand.ui.renderers.pageRenderers{
             
             
          }
-         
-         
-         
-         
-         
+
       }
       public function hideTitleToDisplayInfo(hide:Boolean):void {
          if (_hideTitleToDisplayInfo != hide) {

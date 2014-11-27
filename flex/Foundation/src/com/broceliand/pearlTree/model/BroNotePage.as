@@ -1,6 +1,5 @@
 package com.broceliand.pearlTree.model {
-   
-   
+
    public class BroNotePage extends BroPage {
       
       private var _noteText : String = null;

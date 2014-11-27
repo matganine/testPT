@@ -10,9 +10,7 @@ package com.broceliand.ui.pearlBar.deck {
    
    
    public interface IDeckModel extends IEventDispatcher, IHighlightable {
-      
-      
-      
+
       function addItem(value:DeckItem):void;
       
       function dockCopyBroPTNode(businessNode:BroPTNode, effectSource:Point=null, node:IPTNode=null):IPTNode;   

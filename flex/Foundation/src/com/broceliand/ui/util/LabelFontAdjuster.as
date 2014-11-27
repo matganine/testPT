@@ -21,10 +21,7 @@ package com.broceliand.ui.util
             _label.setStyle("fontSize", _labelFontSize);
          }
       }
-      
-      
-      
-      
+
       public function adjustSize(maxWidth:int):void {
          var mustCheckFontSize:Boolean =false;
          var startSize:Number = _labelFontSize;

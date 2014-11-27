@@ -7,9 +7,7 @@ package com.broceliand.graphLayout.model
       protected var _weight:Number = 1;
       protected var _temporary:Boolean = false;
       private var _highlighted:Boolean = false;;
-      
-      
-      
+
       public function get temporary():Boolean {
          return _temporary;
       }

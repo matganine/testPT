@@ -60,9 +60,7 @@ package com.broceliand.util.resources
       override protected function urlLoadCompleted(event:Event, isSuccess:Boolean = true, errorCode:int = -1):void{
          var loader:URLLoader = URLLoader(event.target);
          var url:String = getUrlFromLoader(loader);
-         
-         
-         
+
          if(!isSuccess) {
             var mloader:MonitorableUrlLoader = _loader2MULoader[loader];
             if (mloader.isForPreloadingOnly) {

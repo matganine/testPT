@@ -66,11 +66,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl {
          }
          return PearlAssets.COEDIT_NORMAL;
       }
-      
-      
-      
-      
-      
+
       override protected function getForegroundSelectedAsset():Class {
          
          return AssetsManager.getEmbededAsset(PearlAssets.TREE_FOREGROUND_SELECTED_PNG);

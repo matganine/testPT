@@ -22,9 +22,7 @@ package com.broceliand.ui.interactors
          _selectionModel = selectionModel; 
          
       }
-      
-      
-      
+
       public function closeFocusSubTrees():Boolean {
          var bnode:BroPTNode =_selectionModel.getSelectedNode().getBusinessNode();
          var  openSubTree:Boolean = hasSubTreeToClose();

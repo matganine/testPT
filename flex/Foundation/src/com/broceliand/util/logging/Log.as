@@ -67,9 +67,7 @@ package com.broceliand.util.logging
                if (categoryMatchInFilterList(i, filters))
                   target.addLogger(ILogger(_loggers[i]));
             }
-            
-            
-            
+
             _targets.push(target);
             
             if (_targetLevel == NONE)
@@ -124,9 +122,7 @@ package com.broceliand.util.logging
          checkCategory(category);
          if (!_loggers)
             _loggers = [];
-         
-         
-         
+
          var result:BroLogger= _loggers[category];
          if (result == null)
          {
@@ -521,9 +517,7 @@ package com.broceliand.util.logging
             case WindowController.DELETION_RECOVERY_WINDOW: return "DELETION_RECOVERY_WINDOW";
             case WindowController.EVENT_PROMO_WINDOW:       return "EVENT_PROMO_WINDOW";
             case WindowController.CLEAR_DROPZONE_WINDOW:    return "CLEAR_DROPZONE_WINDOW";
-               
-               
-               
+
             case WindowController.BIG_ACTION_WINDOW:    return "BIG_ACTION_WINDOW";
          }
          return "WindowControllerConstName: Unknown type " + t;

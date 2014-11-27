@@ -95,9 +95,7 @@
             ToolTipManager.toolTipClass = PTGenericTooltip;
             ToolTipManager.showDelay = PTGenericTooltip.TOOLTIP_SHOW_DELAY;
             am.enableTooltip = false;
-            
-            
-            
+
             am.styleManager.applyDefaultStyles();
             setStyle('color', ColorPalette.getInstance().pearltreesColor);
             setStyle('backgroundColor', ColorPalette.getInstance().backgroundColor);

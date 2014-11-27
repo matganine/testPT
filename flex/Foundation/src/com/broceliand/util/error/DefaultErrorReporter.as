@@ -12,10 +12,7 @@ package com.broceliand.util.error
       private var _hasBlockerError:Boolean =false;
       
       public function DefaultErrorReporter() {
-         
-         
-         
-         
+
       }
       
       public function onError(errorType:int, ...context):void {

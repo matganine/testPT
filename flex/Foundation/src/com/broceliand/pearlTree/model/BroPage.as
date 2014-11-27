@@ -15,9 +15,7 @@ package com.broceliand.pearlTree.model {
    
    import flash.events.Event;
    import flash.utils.ByteArray;
-   
-   
-   
+
    public class BroPage {
       
       public static const PREVIEW_ORIGIN:uint = 100;
@@ -69,8 +67,7 @@ package com.broceliand.pearlTree.model {
       
       public function BroPage() {
       }
-      
-      
+
       private function cloneBroPage() : BroPage {
          var broNotePage : BroNotePage = this as BroNotePage;
          if (broNotePage) {
@@ -485,9 +482,7 @@ package com.broceliand.pearlTree.model {
       public function get previewHash():ByteArray {
          return _previewHash;
       }
-      
-      
-      
+
       public function get logoUrl():String {
          if(!_logoUrl) {
             _logoUrl = createLogoUrl();
@@ -509,9 +504,7 @@ package com.broceliand.pearlTree.model {
             logoType = LogoManager.TEMPORARY_TYPE;
             return LogoManager.getTemporaryLogoUrl(this);
          } 
-         
-         
-         
+
          
          var h:String = getUsedLogoHashHex();         
          var typeSuffix:String ;
@@ -807,7 +800,6 @@ package com.broceliand.pearlTree.model {
       
    }
 }
-
 
 import com.broceliand.ApplicationManager;
 import com.broceliand.pearlTree.io.LazyValueAccessor;

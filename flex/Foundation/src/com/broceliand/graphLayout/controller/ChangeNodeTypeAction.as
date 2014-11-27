@@ -98,16 +98,6 @@ package com.broceliand.graphLayout.controller
             _oldIPTNode.vnode.vgraph.removeNode(_oldIPTNode.vnode);
          }
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
    }
 }

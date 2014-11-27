@@ -97,11 +97,7 @@ package com.broceliand.ui.interactors.drag
             navModel.goTo(nextFocusTree.getAssociationId(), userId, nextFocusTree.id, nextFocusTree.id, -2);
             return;
          }
-         
-         
-         
-         
-         
+
          ApplicationManager.getInstance().visualModel.navigationModel.goTo(tree.getAssociationId(), userId, tree.id, tree.id, -2);  
          
          

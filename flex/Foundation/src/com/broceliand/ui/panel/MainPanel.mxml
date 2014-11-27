@@ -100,9 +100,7 @@
               horizontalScrollPolicy="off" verticalScrollPolicy="off" />
    
    <mx:UIComponent id="borderContainer" visible="false" includeInLayout="false" />
-   
-   
-   
+
    <mx:Script>
       <![CDATA[
          import com.broceliand.ApplicationManager;
@@ -604,11 +602,7 @@
          }
          
          public function addFacePileBackgroundIfNeeded(component:UIComponent):void {
-            
-            
-            
-            
-            
+
          }
          
          public function removeFacepileBackground():void {

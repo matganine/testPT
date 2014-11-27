@@ -22,9 +22,7 @@ package com.broceliand.ui.renderers
       private var _lastY:Number;
       private var _lastAlpha:Number;
       private var _lastWidth:Number;
-      
-      
-      
+
       public function MoveNotifier(uiComponent:UIComponent=null)
       {
          if (uiComponent) {
@@ -38,11 +36,7 @@ package com.broceliand.ui.renderers
          _vgraph = ApplicationManager.getInstance().components.pearlTreeViewer.vgraph; 
       }
       public function end():void {
-         
-         
-         
-         
-         
+
          _listeners = new Array();
       }
       public function addMoveListener(update:IRepositionable):void {
@@ -69,13 +63,7 @@ package com.broceliand.ui.renderers
             if (!_vgraph.isSilentReposition()) {
                reposition();
             } 
-            
-            
-            
-            
-            
-            
-            
+
          }
       }
       public function onAlphaChange(event:Event=null):void {

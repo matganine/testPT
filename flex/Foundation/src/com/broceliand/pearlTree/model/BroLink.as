@@ -1,9 +1,6 @@
 package com.broceliand.pearlTree.model{
    import com.broceliand.util.Assert;
-   
-   
-   
-   
+
    public class BroLink{
       private var _fromPTNode:BroPTNode;
       private var _toPTNode:BroPTNode;

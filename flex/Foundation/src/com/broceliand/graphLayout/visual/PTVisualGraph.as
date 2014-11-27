@@ -200,9 +200,7 @@ package com.broceliand.graphLayout.visual
          
          return vnode;
       }
-      
-      
-      
+
       override public function get itemRenderer():IFactory {
          throw new Error("don't use this, use one of the others!");
       }
@@ -392,9 +390,7 @@ package com.broceliand.graphLayout.visual
          * has been pushed to the far bottom right, and the height and width
          * are negative */
          result = new Rectangle(999999, 999999, -999999, -999999);
-         
-         
-         
+
          /* if there are no children at all, there may be something
          * wrong as it should at least contain the drawing surface */
          if(children.length == 0) {
@@ -524,25 +520,7 @@ package com.broceliand.graphLayout.visual
          if (im.draggedPearl) {
             im.draggedPearl.dispatchEvent(new Event(MoveNotifier.FORCE_REPOSITION_NOW_EVENT));
          }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          /* adjust the current origin of the canvas
          * (not 100% sure if this is a good idea but seems
          * to work) XXX */
@@ -558,9 +536,7 @@ package com.broceliand.graphLayout.visual
          var pearlRenderer:IUIPearl = PearlBase.getPearlRendererUnderPoint(point);
          var titleRenderer:TitleRenderer = TitleRenderer.getTitleRendererUnderPoint(point);
          var cursorIsOverAControl:Boolean = controls.isPointOverAControl(point);
-         
-         
-         
+
          if(titleRenderer && titleRenderer.editable){
             return;
          }
@@ -593,15 +569,11 @@ package com.broceliand.graphLayout.visual
       
       public function dragNodeBegin(renderer:UIComponent, event:MouseEvent):void{
          _draggedNodeRenderer = renderer; 
-         
-         
-         
+
          var ecomponent:UIComponent;
          var evnode:IVisualNode;
          var pt:Point;
-         
-         
-         
+
          /* if there is an animation in progress, we ignore
          * the drag attempt */
          if(_layouter && _layouter.animInProgress) {
@@ -618,17 +590,13 @@ package com.broceliand.graphLayout.visual
             evnode = _viewToVNodeMap[ecomponent];
             
             /* stop propagation to prevent a concurrent backgroundDrag */
-            
-            
-            
+
             if(evnode != null) {
                if(!dragLockCenter) {
                   
                   pt = ecomponent.localToGlobal(new Point(ecomponent.mouseX, ecomponent.mouseY));
                } else {
-                  
-                  
-                  
+
                   pt = ecomponent.localToGlobal(new Point(0,0));
                }
                
@@ -841,9 +809,7 @@ package com.broceliand.graphLayout.visual
                ve = e.vedge;
             }
          }
-         
-         
-         
+
          /* this changes the layout, so we have to do a full redraw */
          
          /* just refresh the edges */
@@ -939,9 +905,7 @@ package com.broceliand.graphLayout.visual
       protected function handleDragOverriden(event:MouseEvent):void {
          var myvnode:IVisualNode;
          var sp:UIComponent;
-         
-         
-         
+
          /* we set our Component to be the saved
          * dragComponent, because we cannot access it
          * through the event. */
@@ -960,9 +924,7 @@ package com.broceliand.graphLayout.visual
             /* update the coordinates with the current
             * event's stage coordinates (i.e. current mouse position),
             * modified by the lock-center offset */
-            
-            
-            
+
             sp.move(event.stageX / scaleX - _drag_x_offsetMap[sp] , event.stageY / scaleY - _drag_y_offsetMap[sp]);
             
             /* bounds code, currently unused 
