@@ -230,8 +230,7 @@ package com.broceliand.graphLayout.controller {
          var i:int=0;
          
          setRightToOpenInNewTab(_optionNotAnonymousAndHome[i++], pearlRenderer);
-         
-         
+
          updateShowDetailTitle(_optionNotAnonymousAndHome[i]);
          _optionNotAnonymousAndHome[i++].enabled = true;
          var isCurrentUserRoot:Boolean = contextMenuNode.isTopRoot ;
@@ -252,16 +251,14 @@ package com.broceliand.graphLayout.controller {
          _optionNotAnonymousAndHome[i++].enabled = userHasRightToEditNodeTitle(contextMenuNode);
          return ;
       }
-      
-      
+
       private function userHasRightToEditNodeTitle(node:IPTNode):Boolean{
          if (node && node.getBusinessNode()) {
             return node.getBusinessNode().isTitleEditable();
          }
          return false;
       }
-      
-      
+
       private function isDocked(pearlRenderer:IUIPearl):Boolean{
          return pearlRenderer.pearl.node.isDocked;
       }
@@ -379,8 +376,7 @@ package com.broceliand.graphLayout.controller {
       
       private function isIE10Metro():Boolean {
          var am:ApplicationManager = ApplicationManager.getInstance();
-         
-         
+
          return (am.getOS() == ApplicationManager.OS_NAME_WINDOWS && am.getOSVersion() == "8" && am.getBrowserName() == ApplicationManager.BROWSER_NAME_MSIE);
       }
       
@@ -398,8 +394,7 @@ package com.broceliand.graphLayout.controller {
          _optionNotAnonymousAndHome = [cmiNewTab, cmiDetail, cmiCopy, cmiMove, cmiDelete, _optionNotAnonymousAndHomeRename];
          
       }
-      
-      
+
       private function changePearlSelection(pearlRenderer:IUIPearl):void {
          if (pearlRenderer) {
             var selectedNode:IPTNode = getSelectionModel().getSelectedNode() as IPTNode;

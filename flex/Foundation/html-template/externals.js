@@ -59,7 +59,6 @@ function updateFirefoxAddon(addonTitle, addonURL, addonIcon) {
       openWindow(addonURL, "_top");
    }
 
-
 }
 
 function callPearlbarCommand(commandName, param) {
@@ -87,12 +86,10 @@ function notifyNewAccountCreated(userId) {
    
    if(self.location.hostname == "www.pearltrees.com") {
 
-      
       if(pingbackUrl) {
          (new Image).src = pingbackUrl+"&userId="+userId;
       }
 
-      
       if(_gaq) {
          _gaq.push(['_setAllowAnchor', true]);
          _gaq.push(['_trackPageview']);
@@ -100,7 +97,6 @@ function notifyNewAccountCreated(userId) {
       }
    }
 
-   
    if(piwikTracker) {
       var pearltreesPingBackUrl = pkBaseURL+"piwik.php?url=" +
       encodeURIComponent(getServicesUrl()+"piwik/logAccountCreated/"+self.location.search) +
@@ -328,7 +324,6 @@ function loadIFrame(frameID, iframeID, url) {
       }
    }
 
-   
    if(typeof piwikTracker != "undefined") {
       (new Image).src = pkBaseURL+"piwik.php?url=" +
       encodeURIComponent(window.location) + "&action_name=" + encodeURIComponent(title) + "&idsite=" + pkSite + "&title=" +
@@ -495,7 +490,6 @@ function isMonitoredPopupClosed() {
    }
 }
 
-
 function waitForPopupClose() {
    if (isMonitoredPopupClosed()) {
       monitoredPopup = null;
@@ -513,7 +507,6 @@ function waitForPopupClose() {
 function getMonitoredPopupAnswer() {
    return monitoredPopupAnswer;
 }
-
 
 function getCenteredCoords(width, height) {
    var parentSize = this.getWindowInnerSize();
@@ -549,7 +542,6 @@ function getWindowInnerSize() {
    return [width, height];
 }
 
-
 function getParentCoords() {
    var width = 0;
    var height = 0;
@@ -564,7 +556,6 @@ function getParentCoords() {
    }
    return [width, height];
 }
-
 
 function isBrowserMSIE() { return (getBrowserName() == 'Explorer') }
 function isBrowserFirefoxOnMac() { return ( (getBrowserName() == 'Firefox') && (BrowserDetect.OS == "Mac") ) }
@@ -621,7 +612,6 @@ function openFacepileSolidBackground(z_index, _top, _left, _width, _height) {
    var myStaticContentUrl = getStaticContentUrl();
 
    var url = getStaticContentUrl() + "flash/solidBackground-ffffff.swf"; 
-   
 
    var styleString  = styleFacePile(z_index, _top, _left, _width, _height);
 
@@ -719,7 +709,6 @@ function openFacepile(z_index, banner_width, offset_x, offset_y, _width, _height
 
   };
 
-  
   function loadFacebookSdk(d){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
      if (d.getElementById(id)) {return;}
@@ -815,7 +804,6 @@ function downloadURL(url) {
     iframe.src = url;
 };
 
-
 function isFileApiSupported() {
    return (window.File !== undefined
            && window.FileReader !== undefined 
@@ -833,7 +821,6 @@ function protectTabDuringUpload(message) {
 function unprotectTabAfterUpload() {
    window.onbeforeunload = onApplicationExit;
 }
-
 
 var UploadHelper = (function () {
     function UploadHelper() {
@@ -917,7 +904,6 @@ var Uploader = (function () {
         this.sizeFilesSentComplete += this.getCurrentBatchFiles()[this.lastFileSentPosition].size;
         this.sizeCurrentFileSent = 0;
 
-        
         var mainApp = getMainApplication();
         if (mainApp) {
             mainApp.notifyUploadFileComplete(this.lastFileSentPosition, this.lastBatchSentPosition + 1);

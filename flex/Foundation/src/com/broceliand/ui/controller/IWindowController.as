@@ -18,8 +18,7 @@ package com.broceliand.ui.controller {
    import flash.events.EventDispatcher;
    import flash.events.IEventDispatcher;
    import flash.geom.Rectangle;
-   
-   
+
    public interface IWindowController extends IEventDispatcher {
       
       /*function openInstallPearlerWindow():void;
@@ -75,8 +74,7 @@ package com.broceliand.ui.controller {
       function isNewPearltreeWindowOpen():Boolean;
       function isAnyCreationWindowOpen() : Boolean;
       function closeAnyCreationWindowOpen() : void;
-      
-      
+
       function openNotificationWindow():void;
       function closeNotificationWindow():void;
       function isNotificationWindowOpen():Boolean;
@@ -135,8 +133,7 @@ package com.broceliand.ui.controller {
       function isPointOverWindow(x:Number, y:Number):Boolean;
       function isPointOverNotificationWindow(x:Number, y:Number):Boolean;
       function isPointOverMenuWindow(x:Number, y:Number):Boolean;
-      
-      
+
       function setAllWindowBackward(value:Boolean):void;
       function setNotificationWindowBackward(value:Boolean):void;
       
@@ -176,20 +173,17 @@ package com.broceliand.ui.controller {
       function displayTeamAcceptInvitation(node:IPTNode=null, tree:BroPearlTree=null, waitEndOfAnimation:Boolean=false, undockPearlWindow:Boolean=false, invitationRequest:TeamRequest=null):void;
       function displayFacebookInvitationDefault(node:IPTNode=null):void;
       function displayFacebookInvitationTeamUp(node:IPTNode=null):void;
-      
-      
+
       function getPWPanelTypeDisplaying():uint;
 
       function getNodeDisplayed():IPTNode;
 
       function displaySaveTreeDialog(node:IPTNode):void;
-      
-      
+
       function displayRenamePearlDialog(node:IPTNode=null):void;
       
       function displayReorganizationPanel(rootNodeOfReorganizedTree:IPTNode, newOrganizationLevel:int):void;
-      
-      
+
       function setPearlWindowDocked(value:Boolean, effectSource:IPTNode=null, skipEffect:Boolean=false, selectedPanel:uint=0, showPearlWindow:Boolean=true, undockPearlWindowOnLeavePTW:Boolean=true):void;
       function isPearlWindowDocked():Boolean;
       function set isFirstOpenEffect(value:Boolean):void;

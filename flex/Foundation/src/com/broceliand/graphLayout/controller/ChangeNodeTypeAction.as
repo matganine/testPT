@@ -26,8 +26,7 @@ package com.broceliand.graphLayout.controller
       private var _oldIPTNode:IPTNode;
       private var _newNode:BroPTNode;
       private var _oldNode:BroPTNode;
-      
-      
+
       public function ChangeNodeTypeAction(ec:IPearlTreeEditionController, graphicalAnimationController:GraphicalNavigationController, 
                                            oldIPTNode:IPTNode, oldNode:BroPTNode, newNode:BroPTNode)
       {

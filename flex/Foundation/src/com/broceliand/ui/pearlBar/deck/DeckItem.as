@@ -3,8 +3,7 @@ package com.broceliand.ui.pearlBar.deck {
    import com.broceliand.graphLayout.controller.IPearlTreeEditionController;
    import com.broceliand.graphLayout.model.IPTNode;
    import com.broceliand.pearlTree.model.BroPTNode;
-   
-   
+
    public class DeckItem {
       
       private var _node:IPTNode;

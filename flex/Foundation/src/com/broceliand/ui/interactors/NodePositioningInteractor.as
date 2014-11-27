@@ -13,8 +13,7 @@ package com.broceliand.ui.interactors
    import flash.events.Event;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class NodePositioningInteractor
    {
       private var _interactorManager:InteractorManager = null;
@@ -115,7 +114,6 @@ import flash.events.Event;
 
 import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
 import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
 
 class UndockNodeAndSelectAfterLayoutAction implements IAction{
    protected var _interactorManager:InteractorManager;
@@ -245,6 +243,5 @@ class CreateEmptyTreeReplaceLastNodeAndSelectAfterLayoutAction extends CreateEmp
          cutAction.doIt();
       }  
    }
-   
-   
+
 }

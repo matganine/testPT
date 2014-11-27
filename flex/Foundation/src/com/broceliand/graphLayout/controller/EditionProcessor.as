@@ -134,8 +134,7 @@ package com.broceliand.graphLayout.controller
             shouldUpdateVisibility = changeNodesType(t.getChangeNodeTypes(), id2IptNodes) || shouldUpdateVisibility;
             t.performTreeHierarchyUpdates();
          }
-         
-         
+
          if (_userEdition.hierarchyUpdate) {
             _userEdition.hierarchyUpdate.updateSubTreeAssociationConsistency();
          }
@@ -165,8 +164,7 @@ package com.broceliand.graphLayout.controller
          }        
       }
       public function performPrivateStateChange(treeEdition:TreeEdition):void {
-         
-         
+
          var tree:BroPearlTree = treeEdition.tree;
          tree.changePrivacyState(!tree.isPrivate(), false, false);
          var node:IPTNode = tree.getRootNode().graphNode;
@@ -209,12 +207,10 @@ package com.broceliand.graphLayout.controller
             endAnimation(null);
             return;
          }
-         
-         
+
          var goToTree:BroPearlTree = getFirstVisibleTree();
          if (goToTree &&  goToTree != _graphRootNode.containedPearlTreeModel.businessTree) {
-            
-            
+
             var navManager:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
             navManager.goTo(goToTree.getMyAssociation().associationId,
                navManager.getSelectedUser().persistentId,
@@ -222,8 +218,7 @@ package com.broceliand.graphLayout.controller
          }
          _vgraph.layouter.addEventListener(PTLayouterBase.EVENT_LAYOUT_FINISHED, endAnimation);
          updateEdgeWeights();
-         
-         
+
          performSlowLayout();
       }
       public function performSlowLayout():void {
@@ -364,8 +359,7 @@ package com.broceliand.graphLayout.controller
          }
          return endNode;
       }
-      
-      
+
       private function linkAllNodes(t:TreeEdition, id2IptNodes:Dictionary, withGraphicUpdates:Boolean):Boolean {
          var nodeToHide:Array=null;
          var editions:Array = t.getOrderedEditions();
@@ -471,8 +465,7 @@ package com.broceliand.graphLayout.controller
          return null;
          
       }
-      
-      
+
       private function removeDockedNodesAndTryLostNodes():Boolean{
          var treeToDelete:Array;
          if (_nodesToRemoveFromGraph) {
@@ -532,8 +525,7 @@ package com.broceliand.graphLayout.controller
       private function unlinkGraphNodeFromParent(gnode:IPTNode):void {
          if (gnode) {
             if (gnode.isDocked) {
-               
-               
+
                gnode.undock();
                
             }
@@ -605,8 +597,7 @@ package com.broceliand.graphLayout.controller
                nodesToKeep[n] =n;
             }
          }
-         
-         
+
          for each (var node:IPTNode in _vgraph.graph.nodes) {
             if(!node.getDock() && nodesToKeep[node] == null) {
                nodes2Remove.push(node);
@@ -649,8 +640,7 @@ package com.broceliand.graphLayout.controller
                            if (!oldIPTNode.vnode.isVisible) {
                               continue;
                            } else {
-                              
-                              
+
                               endNodeToClose = PTRootNode(oldIPTNode).containedPearlTreeModel.endNode;
                            }
                            

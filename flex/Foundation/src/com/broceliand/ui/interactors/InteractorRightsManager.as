@@ -18,8 +18,7 @@ package com.broceliand.ui.interactors
    import com.broceliand.pearlTree.model.team.TeamRightManager;
    import com.broceliand.ui.model.NodeTitleModel;
    import com.broceliand.ui.window.IPTWindow;
-   
-   
+
    public class InteractorRightsManager
    {
 
@@ -91,20 +90,17 @@ package com.broceliand.ui.interactors
          }
          return User.areUsersSame(user, am.visualModel.navigationModel.getSelectedUser());
       }
-      
-      
+
       public function testBigTreeLimitation(potentialParentBNode:BroPTNode, potentialChildBNode:BroPTNode):int{
          if(!potentialParentBNode || !potentialChildBNode){
             
             return CODE_OK;
          }
-         
-         
+
          if(potentialChildBNode.parent == potentialParentBNode){
             return CODE_OK;
          }
-         
-         
+
          if(potentialChildBNode is BroPTRootNode){
             
             potentialChildBNode = potentialChildBNode.owner.refInParent;
@@ -131,8 +127,7 @@ package com.broceliand.ui.interactors
          
          return CODE_OK;
       }      
-      
-      
+
       public function userHasRightToMoveNode(node:IPTNode):Boolean{
          if (!node) {
             return false;
@@ -185,8 +180,7 @@ package com.broceliand.ui.interactors
 
          return true;
       }
-      
-      
+
       public function userHasRightToAddChildrenToNode(node:IPTNode):Boolean{
          if(!node){
             return false;

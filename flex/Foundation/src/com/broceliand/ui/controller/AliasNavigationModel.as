@@ -19,8 +19,7 @@ package com.broceliand.ui.controller {
       private var _aliasNavigations:Dictionary;
       private var _lastLocation:NavigationLocation;
       private var _lastFocusIdFromPTW:Number;
-      
-      
+
       public function AliasNavigationModel(navManager:NavigationManagerImpl) {
          _navManager = navManager;
          _aliasNavigations = new Dictionary();
@@ -56,8 +55,7 @@ package com.broceliand.ui.controller {
          }
          _lastFocusIdFromPTW = 0;
       }
-      
-      
+
       public function navigateThroughAlias(distantTreeRefNode:BroDistantTreeRefNode, node:IPTNode=null):void {
          if(distantTreeRefNode.refTree.isDeleted() || distantTreeRefNode.refTree.isHidden()) {
             return;
@@ -82,8 +80,7 @@ package com.broceliand.ui.controller {
          if (!isBackButtonEnabled()) {
             return;
          }
-         
-         
+
          if(fromNode) {   
             var lastLocation:NavigationLocation = NavigationLocation.makeAliasNavigation(toFocusTreeId, fromFocusTree, fromUser, fromNode.owner, fromNode, toPearlWindowPanel, revealState);
             _aliasNavigations[lastLocation.navigationKey] =  lastLocation;
@@ -93,13 +90,11 @@ package com.broceliand.ui.controller {
       public function get isBackFromAlias():Boolean {
          return _lastLocation != null;
       }
-      
-      
+
       private function saveAliasNavigation(event:NavigationEvent):void {
          declareNavigationWithBack(event.oldUser, event.oldFocusTree, event.oldSelectedPearl, event.newUser, event.newFocusTree.id);
       }
-      
-      
+
       private function saveSearchNavigation(event:NavigationEvent):void {
          var lastLocation:NavigationLocation = NavigationLocation.makeSearchNavigation(event.newFocusTree.id, event.oldSearchKeyword, event.oldSearchUserId, event.oldSearchUserOnly);
          _aliasNavigations[lastLocation.navigationKey] = lastLocation;

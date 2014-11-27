@@ -31,8 +31,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       private var _isTreeHidden:Boolean;
       private var _deletedMask:Image = null;
       private var _mustLoadAvatar:Boolean = true;
-      
-      
+
       protected var _avatarImage:RemoteImage = null;
       protected var _foregroundImage:Image = null;
       protected var _foregroundImageExcited:Image = null;
@@ -69,15 +68,13 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          if(!_node) {
             return;
          }
-         
-         
+
          if (_mustLoadAvatar) {
             _mustLoadAvatar = false;
             loadAvatars();
          }
       }
-      
-      
+
       override protected function createChildren():void{
          super.createChildren();
          if(_isTreeDeleted){
@@ -91,8 +88,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             addChild(_deletedMask);
          }
       }           
-      
-      
+
       override public function set showRings(value:Boolean):void {
          if(_isTreeDeleted || _isTreeHidden) {
             super.showRings = false;

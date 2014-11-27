@@ -181,8 +181,7 @@
                    fontFamily="{PTStyleManager.DEFAULT_FONT_FAMILY}"
                    />
       </mx:HBox>
-      
-      
+
       <mx:VBox height="100%"
                horizontalScrollPolicy="off"
                verticalScrollPolicy="off"
@@ -292,8 +291,7 @@
          public static const NAVBAR_HEIGHT:Number = 57;
          private static const TEXT_PADDING_TOP:int = 15;
          private static const EMPTY_MESSAGE_TOP:int = 47;
-         
-         
+
          public static const PEARLTREES_COLOR      : int = 0x505050;
          public static const PEARLTREES_DARK_COLOR : int = 0x009EE0;
          
@@ -317,8 +315,7 @@
          private var _isReadyToShow:Boolean;
          private const DEBUG : Boolean = false;
          private const FRAME_DEBUG : Boolean = false;
-         
-         
+
          private var am               : ApplicationManager = ApplicationManager.getInstance();
          private var spl              : StartPolicyLogger  = StartPolicyLogger.getInstance();
          private var navModel         : INavigationManager = am.visualModel.navigationModel;
@@ -370,8 +367,7 @@
             if (model.avatarTree.isTeamRoot()) return true; 
             return false;
          }
-         
-         
+
          private function showBackImage() : Boolean {
             if (model.iconType == ICON_SETTINGS) {
                return false;
@@ -407,8 +403,7 @@
                var isCoedited:Boolean = model.avatarTree.isTeamRoot();
                var isPrivate:Boolean = model.avatarTree.isPrivate();
                coeditMask.visible = coeditMask.includeInLayout = isCoedited;
-               
-               
+
                var newColor:uint = model.getPuzzleColor();
                if (newColor != _coeditFilterColor) {
                   _coeditFilterColor = newColor;
@@ -704,13 +699,11 @@
                
                var shouldResize:Boolean = (widthDiff > 0);
                var createdItems:Array = itemsContainer.getChildren();
-               
-               
+
                if(createdItems && createdItems.length > 0) {
                   var itemView:NavBarItem;
                   var itemModel:NavBarModelItem;
-                  
-                  
+
                   var resizableWidth:Number = 0;
                   var resizableItems:Number = 0;
                   for(var i:uint=0; i < createdItems.length; i++) {
@@ -744,8 +737,7 @@
                            if (DEBUG) componentName = "item " + (i+1) + "/" + createdItems.length;
                            resizeComponent(itemView, resizableWidth, widthDiff, shouldResize, componentName);
                         }
-                        
-                        
+
                         itemView.systemFontFamily = model.isTeamNameOrSearchResult;
                      }
                   }
@@ -803,8 +795,7 @@
             }
             am.avatarManager.addEventListener(FileUploadRequest.PROCESSING_COMPLETE_EVENT, onAvatarChange);
             am.currentUser.addEventListener(FlexEvent.INIT_COMPLETE, onModelChange);
-            
-            
+
             updatePaddingInterContainer();
             visible = includeInLayout = model && model.isVisible;
          }
@@ -868,8 +859,7 @@
                userAvatarImage.setStyle('left', 10);
             }
          }
-         
-         
+
          private function isInsideMyAccount() : Boolean {
             var targetTree : BroPearlTree = null;
             targetTree = navModel.getSelectedTree();
@@ -1103,8 +1093,7 @@
          private function onRollOverPearlAdd() : void {
             rollOverPearlAddContainer(true);
          }
-         
-         
+
          private function onRollOutPearlAdd() : void {
             rollOverPearlAddContainer(false);
          }
@@ -1181,13 +1170,11 @@
             
             return position;
          }
-         
-         
+
          public function enableAddPearlButton():void {
             pearlAddContainer.alpha = 1;
          }
-         
-         
+
          public function isPointOverNavBarLeftButtons(point:Point):Boolean {
             var buttonsRightLimit:Point = mostConnectedControl.localToGlobal(new Point(mostConnectedControl.width, mostConnectedControl.height));
             if (point.x < buttonsRightLimit.x + 15) {

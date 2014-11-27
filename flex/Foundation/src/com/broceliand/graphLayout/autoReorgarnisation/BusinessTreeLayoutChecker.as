@@ -20,8 +20,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          }
          _maxChildCountForNonRootNode = maxChildCountForNonRootNode;
       }
-      
-      
+
       public function isMoveAllowed(moveNode:IPTNode, targetNode:IPTNode, targetNodeIndex:int = -1):Boolean {
          var moveBNode:BroPTNode = moveNode.getBusinessNode();
          var targetBNode:BroPTNode = targetNode.getBusinessNode();
@@ -81,7 +80,6 @@ package com.broceliand.graphLayout.autoReorgarnisation
 
          return true;
       }
-      
-      
+
    }
 }

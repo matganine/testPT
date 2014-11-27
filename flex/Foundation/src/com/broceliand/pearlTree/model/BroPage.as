@@ -505,7 +505,6 @@ package com.broceliand.pearlTree.model {
             return LogoManager.getTemporaryLogoUrl(this);
          } 
 
-         
          var h:String = getUsedLogoHashHex();         
          var typeSuffix:String ;
          if (isNote() && (logoType != LogoManager.CUSTOM_TYPE || _logoHash== null)) {

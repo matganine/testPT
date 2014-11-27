@@ -25,8 +25,7 @@ package com.broceliand.util.logging
       private static var _targetLevel:int = NONE;
       private static var _loggers:Array;
       private static var _targets:Array = [];
-      
-      
+
       public static function isFatal():Boolean
       {
          return (_targetLevel <= LogEventLevel.FATAL) ? true : false;
@@ -36,14 +35,12 @@ package com.broceliand.util.logging
       {
          return (_targetLevel <= LogEventLevel.ERROR) ? true : false;
       }
-      
-      
+
       public static function isWarn():Boolean
       {
          return (_targetLevel <= LogEventLevel.WARN) ? true : false;
       }
-      
-      
+
       public static function isInfo():Boolean
       {
          return (_targetLevel <= LogEventLevel.INFO) ? true : false;
@@ -60,8 +57,7 @@ package com.broceliand.util.logging
          {
             var filters:Array = target.filters;
             var logger:ILogger;
-            
-            
+
             for (var i:String in _loggers)
             {
                if (categoryMatchInFilterList(i, filters))
@@ -129,8 +125,7 @@ package com.broceliand.util.logging
             result = new BroLogger(category);
             _loggers[category] = result;
          }
-         
-         
+
          var target:ILoggingTarget;
          for (var i:int = 0; i < _targets.length; i++)
          {
@@ -153,8 +148,7 @@ package com.broceliand.util.logging
       {
          return value.search(/[\[\]\~\$\^\&\\(\)\{\}\+\?\/=`!@#%,:;'"<>\s]/) != -1;
       }
-      
-      
+
       private static function categoryMatchInFilterList(category:String, filters:Array):Boolean
       {
          var filter:String;
@@ -162,8 +156,7 @@ package com.broceliand.util.logging
          for (var i:uint = 0; i < filters.length; i++)
          {
             filter = filters[i];
-            
-            
+
             index = filter.indexOf("*");
             
             if (index == 0)
@@ -358,8 +351,7 @@ package com.broceliand.util.logging
          }
          
       }
-      
-      
+
       public static function NotifStateName(t: int): String {
          switch (t) {
             case NotifState.UNREAD: return "UNREAD";
@@ -386,8 +378,7 @@ package com.broceliand.util.logging
          return "NotifClickName: Unknown type " + t;
          
       }
-      
-      
+
       public static function NotifPublicTypeName(t: int): String {
          switch (t) {
             case NotifPublicType.GENERIC:                        return "GENERIC";                         
@@ -410,8 +401,7 @@ package com.broceliand.util.logging
          }
          
       }
-      
-      
+
       public static function NotifTypeName(t: int): String {
          switch(t) {
             case NotifType.RESERVED_MARKER:                return "RESERVED_MARKER";                 
@@ -466,8 +456,7 @@ package com.broceliand.util.logging
             case PWModel.NOTE_PANEL:                  return "NOTE_PANEL";
             case PWModel.SHARE_PANEL:                 return "SHARE_PANEL";
             case PWModel.HELP_EMPTY_PANEL:            return "HELP_EMPTY_PANEL";
-               
-               
+
             case PWModel.MOVE_PANEL:                  return "MOVE_PANEL";
             case PWModel.MOVE_PRIVATE_PANEL:          return "MOVE_PRIVATE_PANEL";
             case PWModel.COPY_PANEL:                  return "COPY_PANEL";
@@ -523,8 +512,7 @@ package com.broceliand.util.logging
          return "WindowControllerConstName: Unknown type " + t;
          
       }
-      
-      
+
       public static function hashToString(o:Object) : String {
          var res      : String = "";
          var firstKey : Boolean = true;

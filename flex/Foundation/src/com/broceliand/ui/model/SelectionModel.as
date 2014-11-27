@@ -53,21 +53,18 @@ package com.broceliand.ui.model
       private var _isCentering:Boolean = false;
       
       private var _pendingSelection : IPTNode = null; 
-      
-      
+
       public function SelectionModel(navigationModel:INavigationManager) {
          _navigationManager = navigationModel;
          _navigationManager.addEventListener(NavigationEvent.NAVIGATION_EVENT, updateSelectionOnNavigation);
       }
-      
-      
+
       public function selectNode(node:IPTNode , intersection:int=-1, dontCheckChangeInSelection:Boolean=false):void{
          var am:ApplicationManager = ApplicationManager.getInstance();
          
          _nodeBeingSelected = node;
          _openingTree = null;
-         
-         
+
          var bnode:BroPTNode;
          if (node is EndNode) {
             node = EndNode(node).rootNodeOfMyTree;
@@ -75,11 +72,9 @@ package com.broceliand.ui.model
          if (node !=null) {
             bnode = node.getBusinessNode();   
          }
-         
-         
+
          if (node != null && node.isDocked) {
-            
-            
+
             if (node == _selectedNode) {
                _nodeSelectedTwice = true;
                dispatchEvent(new FlexEvent(NODE_SELECTED_TWICE_EVENT));
@@ -92,8 +87,7 @@ package com.broceliand.ui.model
             }
             return;
          }
-         
-         
+
          if ( isNodeMatchTheCurrentNavigation(node,intersection) || bnode is IBroPTWNode || bnode is BroNeighbourRootPearl) {
             if (node == _selectedNode && !dontCheckChangeInSelection) {
                if (node !=null) {
@@ -117,8 +111,7 @@ package com.broceliand.ui.model
             var user:User = _navigationManager.getSelectedUser();
             var focus:BroPearlTree = _navigationManager.getFocusedTree();
             var selectedTree:BroPearlTree=null; 
-            
-            
+
             if (bnode) {
                selectedTree = bnode.owner;
             }
@@ -302,11 +295,9 @@ package com.broceliand.ui.model
             };
             
          }
-         
-         
+
       } 
-      
-      
+
       public function getSelectedNode ():IPTNode
       {
          return _selectedNode;
@@ -419,8 +410,7 @@ package com.broceliand.ui.model
       public function set turnOffDisplayInfo(value:Boolean):void{
          _turnOffDisplayInfo = value;
       }
-      
-      
+
       public function get turnOffDisplayInfo():Boolean{
          return _turnOffDisplayInfo;
       }            
@@ -434,11 +424,9 @@ package com.broceliand.ui.model
       {
          _isCentering = value;
       }
-      
-      
+
    }
-   
-   
+
 }
 import com.broceliand.ApplicationManager;
 import com.broceliand.graphLayout.model.IPTNode;
@@ -461,7 +449,6 @@ import mx.events.EffectEvent;
 
 import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
 import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-
 
 internal class CenterGraphWithTimer {
    
@@ -512,8 +499,7 @@ internal class CenterGraphWithTimer {
       }
       var deltaX:Number = _centerPoint.x-point.x;
       var deltaY:Number = _centerPoint.y-point.y;
-      
-      
+
       if (!_withAnimation) {
 
          if (new Point(deltaX, deltaY).length > 100) {

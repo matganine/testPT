@@ -1,6 +1,5 @@
 package com.broceliand.ui.effects {
-   
-   
+
    import com.broceliand.util.externalServices.Facebook;
    
    import flash.events.Event;

@@ -26,8 +26,7 @@ package com.broceliand.ui.navBar {
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    
    public class NavBarModel extends EventDispatcher implements INavBarModel, IPearlTreeLoaderCallback {
-      
-      
+
       private var _items:Vector.<NavBarModelItem>;
       
       private var _selectedTreeItem:NavBarModelTreeItem;
@@ -47,8 +46,7 @@ package com.broceliand.ui.navBar {
       public static const ICON_WITHOUT_PEARLTREE_MODE:uint = 2;
       public static const ICON_AND_MOST_CONNECTED_WITHOUT_PEARLTREE_MODE:uint = 3;
       public static const WITHOUT_MOST_CONNECTED_MODE:uint = 4;
-      
-      
+
       private const AVERAGE_PIXEL_CHAR:int = 7;
       private const LOGOS_LENGTH_PIXEL:int = 95; 
       private const PEARLTREES_LENGTH:int = 75; 
@@ -66,8 +64,7 @@ package com.broceliand.ui.navBar {
          am.visualModel.applicationMessageBroadcaster.addEventListener(ApplicationMessageBroadcaster.WHITE_MARK_CHANGED_EVENT, onWhiteMarkEvent);
          forceViewRefresh();
       }
-      
-      
+
       private function computeCompactMode():uint{
          /* Compact mode pour utilisateur non loggué.
          Facepile est fixé à taille fixe, on calcule l'espace qu'il nous reste et on supprime les éléments en trop dans l'ordre suivant :
@@ -210,8 +207,7 @@ package com.broceliand.ui.navBar {
          var rootTree:BroPearlTree = null;
          if(focusedTree && focusedTree.getMyAssociation()) {
             var focusAssociation:BroAssociation = focusedTree.getMyAssociation();
-            
-            
+
             if(selectedTree && selectedTree.getMyAssociation() != focusAssociation) {
                rootTree = selectedTree.getMyAssociation().treeHierarchy.getTree(selectedTree.getMyAssociation().associationId);
             }
@@ -226,8 +222,7 @@ package com.broceliand.ui.navBar {
          else if(!rootTree) {
             return;
          }
-         
-         
+
          if((!_selectedTreeItem && selectedTree) || (_selectedTreeItem && _selectedTreeItem.tree != selectedTree) || forceViewToRefresh) {
             itemsChanged = true;
             if(!selectedTree) {
@@ -244,8 +239,7 @@ package com.broceliand.ui.navBar {
          if (_selectedTreeItem){
             newItems.push(_selectedTreeItem);
          }
-         
-         
+
          if(itemsChanged || forceViewToRefresh) {
             items = newItems;
             _treeListener.updateFollowedTrees(getTreesInNavBar());
@@ -292,8 +286,7 @@ package com.broceliand.ui.navBar {
          var rootTree:BroPearlTree = null;
          if(tree && tree.getMyAssociation()) {
             var focusAssociation:BroAssociation = tree.getMyAssociation();
-            
-            
+
             if(tree && tree.getMyAssociation() != focusAssociation) {
                rootTree = tree.getMyAssociation().treeHierarchy.getTree(tree.getMyAssociation().associationId);
             }
@@ -472,7 +465,6 @@ package com.broceliand.ui.navBar {
       {
          _isDisplayingTeamName = value;
       }
-      
-      
+
    }
 }

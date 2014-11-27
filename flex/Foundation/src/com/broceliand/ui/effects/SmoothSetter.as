@@ -52,8 +52,7 @@ package com.broceliand.ui.effects
       public function getValue():Number{
          return _tweenTargetCoeficient* _targetValue;
       }
-      
-      
+
       public function onTweenUpdate(value:Object):void {
          setCurrentValue(_tweenTargetCoeficient * (value as Number));
       }
@@ -74,7 +73,6 @@ package com.broceliand.ui.effects
       public function getTargetValue():Number {
          return _targetValue;
       }
-      
-      
+
    }
 }

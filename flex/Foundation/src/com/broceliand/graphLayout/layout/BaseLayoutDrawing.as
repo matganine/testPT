@@ -53,8 +53,7 @@ package com.broceliand.graphLayout.layout {
    
    import org.un.cava.birdeye.ravis.graphLayout.data.INode;
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class BaseLayoutDrawing	{
       
       /* we create a virtual origin, that is used as an offset
@@ -64,8 +63,7 @@ package com.broceliand.graphLayout.layout {
       /* this is the current center offset of the 
       * canvas, which can be applied as well */
       private var _centerOffset:Point;
-      
-      
+
       private var _scaleFactor:Number;
 
       private var _centeredLayout:Boolean = true;
@@ -84,8 +82,7 @@ package com.broceliand.graphLayout.layout {
       * in the current layout is valid or not
       */
       private var _nodeDataValid:Dictionary;
-      
-      
+
       public function BaseLayoutDrawing():void {
          
          _nodePolarRs = new Dictionary;
@@ -110,8 +107,7 @@ package com.broceliand.graphLayout.layout {
       public function set originOffset(o:Point):void {
          _originOffset = o;
       }
-      
-      
+
       [Bindable]
       public function get centerOffset():Point {
          return _centerOffset;
@@ -120,8 +116,7 @@ package com.broceliand.graphLayout.layout {
       public function set centerOffset(o:Point):void {
          _centerOffset = o;
       }
-      
-      
+
       [Bindable]
       public function get centeredLayout():Boolean {
          return _centeredLayout;
@@ -134,13 +129,11 @@ package com.broceliand.graphLayout.layout {
       public function nodeDataValid(n:INode):Boolean {
          return _nodeDataValid[n];
       }
-      
-      
+
       public function invalidateNodeData():void {
          _nodeDataValid = new Dictionary;
       }
-      
-      
+
       public function setPolarCoordinates(n:INode, polarR:Number, polarPhi:Number):void {
          
          /* we have to void NaN values */
@@ -157,8 +150,7 @@ package com.broceliand.graphLayout.layout {
 
          _nodeDataValid[n] = true;
       }
-      
-      
+
       public function setCartCoordinates(n:INode, p:Point):void {
          
          /*
@@ -178,18 +170,15 @@ package com.broceliand.graphLayout.layout {
          */
          _nodeDataValid[n] = true;
       }		
-      
-      
+
       public function getPolarR(n:INode):Number {
          return _nodePolarRs[n];
       }
-      
-      
+
       public function getPolarPhi(n:INode):Number {
          return _nodePolarPhis[n];
       }
-      
-      
+
       public function getRelCartCoordinates(n:INode):Point {
          
          /* these may not yet have been initialised
@@ -213,8 +202,7 @@ package com.broceliand.graphLayout.layout {
          }
          return c;
       }
-      
-      
+
       public function getAbsCartCoordinates(n:INode):Point {
          var res:Point;
          

@@ -9,14 +9,11 @@ package com.broceliand.util.flexWorkaround
    import mx.core.Application;
    import mx.events.BrowserChangeEvent;
    import mx.managers.IBrowserManager;
-   
-   
+
    [Event(name="urlChange", type="flash.events.Event")]
-   
-   
+
    [Event(name="browserURLChange", type="mx.events.BrowserChangeEvent")]
-   
-   
+
    [Event(name="applicationURLChange", type="mx.events.BrowserChangeEvent")]
 
    public class BrowserManagerImpl extends EventDispatcher implements IBrowserManager
@@ -98,8 +95,7 @@ package com.broceliand.util.flexWorkaround
          
          setup(defaultFragment, defaultTitle);
       }
-      
-      
+
       public function initForHistoryManager():void
       {
          setup("", "");
@@ -117,8 +113,7 @@ package com.broceliand.util.flexWorkaround
          if (!_url) {
             return;
          }
-         
-         
+
          var pos:int = _url.indexOf('#');
          if (pos == -1 || pos == _url.length - 1)
          {
@@ -139,12 +134,10 @@ package com.broceliand.util.flexWorkaround
                browserURLChange(_fragment, true);
          }
       }
-      
-      
+
       public function setFragment(value:String):void
       {
-         
-         
+
          var lastURL:String = _url;
          var lastFragment:String = _fragment;
          
@@ -163,8 +156,7 @@ package com.broceliand.util.flexWorkaround
             _url = lastURL;
          }
       }
-      
-      
+
       public function setTitle(value:String):void
       {
          if (!browserMode)

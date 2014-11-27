@@ -36,8 +36,7 @@ package com.broceliand.ui.pearlBar.footerBanner {
          _dropZoneModel = am.components.pearlTreeViewer.vgraph.controls.dropZoneDeckModel;
          isShowingPTW = am.visualModel.navigationModel.isShowingPearlTreesWorld();
          selectedTree = am.visualModel.navigationModel.getSelectedTree();
-         
-         
+
          am.visualModel.navigationModel.addEventListener(NavigationEvent.NAVIGATION_EVENT, onNavigationChange);
          am.accountManager.addEventListener(AccountManager.USER_LOGGED_IN_EVENT, onUserLogin);
          _dropZoneModel.addEventListener(DeckModel.MODEL_CHANGE, onDeckModelChange);

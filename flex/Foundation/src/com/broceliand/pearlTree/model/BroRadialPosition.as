@@ -1,8 +1,7 @@
 package com.broceliand.pearlTree.model
 {
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class BroRadialPosition
    {
       

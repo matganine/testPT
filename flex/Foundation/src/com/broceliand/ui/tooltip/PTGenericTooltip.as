@@ -9,8 +9,7 @@ package com.broceliand.ui.tooltip {
    import mx.controls.Label;
    import mx.core.IToolTip;
    import mx.core.UIComponent;
-   
-   
+
    public class PTGenericTooltip extends Canvas implements IToolTip {
       
       private var _background:UIComponent;
@@ -64,8 +63,7 @@ package com.broceliand.ui.tooltip {
          
          var newX:Number = mX - width + 4;
          var newY:Number = mY + 15;
-         
-         
+
          if (newX < 0) {
             newX = 0;
          }

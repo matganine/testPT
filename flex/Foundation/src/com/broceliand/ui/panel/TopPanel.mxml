@@ -42,8 +42,7 @@
          private var _wantToKnowMore:FaqDelegate;
          private var _mainPanel:MainPanel; 
          private static const TRACE_DEBUG:Boolean = false;
-         
-         
+
          private function onInitialize():void{
             var comps:ComponentsAccessPoint = ApplicationManager.getInstance().components;
             comps.topPanel = this;

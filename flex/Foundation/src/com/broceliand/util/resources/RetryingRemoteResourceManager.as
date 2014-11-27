@@ -11,8 +11,7 @@ package com.broceliand.util.resources
    import flash.utils.Timer;
    
    import mx.utils.StringUtil;
-   
-   
+
    public class RetryingRemoteResourceManager extends DisposingRemoteResourceManager implements IRetryingResourceManager
    {
       private static const DEBUG_TRACE:Boolean = false;
@@ -27,8 +26,7 @@ package com.broceliand.util.resources
       
       private var _timer2Url:Dictionary;
       private var _url2Timer:Dictionary;
-      
-      
+
       public function RetryingRemoteResourceManager(maxNumElements:uint = 50, numToFlushAtATime:uint = 20) {
          super(maxNumElements, numToFlushAtATime);
          _url2Timer = new Dictionary();

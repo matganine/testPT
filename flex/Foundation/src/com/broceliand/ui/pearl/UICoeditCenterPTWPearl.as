@@ -13,7 +13,6 @@ package com.broceliand.ui.pearl
       override protected function instanciatePearl():void {
          _pearl = new CoeditPTWPearl();
       }
-      
-      
+
    }
 }

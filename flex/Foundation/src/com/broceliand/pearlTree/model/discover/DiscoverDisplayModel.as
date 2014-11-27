@@ -22,8 +22,7 @@ package com.broceliand.pearlTree.model.discover
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.VisualGraph;
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class DiscoverDisplayModel
    {
       
@@ -144,8 +143,7 @@ package com.broceliand.pearlTree.model.discover
             }
          }
       }
-      
-      
+
       public function onBackgroundDragBegin():void {
          _originCenter = _vgraph.origin.clone();
          _lastCenterUpdate = _originCenter;
@@ -218,8 +216,7 @@ package com.broceliand.pearlTree.model.discover
                hexListToShow.push(hex);
             }
          }
-         
-         
+
       }
       private function addHexagonsToLoad():void {
          var center:Point = _lastCenterUpdate.clone();
@@ -248,8 +245,7 @@ package com.broceliand.pearlTree.model.discover
                      break;
                   }
                }
-               
-               
+
                if (!hexOnScreen){
                   for each ( hex in _toDisplayHexagons){
                      if (isTreeHexVisibleOnScreen(hex)) {
@@ -274,8 +270,7 @@ package com.broceliand.pearlTree.model.discover
             }
          }    
       }
-      
-      
+
       private function shouldFillHexagonsWithSpeed(speed:Point, centerRef:Point):Array{
 
          if (speed.length == 0) {
@@ -284,8 +279,7 @@ package com.broceliand.pearlTree.model.discover
          var missingHexes:Array = new Array();
          for each (var hex:SpatialHex in _neighbourHexagons){                
             if (isTreeHexToLoad(hex)){
-               
-               
+
                if (!speed || (speed.x * (hex.centerX - centerRef.x) + speed.y * (hex.centerY - centerRef.y )) >0) {
                   missingHexes.push(hex);
                   
@@ -357,8 +351,7 @@ package com.broceliand.pearlTree.model.discover
             return;
 
          var neighbourHexs:Dictionary = new Dictionary();
-         
-         
+
          var toLoadHexes:Vector.<SpatialHex> = new Vector.<SpatialHex>();
          
          var projectedSpeed:Point = projectSpeedOnMainAxis(_dragDistance);
@@ -422,8 +415,7 @@ package com.broceliand.pearlTree.model.discover
          }
          getLogger().debug("loadHexes: {0} ({1} still to load)", toLoadHexes, _toLoadHexagons.length);      
          _discoverModel.loadHexList(toLoadHexes, positionedTrees, _dragDistance.x, _dragDistance.y);
-         
-         
+
       } 
       
       public static function getDisplayDistance(hex:SpatialHex, speed:Point):Number{
@@ -470,8 +462,7 @@ package com.broceliand.pearlTree.model.discover
                   }
                }
             }
-            
-            
+
             if (minHex) {
                minDist = Math.sqrt(minDist);
                var nsteps:Number = minDist / (SpatialHex.EDGE_DISTANCE_Y * _vgraph.scale);
@@ -494,8 +485,7 @@ package com.broceliand.pearlTree.model.discover
                   _dragDistance.x = _dragDistance.x * normFactor;
                   _dragDistance.y = _dragDistance.y * normFactor;
                }
-               
-               
+
             }
             else{
                getLogger().warn("DiscoverDisplayModel::addHexesTowardsPoint() No hexes found");
@@ -504,8 +494,7 @@ package com.broceliand.pearlTree.model.discover
             updateNeighboursForNewHexagon(mainHex);
          }
       }
-      
-      
+
       public function getTreeHexUnderPoint(x:int, y:int):SpatialHex {
          var halfEdgeX:Number = SpatialHex.HALF_EDGE_X;
          var edgeDistanceY:Number = SpatialHex.EDGE_DISTANCE_Y;
@@ -513,13 +502,11 @@ package com.broceliand.pearlTree.model.discover
          var hexY:int = Math.floor((y + ((hexX & 1) != 0 ? 2 * edgeDistanceY : edgeDistanceY)) / (edgeDistanceY * 2));
          return _discoverModel.getHex(hexX, hexY, true);
       }
-      
-      
+
       public function displayCoordToLocalCoord(coord:Number, xCoordinate:Boolean):Number {
          return coord - (xCoordinate ? ( _vgraph.origin.x + _vgraph.width/2):(_vgraph.origin.y + _vgraph.height/2));
       }
-      
-      
+
       private function projectSpeedOnMainAxis(speed:Point, allocatedResult:Point = null):Point{
          if (!speed) {
             return new Point();
@@ -557,23 +544,20 @@ package com.broceliand.pearlTree.model.discover
          }
          var minDist:Number = Number.MAX_VALUE;
          var projectedSpeed:Point = projectSpeedOnMainAxis(_dragDistance);
-         
-         
+
          var minHex:SpatialHex = null;
          for each (var hex:SpatialHex in _toDisplayHexagons){            
             if (adjacent && !isHexAdjacentToDisplayedZone(hex)) {
                continue;
             }
             var dist:Number = getDisplayDistance(hex, projectedSpeed);
-            
-            
+
             if (dist < minDist){
                minDist = dist;
                minHex = hex;
             }                
          }    
-         
-         
+
          return minHex;
       }
       
@@ -584,8 +568,7 @@ package com.broceliand.pearlTree.model.discover
          }
          return hexToDisplay;
       }
-      
-      
+
       public function hasHexToShow():Boolean {
          for (var i:String in _toDisplayHexagons) {
             return true;

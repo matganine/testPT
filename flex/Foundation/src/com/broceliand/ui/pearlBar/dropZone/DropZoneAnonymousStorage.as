@@ -12,8 +12,7 @@ package com.broceliand.ui.pearlBar.dropZone {
    import flash.net.SharedObject;
    
    import mx.rpc.events.FaultEvent;
-   
-   
+
    public class DropZoneAnonymousStorage implements IAmfRetVoidCallback {
       
       private static var _instance:DropZoneAnonymousStorage;

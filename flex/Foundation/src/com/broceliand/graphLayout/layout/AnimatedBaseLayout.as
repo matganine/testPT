@@ -15,56 +15,43 @@ package com.broceliand.graphLayout.layout {
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.utils.Geometry;
    import org.un.cava.birdeye.ravis.utils.GraphicUtils;
-   
-   
+
    public class AnimatedBaseLayout extends BaseLayouter implements ILayoutAlgorithm {
-      
-      
+
       public const ANIM_RADIAL:int = 1;
-      
-      
+
       public const ANIM_STRAIGHT:int = 2;
-      
-      
+
       private const _ANIMATIONSTEPS:int = 50;
-      
-      
+
       private const _ANIMATIONTIMINGINTERVALSIZE:Number = 10; 
-      
-      
+
       private const _MAXANIMTIMERDELAY:int = 100;
-      
-      
+
       protected var _animInProgress:Boolean = false;
       
       private var _animationType:int = ANIM_RADIAL;
-      
-      
+
       private var _animStep:int; 
-      
-      
+
       private var _animTimer:Timer;
-      
-      
+
       private var _currentDrawing:BaseLayoutDrawing;
       
       public function AnimatedBaseLayout(vg:IVisualGraph = null):void {
          super(vg);
          _animInProgress = false;
       }
-      
-      
+
       override public function get animInProgress():Boolean {
          return _animInProgress;
       }
-      
-      
+
       override public function resetAll():void {
          super.resetAll();
          killTimer();
       }
-      
-      
+
       override protected function set currentDrawing(dr:BaseLayoutDrawing):void {
          _currentDrawing = dr;
          
@@ -75,8 +62,7 @@ package com.broceliand.graphLayout.layout {
       protected function set animationType(type:int):void {
          _animationType = type;
       }
-      
-      
+
       protected function killTimer():void {
          if(_animTimer != null) {
             
@@ -85,14 +71,12 @@ package com.broceliand.graphLayout.layout {
             
          }
       }
-      
-      
+
       protected function resetAnimation():void {
          /* reset animation cycle */
          _animStep = 0;
       }
-      
-      
+
       protected function startAnimation():void {
          var cyclefinished:Boolean;
          
@@ -132,8 +116,7 @@ package com.broceliand.graphLayout.layout {
             startAnimTimer();
          }
       }
-      
-      
+
       protected function interpolatePolarCoords():Boolean {
          var visVNodes:Dictionary;
          var vn:IVisualNode;
@@ -238,8 +221,7 @@ package com.broceliand.graphLayout.layout {
          }
          return cyclefinished;
       }
-      
-      
+
       protected function interpolateCartCoords():Boolean {
          var visVNodes:Dictionary;
          var vn:IVisualNode;
@@ -307,8 +289,7 @@ package com.broceliand.graphLayout.layout {
          }
          return cyclefinished;
       }
-      
-      
+
       protected function setCoords():Boolean {
          var visVNodes:Dictionary;
          var vn:IVisualNode;
@@ -325,8 +306,7 @@ package com.broceliand.graphLayout.layout {
             if(!vn.isVisible) {
                throw Error("received invisible vnode from list of visible vnodes");
             }
-            
-            
+
             n = vn.node;
             if((n is IPTNode) && ((n as IPTNode).getDock())){
                continue;
@@ -348,8 +328,7 @@ package com.broceliand.graphLayout.layout {
             
             /* commit, i.e. move the node */
             commitNode(vn);
-            
-            
+
             vn.orientAngle = Geometry.rad2deg(Geometry.normaliseAngle(Geometry.deg2rad(_currentDrawing.getPolarPhi(vn.node))));
             var tr:TitleRenderer = (vn as IPTVisualNode).pearlView.titleRenderer; 
 

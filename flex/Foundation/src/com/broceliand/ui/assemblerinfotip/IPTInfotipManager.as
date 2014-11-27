@@ -2,8 +2,7 @@ package com.broceliand.ui.assemblerinfotip {
    import com.broceliand.graphLayout.model.IPTNode;
    
    import flash.events.IEventDispatcher;
-   
-   
+
    public interface IPTInfotipManager extends IEventDispatcher {
       function clearMessage():void;
       function enterPearlWithNews(node:IPTNode):void;

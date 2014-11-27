@@ -15,8 +15,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
    import mx.core.IUIComponent;
    import mx.core.UIComponent;
    import mx.events.FlexEvent;
-   
-   
+
    public class PearlRing extends ColorRing implements IRepositionable, IScrollable{
       
       private var _pearl:PearlBase;
@@ -73,8 +72,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             reposition();
             
             validateNow();
-            
-            
+
          }
       }
       private function bindToComponent(view:IUIComponent):void {
@@ -177,8 +175,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
             _moveNotifier.removeMoveListener(this);
             _moveNotifier = null;
          }
-         
-         
+
       }
       override protected function get noteCount():Number{
          var count:Number = super.noteCount;

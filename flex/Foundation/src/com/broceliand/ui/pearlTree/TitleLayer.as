@@ -14,8 +14,7 @@ package com.broceliand.ui.pearlTree
       private var _titlesContainedAreEditable:Boolean;      
       private var _recycledTitles:Array = new Array();      
       private var _layerName:String; 
-      
-      
+
       private var _addChildCount:Number = 0;
       private var _removeChildCount:Number = 0;
       

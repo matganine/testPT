@@ -118,8 +118,7 @@ package com.broceliand.ui.model
          }
          
          vgraph.scale = value;
-         
-         
+
          if (!centerNode || !scrolled) {
             return;
          }

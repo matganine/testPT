@@ -57,7 +57,6 @@ package com.broceliand.ui.highlight.highlighters {
          ret.push(filter);
          return ret;
       }
-      
-      
+
    }
 }

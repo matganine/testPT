@@ -62,8 +62,7 @@ package com.broceliand.graphLayout.visual
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.graphLayout.visual.VisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.VisualGraph;
-   
-   
+
    public class PTVisualGraph extends VisualGraph implements IPTVisualGraph
    {
       private var _logger:BroLogger = Log.getLogger("com.broceliand.graphLayout.visual.PTVisualGraph");
@@ -145,13 +144,11 @@ package com.broceliand.graphLayout.visual
       
       override protected function createChildren():void{
          super.createChildren();
-         
-         
+
          newNodesDefaultVisible = true;
          addChild(_titleLayerNotDockedAbove);
          addChild(_graphControlLayer);
-         
-         
+
          addChild(_titleLayerDockedBelow);
          addChild(_titleLayerNotDockedTop);
          addChild(_titleLayerDockedAbove);
@@ -163,8 +160,7 @@ package com.broceliand.graphLayout.visual
       public function get ringLayer():UIComponent {
          return _ringLayer;
       }
-      
-      
+
       override protected function createVNode(n:INode):IVisualNode{
          
          var vnode:IVisualNode;
@@ -192,20 +188,17 @@ package com.broceliand.graphLayout.visual
          if(newNodesDefaultVisible) {
             setNodeVisibility(vnode, true);
          }
-         
-         
+
          /* add the node to the hash to keep track */
          _vnodes[vnode] = vnode;
-         
-         
+
          return vnode;
       }
 
       override public function get itemRenderer():IFactory {
          throw new Error("don't use this, use one of the others!");
       }
-      
-      
+
       override public function set itemRenderer(ifac:IFactory):void {
          throw new Error("don't use this, use one of the others!");
       }   
@@ -220,8 +213,7 @@ package com.broceliand.graphLayout.visual
       public function set pearlRendererFactories(value:PearlRendererFactories):void {
          _pearlRendererFactories = value;
       }
-      
-      
+
       override protected function createVNodeComponent(vn:IVisualNode):UIComponent {
          
          var mycomponent:UIComponent = null;
@@ -233,8 +225,7 @@ package com.broceliand.graphLayout.visual
          result = viewFactory.getView(VNode) as UIComponent;
          }
          */
-         
-         
+
          mycomponent = _pearlRendererFactories.createVNodeComponent(vn);
          (mycomponent as IUIPearl).setScale(scale);
          
@@ -285,8 +276,7 @@ package com.broceliand.graphLayout.visual
          invalidateDisplayList();
          return mycomponent;
       }
-      
-      
+
       override protected function createVEdge(e:IEdge):IVisualEdge {
          
          var vedge:IVisualEdge;
@@ -331,8 +321,7 @@ package com.broceliand.graphLayout.visual
                makeWeightEdgeComponent(vedge);   
             }
          }
-         
-         
+
          return vedge;
       }  
       
@@ -340,8 +329,7 @@ package com.broceliand.graphLayout.visual
          removeWeightEdgeComponent(ve);
          super.removeVEdge(ve);
       }
-      
-      
+
       private function makeWeightEdgeComponent(vedge:IVisualEdge):WeightEdgeComponent{
          var wec:WeightEdgeComponent ;
          var isNew:Boolean =false;
@@ -366,12 +354,10 @@ package com.broceliand.graphLayout.visual
             _drawingSurface.removeChild(component);
             component.end();
             _recycledEdges.push(component);
-            
-            
+
          }
       }
-      
-      
+
       override public function calcNodesBoundingBox():Rectangle {
          
          var children:Array;
@@ -417,8 +403,7 @@ package com.broceliand.graphLayout.visual
          for(var i:int = 0;i < children.length; ++i) {
             
             var view:UIComponent = (children[i] as UIComponent);
-            
-            
+
             /* only consider currently visible views */
             if(view.visible) {
                if((view != _drawingSurface) &&
@@ -490,32 +475,25 @@ package com.broceliand.graphLayout.visual
          }
          
          _isScrolling = true;
-         
-         
+
          /* we walk through all children of the canvas, which
          * are not the drawing surface and which are UIComponents
          * (they should be all node views) and move them according
          * to the scroll offset */
          scrollLayer(_canvas, deltaX, deltaY);
-         
-         
+
          scrollLayer(_ringLayer, deltaX, deltaY);
-         
-         
+
          scrollLayer(_titleLayerNotDockedTop, deltaX, deltaY);
          scrollLayer(_titleLayerNotDockedAbove, deltaX, deltaY);
          scrollLayer(_titleLayerNotDockedBelow, deltaX, deltaY);
-         
-         
+
          scrollLayer(_drawingSurface, deltaX, deltaY);
-         
-         
+
          scrollLayer(_graphControlLayer.getAddOnLayer(), deltaX, deltaY);
-         
-         
+
          _isScrolling = false;
-         
-         
+
          var im:InteractorManager = ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager;
          if (im.draggedPearl) {
             im.draggedPearl.dispatchEvent(new Event(MoveNotifier.FORCE_REPOSITION_NOW_EVENT));
@@ -525,11 +503,9 @@ package com.broceliand.graphLayout.visual
          * (not 100% sure if this is a good idea but seems
          * to work) XXX */
          offsetOrigin(deltaX,deltaY);
-         
-         
+
       }
-      
-      
+
       private function onMouseDown(event:MouseEvent):void{
          var point:Point = new Point(event.stageX, event.stageY);
          
@@ -563,8 +539,7 @@ package com.broceliand.graphLayout.visual
                backgroundDragBegin(event);
             }
          } 
-         
-         
+
       }
       
       public function dragNodeBegin(renderer:UIComponent, event:MouseEvent):void{
@@ -583,8 +558,7 @@ package com.broceliand.graphLayout.visual
          
          /* make sure we get the right component */
          if(renderer) {
-            
-            
+
             ecomponent = renderer;
             /* get the associated VNode of the view */
             evnode = _viewToVNodeMap[ecomponent];
@@ -623,11 +597,9 @@ package com.broceliand.graphLayout.visual
                * drop event. 
                */
                _dragComponent = ecomponent;
-               
-               
+
                /* also register a drop event listener */
-               
-               
+
                /* and inform the layouter about the dragEvent */
                _layouter.dragEvent(event, evnode);
             } else {
@@ -640,22 +612,19 @@ package com.broceliand.graphLayout.visual
       }
       
       override protected function dragBegin(event:MouseEvent):void {
-         
-         
+
       }
       public function dragEndEventSafe(event:Event):void {
          dragEnd(event as MouseEvent);
       }
       
       override protected function backgroundDragBegin(event:MouseEvent):void {
-         
-         
+
          if(backgroundDragEnabled ) {
             controls.scrollControl.setForceShowControls(true);
             _backgroundDragBox = calcNodesBoundingBox(); 
             super.backgroundDragBegin(event);
-            
-            
+
             _canvas.stage.addEventListener(Event.MOUSE_LEAVE, dragEndEventSafe);
             ApplicationManager.flexApplication.systemManager.addEventListener(MouseEvent.MOUSE_UP, dragEnd);
             
@@ -683,8 +652,7 @@ package com.broceliand.graphLayout.visual
             _graphControlLayer.width = unscaledWidth;
             _graphControlLayer.height = unscaledHeight;
          }
-         
-         
+
       }
       public function ensureDragEnd(event:MouseEvent):void {
          dragEnd(event);
@@ -727,8 +695,7 @@ package com.broceliand.graphLayout.visual
             
             /* unregister event handler */              
             myback.removeEventListener(MouseEvent.MOUSE_MOVE,backgroundDragContinue);
-            
-            
+
             /* and inform the layouter about the dropEvent */
             if(_layouter) {
                _layouter.bgDropEvent(event);
@@ -749,8 +716,7 @@ package com.broceliand.graphLayout.visual
             }
             
             /* remove the event listeners */
-            
-            
+
             if (mycomp.stage != null)
             {
                mycomp.stage.removeEventListener(MouseEvent.MOUSE_MOVE, handleDrag);
@@ -824,19 +790,16 @@ package com.broceliand.graphLayout.visual
          super.unlinkNodes(v1,v2);
          _endNodeVisibilityManager.onUnlinkNode(v1,v2);
       }
-      
-      
+
       override public function createNode(sid:String = "", o:Object = null):IVisualNode {
          var rn:IVisualNode = _currentRootVNode;
          var ret:IVisualNode = super.createNode(sid, o);
          _currentRootVNode = rn;
          return ret;
       }
-      
-      
+
       override public function removeNode(vn:IVisualNode):void {
-         
-         
+
          if (vn == null) {
             return;
          }
@@ -900,8 +863,7 @@ package com.broceliand.graphLayout.visual
             pearlRenderer.titleRenderer.reposition();
          } 
       }
-      
-      
+
       protected function handleDragOverriden(event:MouseEvent):void {
          var myvnode:IVisualNode;
          var sp:UIComponent;
@@ -951,8 +913,7 @@ package com.broceliand.graphLayout.visual
          refresh();
          event.updateAfterEvent();        
       }
-      
-      
+
       override public function refresh():void {
          if (!_vetoRefresh) {
             super.refresh();
@@ -1026,8 +987,7 @@ package com.broceliand.graphLayout.visual
       {
          _scaleValue = value;
       }
-      
-      
+
       override public function set currentRootVNode(vn:IVisualNode):void {
          
          if (currentRootVNode != vn && currentRootVNode != null && vn != null) {
@@ -1085,8 +1045,7 @@ package com.broceliand.graphLayout.visual
          else {
             currentCenter = new Point(stage.stageWidth/2.0, stage.stageHeight /2.0);
          }
-         
-         
+
          _logger.info("center {0} , {1}", currentCenter.x, currentCenter.y);
          
          if (!isValidCenter(currentCenter) || (_previousCenter && _previousCenter.equals(currentCenter))) {

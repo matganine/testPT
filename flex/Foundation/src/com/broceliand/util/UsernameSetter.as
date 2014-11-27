@@ -24,8 +24,7 @@ package com.broceliand.util
       private var _wantedUsername:String = null;
       private var _accountManager:AccountManager = ApplicationManager.getInstance().accountManager;
       private var _status:int = NOT_CHECKED;
-      
-      
+
       public function UsernameSetter() {
          
       }

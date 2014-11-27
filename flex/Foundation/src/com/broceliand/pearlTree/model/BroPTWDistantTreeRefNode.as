@@ -11,14 +11,12 @@ package com.broceliand.pearlTree.model
       private var _isSearchCenter:Boolean;
       private var _isSearchNode:Boolean;
       private var _absolutePosition:Point;
-      
-      
+
       public function BroPTWDistantTreeRefNode(tree:BroPearlTree, position:BroRadialPosition=null, user:User=null) {
          super(tree, user);
          _position = position;
       }
-      
-      
+
       override public function get neighbourCount():Number {
          return refTree.getRootNode().neighbourCount;
       }     

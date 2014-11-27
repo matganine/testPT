@@ -95,7 +95,6 @@ package com.broceliand.ui.renderers
          }
          return hasChanged;
       }
-      
-      
+
    }
 }

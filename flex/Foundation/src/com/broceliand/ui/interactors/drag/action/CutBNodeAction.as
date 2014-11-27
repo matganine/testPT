@@ -26,8 +26,7 @@ package com.broceliand.ui.interactors.drag.action
    import mx.effects.Move;
    import mx.effects.Zoom;
    import mx.events.EffectEvent;
-   
-   
+
    public class CutBNodeAction extends RemoveBNodeActionBase implements IUndoableAction   {
       
       private var _openRootBeingDocked:PTRootNode = null;

@@ -5,8 +5,7 @@ package com.broceliand.ui.renderers.pageRenderers
    import com.broceliand.ui.pearl.UIPearl;
    import com.broceliand.ui.renderers.pageRenderers.pearl.PTRootPearl;
    import com.broceliand.util.resources.IRemoteResourceManager;
-   
-   
+
    public class PTRootPearlRenderer extends UIPearl
    {	   
       

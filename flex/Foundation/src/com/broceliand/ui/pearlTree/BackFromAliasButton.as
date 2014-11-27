@@ -40,8 +40,7 @@ package com.broceliand.ui.pearlTree
          super.createChildren();
          visible = includeInLayout = false;
       }
-      
-      
+
       override   protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          if (node is PTRootNode) {
             if (_aliasNavigationModel.isBackFromAlias) {

@@ -40,8 +40,7 @@ package com.broceliand.pearlTree.navigation.impl
       {
          _navType = navType;
       }
-      
-      
+
       internal function get isHomePage():Boolean
       {
          return _isHomePage;
@@ -204,8 +203,7 @@ package com.broceliand.pearlTree.navigation.impl
          _isAliasNavigation = isAliasNavigation;
          return this;
       }
-      
-      
+
       internal function get navType():int
       {
          return _navType;
@@ -219,8 +217,7 @@ package com.broceliand.pearlTree.navigation.impl
       {
          return _searchKeyword;
       }
-      
-      
+
       public function get isHistoryNavigation():Boolean
       {
          return _isHistoryNavigation;

@@ -108,8 +108,7 @@ package com.broceliand.ui.pearlTree
                ret.speed = GeometricalConstants.SCROLL_MIN_SPEED + maxSpeed * (distanceToPoint - SD_ACTIVATE_SQ)/ (GeometricalConstants.SCROLL_BTN_SQUARE_DEPTH- SD_ACTIVATE_SQ)  ;
             }
          }
-         
-         
+
          var xLength:Number = mousePoint.x - w / 2;
          var yLength:Number = mousePoint.y - (heightOffsetIfAnonymous + h / 2);
          var hypotenuseLength:Number = Math.sqrt(Math.pow(xLength, 2) + Math.pow(yLength, 2));
@@ -136,8 +135,7 @@ package com.broceliand.ui.pearlTree
          
          return ret;
       }
-      
-      
+
       private function clear():void {
          if(!ApplicationManager.getInstance().isEmbed() && !_isDiscoverMode) {
             _scrollUi.visible = false;
@@ -173,21 +171,18 @@ package com.broceliand.ui.pearlTree
          var mousePoint:Point = _scrollUi.globalToLocal(new Point(posX, posY));
          var candidateExcitedButton:uint = ScrollUi.NONE_BUTTON;
          var disabledButton:uint = ScrollUi.NONE_BUTTON;
-         
-         
+
          if((mousePoint.x <= 0) || (mousePoint.x >= w) || (mousePoint.y <= 0) || (mousePoint.y >= _scrollUi.height)){
             _pointToCompareWith = null;
             clear();
             return;
          }
-         
-         
+
          var SD_ACTIVATE:int = h * GeometricalConstants.SCROLL_ZONE_FRACTION_OF_HEIGHT;
          var SD_ACTIVATE_SQ:int = SD_ACTIVATE * SD_ACTIVATE;
          const SD_SHOW:int = SD_ACTIVATE * 1.9;
          const SD_SHOW_SQ:int = SD_SHOW * SD_SHOW;
-         
-         
+
          _pointToCompareWith = null;
          if(mousePoint.x < SD_SHOW  && !ApplicationManager.getInstance().components.topPanel.isSideBarVisible){
             _pointToCompareWith = new Point(0, heightOffsetIfAnonymous + h / 2);
@@ -286,7 +281,6 @@ package com.broceliand.ui.pearlTree
             _scrollUi.getButton(ScrollUi.BOTTOM_BUTTON).showArrowTail = true;
          }
       }
-      
-      
+
    }
 }

@@ -15,8 +15,7 @@ package com.broceliand.graphLayout.visual
       
       override public function set view(v:UIComponent):void {
          super.view = v;
-         
-         
+
          _pearlRenderer = IUIPearl(v);
       }		
    }

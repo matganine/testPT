@@ -50,25 +50,20 @@ package com.broceliand.graphLayout.layout {
    
    import flash.utils.Dictionary;
    import org.un.cava.birdeye.ravis.graphLayout.data.INode;
-   
-   
+
    public class ConcentricRadialLayoutDrawing extends BaseLayoutDrawing {
-      
-      
+
       /* our addition for the concentric radial Layout is
       * a storage for the angular widths */
       private var _nodeAngularWidths:Dictionary;
-      
-      
+
       public function ConcentricRadialLayoutDrawing():void {
          super();
          _nodeAngularWidths = new Dictionary;
       }
-      
-      
+
       public function setAngularWidth(n:INode, w:Number):void {
-         
-         
+
          /*
          if(w > 360) {
          LogUtil.warn(_LOG, "Width of node:"+n.id+" larger than 360:"+w);
@@ -79,8 +74,7 @@ package com.broceliand.graphLayout.layout {
          */
          _nodeAngularWidths[n] = w;
       }
-      
-      
+
       public function getAngularWidth(n:INode):Number {
          return _nodeAngularWidths[n];
       }

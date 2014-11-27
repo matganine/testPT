@@ -94,8 +94,7 @@ package com.broceliand.pearlTree.model {
       }
       
       public function set refTree(o:BroPearlTree):void {
-         
-         
+
          if(refTree){
             if(refTree.authorsLoaded && !o.authorsLoaded) {
                o.owner = refTree.getMyAssociation();

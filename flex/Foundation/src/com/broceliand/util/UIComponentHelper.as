@@ -3,8 +3,7 @@ package com.broceliand.util {
    import flash.events.Event;
    
    import mx.core.UIComponent;
-   
-   
+
    public class UIComponentHelper {
       
       private static var _singleton:UIComponentHelper;

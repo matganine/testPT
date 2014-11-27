@@ -10,8 +10,7 @@ package com.broceliand.ui
    import mx.controls.Label;
    import mx.core.UIComponent;
    import mx.core.mx_internal;
-   
-   
+
    public class TitleManager
    {
       private static const END_LINE_SYMBOL:String = "...";
@@ -45,8 +44,7 @@ package com.broceliand.ui
          if(lines.length > maxLines) {
             
             lines.splice(maxLines, lines.length - maxLines);
-            
-            
+
             var lastLine:String = lines[lines.length-1];
             var lastLineWidth:Number = lineContainer.measureHTMLText(lastLine).width;            
             var lineMaxWidth:Number = getLineMaxWidth(lineContainer);

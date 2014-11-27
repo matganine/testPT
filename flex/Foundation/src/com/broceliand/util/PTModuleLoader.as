@@ -9,8 +9,7 @@ package com.broceliand.util {
    
    import mx.events.ModuleEvent;
    import mx.modules.ModuleLoader;
-   
-   
+
    public class PTModuleLoader extends ModuleLoader implements IPTModule {
       
       public static const LOADED_EVENT:String = "moduleLoadedEvent";
@@ -68,8 +67,7 @@ package com.broceliand.util {
             applicationDomain = am.applicationDomain;
             loadModule();
          }
-            
-            
+
          else if(_isLoading && showBusyCursor && !_showBusyCursorOnLoad) {
             _showBusyCursorOnLoad = true;
             ApplicationManager.getInstance().visualModel.mouseManager.showBusy(true);

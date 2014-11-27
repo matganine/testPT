@@ -1,8 +1,7 @@
 package com.broceliand.pearlTree.model {
    
    import flash.events.Event;
-   
-   
+
    public class PageTypeReloaderEvent extends Event {
       
       private var _page:BroPage;

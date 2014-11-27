@@ -51,12 +51,10 @@ package com.broceliand.graphLayout.controller
       private var _isDraggedNodeOpenTree:Boolean = false;
       private var _closeBranchForbidden:Boolean = false;
       private var _nodeDepth:Dictionary = new Dictionary();
-      
-      
+
       private var _treeToCloseNodes:Array; 
       private var _subTreesToClose:Boolean = false;
-      
-      
+
       private static const FOLLOWING_MOUSE_MOVE_AND_REFRESH_DELAY:Number = 500;
       private static const FOLLOWING_MOUSE_MOVE_AND_REFRESH_AT_FRAME:uint = 2;
       private var _followingMouseMoveFrameCount:Number = 0;
@@ -66,8 +64,7 @@ package com.broceliand.graphLayout.controller
          _followMode = false;
          _editionController = editionController;
       }
-      
-      
+
       private function highlightParentTree(bnode:BroPTNode, vgraph:IPTVisualGraph):void {
          var selectionModel:SelectionModel = ApplicationManager.getInstance().visualModel.selectionModel;
          if (selectionModel.getHighlightedTree() == null) {
@@ -304,8 +301,7 @@ package com.broceliand.graphLayout.controller
                         par2.addChild(unfocusEffect);
                      }
                   }
-                  
-                  
+
                }
                reopeingTreeEffect.addChild(par2);
                reopeingTreeEffect.play();
@@ -313,8 +309,7 @@ package com.broceliand.graphLayout.controller
             par.play();
          }
          return restoreDepthAction; 
-         
-         
+
       }
       private function restoreViewToNormalDepth(depthInteractor:DepthInteractor, views:Array):void {
          for each (var view:IUIPearl in views) {

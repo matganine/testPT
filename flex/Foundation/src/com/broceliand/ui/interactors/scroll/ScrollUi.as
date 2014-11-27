@@ -152,8 +152,7 @@ package com.broceliand.ui.interactors.scroll
       override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
          super.updateDisplayList(unscaledWidth, unscaledHeight);
          var padding:Number = PEARLTREES_ARROW_PADDING;
-         
-         
+
          var heightOffsetIfAnonymous:int = ApplicationManager.getInstance().components.windowController.offsetHeightDueToSignupBanner();
          
          var realHeight:Number = height - heightOffsetIfAnonymous;

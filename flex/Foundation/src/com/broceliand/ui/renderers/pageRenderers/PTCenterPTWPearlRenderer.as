@@ -17,8 +17,7 @@ package com.broceliand.ui.renderers.pageRenderers
       override protected function instanciatePearl():void{
          _pearl = new PTRootPearl();
       }
-      
-      
+
       override public function invalidateProperties():void{
          super.invalidateProperties();
          var rootNode:PTRootNode = node as PTRootNode;

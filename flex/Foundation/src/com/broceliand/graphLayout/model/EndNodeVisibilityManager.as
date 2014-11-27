@@ -129,7 +129,6 @@ package com.broceliand.graphLayout.model
          }
          node.canBeVisible = shouldBeVisible; 
       }
-      
-      
+
    }
 }

@@ -7,8 +7,7 @@ package com.broceliand.ui.interactors.drag
    import com.broceliand.pearlTree.model.BroPTNode;
    import com.broceliand.pearlTree.model.BroPearlTree;
    import com.broceliand.ui.interactors.InteractorManager;
-   
-   
+
    public class EmptyTreeOpenerInteractor implements ITreeOpenerRequestor 
    {
       private var _treeOpener:InteractiveTreeOpener;

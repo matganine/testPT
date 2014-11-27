@@ -10,8 +10,7 @@ package com.broceliand.ui.interactors
    import flash.display.DisplayObjectContainer;
    import flash.events.MouseEvent;
    import flash.geom.Point;
-   
-   
+
    public class ModeSwitcherInteractor
    {
       
@@ -39,8 +38,7 @@ package com.broceliand.ui.interactors
       public function hasMouseDragged():Boolean {
          return _mouseHasDragged;
       }	
-      
-      
+
       private function considerSwitchingToEditingMode(event:MouseEvent):void{
          
          if (_interactorManager.pearlRendererUnderCursor == null){
@@ -69,8 +67,7 @@ package com.broceliand.ui.interactors
          if(uim != UserInteractionMode.UIM_NEUTRAL){
             return;
          }
-         
-         
+
          if(!_interactorManager.pearlRendererUnderCursor.node.isDocked) {
             if(_interactorManager.pearlTreeViewer.vgraph.controls.isPointOverAControl(_interactorManager.mousePosition)){
                return;
@@ -92,8 +89,7 @@ package com.broceliand.ui.interactors
             }
          }   
       }
-      
-      
+
       private function updateModeOnMouseEvent(event:MouseEvent, antiLoop:Boolean = false):void {
          if (!event.buttonDown && _mouseIsDown && !antiLoop) {
             updateModeOnMouseDown(event);

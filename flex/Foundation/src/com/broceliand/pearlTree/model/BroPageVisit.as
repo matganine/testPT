@@ -20,8 +20,7 @@ package com.broceliand.pearlTree.model{
       {
          _page= page;
       }
-      
-      
+
       public function set historyId(val:Number):void
       {
          _historyId = val;

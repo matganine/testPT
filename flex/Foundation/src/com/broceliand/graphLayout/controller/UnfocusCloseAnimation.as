@@ -74,8 +74,7 @@ package com.broceliand.graphLayout.controller
          var depthInteractor:DepthInteractor= ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.depthInteractor;
          depthInteractor.movePearlToNormalDepth(_fixedVNode.view as IUIPearl);
          _vgraph.getEditedGraphVisualModification().cancelVisualGraphModificationForLayout();
-         
-         
+
          var nextFocusNode:IPTNode= _displayModel.getNode(_nextFocusTree);
          if (!nextFocusNode) {
             nextFocusNode = _gnc.createTree(_nextFocusTree, false, false, 0).node as IPTNode;
@@ -88,12 +87,10 @@ package com.broceliand.graphLayout.controller
             fixedBNode = fixedBNode.owner.refInParent;
          }
          if (!fixedBNode || !fixedBNode.owner || fixedBNode.owner.getTreeNodes().lastIndexOf(fixedBNode) == -1) {
-            
-            
+
             _nodesToDelete.push(fixedNode);
          }
-         
-         
+
          if (_nodesToDelete) {
             for each (var iptNode:IPTNode in _nodesToDelete) {
                _vgraph.removeNode(iptNode.vnode);

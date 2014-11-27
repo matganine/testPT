@@ -14,8 +14,7 @@ package com.broceliand
       public function setEmbedId(value:String):void {}
       
       public function getWebSiteUrl():String {
-         
-         
+
          return "YOUR_WEBSITE_URL";
       }    
       

@@ -20,8 +20,7 @@ package com.broceliand.ui.interactors.drag
    {
       private  const DEBUG:Boolean = true;
       private var _treeToCheckEndNodes:Dictionary;
-      
-      
+
       private var _isDraggingLastBranchOnArc:Boolean= false;
       private var _lastPearlLink:IVisualNode = null;
       private var _detachedEndVNodeForDraggedPearl:IVisualNode = null;
@@ -62,8 +61,7 @@ package com.broceliand.ui.interactors.drag
          }
          _hasStartedDragged = true;
          var draggedNode:IPTNode = IPTNode(vnode.node);
-         
-         
+
          resetDraggedNode();
          if (draggedNode.isOnLastBranch()) {
             var isLastItem:Boolean= draggedNode.successors[0] is EndNode;
@@ -132,8 +130,7 @@ package com.broceliand.ui.interactors.drag
          }
          updateLinkToLastPearl(linkCandidateVNode, draggedNode);
       } 
-      
-      
+
       private function updateLinkToLastPearl(linkCandidateVNode:IVisualNode, draggedNode:IVisualNode):void {
          var endNode:EndNode = null;
          if (linkCandidateVNode&& linkCandidateVNode.node) {
@@ -177,8 +174,7 @@ package com.broceliand.ui.interactors.drag
             _lastPearlLink = null;
             _vgraphModification.onUnlinkLastNode();
          }
-         
-         
+
       }
       
       public function onMovingOnNewParent(currentParentVNode:IVisualNode, draggedNode:IVisualNode):void {
@@ -224,11 +220,9 @@ package com.broceliand.ui.interactors.drag
          _hasStartedDragged=false;
          recomputeEndNodePositionsForAllTrees();
          _tmpNewLastPearl  = null;
-         
-         
+
       }
-      
-      
+
       internal function detachAllEndNodesOfTemporaryTrees():void {
          recomputeEndNodePositionsForAllTrees();
       }
@@ -272,8 +266,7 @@ package com.broceliand.ui.interactors.drag
          var lastChildAngle:Number =InteractorUtils.getParentAngle(lastChild.vnode);;
          return draggedAngle<lastChildAngle;
       }
-      
-      
+
       public function onDetachDraggedPearlFromTree():void {
          if (_tmpNewLastPearl && _detachedEndVNodeForDraggedPearl) {
             _editionController.tempLinkNodes(_tmpNewLastPearl.getVnode(true), _detachedEndVNodeForDraggedPearl);

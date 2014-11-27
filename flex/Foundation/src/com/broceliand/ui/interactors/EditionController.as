@@ -102,8 +102,7 @@ package com.broceliand.ui.interactors{
             bnode.setCollectedStatus();
             var hasReorganized:Boolean = false;
             if (!destination.pearlsLoaded) {
-               
-               
+
                am.pearlTreeLoader.loadTree(destination.getMyAssociation().associationId, destination.id,new PearlTreeLoaderCallback(null,null), false);
             } else {
                if (copyNode && copyNode.rootNodeOfMyTree) {
@@ -228,8 +227,7 @@ package com.broceliand.ui.interactors{
             infoWindowModel.removeEventListener(InfoWindowModel.LINK + 0, onClickCancelDelete);
          }
       }
-      
-      
+
       public function moveSelection(cutNode:IPTNode, destination:BroPearlTree, stayInScreenWindow:Boolean = false):IPTNode{
          if (!cutNode)
             cutNode = _selectionModel.getSelectedNode();

@@ -1,7 +1,6 @@
 package com.broceliand.graphLayout.layout
 {
-   
-   
+
    import com.broceliand.graphLayout.model.IPTNode;
    import com.broceliand.pearlTree.model.BroPTWDistantTreeRefNode;
    import com.broceliand.pearlTree.model.BroRadialPosition;
@@ -14,13 +13,11 @@ package com.broceliand.graphLayout.layout
    import org.un.cava.birdeye.ravis.graphLayout.layout.ILayoutAlgorithm;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class PTWLayoutDiscover extends ConcentricRadialLayout implements ILayoutAlgorithm{
 
       public var centeredLayout:Boolean;
-      
-      
+
       public function PTWLayoutDiscover(vg:IVisualGraph = null):void {
          super(vg);
          disableAnimation=true;
@@ -28,8 +25,7 @@ package com.broceliand.graphLayout.layout
       }
 
       override public function layoutPass():Boolean {
-         
-         
+
          if(!_vgraph) {
             trace("No Vgraph set in ConcentricRadialLayouter, aborting");
             return false;

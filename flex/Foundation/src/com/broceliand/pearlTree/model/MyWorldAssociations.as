@@ -69,8 +69,7 @@ package com.broceliand.pearlTree.model
             }
             delete _subAssociations[associationId];
             association.setMyWorldAssociations(null);
-            
-            
+
             association.setTreeHierarchy(new TreeHierarchy(association));
             ApplicationManager.getInstance().pearlTreeLoader.loadedTreeMemoryReleaser.unloadAssociationTreeHierarchy(associationId);
             

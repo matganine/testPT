@@ -11,8 +11,7 @@ package com.broceliand.util {
    import mx.managers.IFocusManager;
    import mx.managers.IFocusManagerComponent;
    import mx.managers.IFocusManagerContainer;
-   
-   
+
    public class PTFocusManager extends FocusManager {
       
       private static const DEBUG:Boolean = false;

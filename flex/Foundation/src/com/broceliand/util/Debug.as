@@ -139,8 +139,7 @@ package com.broceliand.util {
          input.position = savePos;
          return res;
       }
-      
-      
+
       public static function dumpNotifNavType(t: int): String{
          switch (t) {
             case 0: return "GENERIC";
@@ -153,8 +152,7 @@ package com.broceliand.util {
             default: return "???";
          }
       }
-      
-      
+
       public static function dumpNotifType(t: int): String{
          switch(t) {
             case 0: return "RESERVED_MARKER";

@@ -15,8 +15,7 @@ package com.broceliand.ui.interactors.drag
    
    public class RemovePearlInteractor
    {
-      
-      
+
       private  var _temporarilyDetachedChildren:Array = null;
       private  var _temporarilyDetachedChildrenSourceNode:SavedPearlReference= null;
       protected var _interactorManager:InteractorManager = null;
@@ -49,8 +48,7 @@ package com.broceliand.ui.interactors.drag
                if (successor) {
                   editionController.tempUnlinkNodes(sourceNode.vnode, successor.vnode); 
                   editionController.tempLinkNodes(targetNode.vnode, successor.vnode, insertionIndex, _isTempLinkVisible);
-                  
-                  
+
                   editionController.confirmNodeParentLink(successor.vnode, false, insertionIndex);
                }
             }
@@ -91,8 +89,7 @@ package com.broceliand.ui.interactors.drag
             moveDescendantsOfNodeToAnother(node, _currentTargetNode.getNode(true), _interactorManager.draggedPearlOriginalParentIndex);
          }
       }
-      
-      
+
       protected function tempRemoveNode(node:IPTNode):void {
          if(node.parent){
             
@@ -139,6 +136,5 @@ package com.broceliand.ui.interactors.drag
       }
       
    }
-   
-   
+
 }

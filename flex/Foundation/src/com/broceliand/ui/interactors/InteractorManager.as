@@ -40,8 +40,7 @@ package com.broceliand.ui.interactors {
    import mx.core.UIComponent;
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class InteractorManager implements IActive {
       
       public static const DOUBLE_CLICK_LENGTH:Number = 300;
@@ -69,8 +68,7 @@ package com.broceliand.ui.interactors {
       private var _manipulatedNodesModel:ManipulatedNodesModel;
       
       private var _nodesBeingDeleted:Array;
-      
-      
+
       private var _selectInteractor:SelectInteractor = null;
       private var _hoverInteractor:HoverInteractor = null;
       protected var _scrollInteractor:ScrollInteractor = null;
@@ -82,8 +80,7 @@ package com.broceliand.ui.interactors {
       private var _trashInteractor:TrashInteractor = null;
       
       private var _windowProtectionManager:WindowProtectionManager = null;
-      
-      
+
       private var _userInteractionMode:int = UserInteractionMode.UIM_NEUTRAL;
       
       private var _interactorRightsManager:InteractorRightsManager;
@@ -168,8 +165,7 @@ package com.broceliand.ui.interactors {
             action.performAction();
          }
       }
-      
-      
+
       public function setUserInteractionMode(o:int, ev:MouseEvent):void {
          
          if (ApplicationManager.getInstance().isEmbed()) {
@@ -219,8 +215,7 @@ package com.broceliand.ui.interactors {
       public function set draggedPearlInitialPosition(o:Point):void {
          _draggedPearlInitialPosition = o;
       }
-      
-      
+
       public function get userClickedOnPearl():Boolean {
          return _userClickedOnPearl;
       }
@@ -268,8 +263,7 @@ package com.broceliand.ui.interactors {
       {
          return _hasDoubleClicked;
       }
-      
-      
+
       public function getDraggedPearlOriginParentNodeRef():SavedPearlReference {
          return _originalParentNode;
       }
@@ -328,8 +322,7 @@ package com.broceliand.ui.interactors {
       {
          return _draggedPearlOriginalParentIndex;
       }
-      
-      
+
       private function updateDragInteractor():void{
          if(_interactorRightsManager.userHasRightToMoveNode(_pearlRendererUnderCursor.node)){
             _dragEditInteractor = new DistantDragEditInteractor(this, _interactorRightsManager.userIsHome(), _interactorRightsManager.isUserAnonymous());
@@ -364,8 +357,7 @@ package com.broceliand.ui.interactors {
                draggedPearl = _temporaryPearlUnderCursor;
             }
             _pearlRendererUnderCursor = _temporaryPearlUnderCursor;
-            
-            
+
             if (_pearlRendererUnderCursor is UIRootPearl) {
                UIRootPearl(_pearlRendererUnderCursor).setButtonVisible(true);
             }
@@ -570,8 +562,7 @@ package com.broceliand.ui.interactors {
          var wc:IWindowController =  ApplicationManager.getInstance().components.windowController;
          return (wc && ev && wc.isPointOverNotificationWindow(ev.stageX, ev.stageY));
       }
-      
-      
+
       protected function onStageMouseUp(ev:MouseEvent):void{
          if(!_active) return;
          if(!_mouseDownOnViewer) return;
@@ -601,12 +592,10 @@ package com.broceliand.ui.interactors {
          }
          
          _selectInteractor.onMouseUp(hasMouseDragged, clickDuration);
-         
-         
+
          _actionForbidden = false;
          ApplicationManager.getInstance().visualModel.mouseManager.update();
-         
-         
+
          _lastMouseDownTime = getTimer();
          if ( _interactorRightsManager.isUserAnonymous()) {
             if ((!hasMouseDragged && !node && !isPointOverControl)  || (hasMouseDragged && !wasNeutralMode)) {
@@ -648,8 +637,7 @@ package com.broceliand.ui.interactors {
          refreshMousePosition(mev);
          
          updatePearlRendererUnderCursor(_mousePosition);
-         
-         
+
          if(StartPolicyLogger.getInstance().isFirstNavigationEnded()) {
             updateContextualHelp(_mousePosition);
          }
@@ -708,8 +696,7 @@ package com.broceliand.ui.interactors {
       public function set nodeWhoseTitleIsBeingEdited(value:IPTNode):void {
          _nodeWhoseTitleIsBeingEdited = value;
       }
-      
-      
+
       public function isDisplayingPTW():Boolean {
          return ApplicationManager.getInstance().visualModel.navigationModel.isShowingPearlTreesWorld();
       }
@@ -779,8 +766,7 @@ package com.broceliand.ui.interactors {
          var res : Boolean = _windowProtectionManager.isWindowProtected(windowID, subPanelID);
          return res;
       }
-      
-      
+
       public function isInsideCreationCycle() : Boolean {
          if (isWindowProtected(WindowController.NEW_PEARLTREE_WINDOW)) return true;
          if (isWindowProtected(WindowController.PEARL_URL_WINDOW)) return true;
@@ -807,8 +793,7 @@ package com.broceliand.ui.interactors {
             }
          }
       }
-      
-      
+
       public function movePearlOutsideFromTeam():Boolean {
          var bnode:BroPTNode = draggedPearl.node.getBusinessNode();
          return (bnode.owner && bnode.owner.isInATeam() && !TeamRightManager.hasMovingOutsideRight(bnode));

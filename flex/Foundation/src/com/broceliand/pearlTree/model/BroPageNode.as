@@ -4,8 +4,7 @@ package com.broceliand.pearlTree.model {
    import com.broceliand.pearlTree.io.LazyValueAccessor;
    import com.broceliand.pearlTree.io.services.AmfTreeService;
    import com.broceliand.ui.model.NoteModel;
-   
-   
+
    public class BroPageNode extends BroPTNode {
       
       private var _refPage:BroPage;
@@ -98,7 +97,6 @@ package com.broceliand.pearlTree.model {
       }
    }
 }
-
 
 import com.broceliand.ApplicationManager;
 import com.broceliand.pearlTree.io.object.tree.AssociationData;

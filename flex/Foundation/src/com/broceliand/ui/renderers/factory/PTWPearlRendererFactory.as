@@ -13,8 +13,7 @@ package com.broceliand.ui.renderers.factory
       public function PTWPearlRendererFactory(resourceManager:IRemoteResourceManager, interactorManager:InteractorManager, pearlRendererStateManager:PearlRendererStateManager){
          super(resourceManager, interactorManager, pearlRendererStateManager);
       }
-      
-      
+
       override public function newInstance():*
       {
          var renderer:UIPTWPearl;

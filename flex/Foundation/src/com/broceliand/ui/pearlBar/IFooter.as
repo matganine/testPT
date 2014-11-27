@@ -7,8 +7,7 @@ package com.broceliand.ui.pearlBar {
    import flash.geom.Rectangle;
    
    import mx.core.IUIComponent;
-   
-   
+
    public interface IFooter extends IUIComponent {
       
       function isPointOverFooter(point:Point):Boolean;

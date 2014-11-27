@@ -27,8 +27,7 @@ package com.broceliand.pearlTree.model
             _delegate.assignAutoId(node);
          else super.assignAutoId(node);
       }
-      
-      
+
       override public function get treeHierarchyNode ():BroTreeHierarchyNode
       {
          return super.treeHierarchyNode;
@@ -74,8 +73,7 @@ package com.broceliand.pearlTree.model
       override public function set neighbourPearlDb(value:int):void{
          _delegate.neighbourPearlDb = value;
       }      
-      
-      
+
       override public function get isOwner():Boolean{
          return _isOwner;
       }

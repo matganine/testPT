@@ -144,8 +144,7 @@ package com.broceliand.ui.pearl
             }
          }
       }
-      
-      
+
       public function get pearlCenter():Point {
          if(!_pearlCenterPoint) _pearlCenterPoint = new Point();
          if(view) {

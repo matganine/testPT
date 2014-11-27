@@ -16,8 +16,7 @@ package com.broceliand.ui.pearl
       {
          super(stateManager, remoteResourceManager);
       }
-      
-      
+
       override protected function get pearlDefaultWidth():Number {
          return DEFAULT_PEARL_WIDTH;
       }

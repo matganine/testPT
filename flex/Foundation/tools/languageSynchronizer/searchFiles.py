@@ -12,8 +12,7 @@ class searchFile:
                 fileExt = fileNameExt[-1]
                 if fileExt and fileExt == '.as' or  fileExt == '.mxml' :
                     self.searchInFile(dirpath, file, wordList)
-            
-                   
+
     def searchInFile(self, dirpath, file, wordList):
      
         fileToOpen = dirpath + '\\' + file
@@ -21,8 +20,7 @@ class searchFile:
         f = open(fileToOpen , 'r')
 
         text = f.read()
-     
-        
+
         list = re.findall('getText\(\'.*?\'' , text)
         for line in list:
             

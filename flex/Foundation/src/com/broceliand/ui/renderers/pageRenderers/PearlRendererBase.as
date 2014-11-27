@@ -32,8 +32,7 @@ package com.broceliand.ui.renderers.pageRenderers{
    import mx.core.UIComponent;
 
    public class PearlRendererBase extends PageRendererBase  {
-      
-      
+
       protected var _pearl:PearlBase = null;
       private var _senderInfo:String = null;
       protected var _animationFactor:Number = 1;
@@ -62,8 +61,7 @@ package com.broceliand.ui.renderers.pageRenderers{
          cpe.duration = 90;
          _zoomEffectToggler = new VariableDurationEffectToggler(cpe, 50, 50, true, false); 
       }
-      
-      
+
       public function get remoteResourceManager():IRemoteResourceManager {
          return _remoteResourceManager;
       }
@@ -75,8 +73,7 @@ package com.broceliand.ui.renderers.pageRenderers{
          topLeft.offset(radius, radius);
          return (BroceliandMath.getDistanceBetweenPoints(topLeft, point) < radius);
       }
-      
-      
+
       public function excite():void { 
          pearl.warm();
       }
@@ -92,8 +89,7 @@ package com.broceliand.ui.renderers.pageRenderers{
       public function forbidMove(isMoveForbidden:Boolean):void {
          _forbidMove = isMoveForbidden;
       }
-      
-      
+
       override protected function createChildren():void {
          super.createChildren();
          instanciatePearl();
@@ -124,8 +120,7 @@ package com.broceliand.ui.renderers.pageRenderers{
             }
          }
          updateVisualState();
-         
-         
+
          if (_haloChangedExternal) {
             _haloChangedExternal = false;
             if(_showHaloExternal){
@@ -172,12 +167,10 @@ package com.broceliand.ui.renderers.pageRenderers{
             return false;
          }
          if(node.isTopRoot){
-            
-            
+
             return false;
          }
-         
-         
+
          var rightsManager:InteractorRightsManager = ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.interactorRightsManager;
          if(rightsManager.userHasRightToMoveNode(node)){
             return true;
@@ -185,11 +178,9 @@ package com.broceliand.ui.renderers.pageRenderers{
             return false;
          }
       }
-      
-      
+
       public function canBeCopied():Boolean {
-         
-         
+
          var rightsManager:InteractorRightsManager = ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.interactorRightsManager;
          if(rightsManager.canAddNodeToMyAccount(businessNode)) {
             return true ;
@@ -197,8 +188,7 @@ package com.broceliand.ui.renderers.pageRenderers{
             return false;
          }
       }
-      
-      
+
       public function get senderInfo():String {
          return _senderInfo;
       }
@@ -206,8 +196,7 @@ package com.broceliand.ui.renderers.pageRenderers{
       public function set senderInfo(value:String):void {
          _senderInfo = value;
       }
-      
-      
+
       protected function belongsToSelectedTree():Boolean{
          var navigationManager:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
          if(!businessNode){
@@ -233,8 +222,7 @@ package com.broceliand.ui.renderers.pageRenderers{
       internal function getTitleIcon():Image{
          return null;   
       }
-      
-      
+
       public function hasAvatar():Boolean{
          if(!(this is PagePearlRenderer)){
             return true;
@@ -276,19 +264,16 @@ package com.broceliand.ui.renderers.pageRenderers{
       public function refreshLogo():void{
          _pearl.refreshLogo();
       }
-      
-      
+
       public function get isMoving ():Boolean
       {
          return PTVisualNodeBase(vnode).isMoving;
       }
-      
-      
+
       public function getShowHalo():Boolean {
          return _showHalo;
       }
-      
-      
+
       public function setShowHalo(value:Boolean):void {
          if(_showHalo != value){
             _showHalo = value;
@@ -302,8 +287,7 @@ package com.broceliand.ui.renderers.pageRenderers{
             }
          }
       }
-      
-      
+
       public function setShowHaloExternal(value:Boolean):void {
          if(_showHaloExternal != value){
             _showHaloExternal = value;
@@ -337,8 +321,7 @@ package com.broceliand.ui.renderers.pageRenderers{
          ret.push(filter);
          return ret;
       }
-      
-      
+
       override public function set alpha(value:Number):void{
          if (value != super.alpha) {
             super.alpha = value;
@@ -354,8 +337,7 @@ package com.broceliand.ui.renderers.pageRenderers{
                   _pearl.repositionRing();
                }
             }
-            
-            
+
          }
 
       }

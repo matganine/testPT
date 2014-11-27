@@ -170,8 +170,7 @@
          override protected function updateTargetComponentPosition(point:Point):void{
             var center1:Point;
             var center2:Point;
-            
-            
+
             if (_node && _node.vnode && _node.vnode.view) {
                center1 = _node.vnode.viewCenter
                var endNode:IPTNode;
@@ -185,8 +184,7 @@
                   }
                }
             }
-            
-            
+
          }
          
          private function set isPrivateTree(isPrivate:Boolean):void {
@@ -216,8 +214,7 @@
             }
             super.updateScale();
          }
-         
-         
+
       ]]>
    </mx:Script>
 </PearlComponentAddOn >

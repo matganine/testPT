@@ -1,6 +1,5 @@
 package com.broceliand.ui.controller {
-   
-   
+
    import com.broceliand.pearlTree.model.BroPTNode;
    import com.broceliand.pearlTree.model.BroPearlTree;
    import com.broceliand.pearlTree.model.User;
@@ -11,8 +10,7 @@ package com.broceliand.ui.controller {
       
       protected var _navigationKey:Number;
       protected var _navigationDesc:NavigationDescription;
-      
-      
+
       public function NavigationLocation(navKey:Number, navDescription:NavigationDescription):void {
          _navigationKey = navKey;
          _navigationDesc = navDescription;
@@ -56,8 +54,7 @@ package com.broceliand.ui.controller {
       {
          return null;
       }
-      
-      
+
    }
 }
 import com.broceliand.ApplicationManager;

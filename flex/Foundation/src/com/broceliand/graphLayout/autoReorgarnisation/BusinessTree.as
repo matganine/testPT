@@ -71,8 +71,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
             
             _tree.addToNode(toBNode(newParent), toBNode(nodeToMove), toBNode(newParent).getChildCount());
          }
-         
-         
+
       } 
       private function buildGraphNodeAccessor():void {
          var graphNode:IPTNode = _tree.getRootNode().graphNode;
@@ -92,7 +91,6 @@ package com.broceliand.graphLayout.autoReorgarnisation
       public function isDropZone():Boolean {
          return _tree.isDropZone();
       }
-      
-      
+
    }
 }

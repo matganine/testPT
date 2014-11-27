@@ -23,11 +23,9 @@ package com.broceliand.graphLayout.layout {
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class ConcentricRadialLayoutV2 extends AnimatedBaseLayout implements ILayoutAlgorithm {
-      
-      
+
       public static var DEFAULT_RADIUS:Number = 100;
       
       public static const DEBUG:Boolean = false;
@@ -50,11 +48,9 @@ package com.broceliand.graphLayout.layout {
       private static var _preferredRadiusSO:SharedObject;
 
       private var _previousRoot:INode;        
-      
-      
+
       private var _maxDepth:int = 0;
-      
-      
+
       private var _radiusInc:Number = 0;
       private var _reduceRadiusHackFactor:Number = 1;
       /* the two bounding angles */
@@ -70,8 +66,7 @@ package com.broceliand.graphLayout.layout {
       private var _maxviewheight:Number = 0;
       
       private var  _radiusArray:Array;
-      
-      
+
       private function getComputedPreferredRadiusAtLevel(i:int, nbOfPearlsAtLevel:int):Number {
          if (i==1) {
             if ( nbOfPearlsAtLevel < 10) {
@@ -137,8 +132,7 @@ package com.broceliand.graphLayout.layout {
          _preferredRadius = new Array();
          saveRadiusSO();
       }
-      
-      
+
       protected var _currentDrawing:ConcentricRadialLayoutDrawing;
       public function set minNodeSeparation (value:int):void
       {
@@ -149,8 +143,7 @@ package com.broceliand.graphLayout.layout {
       {
          return _minNodeSeparation;
       }
-      
-      
+
       public function ConcentricRadialLayoutV2(vg:IVisualGraph = null):void {
          
          super(vg);
@@ -172,21 +165,18 @@ package com.broceliand.graphLayout.layout {
          }
          initDrawing();
       }
-      
-      
+
       public override function resetAll():void {
          super.resetAll();
          _stree = null;
          _graph.purgeTrees();
       }
-      
-      
+
       [Bindable]
       override public function set linkLength(r:Number):void {
          _radiusInc = r;
       }
-      
-      
+
       override public function get linkLength():Number {
          return _radiusInc;
       }
@@ -210,8 +200,7 @@ package com.broceliand.graphLayout.layout {
       
       override public function layoutPass():Boolean {
          var rv:Boolean;
-         
-         
+
          _minNodeSeparation = GeometricalConstants.MIN_NODE_SEPARATION;
          if(!_vgraph) {
             trace("No Vgraph set in ConcentricRadialLayouter, aborting");
@@ -264,8 +253,7 @@ package com.broceliand.graphLayout.layout {
          var leftSpaceAvailableByLevel:Array = new Array(_nodesByLevel.length);
          var tetaByLevel:Array = new Array(_nodesByLevel.length);
          computeRadius(_stree);
-         
-         
+
          performLayoutAtLevelWithMinSquareDeviation(_nodesByLevel, 0, deltasByLevel, tetaByLevel);
          
          /* calculate the relative width and the
@@ -292,8 +280,7 @@ package com.broceliand.graphLayout.layout {
          _layoutChanged = true;
          return rv;
       }
-      
-      
+
       public function setAngularBounds(theta:Number, width:Number):void {
          _theta1 = theta;
          _theta2 = _theta1 + width;
@@ -328,8 +315,7 @@ package com.broceliand.graphLayout.layout {
          _currentDrawing.centeredLayout = true;
          
       }
-      
-      
+
       private function  computeRadius(tree:IGTree):void {
          _radiusArray = new Array();
          var i:int=1;
@@ -351,8 +337,7 @@ package com.broceliand.graphLayout.layout {
       private function getRadius(depth:int):Number {
          return _radiusArray[depth-1];
       }
-      
-      
+
       private function distanceBetweenNode(lNode:INode, ltetaModifier:Number,rNode:INode, rtetaModifier:Number):Number {
          var phi:Number = (_currentDrawing.getPolarPhi(lNode) - ltetaModifier ) - (_currentDrawing.getPolarPhi(rNode) - rtetaModifier) ;
          phi = Geometry.deg2rad(phi);
@@ -378,8 +363,7 @@ package com.broceliand.graphLayout.layout {
             overloadFactor = computeOverloadFactor(level, nodesByLevel, tetaByLevel, currentRadius) ;
          
          _radiusArray[level] = Math.round(currentRadius + overloadFactor * (OVERLOAD_FACTOR /100) *_radiusInc);
-         
-         
+
          if (level > 1) {
             var incrRadius:Number = _radiusArray[level] - _radiusArray[level -1];
             var prevRadiusIncr:Number  = _radiusArray[level-1] - (level > 1 ? _radiusArray[level -2] : 0);
@@ -421,8 +405,7 @@ package com.broceliand.graphLayout.layout {
             tetaAtLevel[i] =  startAngle -  minNodeSeparation * (i + 0.5) / r ;
          }
       }   
-      
-      
+
       public function performLayoutAtLevelWithMinSquareDeviation(nodesByLevel:Array, level:int, deltasByLevel:Array, tetaByLevel:Array):void {
          if (nodesByLevel.length == level+1) {
             return;
@@ -441,8 +424,7 @@ package com.broceliand.graphLayout.layout {
          } else {
             var parentNodes:Array = nodesByLevel[level]; 
             var parentTetas:Array = tetaByLevel[level]; 
-            
-            
+
             var indexWithChildren:Array = new Array();
             var deltaByParent:Array = new Array(parentNodes.length);
             var sizeInRadOfNode:Number = _minNodeSeparation / r;
@@ -464,13 +446,11 @@ package com.broceliand.graphLayout.layout {
                   offsetBetweenDeltasInGroup[i] = parentTetas[leftIndex] - parentTetas[rightIndex] -  sizeInRadOfNode 
                      * (IPTNode(parentNodes[leftIndex]).getChildCount() + IPTNode(parentNodes[rightIndex]).getChildCount()) / 2;
                   if (i==0) {
-                     
-                     
+
                      offsetBetweenDeltasInGroup[i] += 2 * Math.PI;
                   }
                }
-               
-               
+
                var groups:Array = new Array();
                for (i=0; i < indexWithChildren.length;i++) {
                   groups.push(new PearlGroup(i));
@@ -555,8 +535,7 @@ package com.broceliand.graphLayout.layout {
             var leftIndex:int  = i>0? i-1:nodes.length-1;
             offsetBetweenDeltasInGroup[i] = parentTetas[leftIndex] - parentTetas[i] -  sizeInRadOfNode; 
             if (i==0) {
-               
-               
+
                offsetBetweenDeltasInGroup[i] += 2 * Math.PI;
             }
          }
@@ -594,11 +573,9 @@ package com.broceliand.graphLayout.layout {
             
             _currentDrawing.setPolarCoordinates(nodes[i], radiusAtLevel, -tetaInDeg);
          }
-         
-         
+
       }
-      
-      
+
       private function regroupHittingGroups(positionnedGroups:Array, parentNodes:Array, indexWithChildren:Array, tetaAtLevel:Array, deltaAtLevel:Array, sizeInRadOfNode:Number, checkChildrendHitting:Boolean):Array {
          var result:Array = new Array();
          var currentGroup:PearlGroup = positionnedGroups.shift();
@@ -694,7 +671,6 @@ import flash.utils.Dictionary;
 
 import org.un.cava.birdeye.ravis.utils.Geometry;
 
-
 class PearlGroup {
    
    private var _indexes:Array;
@@ -717,8 +693,7 @@ class PearlGroup {
             currentSum += offsetBetweenDeltasInGroup[_indexes[i]];
             totalSum += currentSum;
          }
-         
-         
+
          var delta:Number = - totalSum / _indexes.length;
          for (i=0; i<_indexes.length; i++) {
             if (i>0) {

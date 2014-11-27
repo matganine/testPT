@@ -17,8 +17,7 @@ package com.broceliand.ui.controller
    
    import flash.events.Event;
    import flash.utils.getTimer;
-   
-   
+
    public class NavigationDisplaySynchronizer
    {
       private var _pearlTreeViewer:IPearlTreeViewer = null;
@@ -38,8 +37,7 @@ package com.broceliand.ui.controller
             return;
          }
          var clearGraph:Boolean = event.revealState == NavigationEvent.ADD_ON_RESET_GRAPH_AND_CENTER;
-         
-         
+
          if (clearGraph /* && event.newPearlWindowPreferredState <=0*/) {
             ApplicationManager.getInstance().visualModel.selectionModel.saveBusinessNodeToCenter(event.newSelectedPearl);
          }

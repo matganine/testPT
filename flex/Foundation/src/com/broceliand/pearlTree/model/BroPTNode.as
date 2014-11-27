@@ -10,8 +10,7 @@ package com.broceliand.pearlTree.model{
    import com.broceliand.util.Assert;
    
    import mx.effects.easing.Back;
-   
-   
+
    public class BroPTNode
    {
       
@@ -40,8 +39,7 @@ package com.broceliand.pearlTree.model{
       private var _skipNotificationOnPersist:Boolean;
       private var _editionStatus:int = 0;
       private var _originId:Number = 0;
-      
-      
+
       public static const DATA_FORMAT_BROPTNODE:String = "DATA_FORMAT_BROPTNODE";
       function BroPTNode(){
          _childLinks=new Array();
@@ -223,8 +221,7 @@ package com.broceliand.pearlTree.model{
          var noteModel:NoteModel = ApplicationManager.getInstance().visualModel.noteModel;
          return noteModel.getNoteCount(this);
       }
-      
-      
+
       public function set serverNoteCount(value:int):void{
          _serverNoteCount = value;
       }
@@ -232,8 +229,7 @@ package com.broceliand.pearlTree.model{
       public function get serverNoteCount():int{
          return _serverNoteCount;
       }
-      
-      
+
       public function set serverFullFeedNoteCount (value:int):void{
          _serverFullFeedNoteCount = value;
       }
@@ -270,8 +266,7 @@ package com.broceliand.pearlTree.model{
       public function get parentLink():BroLink {
          return _parentLink;
       }
-      
-      
+
       public function get childLinks():Array {
          return _childLinks;
       }
@@ -367,8 +362,7 @@ package com.broceliand.pearlTree.model{
          }
          return count;
       }
-      
-      
+
       public function getDescendants():Array {
          var descendants:Array = new Array();
          for each (var l:BroLink in childLinks) {
@@ -505,13 +499,11 @@ package com.broceliand.pearlTree.model{
       public function set noteModeHasChanged(value:Boolean):void{
          _noteModeHasChanged = value;
       }
-      
-      
+
       public function getRepresentedTree():BroPearlTree {
          return owner;
       }
-      
-      
+
       public function canBeCopy():Boolean {
          var tree:BroPearlTree = getRepresentedTree();
          if (tree && tree.isPrivate() && !tree.isCurrentUserAuthor()) {
@@ -523,7 +515,6 @@ package com.broceliand.pearlTree.model{
       public function isTitleEditable():Boolean {
          return owner && owner.isCurrentUserAuthor() && !owner.isPrivatePearltreeOfCurrentUserNotPremium();     
       }
-      
-      
+
    }
 }

@@ -11,8 +11,7 @@ package com.broceliand.util.logging
          _maxSize = maxSize;
          _startIndex = 0;
          _data = new Array();
-         
-         
+
       }
       public function get length():int {
          return _data.length;

@@ -45,14 +45,12 @@ package com.broceliand.ui.interactors.drag
       public function initState(v:IVisualNode): void{
          var vnode:IPTVisualNode = v as IPTVisualNode;
          Assert.assert(vnode != null, "IPTVisualNode should be used here instead of IVisualNode");
-         
-         
+
          var parentNode:IPTNode= IPTNode(vnode.node.predecessors[0]);
          var parentVn:IVisualNode = parentNode.vnode;
          
          _gparentAngle =0;
-         
-         
+
          if (parentNode.predecessors.length>0 && parentNode.predecessors[0] != null && parentNode.predecessors[0].vnode.isVisible) {
             var gpVnode:IVisualNode = parentNode.predecessors[0].vnode;
             gpVnode.refresh(); 
@@ -67,8 +65,7 @@ package com.broceliand.ui.interactors.drag
          var dx:Number = vnode.x- parentVn.x;
          var dy:Number = vnode.y- parentVn.y;
          _startLength = Math.sqrt(dx*dx+dy*dy);
-         
-         
+
          var deltaAngle:Number = (vnode.pearlView.pearlWidth + GeometricalConstants.LITTLE_MOVE_DISTANCE) / _startLength ;
          _childAngles = new Array(parentNode.successors.length);
          for (var i:int=0; i<parentNode.successors.length;i++) {
@@ -148,8 +145,7 @@ package com.broceliand.ui.interactors.drag
                (edge.data as EdgeData).temporary = true;
             }
          }
-         
-         
+
       }
       
       private function updateExcitedNodes(parentNode:INode, index:int, isLeft:Boolean):void {

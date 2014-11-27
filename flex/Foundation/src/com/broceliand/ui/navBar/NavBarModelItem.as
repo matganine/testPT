@@ -3,8 +3,7 @@ package com.broceliand.ui.navBar {
    import flash.events.EventDispatcher;
    
    import mx.core.UIComponent;
-   
-   
+
    public class NavBarModelItem extends EventDispatcher {
       
       public static const MODEL_CHANGE:String = "modelChange";

@@ -20,8 +20,7 @@ package com.broceliand.graphLayout.model
       {
          _vgraph = vgraph;
       }
-      
-      
+
       public function getCurrentFocusedTree():BroPearlTree {
          
          if (_vgraph.currentRootVNode) {
@@ -41,8 +40,7 @@ package com.broceliand.graphLayout.model
          } 
          return null;
       }
-      
-      
+
       public function getNode(tree:BroPearlTree):IPTNode {
          return   _tree2RootNodes[tree];
       }

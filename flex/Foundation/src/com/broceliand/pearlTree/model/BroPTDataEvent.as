@@ -14,8 +14,7 @@ package com.broceliand.pearlTree.model{
       public static const PT_NO_CURRENT_TREE:String = "currentTreeNotAvailable";
       /*declare our additional instance field
       that this event can track */
-      
-      
+
       private var _tree:BroPearlTree;
       
       private var _node:BroPTNode;
@@ -75,8 +74,7 @@ package com.broceliand.pearlTree.model{
       {
          return _node;
       }
-      
-      
+
       override public function clone():Event {
          return new BroPTDataEvent(_tree, type, _treeDB, _treeID, _node);
       }

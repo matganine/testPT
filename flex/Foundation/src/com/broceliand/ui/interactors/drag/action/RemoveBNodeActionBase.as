@@ -93,8 +93,7 @@ package com.broceliand.ui.interactors.drag.action
          }
          return originChildNodes;
       }
-      
-      
+
       protected function unlinkRemoveNode(removedNode:IPTNode):void {
          if(removedNode.parent && removedNode.parent.vnode){
             
@@ -177,8 +176,7 @@ package com.broceliand.ui.interactors.drag.action
             var insertionIndex:int =0;
             var childCount:int = parentNode.getChildCount();
             for (var i:int = 1; i < childCount; ++i) {
-               
-               
+
                var childToMove:BroPTNode = parentNode.getChildAt(1);
                var successor:IPTNode = childToMove.graphNode;
                if (successor) {
@@ -200,8 +198,7 @@ package com.broceliand.ui.interactors.drag.action
             }
             
          }
-         
-         
+
       }
       public function getOriginChildNodes():Array {
          return _originChildNodes;

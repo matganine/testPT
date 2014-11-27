@@ -96,8 +96,7 @@ package com.broceliand.ui.pearlBar.view
       
       override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
          super.updateDisplayList(unscaledWidth, unscaledHeight);
-         
-         
+
          var color:int = ColorPalette.PEARLTREES_LIGHT_GRAY_COLOR;
          var parentSlider:Slider = slider;
          
@@ -106,8 +105,7 @@ package com.broceliand.ui.pearlBar.view
          if (parentSlider) {
             centerX =  0.5 * unscaledWidth; 
             _centerButton.visible = true;
-            
-            
+
             _centerButton.x = centerX - getZeroButtonWidth()/2;
             _centerButton.y = - getZeroButtonHeight()/2 -2;
          }

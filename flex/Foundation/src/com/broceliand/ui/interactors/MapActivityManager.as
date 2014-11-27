@@ -33,8 +33,7 @@ package com.broceliand.ui.interactors
             }
          }
       }
-      
-      
+
       public function set screenLine(screenLine:IScreenLine):void {
          if (screenLine != _screenLine) {
             if (_screenLine) {
@@ -47,8 +46,7 @@ package com.broceliand.ui.interactors
             }
          }
       }
-      
-      
+
       private function onDisplayChangedEvent(event:Event):void{
          var shouldBeActive:Boolean = true;
          if (_player && !_player.isHidden()) {
@@ -61,7 +59,6 @@ package com.broceliand.ui.interactors
             _map.setActive(shouldBeActive);
          }
       }
-      
-      
+
    }
 }

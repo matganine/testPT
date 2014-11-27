@@ -13,8 +13,7 @@ package com.broceliand.ui.interactors
       public function ThrownPearlPositionner()
       {
       }
-      
-      
+
       private static function getNodeAtEndOfBranch(startOfBranch:BroPTNode, depthLimit:int):BroPTNode {
          var level:int = 0;
          var incumbent:BroPTNode = startOfBranch;
@@ -28,8 +27,7 @@ package com.broceliand.ui.interactors
          return incumbent;
       }
       public static function findBestPositionInTree(tree:BroPearlTree, node:BroPTNode):BroPTNode {
-         
-         
+
          var incumbent:BroPTNode = tree.getRootNode();
          
          if (incumbent.getChildCount() < InteractorRightsManager.MAX_NUM_IMMEDIATE_DESCENDANTS_ROOT) {
@@ -59,8 +57,7 @@ package com.broceliand.ui.interactors
                incumbent = allowedIncumbent;
             }
          }
-         
-         
+
          if (node.owner == tree) {
             var result:BroPTNode = incumbent;
             while (result.parent != null) {

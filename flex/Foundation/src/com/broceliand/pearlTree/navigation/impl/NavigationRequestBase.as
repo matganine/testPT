@@ -1,8 +1,7 @@
 package com.broceliand.pearlTree.navigation.impl
 {
    import com.broceliand.pearlTree.navigation.NavigationEvent;
-   
-   
+
    internal class NavigationRequestBase 
    {
       protected var _event:NavigationEvent;

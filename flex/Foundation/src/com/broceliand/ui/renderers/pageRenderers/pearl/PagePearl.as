@@ -19,8 +19,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       private static const TITLE_MARGIN_TOP:Number = -3;
       private static const ICON_WIDTH:Number = 16;
       private static const CUSTOM_ICON_WIDTH:Number = 36;
-      
-      
+
       private var iconChanged:Boolean = false;
       protected var _iconImageNormalState:RemoteImage = null;
       

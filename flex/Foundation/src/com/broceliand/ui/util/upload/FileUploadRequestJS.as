@@ -14,8 +14,7 @@ package com.broceliand.ui.util.upload
    import flash.events.Event;
    
    import mx.rpc.events.FaultEvent;
-   
-   
+
    public class FileUploadRequestJS extends FileUploadRequest implements IAmfRetArrayCallback
    {
       

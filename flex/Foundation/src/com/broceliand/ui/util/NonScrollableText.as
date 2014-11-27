@@ -57,8 +57,7 @@ package com.broceliand.ui.util {
             var range:TextRange = new TextRange(this, false, index, index + 1);
             
             if (range.url.length > 0) {
-               
-               
+
                var url:String = range.url;
                if (url.substr(0, 6) == 'event:') {
                   url = url.substring(6);
@@ -70,8 +69,7 @@ package com.broceliand.ui.util {
       }
       
       public function updateHeight():void {
-         
-         
+
          validateNow();
          setActualSize(width, measuredHeight + 3);
          validateSize();

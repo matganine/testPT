@@ -62,8 +62,7 @@ package com.broceliand.pearlTree.model
          }
          return false;   
       }
-      
-      
+
       static public function isWelcomePearlFromPearltreesAccount(node:BroPTNode):Boolean {
          if (node ==null || node.owner == null) return false;
          var author:User =  node.owner.getMyAssociation().preferredUser;

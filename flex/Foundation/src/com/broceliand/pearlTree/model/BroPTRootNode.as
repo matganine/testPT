@@ -1,7 +1,6 @@
 package com.broceliand.pearlTree.model{
    import com.broceliand.ApplicationManager;
-   
-   
+
    public class BroPTRootNode extends BroPTNode
    {
       public override function toString():String {

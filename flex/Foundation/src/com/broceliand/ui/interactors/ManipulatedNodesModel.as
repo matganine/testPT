@@ -19,8 +19,7 @@ package com.broceliand.ui.interactors
    import flash.utils.Dictionary;
    
    import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
-   
-   
+
    public class ManipulatedNodesModel
    {
       private var _nodes:Dictionary;
@@ -169,8 +168,7 @@ package com.broceliand.ui.interactors
          }
          return (_nodes[node] != null);
       }
-      
-      
+
       private function refreshNodeRenderers(dict:Dictionary):void{
          for each(var node:IPTNode in dict){
             var renderer:IUIPearl = node.renderer;

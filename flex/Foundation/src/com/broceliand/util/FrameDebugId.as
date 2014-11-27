@@ -20,8 +20,7 @@ package com.broceliand.util
       {
          return _frameId;
       }
-      
-      
+
       public function FrameDebugId()
       {
          Assert.assert(_frameDebugId==null, "frame debugger already instanciated");

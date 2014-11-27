@@ -11,8 +11,7 @@ package com.broceliand.ui.renderers.factory
       public function PTRootPearlRendererFactory(resourceManager:IRemoteResourceManager, interactorManager:InteractorManager, pearlRendererStateManager:PearlRendererStateManager){
          super(resourceManager, interactorManager, pearlRendererStateManager);         
       }
-      
-      
+
       override public function newInstance():*
       {
          var renderer:PTRootPearlRenderer = new UIRootPearl(_pearlRendererStateManager, _remoteResourceManager);

@@ -65,8 +65,7 @@ package com.broceliand.ui.interactors.drag
       public static var MARK_NODE_EDITED:Boolean = true;
       private var _vgraph:IPTVisualGraph;
       private var _excitePearlManager:ExcitePearlManager=null;
-      
-      
+
       private var _pearlDetachmentInteractor:PearlDetachmentInteractor=null;
       private var _draggingOnStringInteractor:DraggingOnStringInteractor=null;
       private var _dragIntoTreeInteractor:DragIntoTreeInteractor = null;
@@ -76,8 +75,7 @@ package com.broceliand.ui.interactors.drag
       private var _dropZoneInteractor:DropZoneInteractor = null;
       private var _detachedBranchManager:CloseBranchAnimation;
       private var _businessTreeChecker:BusinessTreeLayoutChecker;
-      
-      
+
       private var _startDistanceToRoot:Number;
       private var _nearestNode:IPTNode = null;
       private var _isHome:Boolean= true;
@@ -101,8 +99,7 @@ package com.broceliand.ui.interactors.drag
          _vgraph = interactorManager.pearlTreeViewer.vgraph;
          _isAnonymous = isAnoynmous;
       }
-      
-      
+
       internal function detachNodeFromParent(vn:IVisualNode, updateManipulatedNodes:Boolean = true):void {
          var shouldLayout:Boolean= false;
 
@@ -154,8 +151,7 @@ package com.broceliand.ui.interactors.drag
             
          }
       }
-      
-      
+
       private function handleNodeDetachment(vn:IVisualNode):void{
          var distanceToRoot:Number = BroceliandMath.getDistanceBetweenPoints(vn.vgraph.currentRootVNode.viewCenter, vn.viewCenter);
          var shouldDetachPearl:Boolean = false;
@@ -178,8 +174,7 @@ package com.broceliand.ui.interactors.drag
             }
          }
       }
-      
-      
+
       private function handleTrashWarning(ev:MouseEvent):Boolean{
          var renderer:IUIPearl = _interactorManager.draggedPearl;
 
@@ -211,8 +206,7 @@ package com.broceliand.ui.interactors.drag
             (vn.view as IUIPearl).pearl.unblacken();
          }
       }
-      
-      
+
       private function changeParentVisualNode(previousParentVNode:IVisualNode, newParentVNode:IVisualNode, targetVNode:IVisualNode, index:int = 0, exciteNewParent:Boolean = false):void{
          if(previousParentVNode){
             var previousParentRenderer:IUIPearl = previousParentVNode.view as IUIPearl;
@@ -291,11 +285,9 @@ package com.broceliand.ui.interactors.drag
             }
             return;
          }
-         
-         
+
          if (parentNode) {
-            
-            
+
             var draggedBNode:BroPTNode = IPTNode(n.node).getBusinessNode();
             if (draggedBNode is BroPTRootNode) {
                draggedBNode = draggedBNode.owner.refInParent; 
@@ -308,8 +300,7 @@ package com.broceliand.ui.interactors.drag
             
          }
       }
-      
-      
+
       private function computeLinkFinalIndex(parent:INode, child:INode):int {
          
          parent.vnode.refresh();
@@ -330,8 +321,7 @@ package com.broceliand.ui.interactors.drag
             var childPoint:Point = parentPoint.clone();
             child.vnode.refresh();
             childPoint.offset(child.vnode.x, - child.vnode.y);
-            
-            
+
             var childAngle:Number = Geometry.polarAngle(childPoint);
             if (childAngle>Math.PI+parentAngle) childAngle -= 2 * Math.PI;
             var successors:Array = parent.successors;
@@ -346,11 +336,9 @@ package com.broceliand.ui.interactors.drag
                node.vnode.refresh();
                
                childPoint.offset(node.vnode.x,  - node.vnode.y);
-               
-               
+
                var currentAngle :Number= Geometry.polarAngle(childPoint);
-               
-               
+
                if (currentAngle>Math.PI+parentAngle) {
                   currentAngle -= 2 * Math.PI;
                   
@@ -364,8 +352,7 @@ package com.broceliand.ui.interactors.drag
                }
                index++;
             }
-            
-            
+
             if (childIndex != -1 && index == successors.length) {
                index = successors.length -1;
             }
@@ -375,8 +362,7 @@ package com.broceliand.ui.interactors.drag
          return index;
          
       }
-      
-      
+
       override public function dragBegin(ev:MouseEvent):void{
          ApplicationManager.getInstance().sessionHelper.notifyPearlCreationEvent(SessionHelper.DRAG_PEARL);
          suscribeToScrollModel(true);
@@ -399,8 +385,7 @@ package com.broceliand.ui.interactors.drag
          
          renderer.pearl.moveRingInPearl();
          var parentNode:IPTNode = renderer.node.predecessors[0] as IPTNode;
-         
-         
+
          _interactorManager.manipulatedNodesModel.updateManipulatedNodesFromDraggedNode(renderer.node, false);
          
          _pearlDetachmentInteractor = new PearlDetachmentInteractor(renderer.vnode, _interactorManager, this, _endNodeDetachementManager);
@@ -434,8 +419,7 @@ package com.broceliand.ui.interactors.drag
       } 
       
       private function manageNormalLinkOnDrag(ev:Event):void{
-         
-         
+
          var renderer:IUIPearl = _interactorManager.draggedPearl;
          var node:IPTNode = renderer.node;
          if (isPrivatePearlForExpiredPremium(node)) {
@@ -539,8 +523,7 @@ package com.broceliand.ui.interactors.drag
 
             _dragIntoTreeInteractor.onClosestNodeChange(newNearestNode);
          }
-         
-         
+
          if(newNearestNode){
             
             newNodeZone = ZONE_CAN_LINK_AND_SHOW_FEEDBACK;
@@ -556,8 +539,7 @@ package com.broceliand.ui.interactors.drag
                }
             }
          }
-         
-         
+
          var shouldUpdate:Boolean = (newNearestNode != _nearestNode) || (newNodeZone != _nodeZone) || _dragEnded;
          if(shouldUpdate){
             var shouldBeLinkedWithNearest:Boolean = false;
@@ -610,8 +592,7 @@ package com.broceliand.ui.interactors.drag
             _pearlDetachmentInteractor.onMovingOnNewParent(newNearestVNode);
          }
       }
-      
-      
+
       private function endDraggingOnString():Boolean {
          if (_draggingOnStringInteractor !=null) {
             _shouldDetachPearlOnDetachment = _draggingOnStringInteractor.hasSwapped;
@@ -778,8 +759,7 @@ package com.broceliand.ui.interactors.drag
          var selectionModel:SelectionModel = ApplicationManager.getInstance().visualModel.selectionModel;
          var point:Point = new Point(ev.stageX, ev.stageY);
          var treeToCheck:Array = null;
-         
-         
+
          _excitePearlManager.relaxAllPearls();
          var am:ApplicationManager = ApplicationManager.getInstance();
          am.components.windowController.setAllWindowBackward(false);
@@ -827,8 +807,7 @@ package com.broceliand.ui.interactors.drag
                      targetZone = "DropZone";
                   } else {
                      isDraggedPearlOrganinzed = true;
-                     
-                     
+
                      targetZone = "Cancelled";
                   }
                }
@@ -915,16 +894,14 @@ package com.broceliand.ui.interactors.drag
             _endNodeDetachementManager.detachAllEndNodesOfTemporaryTrees();
             
             var parentNode:IPTNode = renderer.vnode.node.predecessors[0]; 
-            
-            
+
             if (parentNode) {
                var parentBnode:BroPTNode = parentNode.getBusinessNode();
                if (parentBnode && parentBnode.owner is NeighbourPearlTree) {
                   parentNode = null;
                }
             }
-            
-            
+
             if(parentNode){
                treeToCheck = BroUtilFunction.addToArray(treeToCheck, _pearlDetachmentInteractor.commitDrag());
                var shouldLinkToParent:Boolean = true;
@@ -939,8 +916,7 @@ package com.broceliand.ui.interactors.drag
                   if (bnodeToOpen is BroTreeRefNode) {
                      targetTree = BroTreeRefNode(bnodeToOpen).refTree;
                      if (targetTree.pearlsLoaded) {
-                        
-                        
+
                         testlinkIsOk =_businessTreeChecker.isBNodeMoveAllowed(currentNode.getBusinessNode(), targetTree.getRootNode(),0);
                         
                         if (!testlinkIsOk && !garp.isBusy) {
@@ -960,8 +936,7 @@ package com.broceliand.ui.interactors.drag
                      if (testLinkValue == InteractorRightsManager.CODE_OK && bnodeToOpen is BroTreeRefNode ) {
                         
                         _interactorManager.pearlTreeViewer.pearlTreeEditionController.tempUnlinkNodes(parentNode.vnode, renderer.vnode);
-                        
-                        
+
                         var nextSelectedNode:IPTNode = parentNode;
                         if (_interactorManager.draggedPearlOriginalParentVNode!=null) {
                            nextSelectedNode= _interactorManager.draggedPearlOriginalParentVNode.node as IPTNode;
@@ -1009,8 +984,7 @@ package com.broceliand.ui.interactors.drag
                }
                if (shouldLinkToParent) {
                   var index:int = computeLinkFinalIndex(parentNode,currentNode );
-                  
-                  
+
                   var updateBusinessModel:Boolean = true;
                   var parentBNode:BroPTNode= parentNode.getBusinessNode();
                   
@@ -1033,8 +1007,7 @@ package com.broceliand.ui.interactors.drag
                      updateBusinessModel = false;
                   } 
                   if (!indexSame || index>0) {
-                     
-                     
+
                      changeParentVisualNode(parentNode.vnode, parentNode.vnode,renderer.vnode, index, false);
                      
                   } 
@@ -1106,8 +1079,7 @@ package com.broceliand.ui.interactors.drag
             
          }
          super.dragEnd(ev);
-         
-         
+
          if (shouldLayout) {
             if (_isAnonymous) {
                if ( targetZone != "Cancelled") {

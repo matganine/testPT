@@ -39,8 +39,7 @@ package com.broceliand.graphLayout.layout
       
       public static const PTW_LAYOUT_DEFAULT:uint = 0;
       public static const PTW_LAYOUT_DISCOVER:uint = 1;
-      
-      
+
       private var _concentricLayout:AnimatedBaseLayout;
       private var _concentricLayoutV2:AnimatedBaseLayout;
       private var _isLayouting:Boolean=false;
@@ -91,8 +90,7 @@ package com.broceliand.graphLayout.layout
       public static function SetNewLayout(value:Boolean):void {
          PTLayouterBase(ApplicationManager.getInstance().components.pearlTreeViewer.vgraph.layouter).setNewLayout(value);
       }
-      
-      
+
       override public function set linkLength(rr:Number):void {
          _concentricLayout.linkLength=rr;
          if (_concentricLayoutV2) {
@@ -177,13 +175,11 @@ package com.broceliand.graphLayout.layout
          return true;
          
       }
-      
-      
+
       protected function commitNodesPosition():void {
          
       }
-      
-      
+
       protected function onEndLayout():void {
          _isMoving = false;
          _vgraph.refresh();
@@ -228,8 +224,7 @@ package com.broceliand.graphLayout.layout
          super.layoutChanged = lc;
          _concentricLayout.layoutChanged = lc;
       }
-      
-      
+
       public function setPearlTreesWorldLayout(value:Boolean):void {
          _isPTWLayout = value;
          var am:ApplicationManager = ApplicationManager.getInstance();
@@ -291,8 +286,7 @@ package com.broceliand.graphLayout.layout
                zoomFactor *= (ApplicationManager.getInstance().isEmbed() ? ZoomModel.ZOOM_FACTOR_DEFAULT_EMBED : ZoomModel.ZOOM_FACTOR_DEFAULT);
                updateRadius(_vgraph.scale, zoomFactor);
                IPTVisualGraph(_vgraph).zoomModel.setZoomValueWithNoAnim(zoomFactor);
-               
-               
+
             }
             
          }
@@ -307,8 +301,7 @@ package com.broceliand.graphLayout.layout
          scrollY =  originY;
          var leftLimit:Number = 0.20 *_vgraph.width;
          var rightLimit:Number = 0.50 *_vgraph.width;
-         
-         
+
          var root:IVisualNode= _vgraph.currentRootVNode;
          if (root.x - scrollX < leftLimit) {
             scrollX = root.x  - leftLimit;
@@ -335,8 +328,7 @@ package com.broceliand.graphLayout.layout
             v.x = Math.round(rootVnode.x + newScale * (v.x - rootVnode.x));
             v.y = Math.round(rootVnode.y + newScale * (v.y - rootVnode.y));
          }
-         
-         
+
       }
       private  function calcNodesBoundingBox(maxDistance:int = -1):Rectangle {
          var result:Rectangle = new Rectangle(999999, 999999, -999999, -999999);
@@ -370,7 +362,6 @@ package com.broceliand.graphLayout.layout
          }
          return pearlCount;
       }
-      
-      
+
    }
 }

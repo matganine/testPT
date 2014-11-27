@@ -20,8 +20,7 @@ package com.broceliand.graphLayout.layout
    import org.un.cava.birdeye.ravis.graphLayout.data.INode;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class PTLayouter extends PTLayouterBase implements IPTLayouter
    {
       protected static const COMPUTING_LAYOUT_ONLY:Number = 3;
@@ -29,8 +28,7 @@ package com.broceliand.graphLayout.layout
       protected static const INIT_DONE:Number = 2;
       protected static const LAYOUT_WITH_FIX_NODE_POSITION:Number = 4;
       protected static const SLOW_LAYOUT:Number = 5;
-      
-      
+
       protected var _initialAnimationState:Number = INIT_DONE;
       private var _nodePosition:Dictionary = null;
       private var _fixedNode:INode;
@@ -90,8 +88,7 @@ package com.broceliand.graphLayout.layout
             super.layoutPass();
             return;
          } else {
-            
-            
+
             _fixedNode = node;
             if (super._isMoving) {
                _fixedNodeCenter = new Point(node.vnode.x, node.vnode.y); 
@@ -104,8 +101,7 @@ package com.broceliand.graphLayout.layout
             _initialAnimationState = oldState;
          }
       }
-      
-      
+
       override protected function commitNodesPosition():void {
          if (!_vgraph.currentRootVNode) {
             return;
@@ -177,8 +173,7 @@ package com.broceliand.graphLayout.layout
                      int(0.5 + _fixedNodeCenter.y - _fixedNode.vnode.y ));
                   
                   IPTVisualGraph(_vgraph).offsetOrigin(offset.x, offset.y);
-                  
-                  
+
                   for each(vn in _vgraph.visibleVNodes) {
                      if (IPTNode(vn.node).isDocked) {
                         continue;
@@ -217,8 +212,7 @@ package com.broceliand.graphLayout.layout
             var pearlView:IUIPearl = vn.pearlView;
             var x:Number = 0;
             var y:Number = 0;
-            
-            
+
             if (pearlView !=null) {
                var posWithoutZoom:Point = pearlView.positionWithoutZoom;
                var pearlXOffset:Number = pearlView.pearlCenter.x - posWithoutZoom.x;

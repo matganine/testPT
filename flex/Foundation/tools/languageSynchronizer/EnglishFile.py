@@ -65,6 +65,5 @@ def deleteInFile(list):
     file = open(pathFile.EnFileToOpen, 'w')
     file.writelines(output)
     file.close()   
-        
-            
+
                 

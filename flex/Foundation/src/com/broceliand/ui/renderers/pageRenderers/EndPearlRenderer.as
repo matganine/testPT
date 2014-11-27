@@ -10,8 +10,7 @@ package com.broceliand.ui.renderers.pageRenderers
       function EndPearlRenderer(stateManager:PearlRendererStateManager, remoteResourceManager:IRemoteResourceManager){
          super(stateManager, remoteResourceManager);
       }
-      
-      
+
       override protected function instanciatePearl():void{
          _pearl = new EndPearl();
       }

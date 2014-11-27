@@ -26,8 +26,7 @@ package com.broceliand.ui.pearlTree
             addEventListener(MouseEvent.CLICK, performAction);
          }
       }     
-      
-      
+
       protected function makeExcitableImage():ExcitableImage {
          return null;
       }

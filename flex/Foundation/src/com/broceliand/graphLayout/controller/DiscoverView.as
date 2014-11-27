@@ -49,8 +49,7 @@ package com.broceliand.graphLayout.controller {
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class DiscoverView {
       
       private static const MAX_HEX_WITH_SHOW_EFFECT:uint=1;
@@ -117,8 +116,7 @@ package com.broceliand.graphLayout.controller {
          if(_model.enabled) {
             var hexes:Array = _displayModel.updateLoadingHexagonState();
             preloadHexAvatars(hexes);
-            
-            
+
             populateHexToShowQueue();
             
             _displayModel.fillPTW();
@@ -174,8 +172,7 @@ package com.broceliand.graphLayout.controller {
          var hexListToShow:Vector.<SpatialHex> = new Vector.<SpatialHex>();
          
          _displayModel.fillHexesToDisplay(hexListToShow);
-         
-         
+
          var hasNeighbourVisible:Boolean;
          for each(treeHex in hexListToShow) {
             treeHex.isVisible = true;
@@ -247,8 +244,7 @@ package com.broceliand.graphLayout.controller {
       }
       
       private function populateHexToHideQueue():void {
-         
-         
+
          var treeHex:SpatialHex;
          for each(treeHex in _model.hexList) {
             if(treeHex.isVisible && treeHex.isLoaded && isTreeHexFullyHiddenFromScreen(treeHex) && _hexToHideQueue.indexOf(treeHex) == -1) {
@@ -368,8 +364,7 @@ package com.broceliand.graphLayout.controller {
                hexFocused = _model.getHex(-1,0,true);
             }
          }
-         
-         
+
          if(_model.hexFocused != hexFocused) {
             populateHexToShowQueue();
             populateHexToHideQueue();
@@ -395,8 +390,7 @@ package com.broceliand.graphLayout.controller {
       public function getTreeHexUnderPoint(x:int, y:int):SpatialHex {
          return _displayModel.getTreeHexUnderPoint(x,y);
       }
-      
-      
+
       public function isTreeHexVisibleOnScreen(treeHex:SpatialHex):Boolean {
          return _displayModel.isTreeHexVisibleOnScreen(treeHex);
       }
@@ -443,8 +437,7 @@ package com.broceliand.graphLayout.controller {
       
       private function showHex(treeHex:SpatialHex, delay:Number=0, isStartAnimation:Boolean = false):void {
          if(!_model.enabled || !_model.isHexLoaded(treeHex.hexX, treeHex.hexY)) return;
-         
-         
+
          var spatialTree:SpatialTree;
          var newNodes:Array = new Array();
          var refNode:IBroPTWNode;
@@ -593,8 +586,7 @@ package com.broceliand.graphLayout.controller {
             }
          }
       }
-      
-      
+
       private function onZoomStart(pearl:IUIPearl):void {
          
          if (pearl.pearl) {

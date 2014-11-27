@@ -13,8 +13,7 @@ package com.broceliand.util
       private var _valueSet:Boolean = false;
       private var _value2Set:Boolean = false;
       private var _timer:Timer;
-      
-      
+
       public function SetterWithDelay(owner:Object, propertyName:String, delay:int, secondProperty:String=null ) 
       {
          _source = owner;

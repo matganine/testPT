@@ -62,7 +62,6 @@ package com.broceliand.graphLayout.controller
          }
          removeAllNodes(_nodesToDelete);
       }
-      
-      
+
    }
 }

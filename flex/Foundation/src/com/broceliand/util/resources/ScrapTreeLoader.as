@@ -18,8 +18,7 @@ package com.broceliand.util.resources
          super(false);
          _tree = tree;
       }
-      
-      
+
       public function get tree():BroPearlTree
       {
          return _tree;

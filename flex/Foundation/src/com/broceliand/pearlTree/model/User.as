@@ -39,8 +39,7 @@ package com.broceliand.pearlTree.model {
       private static var _WhatsHotUser:User;
       
       public static const UNDEFINED_AVATAR_HASH:String = "UndefinedAvatarHash";
-      
-      
+
       public function User(persistentDbId:int =0, persistentId:int=0, userName:String=null) {
          _persistentId = persistentId;
          _persistentDbId = persistentDbId;
@@ -357,8 +356,7 @@ package com.broceliand.pearlTree.model {
          }
          return -1;
       }
-      
-      
+
       public function get isPremium():int {
          return _isPremium;
       }

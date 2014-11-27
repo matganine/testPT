@@ -39,8 +39,7 @@ package com.broceliand.ui.interactors.drag
       private var _rightsManager:InteractorRightsManager = null;
       private var _hasSwapped:Boolean = false;      
       private static const LITTLE_MOVE_DISTANCE:int  =2; 
-      
-      
+
       public function DraggingOnStringInteractor(draggedNode:IVisualNode, editionController:IPearlTreeEditionController, rightsManager:InteractorRightsManager)
       {
          _editionController = editionController;
@@ -174,8 +173,7 @@ package com.broceliand.ui.interactors.drag
 
          }
          if (_canSwapBetweenChild) {
-            
-            
+
             var newIndex:Number = findNewBestChildIndex(draggedNode);
             if (newIndex>=0) {
                hasSwapped = _editionController.swapStringNodeChildIndex(draggedNode, newIndex);
@@ -225,8 +223,7 @@ package com.broceliand.ui.interactors.drag
             }
             
          }
-         
-         
+
          return bestIndex;
          
       }

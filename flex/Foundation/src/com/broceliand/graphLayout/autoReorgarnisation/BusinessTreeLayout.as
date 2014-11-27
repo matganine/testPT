@@ -73,8 +73,7 @@ package com.broceliand.graphLayout.autoReorgarnisation
          } 
          return radiusArray[i-2] + radiusInc;
       }
-      
-      
+
    }
 }
 
@@ -87,7 +86,6 @@ import com.broceliand.util.logging.Log;
 import flash.utils.Dictionary;
 
 import org.un.cava.birdeye.ravis.utils.Geometry;
-
 
 class PearlGroup {
    
@@ -113,8 +111,7 @@ class PearlGroup {
             currentSum += offsetBetweenDeltasInGroup[_indexes[i]];
             totalSum += currentSum;
          }
-         
-         
+
          var delta:Number = - totalSum / _indexes.length;
          for (i=0; i<_indexes.length; i++) {
             if (i>0) {

@@ -7,8 +7,7 @@ package com.broceliand.ui.pearlBar.deck {
    import flash.events.IEventDispatcher;
    import flash.events.MouseEvent;
    import flash.geom.Point;
-   
-   
+
    public interface IDeckModel extends IEventDispatcher, IHighlightable {
 
       function addItem(value:DeckItem):void;
@@ -24,8 +23,7 @@ package com.broceliand.ui.pearlBar.deck {
       function getNodeAt(itemIndex:int, createIfNotExist:Boolean = true):IPTNode;
       function getNodeWithBusinessNode(node:BroPTNode):IPTNode; 
       function clearDropzone():void;
-      
-      
+
       function set title(value:String):void;
       function set isTitleVisible(value:Boolean):void;
       function set emptyText(value:String):void;
@@ -37,8 +35,7 @@ package com.broceliand.ui.pearlBar.deck {
       function get isHighlighted():Boolean;
       function get isScollEffectPlaying():Boolean;
       function isDropZone():Boolean;
-      
-      
+
       function goToNextPage():void;
       function goToPreviousPage():void;
       function goToPageWithBusinessNode(node:BroPTNode):void;   
@@ -47,8 +44,7 @@ package com.broceliand.ui.pearlBar.deck {
       function set isNavButtonVisible(value:Boolean):void;
       function getPearlNumber():int;
       function get isClearing():Boolean;
-      
-      
+
       function refreshAtAnimationEnds():void;
    }
 }

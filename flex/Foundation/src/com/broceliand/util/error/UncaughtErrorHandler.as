@@ -7,8 +7,7 @@ package com.broceliand.util.error {
    import flash.events.ErrorEvent;
    import flash.events.UncaughtErrorEvent;
    import flash.system.Capabilities;
-   
-   
+
    public class UncaughtErrorHandler {
       
       private var _log:BroLogger = Log.getLogger('com.broceliand.util.error');

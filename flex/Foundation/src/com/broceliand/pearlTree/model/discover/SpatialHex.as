@@ -1,16 +1,13 @@
 package com.broceliand.pearlTree.model.discover {
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
-   
-   
+
    public class SpatialHex {
-      
-      
+
       public  static const PEARL_ZOOM:Number = 1.2;
       
       public static const HALF_EDGE_X:Number = 108;
       public static const EDGE_DISTANCE_Y:Number = 186; 
-      
-      
+
       public static const NONE:int =0;       
       public static const NEIGHBOUR:int =1;  
       public static const TOLOAD:int =2;     
@@ -18,8 +15,7 @@ package com.broceliand.pearlTree.model.discover {
       public static const TODISPLAY:int =4;  
       public static const DISPLAYED:int =5;  
       public static const HIDDEN:int =6;     
-      
-      
+
       private var _id:String;
       private var _hexX:int;
       private var _hexY:int;
@@ -117,7 +113,6 @@ package com.broceliand.pearlTree.model.discover {
          return "hex ( "+id+")";
          
       }
-      
-      
+
    }
 }

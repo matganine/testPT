@@ -79,8 +79,7 @@
             var filter:DropShadowFilter = new DropShadowFilter(distance,angle,color,alpha,blurX,blurY,strength,quality,inner,knockout);
             return new Array(filter);
          }
-         
-         
+
          override public function end():void {
             super.end();
             if (newsLabel) {

@@ -14,21 +14,17 @@ package com.broceliand.graphLayout.layout {
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class ConcentricRadialLayout extends AnimatedBaseLayout implements ILayoutAlgorithm {
-      
-      
+
       public static const DEFAULT_RADIUS:Number = 50;
 
       private var _minNodeSeparation:int=45;
 
       private var _previousRoot:INode;        
-      
-      
+
       private var _maxDepth:int = 0;
-      
-      
+
       private var _radiusInc:Number = 0;
       private var _reduceRadiusHackFactor:Number = 1;
       /* the two bounding angles */
@@ -55,8 +51,7 @@ package com.broceliand.graphLayout.layout {
       {
          return _minNodeSeparation;
       }
-      
-      
+
       public function ConcentricRadialLayout(vg:IVisualGraph = null):void {
          
          super(vg);
@@ -79,26 +74,22 @@ package com.broceliand.graphLayout.layout {
          }
          initDrawing();
       }
-      
-      
+
       public override function resetAll():void {
          super.resetAll();
          _stree = null;
          _graph.purgeTrees();
       }
-      
-      
+
       [Bindable]
       override public function set linkLength(r:Number):void {
          _radiusInc = r;
       }
-      
-      
+
       override public function get linkLength():Number {
          return _radiusInc;
       }
-      
-      
+
       override public function layoutPass():Boolean {
          var rv:Boolean;
 
@@ -176,8 +167,7 @@ package com.broceliand.graphLayout.layout {
          _layoutChanged = true;
          return rv;
       }
-      
-      
+
       public function setAngularBounds(theta:Number, width:Number):void {
          _theta1 = theta;
          _theta2 = _theta1 + width;
@@ -209,8 +199,7 @@ package com.broceliand.graphLayout.layout {
          _currentDrawing.centeredLayout = true;
          
       }
-      
-      
+
       private function autoFit():void {
          var r:Number;
          r = Math.min(_vgraph.width, _vgraph.height) / 2.0;
@@ -294,8 +283,7 @@ package com.broceliand.graphLayout.layout {
          }
          
          _currentDrawing.setAngularWidth(n,aw);
-         
-         
+
          return aw;
       }
       private var _incrArray : Array; 
@@ -347,16 +335,14 @@ package com.broceliand.graphLayout.layout {
          var aWidthInRad:Number = Geometry.deg2rad(awidth) * _reduceRadiusHackFactor;
          var dthetaInRad:Number = Geometry.deg2rad(dtheta);
          if (awidth<dtheta) {
-            
-            
+
             theta2= (awidth + theta1+theta2) /2;
             theta1= theta2-awidth;
             dtheta = awidth;
             
          } 
          else if (forRadiusOnly && aWidthInRad > dthetaInRad) {
-            
-            
+
             var realAWidthFactor:Number =  getRadius(depth) / (getRadius(depth)+maxIncrease)
             
             if (depth>0 && aWidthInRad == minNodeSeparation / getRadius(depth)) { 
@@ -382,8 +368,7 @@ package com.broceliand.graphLayout.layout {
                   theta1 + (nfrac * dtheta),
                   theta1 + ((nfrac + cfrac) * dtheta), forRadiusOnly, maxIncrease);
             }
-            
-            
+
             if (!forRadiusOnly) {
                _currentDrawing.setPolarCoordinates(cn, getRadius(depth), theta1+(nfrac*dtheta)+(cfrac*dtheta2));
                
@@ -392,8 +377,7 @@ package com.broceliand.graphLayout.layout {
                   vnode.distanceToClosestBrother = 0;
                }
             }
-            
-            
+
             /* set the orientation in the visual node */
             cn.vnode.orientAngle = theta1+(nfrac*dtheta)+(cfrac*dtheta2);
             
@@ -403,8 +387,7 @@ package com.broceliand.graphLayout.layout {
       override protected function commitNode(vn: IVisualNode ):void {
          
       }
-      
-      
+
       private var _tetaModifier:Dictionary ;
       private var _thread:Dictionary ;
       private function reduceTree():void {
@@ -507,8 +490,7 @@ package com.broceliand.graphLayout.layout {
             rightRootNode= nextLeft(rightRootNode);
             outsideRight = nextRight(outsideRight);
             outsideLeft = nextLeft(outsideLeft);
-            
-            
+
             if (leftRootNode != null  && leftRootNode.predecessors[0] != prevLeft) {
                ancestor = getFirstCommonAncestor(prevLeft,leftRootNode);
                while (prevLeft!= ancestor) {
@@ -552,8 +534,7 @@ package com.broceliand.graphLayout.layout {
          }
 
          if (rightRootNode != null && leftRootNode == null) {
-            
-            
+
             rightTeta += bestAngularOffset;  
             while (rightRootNode !=null ) {
                var originalPhi :Number =_currentDrawing.getPolarPhi(rightRootNode);
@@ -566,13 +547,11 @@ package com.broceliand.graphLayout.layout {
                } 
 
                rightRootNode = nextLeft(rightRootNode);
-               
-               
+
             } 
          }
          return bestAngularOffset;
-         
-         
+
       }
       private function distanceBetweenNode(lNode:INode, ltetaModifier:Number,rNode:INode, rtetaModifier:Number):Number {
          var phi:Number = (_currentDrawing.getPolarPhi(lNode) - ltetaModifier ) - (_currentDrawing.getPolarPhi(rNode) - rtetaModifier) ;
@@ -612,8 +591,7 @@ package com.broceliand.graphLayout.layout {
             return ret;
          }
       }
-      
-      
+
       private function nextLeft(v:INode):INode {
          /* if the node has children we return the leftmost
          * child, if not, we return the thread of the node */

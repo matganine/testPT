@@ -38,8 +38,7 @@ package com.broceliand.graphLayout.controller
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.graphLayout.visual.VisualNode;
-   
-   
+
    public class OpenTreeAnimation extends OpenTreeAnimationControllerBase implements IOpenTreeAnimationController
    {
       private static var _isFirstAnimation:Boolean = true;   
@@ -74,8 +73,7 @@ package com.broceliand.graphLayout.controller
          var rootOfOpenTree:IPTNode = tree.rootNode;
          _vgraph = rootOfOpenTree.vnode.vgraph as IPTVisualGraph;
          var endNode:EndNode= (rootOfOpenTree as PTRootNode).containedPearlTreeModel.endNode as EndNode;
-         
-         
+
          var animationIsGrowing:Boolean= animationType == GROWING_ANIMATION && shouldPlayGrowingAnimation(endNode);
          if (!animationIsGrowing) {
             if (animationType != FADE_ANIMATION) { 
@@ -307,8 +305,7 @@ package com.broceliand.graphLayout.controller
             StartPolicyLogger.getInstance().setFirstPearlsCreated();
          }
          _growingTreeAnimation.playAnimation();
-         
-         
+
       }
       private function redrawEdges(e:Event):void {
          _vgraph.refresh();
@@ -341,14 +338,12 @@ package com.broceliand.graphLayout.controller
             }
          }
          super.endAnimation(e);
-         
-         
+
       }
    }
 }
 import com.broceliand.util.IAction;
 import mx.effects.Effect;
-
 
 internal class PlayAnimationAction implements IAction {
    private var _effect:Effect;
@@ -370,8 +365,7 @@ internal class PlayAnimationAction implements IAction {
       } else {
          _function.call(_thisobj);      
       }
-      
-      
+
    }
 }
 
@@ -394,5 +388,4 @@ internal class PerformLayoutAction implements IAction {
       }
    }
 }
-
 

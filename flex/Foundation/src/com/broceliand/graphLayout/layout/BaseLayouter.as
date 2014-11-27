@@ -61,46 +61,33 @@ package com.broceliand.graphLayout.layout{
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.utils.LogUtil;
-   
-   
+
    public class BaseLayouter extends EventDispatcher implements ILayoutAlgorithm {
       
       private static const _LOG:String = "graphLayout.layout.BaseLayouter";
-      
-      
+
       public static const MINIMUM_NODE_HEIGHT:Number = 5;
-      
-      
+
       public static const MINIMUM_NODE_WIDTH:Number = 5;
-      
-      
+
       public static const DEFAULT_MARGIN:Number = 30;
-      
-      
+
       protected var _disableAnimation:Boolean = false;
-      
-      
+
       protected var _vgraph:IVisualGraph = null;
-      
-      
+
       protected var _graph:IGraph = null;
-      
-      
+
       protected var _layoutChanged:Boolean = false;
-      
-      
+
       protected var _stree:IGTree;
-      
-      
+
       protected var _root:INode;
-      
-      
+
       protected var _autoFitEnabled:Boolean = false;
-      
-      
+
       private var _currentDrawing:BaseLayoutDrawing;
-      
-      
+
       public function BaseLayouter(vg:IVisualGraph = null):void {
          
          _vgraph = vg;
@@ -113,13 +100,11 @@ package com.broceliand.graphLayout.layout{
          /* this is required to smooth the animation */
          _vgraph.addEventListener("forceRedrawEvent",forceRedraw);
       }
-      
-      
+
       public function resetAll():void {
          _layoutChanged = true;
       }
-      
-      
+
       public function set vgraph(vg:IVisualGraph):void {
          if(_vgraph == null) {
             _vgraph = vg;
@@ -128,40 +113,33 @@ package com.broceliand.graphLayout.layout{
             LogUtil.warn(_LOG, "vgraph was already set in layouter");
          }
       }
-      
-      
+
       public function set graph(g:IGraph):void {
          _graph = g;
       }
-      
-      
+
       public function get layoutChanged():Boolean {
          return _layoutChanged;
       }
-      
-      
+
       public function set layoutChanged(lc:Boolean):void {
          _layoutChanged = lc;
       }
-      
-      
+
       [Bindable]	 
       public function get autoFitEnabled():Boolean {
          return _autoFitEnabled;	
       }
-      
-      
+
       public function set autoFitEnabled(af:Boolean):void {
          _autoFitEnabled = af;
       }
-      
-      
+
       [Bindable]
       public function set linkLength(r:Number):void {
          /* NOP */
       }
-      
-      
+
       public function get linkLength():Number {
          /* NOP
          * but must not return 0, since some layouter
@@ -171,8 +149,7 @@ package com.broceliand.graphLayout.layout{
          */
          return 1;
       }
-      
-      
+
       public function get animInProgress():Boolean {
          /* since the base layouter is ignorant of animation
          * it would always return false. The AnimatedBaseLayouter
@@ -180,65 +157,54 @@ package com.broceliand.graphLayout.layout{
          * correct value. */
          return false;
       }
-      
-      
+
       public function set disableAnimation(d:Boolean):void {
          _disableAnimation = d;
       };
-      
-      
+
       public function get disableAnimation():Boolean {
          return _disableAnimation;
       }
-      
-      
+
       public function layoutPass():Boolean {
          /* NOP */
          return true;
       }
-      
-      
+
       public function refreshInit():void {
          /* NOP */
       }
-      
-      
+
       public function dragEvent(event:MouseEvent, vn:IVisualNode):void {
          /* NOP */
          
       }
-      
-      
+
       public function dragContinue(event:MouseEvent, vn:IVisualNode):void {
          /* NOP */
          
       }
-      
-      
+
       public function dropEvent(event:MouseEvent, vn:IVisualNode):void {
          /* NOP */
          
       }
-      
-      
+
       public function bgDragEvent(event:MouseEvent):void {
          /* NOP */
          
       }
-      
-      
+
       public function bgDragContinue(event:MouseEvent):void {
          /* NOP */
          
       }
-      
-      
+
       public function bgDropEvent(event:MouseEvent):void {
          /* NOP */
          
       }
-      
-      
+
       protected function set currentDrawing(dr:BaseLayoutDrawing):void {
          _currentDrawing = dr;
       }
@@ -252,8 +218,7 @@ package com.broceliand.graphLayout.layout{
          n.vnode.x = coords.x;
          n.vnode.y = coords.y;
       }
-      
-      
+
       protected function applyTargetToNodes(vns:Dictionary):void {
          var vn:IVisualNode;
          for each(vn in vns) {			

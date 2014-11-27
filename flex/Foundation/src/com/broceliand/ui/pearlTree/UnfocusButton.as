@@ -35,8 +35,7 @@ package com.broceliand.ui.pearlTree
       private var _inSelection:Boolean;
       private var _centerPoint:Point;
       private var _relaxedSourceSmall:Class;
-      
-      
+
       public function UnfocusButton()
       {
          super();
@@ -55,8 +54,7 @@ package com.broceliand.ui.pearlTree
          super.createChildren();
          visible = includeInLayout = false;
       }
-      
-      
+
       override   protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          if (node is PTRootNode) {
             var focusTree:BroPearlTree = PTRootNode(node).containedPearlTreeModel.businessTree;
@@ -70,8 +68,7 @@ package com.broceliand.ui.pearlTree
          }
          return null;
       }
-      
-      
+
       override protected function updateTargetComponentPosition(point:Point):void{
          point.x = Math.floor(_bindedComponent.x)+ scaleX * (GeometricalConstants.PEARL_X + GeometricalConstants.PEARL_BUTTON_X) ;   
          point.y = Math.floor(_bindedComponent.y)+ scaleY * (GeometricalConstants.PEARL_Y + GeometricalConstants.PEARL_BUTTON_Y) ;       
@@ -112,8 +109,7 @@ package com.broceliand.ui.pearlTree
             newPearl.unfocusButton = this;
          }
       }
-      
-      
+
       public function addMask(newParent:UIComponent):UIComponent{
          if(!_mask) {
             

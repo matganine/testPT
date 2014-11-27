@@ -143,8 +143,7 @@
          public function get model():ZoomModel {
             return _zoomModel;
          }
-         
-         
+
          private function onModelChanged(event:FlexEvent):void {
             restoreScaleSliderValue();
             if(!_isEmbed) {
@@ -181,8 +180,7 @@
             restoreScaleSliderValue();
             
          }
-         
-         
+
          private function onRollOutMinus():void {
             if (_isEmbed) {
                minusScale.source = AssetsManager.getEmbededAsset(PearlDeckAssets.ZOOM_EMBED_MINUS);
@@ -295,8 +293,7 @@
                }
             } 
          }
-         
-         
+
          private function minusDown(event:Event):void {
             executeZoomOut(event);
             zoomActionTimer.addEventListener(TimerEvent.TIMER, executeZoomOutOnHold);
@@ -340,8 +337,7 @@
             zoomActionTimer.removeEventListener(TimerEvent.TIMER, executeZoomInOnHold);
             plusScale.addEventListener(Event.ENTER_FRAME, executeZoomIn);
          }         
-         
-         
+
          private function get zoomActionTimer():Timer
          {
             if(!_zoomActionTimer) {

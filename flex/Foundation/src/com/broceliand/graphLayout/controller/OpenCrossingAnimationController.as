@@ -97,11 +97,9 @@ package com.broceliand.graphLayout.controller
          var endNodeToHide:IPTNode = PTRootNode(rootNodeOfNewTree).containedPearlTreeModel.endNode;
          
          nodesToRemove.push(_vgraph.currentRootVNode.node);
-         
-         
+
          crossingIPTNodeOldTree = addDisappearAnimationAndFindOldCrossingNode(nodesToRemove, _nodesToRemoveAtEndOfAnimation, sequence, crossingNode, isLookingForOldNode);
-         
-         
+
          var vedge:IVisualEdge= _vgraph.linkNodes(rootNodeOfNewTree.vnode, _vgraph.currentRootVNode);
          _vgraph.currentRootVNode = rootNodeOfNewTree.vnode;
          _vgraph.unlinkNodes(vedge.edge.node1.vnode, vedge.edge.node2.vnode); 
@@ -111,8 +109,7 @@ package com.broceliand.graphLayout.controller
          var positionPoint:Point ;
          var offset:Point = new Point(0,0);
          var recenterAnimation:Parallel = null;
-         
-         
+
          var newTitleOrientation:int = TitleRenderer.BIG_SIZE;
          if (crossingIPTNodeNewTree) {
             var newPearlTargetPosition:Point = _vgraph.center.clone();
@@ -166,8 +163,7 @@ package com.broceliand.graphLayout.controller
                pearl.alpha = 1;
             }
          }
-         
-         
+
          if (effect) {
             effect.addEventListener(TweenEvent.TWEEN_UPDATE, refreshGraphOnEffect, false, 0, true);
          }
@@ -360,8 +356,7 @@ package com.broceliand.graphLayout.controller
          ApplicationManager.getInstance().components.pearlTreeViewer.interactorManager.updatePearlUnderCursorAfterCross();
          
       }
-      
-      
+
       private function disableButtonsForDisappearingNodes():void {
          for each (var n:IPTNode in _nodesToRemoveAtEndOfAnimation) {
             if (!n.isEnded()) {

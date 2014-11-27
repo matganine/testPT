@@ -1,7 +1,6 @@
 package com.broceliand.ui.effects
 {
-   
-   
+
    import flash.events.TimerEvent;
    import flash.utils.Timer;
    
@@ -13,8 +12,7 @@ package com.broceliand.ui.effects
    import mx.effects.effectClasses.RotateInstance;
    
    use namespace mx_internal;
-   
-   
+
    public class ParallelFixedInstance extends CompositeEffectInstance
    {
       private var finishEffectCalled:Boolean = false;
@@ -25,21 +23,17 @@ package com.broceliand.ui.effects
       }
       
       private var doneEffectQueue:Array /* of EffectInstance */;
-      
-      
+
       private var replayEffectQueue:Array /* of EffectInstance */;
-      
-      
+
       private var isReversed:Boolean = false;	
-      
-      
+
       private var timer:Timer;
 
       override mx_internal function get durationWithoutRepeat():Number
       {
          var _duration:Number = 0;
-         
-         
+
          var n:int = childSets.length;
          for (var i:int = 0; i < n; i++)
          {
@@ -56,8 +50,7 @@ package com.broceliand.ui.effects
          if (childSet.length > 0)
          {
             var compChild:CompositeEffectInstance = childSet[0] as CompositeEffectInstance;
-            
-            
+
             if (childSet[0] is RotateInstance || (compChild != null && compChild.hasRotateInstance()))
             {
                childSets.pop();
@@ -65,8 +58,7 @@ package com.broceliand.ui.effects
             }
          }
       }
-      
-      
+
       override public function play():void
       {
          doneEffectQueue = [];
@@ -117,21 +109,18 @@ package com.broceliand.ui.effects
             }
          }
       }
-      
-      
+
       override public function pause():void
       {	
          super.pause();
-         
-         
+
          var n:int = activeEffectQueue.length;
          for (var i:int = 0; i < n; i++)
          {
             activeEffectQueue[i].pause();
          }
       }
-      
-      
+
       override public function stop():void
       {
          stopTimer();
@@ -150,21 +139,18 @@ package com.broceliand.ui.effects
          
          super.stop();
       }
-      
-      
+
       override public function resume():void
       {
          super.resume();
-         
-         
+
          var n:int = activeEffectQueue.length;
          for (var i:int = 0; i < n; i++)
          {
             activeEffectQueue[i].resume();
          }
       }
-      
-      
+
       override public function reverse():void
       {
          
@@ -199,8 +185,7 @@ package com.broceliand.ui.effects
          
          isReversed = !isReversed;
       }
-      
-      
+
       override public function end():void
       {
          endEffectCalled = true;
@@ -220,8 +205,7 @@ package com.broceliand.ui.effects
          
          super.end();
       }
-      
-      
+
       override protected function onEffectEnd(childEffect:IEffectInstance):void
       {
          if (Object(childEffect).suspendBackgroundProcessing)
@@ -262,8 +246,7 @@ package com.broceliand.ui.effects
          if (timer)
             timer.reset();
       }
-      
-      
+
       private function timerHandler(event:TimerEvent):void
       {
          var position:Number = durationWithoutRepeat - playheadTime;

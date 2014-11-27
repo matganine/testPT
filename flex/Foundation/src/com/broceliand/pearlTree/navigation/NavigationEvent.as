@@ -23,8 +23,7 @@ package com.broceliand.pearlTree.navigation
       
       public static const PLAY_STATE_PLAYER:int = 1;
       public static const PLAY_STATE_SCREEN:int = 2;
-      
-      
+
       private var _newNavigationDescription:NavigationDescription;
       private var _newUser:User;
       private var _oldUser:User;
@@ -129,8 +128,7 @@ package com.broceliand.pearlTree.navigation
       {
          return _newFocusTree;
       }
-      
-      
+
       public function set oldUser (value:User):void
       {
          _oldUser = value;
@@ -150,8 +148,7 @@ package com.broceliand.pearlTree.navigation
       {
          return _newUser;
       }
-      
-      
+
       public function NavigationEvent(type:String= NAVIGATION_EVENT) {
          super(type);
       }
@@ -173,8 +170,7 @@ package com.broceliand.pearlTree.navigation
       {
          return _newUser != oldUser;
       }
-      
-      
+
       public function set newSelectedTree (value:BroPearlTree):void
       {
          _newSelectedTree = value;
@@ -243,8 +239,7 @@ package com.broceliand.pearlTree.navigation
       {
          return _wasShowingPTW;
       }
-      
-      
+
       public function set oldNeighbourTree (value:BroPearlTree):void
       {
          _oldNeighbourTree = value;
@@ -335,8 +330,7 @@ package com.broceliand.pearlTree.navigation
       {
          return _searchUserOnly;
       }
-      
-      
+
       public function set searchUserId (value:Number):void
       {
          _searchUserId = value;

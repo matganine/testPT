@@ -8,13 +8,11 @@ package com.broceliand.ui.effects {
       public function StepRotationInstance(targetObj:*) {
          super(targetObj);
       }
-      
-      
+
       override public function onTweenUpdate(val:Object):void {
          super.onTweenUpdate(int(Number(val) / angleStep) * angleStep);
       }
-      
-      
+
       override public function onTweenEnd(val:Object):void {
          super.onTweenEnd(int(Number(val) / angleStep) * angleStep);
       }

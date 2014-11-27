@@ -15,15 +15,13 @@ package com.broceliand.pearlTree.navigation.impl
    import com.broceliand.pearlTree.navigation.NavigationEvent;
    
    import flash.utils.Dictionary;
-   
-   
+
    public class NoteToPearlNavigator implements INoteToPearlNavigator {
       
       private var _pearlLoader:IPearlLoader;
       
       private var _isNavigationLoading:Boolean;
-      
-      
+
       private var _nodeToUser:Dictionary;
       private var _nodeToTree:Dictionary;
       
@@ -43,8 +41,7 @@ package com.broceliand.pearlTree.navigation.impl
             trace("NoteToPearlNavigator ignored a request. Navigation is already loading.");
             return;
          }
-         
-         
+
          var noteNode:BroPTNode = new BroPTNode();
          noteNode.setPersistentId(note.pearlDb, note.pearlId, false);
          var noteNodeKey:String = noteNode.getKey();
@@ -74,8 +71,7 @@ package com.broceliand.pearlTree.navigation.impl
       
       private function goTo(user:User, tree:BroPearlTree, node:BroPTNode):void{
          var navigationModel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
-         
-         
+
          navigationModel.goTo(tree.getMyAssociation().associationId, 
             user.persistentId,  
             tree.id, 

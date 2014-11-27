@@ -23,8 +23,7 @@ package com.broceliand.ui.model
    
    import flash.events.Event;
    import flash.events.EventDispatcher;
-   
-   
+
    public class NeighbourModel extends EventDispatcher
    {
       public static const START_LOADING_NEIGHBOUR:String = "StartLoadingNeighbour";
@@ -129,31 +128,26 @@ package com.broceliand.ui.model
          var event:DistantTreeRefNeighboursLoadedEvent = new DistantTreeRefNeighboursLoadedEvent(node, neighbours, DISTANT_TREE_REF_NEIGHBOURS_LOADED);
          dispatchEvent(event);
       }
-      
-      
+
       public function declareClientNeighbour(nodeNeighbour:BroPTNode, destinationTree:BroPearlTree, crossingNode:BroPTNode=null):Boolean{
          return _clientNeighbourRepository.declareClientNeighbour(nodeNeighbour, destinationTree, crossingNode);
       }
       
       private function onNeighboursLoaded(event:NeighbourLoaderEvent):void{
-         
-         
+
          if (event.neighbours.paginationState.pageNumber > 1) {
             event.node.neighbours.mergeAfter(event.neighbours);
          }
          else {
             event.node.neighbours = event.neighbours;
          }
-         
-         
+
          if(event.node.neighbours.numberOfItems < MAX_NEIGHBOUR_TO_USE_AS_COUNT) {
             event.node.neighbourCount = event.node.neighbours.numberOfItems;
          }
-         
-         
+
          dispatchEvent(new Event(MODEL_CHANGED_EVENT));
-         
-         
+
          if(event.node is BroPageNode) {
             onPageNeighboursLoaded(BroPageNode(event.node), event.node.neighbours);
          }

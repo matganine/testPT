@@ -26,7 +26,6 @@ def compareFrEnAux(enFile, frFile):
         else:
             return notUsed
 
-    
 def compareEnFr(): 
     frFile = FrenchFile.frenchFile()
     frFile.openFile()

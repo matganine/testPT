@@ -83,8 +83,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
       
       override protected function get showNeighbourRing():Boolean {
          return true;
-         
-         
+
       }
       
       override protected function get showNoteRing():Boolean {

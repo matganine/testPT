@@ -38,8 +38,7 @@ package com.broceliand.ui.pearlBar.deck {
       public static const SCROLL_EFFECT_NONE:uint = 0;
       public static const SCROLL_EFFECT_PREVIOUS:uint = 1;
       public static const SCROLL_EFFECT_NEXT:uint = 2;
-      
-      
+
       private var _items:Vector.<DeckItem>;
       
       private var _nodesToShow:Vector.<IPTNode>;
@@ -47,8 +46,7 @@ package com.broceliand.ui.pearlBar.deck {
       private var _nodesToHideWithEffect:Vector.<IPTNode>;
       private var _playScrollEffect:uint;
       private var _isScollEffectPlaying:Boolean;
-      
-      
+
       private var _repositionWithEffect:Boolean;
       
       private var _availableWidth:Number;
@@ -154,8 +152,7 @@ package com.broceliand.ui.pearlBar.deck {
          
          _nodesToShow = newNodesToShow;
       }
-      
-      
+
       private function refreshNodesToHide(newNodesToShow:Vector.<IPTNode>):void {
          _nodesToHideWithEffect = new Vector.<IPTNode>();
          var node:IPTNode;
@@ -166,8 +163,7 @@ package com.broceliand.ui.pearlBar.deck {
                _nodesToHideWithEffect.push(node);
             }
          }
-         
-         
+
          for each (item in _items) {
             if(!item.node) {
                break;
@@ -184,8 +180,7 @@ package com.broceliand.ui.pearlBar.deck {
             invalidateNodesToShow();
          }
       }
-      
-      
+
       public function dockNode(node:IPTNode, copy:Boolean=false, effectSource:Point=null):IPTNode {
          var nodeToDock:IPTNode = null;
          if(copy) {
@@ -254,8 +249,7 @@ package com.broceliand.ui.pearlBar.deck {
             am.components.windowController.displayNodeInfo(node);
          }
       }
-      
-      
+
       protected function dockCopyOfNode(node:IPTNode, effectSource:Point=null):IPTNode {
          var businessNode:BroPTNode = node.getBusinessNode();
          return dockCopyBroPTNode(businessNode, effectSource, node);

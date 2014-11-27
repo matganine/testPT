@@ -43,8 +43,7 @@ package com.broceliand.ui.pearl
             _openTreeButtonConnector = new PearlButtonConnector(this, new OpenTreeButton(), OpenTreeButton.X_OFFSET, OpenTreeButton.Y_OFFSET);
          }  
       }
-      
-      
+
       public function set unfocusButton(value:UnfocusButton):void
       {
          if (value) {
@@ -81,8 +80,7 @@ package com.broceliand.ui.pearl
       
       override protected function commitProperties():void{
          super.commitProperties(); 
-         
-         
+
          if(!node || !node.getBusinessNode()) {
             return;
          }
@@ -136,8 +134,7 @@ package com.broceliand.ui.pearl
             }
          }
       }
-      
-      
+
       public function setButtonVisible(value:Boolean):void{
          if (hasCloseButton() && !_needToRecycleButtons) {
             _closeButtonConnector.setComponentAddOnTemporaryVisible(value);
@@ -171,8 +168,7 @@ package com.broceliand.ui.pearl
       } 
       public function isPointOnButton(point:Point):Boolean {
          return (hasCloseButton() && _closeButtonConnector.isPointOnComponentAddOn(point));
-         
-         
+
       }
       
       override protected function get pearlDefaultWidth():Number {

@@ -2,8 +2,7 @@ package com.broceliand.ui.pearlBar.deck {
    import com.broceliand.graphLayout.model.IPTNode;
    
    import flash.events.Event;
-   
-   
+
    public class DockedNodeStateEvent extends Event {
       
       private var _node:IPTNode;

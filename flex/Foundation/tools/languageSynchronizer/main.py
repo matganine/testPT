@@ -16,7 +16,6 @@ for item in pathList:
         
 pathFile.addPath(pathName)
 
-
 print " "
 print " --- [ Welcome ] --- "
 inp = input("Define source path ? [0/1] [recommended: 1]")

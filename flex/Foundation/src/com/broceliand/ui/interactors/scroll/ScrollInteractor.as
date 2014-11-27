@@ -135,7 +135,6 @@ package com.broceliand.ui.interactors.scroll
             _scrollModel.stopScroll();
          }
       }
-      
-      
+
    }
 }

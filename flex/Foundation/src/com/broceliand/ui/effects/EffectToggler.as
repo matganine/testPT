@@ -2,8 +2,7 @@ package com.broceliand.ui.effects
 {
    import mx.effects.Effect;
    import mx.events.EffectEvent;
-   
-   
+
    public class EffectToggler extends ForwardBackwardTogglerBase
    {
       protected var _effect:Effect
@@ -31,8 +30,7 @@ package com.broceliand.ui.effects
             _effect.play(null, true);
          }
       }   
-      
-      
+
       public function get effect():Effect{
          return _effect;
       }      

@@ -35,8 +35,7 @@ package com.broceliand.ui.util.upload
       private var _totalBytesSent:Number = 0;
       private var _currentTime:int = 0;
       private var _previousTime:int = 0;
-      
-      
+
       public function FileUploadRequestFlash() {
          
       }
@@ -75,8 +74,7 @@ package com.broceliand.ui.util.upload
       }
       
       protected function endCurrentRequest():void {
-         
-         
+
       }
       
       protected function validateFileNameExtension(fileName: String) : Boolean {

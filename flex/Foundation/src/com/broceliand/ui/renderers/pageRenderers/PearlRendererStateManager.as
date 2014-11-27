@@ -29,8 +29,7 @@ package com.broceliand.ui.renderers.pageRenderers
    
    import flash.display.Stage;
    import flash.geom.Point;
-   
-   
+
    public class PearlRendererStateManager
    {
       private static const STATE_SELECTED_OVER_NODE:int = -1;
@@ -54,8 +53,7 @@ package com.broceliand.ui.renderers.pageRenderers
       
       private var _navigationManager:INavigationManager = null;
       private var _selectionModel:SelectionModel = null;
-      
-      
+
       private var _vgraph:IPTVisualGraph;
       private var _nodeTitleModel:INodeTitleModel;
       private var _interactorManager:InteractorManager
@@ -73,8 +71,7 @@ package com.broceliand.ui.renderers.pageRenderers
          _vgraph = vgraph;
          _windowController = windowController;
       }
-      
-      
+
       private function isNodeSelectedNode(renderer:IUIPearl):Boolean{
          
          var node:BroPTNode = renderer.node.getBusinessNode();        
@@ -94,8 +91,7 @@ package com.broceliand.ui.renderers.pageRenderers
          if (node == selectedBusinessNode) {
             return true;
          }
-         
-         
+
          if(node is IBroPTWNode && selectedNode == renderer.node) {
             return true;
          }
@@ -151,8 +147,7 @@ package com.broceliand.ui.renderers.pageRenderers
       private function isNodeInExcitedDeck(node:IPTNode):Boolean {
          return (node && node.isDocked && node.getDock().isHighlighted && node.getDock().isEnabled);
       }
-      
-      
+
       public static function getStartRendererForEndRenderer(renderer:IUIPearl):UIRootPearl{
          var endRenderer:EndPearlRenderer = renderer as EndPearlRenderer;
          if(endRenderer && endRenderer.node && endRenderer.node.rootNodeOfMyTree){
@@ -175,8 +170,7 @@ package com.broceliand.ui.renderers.pageRenderers
       private function isMouseOverNode(renderer:IUIPearl):Boolean {
          return (_interactorManager.pearlRendererUnderCursor == renderer);
       }
-      
-      
+
       private function getState(renderer:IUIPearl, excited:Boolean = false):int{
          if (_highlightAllPearl) {
             return STATE_EXCITED;
@@ -206,8 +200,7 @@ package com.broceliand.ui.renderers.pageRenderers
                   }
                }else if(excited){
                   state = STATE_EXCITED;
-                  
-                  
+
                }else if(isNodeInSelectedTree(businessNode)){
                   state = STATE_SELECTED_TREE;
                } else if (isNodeInOpeningTree(businessNode)) {
@@ -355,8 +348,7 @@ package com.broceliand.ui.renderers.pageRenderers
             }
             showRings = false;
          }
-         
-         
+
          if(node == _interactorManager.nodeWhoseTitleIsBeingEdited ){
             color = TITLE_COLOR_INVISIBLE;
          }
@@ -467,8 +459,7 @@ package com.broceliand.ui.renderers.pageRenderers
             renderer.hidePadlock();
          }
       }
-      
-      
+
       private function excitePearlRendererInternal(renderer:IUIPearl, isExciteSource:Boolean = true):void{
          if (renderer && renderer.vnode as IPTVisualNode) {
             IPTVisualNode(renderer.vnode).isExcited = true;
@@ -524,7 +515,6 @@ package com.broceliand.ui.renderers.pageRenderers
       {
          return _highlightAllPearl;
       }
-      
-      
+
    }
 }

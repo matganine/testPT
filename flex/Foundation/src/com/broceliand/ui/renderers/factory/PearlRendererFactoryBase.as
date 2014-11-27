@@ -22,8 +22,7 @@ package com.broceliand.ui.renderers.factory
          _pearlRendererStateManager = pearlRendererStateManager;
          _recycledPearls = new Array();
       }
-      
-      
+
       protected function commonInit(renderer:IUIPearl):void{
          _interactorManager.depthInteractor.movePearlToNormalDepth(renderer);
          renderer.pearlRecyclingManager = this;

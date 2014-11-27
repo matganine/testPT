@@ -20,15 +20,13 @@ package com.broceliand.graphLayout.model
       private var _calculatingDescendant:Boolean= false;
       private static const MAX_DESCENDANTS_DEPTH_ALLOWED:Number = 100;
       public static const DOCKED_CHANGE_EVENT:String = "dockedChange";
-      
-      
+
       private var _dock:IDeckModel = null;
       protected var _businessNode:BroPTNode;
       private var _containingPearlTreeModel:IPearlTreeModel;
       protected var _numDescendantCache:Number = 0;
       private var _isDisappearing:Boolean;
-      
-      
+
       public function PTNode(id:int, sid:String, vn:IVisualNode, bnode:BroPTNode)  {
          super(id, sid, vn, bnode);
          _businessNode = bnode;
@@ -72,8 +70,7 @@ package com.broceliand.graphLayout.model
             return false;
          }  
       } 
-      
-      
+
       public function get treeOwner():BroPearlTree {
          return _businessNode.owner;
       }
@@ -166,8 +163,7 @@ package com.broceliand.graphLayout.model
             } else return (parent==null? true:parent.isOnLastBranch());
          } else return false;
       }
-      
-      
+
       protected function getDesc(model:IPearlTreeModel):Array{
          
          if (!model) {

@@ -35,8 +35,7 @@ package com.broceliand.pearlTree.model
          _currentGauge = _maxGauge = 0;
          _needUpdate = false;
       }
-      
-      
+
       public function get maxGauge():Number
       {
          return _maxGauge;
@@ -99,8 +98,7 @@ package com.broceliand.pearlTree.model
          clearUpdateTimeout();
          onError(null);
       }
-      
-      
+
       private function clearUpdateTimeout():void {
          if (_timeoutId > 0) {
             clearTimeout(_timeoutId);
@@ -164,8 +162,7 @@ package com.broceliand.pearlTree.model
          }
          return false;
       }
-      
-      
+
       public function onPearlDeleted(bnode:BroPTNode):void {
          invalidGauge();
       }

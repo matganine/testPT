@@ -12,8 +12,7 @@ package com.broceliand.ui.interactors
    import org.un.cava.birdeye.ravis.graphLayout.data.INode;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class InteractorUtils
    {
       private static function addDescendantsToArray(n:IVisualNode, ret:Array):void{
@@ -34,8 +33,7 @@ package com.broceliand.ui.interactors
          ret.push(n);
          return ret;
       }
-      
-      
+
       public static function getChildIndex(parentNode:INode, childNode:INode):int {
          var index:int = -1;
          if (parentNode!=null) {

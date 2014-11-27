@@ -1,7 +1,6 @@
 package com.broceliand.ui.effects
 {
-   
-   
+
    public class AnimForwardBackwardToggler extends ForwardBackwardTogglerBase
    {
       private var _anim:IPlayForwardBackward;
@@ -19,7 +18,6 @@ package com.broceliand.ui.effects
       override protected function handledObjectPlayBackward():void{
          _anim.playBackward();
       }
-      
-      
+
    }
 }

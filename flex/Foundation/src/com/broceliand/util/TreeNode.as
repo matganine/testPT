@@ -32,7 +32,6 @@ package com.broceliand.util
          }
          return _childNodes;
       }
-      
-      
+
    }
 }

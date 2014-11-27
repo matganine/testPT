@@ -23,8 +23,7 @@ package com.broceliand.graphLayout.model
       public function PTGraph(id:String, directional:Boolean = false, xmlsource:XML = null):void {
          super(id, directional, xmlsource);
       }
-      
-      
+
       override public function createNode(sid:String = "", o:Object = null):INode {
          
          /* we allow to pass a string id, e.g. it can originate
@@ -139,8 +138,7 @@ package com.broceliand.graphLayout.model
             if(!_directional) {
                node1.addInEdge(newEdge);
                node2.addOutEdge(newEdge);
-               
-               
+
             }
             retEdge = newEdge;
          }

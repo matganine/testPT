@@ -173,8 +173,7 @@ package com.broceliand.ui.util
             
          }
       }
-      
-      
+
       public function get pearltreesColor():int {
          return _pearltreesColor;
       }
@@ -195,8 +194,7 @@ package com.broceliand.ui.util
       public function set pearltreesColorForSystemFontLight(value:int):void {
          _pearltreesColorForSystemFontLight = value;
       }
-      
-      
+
       public function get pearltreesDarkColor():int {
          return _pearltreesDarkColor;
       }
@@ -217,8 +215,7 @@ package com.broceliand.ui.util
       public function set pearltreesLightColor(value:int):void {
          _pearltreesLightColor = value;
       }
-      
-      
+
       public function get noteColor():int {
          return _noteColor;
       }
@@ -239,24 +236,21 @@ package com.broceliand.ui.util
       public function set noteDarkColor(value:int):void {
          _noteDarkColor = value;
       }
-      
-      
+
       public function get noteLightColor():int {
          return _noteLightColor;
       }
       public function set noteLightColor(value:int):void {
          _noteLightColor = value;
       }
-      
-      
+
       public function get connectionColor():int {
          return _connectionColor;
       }
       public function set connectionColor(value:int):void {
          _connectionColor = value;
       }
-      
-      
+
       public function get connectionDarkColor():int {
          return _connectionDarkColor;
       }
@@ -277,8 +271,7 @@ package com.broceliand.ui.util
       public function set backgroundColor(value:int):void {
          _backgroundColor = value;
       }
-      
-      
+
       public function get errorColor():int {
          return _errorColor;
       }
@@ -331,7 +324,6 @@ package com.broceliand.ui.util
       {
          _homeDarkBlueColor = value;
       }
-      
-      
+
    }
 }

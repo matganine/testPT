@@ -42,8 +42,7 @@ package com.broceliand.graphLayout.controller
          if (!value) {
             
             _animationProcessor.notifyEndAction(_request);
-            
-            
+
             dispatchEvent(new Event(ANIMATION_ENDED_EVENT));
          }
       }
@@ -69,8 +68,7 @@ package com.broceliand.graphLayout.controller
          }
          
          setIsAnimating(false); 
-         
-         
+
       }  
    }
 }

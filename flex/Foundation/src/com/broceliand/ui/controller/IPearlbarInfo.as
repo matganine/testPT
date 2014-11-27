@@ -1,8 +1,7 @@
 package com.broceliand.ui.controller
 {
    import flash.events.IEventDispatcher;
-   
-   
+
    public interface IPearlbarInfo extends IEventDispatcher
    {
       function isPearlbarInstalled():Boolean;

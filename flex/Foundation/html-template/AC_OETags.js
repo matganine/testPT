@@ -1,6 +1,5 @@
 
 
-
 var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
 var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
 var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
@@ -26,10 +25,8 @@ function ControlVersion()
 
 			version = "WIN 6,0,21,0";
 
-			
 			axo.AllowScriptAccess = "always";
 
-			
 			version = axo.GetVariable("$version");
 
 		} catch (e) {
@@ -69,7 +66,6 @@ function ControlVersion()
 	
 	return version;
 }
-
 
 function GetSwfVer(){
 	
@@ -112,7 +108,6 @@ function GetSwfVer(){
 	return flashVer;
 }
 
-
 function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
 {
 	versionStr = GetSwfVer();
@@ -131,7 +126,6 @@ function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
 		var versionMinor      = versionArray[1];
 		var versionRevision   = versionArray[2];
 
-        	
 		if (versionMajor > parseFloat(reqMajorVer)) {
 			return true;
 		} else if (versionMajor == parseFloat(reqMajorVer)) {
@@ -281,5 +275,4 @@ function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
   if (mimeType) ret.embedAttrs["type"] = mimeType;
   return ret;
 }
-
 

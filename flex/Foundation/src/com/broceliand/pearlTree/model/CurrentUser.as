@@ -19,8 +19,7 @@ package com.broceliand.pearlTree.model
          super();
          var extInterface:IJavascriptInterface = ApplicationManager.getInstance().getExternalInterface();
          var facebookId:String = extInterface.getFacebookId();
-         
-         
+
          _facebookAccount = new FacebookAccount(facebookId);
          _shouldLinkFacebookAccount = true;
          

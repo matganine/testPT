@@ -32,8 +32,7 @@ package com.broceliand.graphLayout.controller
          _rootOfTheTree = rootOfTheTree;
          _displayModel = displayModel; 
       }
-      
-      
+
       public function performAction():void {
          if (PTRootNode(_rootOfTheTree).isOpen()) {
             _functionOnEndAnim.call();
@@ -85,8 +84,7 @@ package com.broceliand.graphLayout.controller
          var garp:GraphicalAnimationRequestProcessor = ApplicationManager.getInstance().visualModel.animationRequestProcessor;
          garp.notifyEndAction(this);
          garp.postActionRequest(new LayoutAction(_vgraph, false));
-         
-         
+
          var canceLRemove:Boolean = PTRootNode(_rootOfTheTree).isOpen();
          var scale:Number = _rootOfTheTree.pearlVnode.pearlView.getScale();
          

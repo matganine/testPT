@@ -53,15 +53,12 @@ package com.broceliand.ui.interactors
          }
          
          var rootNode :PTRootNode =  renderer.node as PTRootNode;
-         
-         
+
          var wc:IWindowController = am.components.windowController;
          var isAnonymous:Boolean = am.currentUser.isAnonymous();
-         
-         
+
          var model:IPearlTreeModel = rootNode.containedPearlTreeModel;
-         
-         
+
          if((model.openingState == OpeningState.CLOSED) || (model.openingState == OpeningState.CLOSING)){
             openTree(rootNode);
          }
@@ -71,8 +68,7 @@ package com.broceliand.ui.interactors
             if(clickOnEndNode) {               
                closeTree(rootNode);               
             } else { 
-               
-               
+
                var navmodel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;
                var selectedTree:BroPearlTree = model.businessTree;
                if (!selectedTree.isEmpty()) {
@@ -88,8 +84,7 @@ package com.broceliand.ui.interactors
                      ApplicationManager.getInstance().components.windowController.displayNodeEmptyContent(rootNode);
                   }
                }
-               
-               
+
                _previousNodeSelected = null;
             }
             _interactorManager.selectInteractor.clearPendingSelection();
@@ -151,8 +146,7 @@ package com.broceliand.ui.interactors
             selectedTree = BroTreeRefNode(businessNode).refTree;
          }
          editionController.closeTreeNode(node.vnode);
-         
-         
+
          var navModel:INavigationManager = ApplicationManager.getInstance().visualModel.navigationModel;         
          var focusedTree:BroPearlTree = navModel.getFocusedTree();
          var parentTree:BroPearlTree = selectedTree.treeHierarchyNode.parentTree;
@@ -195,8 +189,7 @@ package com.broceliand.ui.interactors
          var selectionModel:SelectionModel = am.visualModel.selectionModel;
          var wc:IWindowController = am.components.windowController;
          var selectedNode:IPTNode = selectionModel.getSelectedNode();
-         
-         
+
          if(selectedNode == renderer.node || wc.isPearlWindowDocked()) {
             var node:IPTNode = renderer.node;   
             var bnode:BroPTNode = node.getBusinessNode();

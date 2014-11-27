@@ -8,8 +8,7 @@ package com.broceliand.pearlTree.model {
    import flash.events.EventDispatcher;
    
    import mx.rpc.events.FaultEvent;
-   
-   
+
    public class PageTypeReloader extends EventDispatcher implements IAmfRetContentUrlState {
       
       public static const PAGE_TYPE_CHANGED_EVENT:String = "pageTypeReloaded";

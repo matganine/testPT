@@ -49,7 +49,6 @@ package com.broceliand.util.flexWorkaround
          if (_myContainer.verticalScrollBar && _myContainer.verticalScrollBar.visible)
          {
 
-            
             var scrollDirection:int = event.delta < 0 ? 1 : -1;
             var scrollAmount:Number;
             scrollAmount = Math.max(Math.abs(event.delta), _myContainer.verticalScrollBar.lineScrollSize);				

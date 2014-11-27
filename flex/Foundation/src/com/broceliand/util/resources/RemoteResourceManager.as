@@ -19,20 +19,17 @@ package com.broceliand.util.resources
    
    public class RemoteResourceManager extends EventDispatcher implements IRemoteResourceManager
    {
-      
-      
+
       protected var _loadedResources:Dictionary = null;
       protected var _actionRateLimiter:ActionRateLimiter = new ActionRateLimiter(2);
-      
-      
+
       protected var _loader2CallbacksArray:Dictionary = null;
       protected var _url2MLoaders:Dictionary = null;
       protected var  _loader2MULoader :Dictionary = null;
       
       protected var _numResourcesLeftToDownload:Number = 0;
       protected var _isBinaryFormat:Boolean;
-      
-      
+
       protected var _numResourcesStillBeingProcessedByATarget:Number = 0;
       public function RemoteResourceManager(isBinaryFormat:Boolean=true)
       {
@@ -65,8 +62,7 @@ package com.broceliand.util.resources
          }else{
             var monitorableLoader:MonitorableUrlLoader =_url2MLoaders[url] ;
             if (monitorableLoader==null) {
-               
-               
+
                var loader:URLLoader= new URLLoader();
                monitorableLoader= new MonitorableUrlLoader(loader, url);
                monitorableLoader.isForPreloadingOnly = isPreloadingOnly;
@@ -132,12 +128,10 @@ package com.broceliand.util.resources
          loader.removeEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusHandler);
          loader.removeEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
       }        
-      
-      
+
       protected function doOnUrlLoaded(url:String):void{
       }
-      
-      
+
       protected function urlLoadCompleted(event:Event, isSuccess:Boolean = true, errorCode:int = -1):void {
          new ProcessOnUrlCompletedAction(this,event, isSuccess, errorCode).performAction();
          
@@ -182,8 +176,7 @@ package com.broceliand.util.resources
          }
          
       }
-      
-      
+
       private function httpStatusHandler(event:HTTPStatusEvent):void { 
          
       }
@@ -208,10 +201,8 @@ package com.broceliand.util.resources
       }
       
    }
-   
-   
-}
 
+}
 
 import com.broceliand.util.IAction;
 import com.broceliand.util.resources.MonitorableUrlLoader;

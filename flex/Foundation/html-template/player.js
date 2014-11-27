@@ -415,7 +415,6 @@ function onCurrentIFrameAnimationEnd() {
    hideTargetIFrame();
    setTimeout("unloadTargetIFrameIfPossible('"+getTargetIFrameSource()+"')", UNLOAD_DELAY);
 
-   
 }
 
 function onTargetIFrameAnimationEnd() {
@@ -444,7 +443,6 @@ function onTargetIFrameAnimationEnd() {
    hideTargetIFrame();
    setTimeout("unloadTargetIFrameIfPossible('"+getTargetIFrameSource()+"')", UNLOAD_DELAY);
 
-   
 }
 
 function unloadTargetIFrameIfPossible(sourceToUnload) {
@@ -726,7 +724,6 @@ function updateState() {
           flashContainer.height(playerHeightPercent+"%");
           flashContainer.width('100%');
 
-          
           iframesContainer.css({top:playerHeightPercent+"%"});
       }
 

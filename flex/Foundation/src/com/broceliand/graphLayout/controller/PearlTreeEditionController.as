@@ -41,8 +41,7 @@ package com.broceliand.graphLayout.controller
    import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class PearlTreeEditionController implements IPearlTreeEditionController, ILoadTreeRequestor
    {
       private var _vgraph:IPTVisualGraph = null;
@@ -90,8 +89,7 @@ package com.broceliand.graphLayout.controller
          _vgraph.endNodeVisibilityManager.updateEndNodeVisibility(vendNode.node as EndNode, true);
          return endNode;
       }
-      
-      
+
       public function detachEndNode(treeModel:IPearlTreeModel):IVisualNode{
          if(!treeModel){
             return null;
@@ -107,8 +105,7 @@ package com.broceliand.graphLayout.controller
          }
          return null;
       }
-      
-      
+
       public function reattachEndNode(endVNode:IVisualNode):void{
          if (endVNode == null || endVNode.node == null || endVNode.node.vnode == null) {
             trace("Error: can't reattach a null node");
@@ -268,8 +265,7 @@ package com.broceliand.graphLayout.controller
          var am:ApplicationManager = ApplicationManager.getInstance();
          
          deleteBusinessBranch(businessNode);
-         
-         
+
          var vnodes:Array = InteractorUtils.getDescendantsAndVNode(node.vnode);
          _vgraph.effectForItemRemoval = new TrashPearlEffect();
          for each(var descendant:IVisualNode in vnodes){
@@ -279,8 +275,7 @@ package com.broceliand.graphLayout.controller
          _vgraph.effectForItemRemoval = null;
          
          _vgraph.layouter.layoutPass();
-         
-         
+
          if(node.isDocked && !node.getDock().isClearing) {
             node.getDock().undockNode(node, !am.components.footer.isPearlDraggedOverTrashBox);
          }
@@ -440,8 +435,7 @@ package com.broceliand.graphLayout.controller
             }
          }
       }
-      
-      
+
       public function focusOnTree(tree:BroPearlTree, fromPTW:Boolean =false, resetGraphOption:int= 0):void {
          _graphicalAnimationController.focusOnTree(tree, fromPTW, resetGraphOption);
       }
@@ -552,8 +546,7 @@ package com.broceliand.graphLayout.controller
          if (stringVNode.node.successors.length>0) {
             stringVNodeChild = stringVNode.node.successors[0].vnode;
          }
-         
-         
+
          if (stringVNodeChild !=null) {
             
             _vgraph.unlinkNodes(stringVNode, stringVNodeChild);
@@ -568,8 +561,7 @@ package com.broceliand.graphLayout.controller
          refreshEdgeWeights(_vgraph.currentRootVNode);
          return true;
       }
-      
-      
+
       private function linkNodesAtIndexWithBusinessUpdate(parent:IVisualNode, child:IVisualNode, index:int=0):void {
          _vgraph.linkNodesAtIndex(parent, child, index);
          var parentNode:IPTNode = IPTNode(parent.node);
@@ -592,8 +584,7 @@ package com.broceliand.graphLayout.controller
          parentBusinessNode.owner.addToNode(parentBusinessNode, childBusinessNode, index);
          
       }
-      
-      
+
       public  function importBranchIntoTree(localRefTreeVnode:IVisualNode, branchToImport:IVisualNode, nextNodeToSelect:IPTNode, onAnimationEnd:Function):void {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var parentNode:IPTNode = localRefTreeVnode.node as IPTNode;
@@ -616,8 +607,7 @@ package com.broceliand.graphLayout.controller
          if (nextNodeToSelect) {
             saveQueue.registerInQueue(nextNodeToSelect.getBusinessNode().owner);
          }
-         
-         
+
          refTree.importBranch(refTree.getRootNode(),IPTNode(branchToImport.node).getBusinessNode(), 0);
          
          var nodes2Process:Array = new Array();
@@ -643,8 +633,7 @@ package com.broceliand.graphLayout.controller
          am.visualModel.animationRequestProcessor.postActionRequest(action);   
          
          if (!refTree.pearlsLoaded) {
-            
-            
+
             am.pearlTreeLoader.loadTree(refTree.getMyAssociation().associationId, refTree.id,new PearlTreeLoaderCallback(null,null));
          }
          saveQueue.registerInQueue(refTree);
@@ -660,13 +649,11 @@ package com.broceliand.graphLayout.controller
       public function moveInPTWTree(tree:BroPearlTree):void {
          _graphicalAnimationController.moveInPTW(tree);
       }
-      
-      
+
       public function synchronizeTrees(request:SynchronizationRequest, invoker:ClientGraphicalSynchronizer, isOutsideMyAccount:Boolean):void {
          _graphicalAnimationController.synchronizeTrees(request, invoker, isOutsideMyAccount);
       }
-      
-      
+
       public function visualLinkNodeToParentNode(bnode:BroPTNode, bparentNode:BroPTNode, index:int, updateBusinessModel:Boolean):Boolean {     
          var displayModel:GraphicalDisplayedModel = _graphicalAnimationController.displayModel;
          var rootNode:PTRootNode= displayModel.getNode(bparentNode.owner) as PTRootNode;
@@ -683,8 +670,7 @@ package com.broceliand.graphLayout.controller
          }
          return false;
       }
-      
-      
+
       public function visualLinkNodeToBusinessTreeAtLegalPosition(bnode:BroPTNode, targetTree:BroPearlTree, updateBusinessModel:Boolean = true ):Boolean {
          var displayModel:GraphicalDisplayedModel = _graphicalAnimationController.displayModel;
          var rootNode:PTRootNode= displayModel.getNode(targetTree) as PTRootNode;

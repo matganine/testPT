@@ -20,8 +20,7 @@ package com.broceliand.graphLayout.visual
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualGraph;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public interface IPTVisualGraph extends IVisualGraph
    {
       function get controls():IGraphControls;
@@ -38,8 +37,7 @@ package com.broceliand.graphLayout.visual
       function get zoomModel():ZoomModel;
       
       function showNodeTitle(pearlRenderer:IUIPearl, above:Boolean, onTop:Boolean, inDockedSpace:Boolean):void;
-      
-      
+
       function isAnimating():Boolean;
       
       function getEditedGraphVisualModification():EditedGraphVisualModification;
@@ -51,16 +49,13 @@ package com.broceliand.graphLayout.visual
       function getDraggedComponent():UIComponent;
       function isBackdroungDragInProgress():Boolean;
       function getDisplayModel():GraphicalDisplayedModel;
-      
-      
+
       function dragNodeBegin(renderer:UIComponent, event:MouseEvent):void;
       function dragEndEventSafe(event:Event):void;
       function handleDragPearl(event:MouseEvent):void;
-      
-      
+
       function getPtwPearlRecyclingMananager():IPearlRecyclingManager;
-      
-      
+
       function containsSubTrees():Boolean;
       function offsetOrigin(x:Number, y:Number):void;
    }

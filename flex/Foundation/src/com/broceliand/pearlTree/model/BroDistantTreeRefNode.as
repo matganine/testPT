@@ -14,8 +14,7 @@ package com.broceliand.pearlTree.model
          super(tree.dbId, tree.id);
          _treeOwnership = TreeOwnershipFactory.getInstance().setTreeOwnership(tree, tree.getMyAssociation());
          super.refTree = tree;
-         
-         
+
       }
       
       override public function get noteCount():int{

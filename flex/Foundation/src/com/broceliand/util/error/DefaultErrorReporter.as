@@ -87,7 +87,6 @@ package com.broceliand.util.error
       {
          return _hasBlockerError;
       }
-      
-      
+
    }
 }

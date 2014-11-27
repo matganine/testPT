@@ -1,8 +1,7 @@
 package com.broceliand.util.logging
 {
    import mx.logging.LogEvent;
-   
-   
+
    public class InMemoryActionLogger extends BroFormattedTarget
    {
       private var _logActions:MaxSizedStack;

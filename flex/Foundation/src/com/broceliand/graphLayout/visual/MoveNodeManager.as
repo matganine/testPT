@@ -43,8 +43,7 @@ package com.broceliand.graphLayout.visual
             m.play();
          return m;    
       }
-      
-      
+
       private function unregister(event:Event):void {
          var m:Move = Move(event.currentTarget);
          m.removeEventListener(TweenEvent.TWEEN_END, unregister);

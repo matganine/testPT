@@ -79,8 +79,7 @@ package com.broceliand.ui.interactors
             onMouseOverWithUpdateSelection(renderer, false);
          }
       }
-      
-      
+
       private function updateSelectionWithDelay(node:IPTNode):void {
          var am:ApplicationManager = ApplicationManager.getInstance();
          var pearlUnderCursor:IUIPearl = _interactorManager.pearlRendererUnderCursor;

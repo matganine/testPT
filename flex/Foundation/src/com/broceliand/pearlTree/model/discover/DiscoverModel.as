@@ -18,8 +18,7 @@ package com.broceliand.pearlTree.model.discover {
    import flash.utils.setTimeout;
    
    import mx.core.Application;
-   
-   
+
    public class DiscoverModel extends EventDispatcher {
       
       public static const NEW_HEX_LOADED:String = "newHexLoaded";
@@ -274,8 +273,7 @@ package com.broceliand.pearlTree.model.discover {
             neighbourList.push(neighbour);
          }
       }
-      
-      
+
       public function get showDiscoverHelpLabel():Boolean{
          return !ApplicationManager.getInstance().currentUser.isAnonymous();
       }

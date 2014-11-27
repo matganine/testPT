@@ -54,8 +54,7 @@ package com.broceliand.ui.interactors.scroll
             smoothBitmapContent = oldSmooth;
          }
          super.commitProperties();
-         
-         
+
       }
       
       public function setDisabled(value:Boolean):void  {

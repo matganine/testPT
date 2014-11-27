@@ -19,8 +19,7 @@ package com.broceliand.ui.navBar {
       private var dataChanged:Boolean;
       private var _isSystemFamilyType:Boolean;
       private var _isSystemFamilyTypeChanged:Boolean;
-      
-      
+
       public function NavBarItem() {
          super();
          setStyle('color', 0xFFFFFF);
@@ -43,8 +42,7 @@ package com.broceliand.ui.navBar {
             if (_item is NavBarModelTreeItem && _item.resizeToFit) {
                maxWidth = MAX_TREE_ITEM_WIDTH;
             }
-            
-            
+
             if(enabled != _item.enabled) {
                callLater(setEnabled, new Array(_item.enabled));
             }
@@ -57,8 +55,7 @@ package com.broceliand.ui.navBar {
                setStyle('fontWeight', 'normal');
                setStyle('fontSize', 14);
             }
-            
-            
+
             if(_item.selected) {
                
             }else{
@@ -112,8 +109,7 @@ package com.broceliand.ui.navBar {
             }
          }
       }
-      
-      
+
       private function onItemModelChange(event:Event):void {
          dataChanged = true;
          invalidateProperties();

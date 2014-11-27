@@ -71,8 +71,7 @@ package com.broceliand {
       }
       
       public function isModeFacebook():Boolean {
-         
-         
+
          return _isFacebookMode;
       }
       

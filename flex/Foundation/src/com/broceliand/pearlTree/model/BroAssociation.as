@@ -7,8 +7,7 @@ package com.broceliand.pearlTree.model
    import com.broceliand.util.Alert;
    import com.broceliand.util.Assert;
    import com.broceliand.util.logging.Log;
-   
-   
+
    public class BroAssociation
    {
       private var _associationId:Number;
@@ -189,8 +188,7 @@ package com.broceliand.pearlTree.model
             return ""+_associationId;
          }
       }
-      
-      
+
       public function getCurrentUserMembershipType(mbType:Array):void {
          var cuser:User = ApplicationManager.getInstance().currentUser;
          if (cuser.isAnonymous() || !info || !isMyAssociation()) {
@@ -308,7 +306,6 @@ import com.broceliand.pearlTree.model.BroAssociation;
 import com.broceliand.pearlTree.model.BroAssociationInfo;
 import com.broceliand.util.logging.Log;
 
-
 class PearlAndHitsAccessor extends LazyValueAccessor implements IAmfRetArrayCallback
 {
    public function getTotalHits():Number {
@@ -341,7 +338,6 @@ class PearlAndHitsAccessor extends LazyValueAccessor implements IAmfRetArrayCall
       super.notifyValueAvailable();
    }
 }
-
 
 import com.broceliand.pearlTree.io.services.callbacks.IAmfRetAssoCallback;
 

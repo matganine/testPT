@@ -6,8 +6,7 @@ package com.broceliand.pearlTree.model
    {
       
       private var _delegateNode:BroPTNode;
-      
-      
+
       public function BroNeighbourRootPearl(node:BroPTNode)
       {
          _delegateNode = node;

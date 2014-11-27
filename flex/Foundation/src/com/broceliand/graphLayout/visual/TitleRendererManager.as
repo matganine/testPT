@@ -4,8 +4,7 @@ package com.broceliand.graphLayout.visual
    import com.broceliand.ui.pearlTree.TitleLayer;
    
    import flash.utils.Dictionary;
-   
-   
+
    public class TitleRendererManager
    {
       private var _titleLayerNotDockedBelow:TitleLayer = null;
@@ -61,8 +60,7 @@ package com.broceliand.graphLayout.visual
          
          destTitleLayer.addTitle(pearlRenderer);
          _pearlRenderer2TitleLayer[pearlRenderer] = destTitleLayer;
-         
-         
+
          if (inDockedSpace) {
             
             inDockedSpace = !pearlRenderer.node.getDock().isDropZone();

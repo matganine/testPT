@@ -12,8 +12,7 @@ package com.broceliand.graphLayout.controller
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public interface IPearlTreeEditionController
    {
       
@@ -44,16 +43,13 @@ package com.broceliand.graphLayout.controller
       function focusOnPTWTree(tree:BroPearlTree):void;
       function moveInPTWTree(tree:BroPearlTree):void;
       function closeAllSubtrees(tree:BroPearlTree, focusTreeOnly:Boolean=true, treeToRemainOpen:BroPearlTree=null):void;
-      
-      
+
       function showAndSelectPearl(nodeOwner:BroPearlTree, node:BroPTNode=null, intersection:int=-1, closeOtherTrees:Boolean=false):void;
-      
-      
+
       function swapNodeWithParent(stringNode:IVisualNode, parentNode:IVisualNode):Boolean;
       function swapNodeWithChild(stringNode:IVisualNode):Boolean;
       function swapStringNodeChildIndex(stringNode:IVisualNode, newIndex:int):Boolean;
-      
-      
+
       function importBranchIntoTree(LocalRefTreeVnode:IVisualNode, branchToImport:IVisualNode, nextNodeToSelect:IPTNode, onEndAnimation:Function):void;
       
       function isPerformingAnimation():Boolean;

@@ -22,8 +22,7 @@ package com.broceliand.ui
    import com.broceliand.ui.sticker.help.IContextualHelp;
    import com.broceliand.ui.window.WindowController;
    import com.broceliand.ui.window.ui.signUpBanner.SignUpBanner;
-   
-   
+
    public class ComponentsAccessPoint
    {
       private var _pearlTreePlayer:IPearlTreePlayer;

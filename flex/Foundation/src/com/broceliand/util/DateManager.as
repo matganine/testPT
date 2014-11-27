@@ -22,8 +22,7 @@ package com.broceliand.util
          var date:String = dateToFormat.date.toString();
          return date+"/"+month+"/"+year;
       }
-      
-      
+
       private static function formatEnglishDate(dateToFormat:Date):String {
          if(!dateToFormat) return "n/a";
          var month:String = DateManager.getMonthLabelInEnglish(dateToFormat.month);
@@ -44,8 +43,7 @@ package com.broceliand.util
          var year:String = dateToFormat.fullYear.toString();
          return month + " " + date + ", " + year;
       }        
-      
-      
+
       private  static function formatFrenchDate(dateToFormat:Date):String {
          if(!dateToFormat) return "n/a";
          var month:String = DateManager.getMonthLabelInFrench(dateToFormat.month);
@@ -62,8 +60,7 @@ package com.broceliand.util
          var year:String = dateToFormat.fullYear.toString();         
          return date + " " + month + " " + year;
       }      
-      
-      
+
       public static function formatDate(dateToFormat:Date):String {
          if (BroLocale.getInstance().lang == BroLocale.FRENCH)
             return formatFrenchDate(dateToFormat);
@@ -80,13 +77,11 @@ package com.broceliand.util
          else (BroLocale.getInstance().lang == BroLocale.ENGLISH)
          return formatEnglishDateWithYear(dateToFormat);   
       }      
-      
-      
+
       public static function formatDateContextual(dateToFormat:Date, inEnglish:Boolean = true):String {
          if(!dateToFormat) return "n/a";
          var currentDate:Date = new Date();
-         
-         
+
          var oneHourInMinutes:Number = 60;
          var oneDayInMinutes:Number = 24*oneHourInMinutes;
          var oneMonthInMinutes:Number = 30*oneDayInMinutes;
@@ -108,8 +103,7 @@ package com.broceliand.util
          
          if(monthDiff >= 2) return BroLocale.getText('datemanager.monthes',[monthDiff]);
          else if(monthDiff >= 1) return BroLocale.getText('datemanager.onemonth');
-         
-         
+
          if(dateDiff >= 21) return BroLocale.getText('datemanager.threeweeks');
          else if(dateDiff >= 14) return BroLocale.getText('datemanager.twoweeks');
          else if(dateDiff >= 7) return BroLocale.getText('datemanager.oneweek');

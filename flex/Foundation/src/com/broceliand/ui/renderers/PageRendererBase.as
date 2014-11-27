@@ -12,8 +12,7 @@ package com.broceliand.ui.renderers{
    import mx.core.IDataRenderer;
    import mx.core.ScrollPolicy;
    import mx.events.FlexEvent;
-   
-   
+
    public class PageRendererBase extends Canvas implements IDataRenderer, IScrollable{
       /*
       protected var _data:Object = null;
@@ -38,8 +37,7 @@ package com.broceliand.ui.renderers{
       public function get vnode():IPTVisualNode {
          return _vnode;
       }
-      
-      
+
       override protected function commitProperties():void {
          super.commitProperties();
          if (_nodeChanged) {

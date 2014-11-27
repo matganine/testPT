@@ -14,8 +14,7 @@ package com.broceliand.ui.util {
    
    import mx.controls.Image;
    import mx.core.UIComponent;
-   
-   
+
    public class RemoteAssetToStyleHelper extends EventDispatcher implements IResourceLoadedCallback {
       
       public static const REMOTE_ASSET_LOADED:String = "remoteAssetLoaded";

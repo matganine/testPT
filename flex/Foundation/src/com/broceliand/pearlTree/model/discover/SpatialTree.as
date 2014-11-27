@@ -4,8 +4,7 @@ package com.broceliand.pearlTree.model.discover {
    import com.broceliand.pearlTree.model.BroPearlTree;
    
    import flash.sampler.getGetterInvocationCount;
-   
-   
+
    public class SpatialTree {
       
       private var _hexX:int;
@@ -16,8 +15,7 @@ package com.broceliand.pearlTree.model.discover {
       private var _node:BroPTNode;
       private var _x:int;
       private var _y:int;
-      
-      
+
       public function getHexId():String {
          return SpatialHex.getRelatedTreeHexId(_hexX, _hexY);
       }

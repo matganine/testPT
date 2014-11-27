@@ -1,7 +1,6 @@
 package com.broceliand.ui.interactors {
    import flash.utils.Dictionary;
-   
-   
+
    public class WindowProtectionManager {
       
       private var _lockRequests:Dictionary = new Dictionary();

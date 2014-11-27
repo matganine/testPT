@@ -6,8 +6,7 @@ package com.broceliand.ui.model
    import com.broceliand.util.BroLocale;
    
    import flash.utils.Dictionary;
-   
-   
+
    public class NodeTitleModel implements INodeTitleModel
    {
       public static const NO_MESSAGE:int = 0;

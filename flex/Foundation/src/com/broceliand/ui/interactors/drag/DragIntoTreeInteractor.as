@@ -58,8 +58,7 @@ package com.broceliand.ui.interactors.drag
          }
          changeClosestNode(_closeTreeRef, newClosestNode);
       } 
-      
-      
+
       private function isNodeFocusSubTree(node:IPTNode):Boolean {
          if (node != null && node.getBusinessNode() is BroPTRootNode && node.vnode.vgraph.currentRootVNode ==node.vnode) {
             return node.getBusinessNode().owner.treeHierarchyNode.parentTree != null;
@@ -92,8 +91,7 @@ package com.broceliand.ui.interactors.drag
             _isOpeningAsap = true;
             _draggedPearlBusinessNode = _draggedPearl.getBusinessNode();
             _treeOpener.openTreeWithDelay(_closeTreeRef, this, 0);
-            
-            
+
          }
          
       }
@@ -105,8 +103,7 @@ package com.broceliand.ui.interactors.drag
                _treeOpener.openEmptyTreeAsap(_closeTreeRef, this);
             }
             else openTreeAsap();
-            
-            
+
          }
       }
       
@@ -158,8 +155,7 @@ package com.broceliand.ui.interactors.drag
          } else {
             pointToFocusOn = _closeTreeRef.vnode.viewCenter;
          }
-         
-         
+
          var dist:Number = BroceliandMath.getSquareDistanceBetweenPoints(pointToFocusOn, draggedPearlView.pearlCenter);
          
          var distanceThreshold:Number = 0;
@@ -173,19 +169,16 @@ package com.broceliand.ui.interactors.drag
          }
          
          distanceThreshold *= distanceThreshold ;
-         
-         
+
          return (dist < distanceThreshold);
       }
-      
-      
+
       private function changeClosestNode(oldRef:IPTNode, newRef:IPTNode):void {
          if (oldRef != null && _isClosestRefOpened) {
             endExitation(oldRef);
          } 
          _closeTreeRef = newRef;
-         
-         
+
          _isDraggedPearlInDragIntoTreeZone=false;
          onDraggedPearlMoved();
       }

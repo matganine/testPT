@@ -10,8 +10,7 @@ package com.broceliand.util
          _noteInput = "";
          _noteInputInShare = false;
       }
-      
-      
+
       public function getNoteInput():String{
          return _noteInput;
       }

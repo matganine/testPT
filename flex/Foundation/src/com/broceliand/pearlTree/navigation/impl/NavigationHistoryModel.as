@@ -61,7 +61,6 @@ package com.broceliand.pearlTree.navigation.impl
       public function clearHistory():void {
          _history = new Array(); 
       }
-      
-      
+
    }
 }

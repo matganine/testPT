@@ -27,8 +27,7 @@ package com.broceliand.ui.pearlBar.deck {
    import mx.effects.Move;
    import mx.effects.Parallel;
    import mx.events.EffectEvent;
-   
-   
+
    public class Deck extends Canvas implements IAction {
       
       private static const DECK_HEIGHT:Number = 58;
@@ -36,8 +35,7 @@ package com.broceliand.ui.pearlBar.deck {
       public static const EMBED_PEARL_SCALE:Number = 0.56;
       public static const NAV_BUTTON_WIDTH:Number = 25;
       private static const REPOSITION_EFFECT_TIME:Number = 200;
-      
-      
+
       private var modelChanged:Boolean;
       private var _model:IDeckModel;
       
@@ -49,8 +47,7 @@ package com.broceliand.ui.pearlBar.deck {
       private var _lastRedrawY:Number;
       private var _scrollMasks:Vector.<DisplayObject>;
       private var _moveEffects:Parallel;
-      
-      
+
       public function Deck() {
          super();
          visible = includeInLayout = false;
@@ -92,8 +89,7 @@ package com.broceliand.ui.pearlBar.deck {
 
       override protected function createChildren():void {
          super.createChildren();
-         
-         
+
          _nextPageButton = new PTButton();
          _nextPageButton.width=49;
          _nextPageButton.height=54;
@@ -153,8 +149,7 @@ package com.broceliand.ui.pearlBar.deck {
          _scrollMasks.push(scrollMask);
          return scrollMask;
       }
-      
-      
+
       protected function get extraPaddingLeft():Number {
          return 0;
       }
@@ -345,8 +340,7 @@ package com.broceliand.ui.pearlBar.deck {
       
       override protected function updateDisplayList(w:Number, h:Number):void {
          super.updateDisplayList(w, h);
-         
-         
+
          model.availableWidth = w - (model.isNavButtonVisible? NAV_BUTTON_WIDTH * 2 : 0) - 10;
          var deckGlobalPosition:Point = localToGlobal(new Point());
          model.defaultUndockPosition.x = deckGlobalPosition.x + (w / 2) - 20;
@@ -356,16 +350,13 @@ package com.broceliand.ui.pearlBar.deck {
             refreshDisplay = false;
             _lastRedrawWidth = w;
             _lastRedrawY = deckGlobalPosition.y;
-            
-            
+
             drawBackground(w, h);
-            
-            
+
             refreshNodesPosition(deckGlobalPosition);
          }
       }   
-      
-      
+
       protected function drawBackground(w:Number, h:Number):void {
          
       }

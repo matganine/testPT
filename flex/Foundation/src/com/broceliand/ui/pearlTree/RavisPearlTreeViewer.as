@@ -32,8 +32,7 @@ package com.broceliand.ui.pearlTree{
    
    import org.un.cava.birdeye.ravis.graphLayout.layout.ILayoutAlgorithm;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class RavisPearlTreeViewer extends UIComponent implements IPearlTreeViewer{
       
       private var _pearlTreeEditionController:PearlTreeEditionController= null;
@@ -46,8 +45,7 @@ package com.broceliand.ui.pearlTree{
       private var _mustDraw:Boolean = false;
       
       private var _vgraph:IPTVisualGraph;
-      
-      
+
       private var _interactorManager:InteractorManager = null;
       
       public function RavisPearlTreeViewer(garp:GraphicalAnimationRequestProcessor) {
@@ -138,16 +136,14 @@ package com.broceliand.ui.pearlTree{
          addChild(_vgraph as PTVisualGraph);        	    
          
          /* create and set an EdgeRenderer */
-         
-         
+
          /* set the visibility limit options, default 2 
          * a.k.a degrees of separation */
          _vgraph.maxVisibleDistance = 1000;
          
          /* set if edge labels should be displayed */
          _vgraph.displayEdgeLabels = false;
-         
-         
+
       }
       
       override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
@@ -158,8 +154,7 @@ package com.broceliand.ui.pearlTree{
             _mustDraw = false;
          }         	  
       }
-      
-      
+
       public function get interactorManager():InteractorManager{
          return _interactorManager;
       }
@@ -173,8 +168,7 @@ package com.broceliand.ui.pearlTree{
             vgraph.refreshNodes();
          }
       }
-      
-      
+
       public function getActive():Boolean {
          if(_interactorManager){
             return _interactorManager.getActive();

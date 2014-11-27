@@ -32,8 +32,7 @@ package com.broceliand.ui.renderers
    import mx.skins.halo.HaloBorder;
    
    import org.un.cava.birdeye.ravis.utils.Geometry;
-   
-   
+
    public class TitleRenderer extends UIComponent implements ITextRenderer, IRepositionable, IScrollable
    {
       
@@ -59,8 +58,7 @@ package com.broceliand.ui.renderers
       
       private static const FONT_SCALING_FACTOR:Number = 0.25;
       private static const FONT_SCALING_OUT_FACTOR:Number = 0.70;
-      
-      
+
       public static const DOCKED_TITLE_FONT_SIZE:Number = 12;
       private static const DOCKED_TITLE_HEIGHT_BETWEEN_LINES:int = 11;
       private static const DOCKED_TITLE_LINE_HEIGHT:int = 21;
@@ -70,8 +68,7 @@ package com.broceliand.ui.renderers
       
       private static const ROOT_PEARL_DOCKED_TITLE_WIDTH:Number = 96; 
       private static const ROOT_PEARL_DOCKED_TITLE_WIDTH_EXPANDED:Number = 116; 
-      
-      
+
       private static const TITLE_WIDTH_MEGA_EXPANDED:Number = 400;
       private static const TITLE_FONT_SIZE_MEGA_EXPANDED:Number = 15;
       private static const PEARL_TITLE_LINE_HEIGHT_MEGA_EXPANDED:int = 20;
@@ -270,8 +267,7 @@ package com.broceliand.ui.renderers
             
          }
       }
-      
-      
+
       private function updateLabelSize():void {
          _dirtyLabelsContent = true;
          invalidateProperties();
@@ -304,8 +300,7 @@ package com.broceliand.ui.renderers
             _titleTextLine2.y = titleHeightBetweenLines;
             _titleTextLine3.y = 2 * titleHeightBetweenLines;
             _titleTextLine4.y = 3 * titleHeightBetweenLines;
-            
-            
+
             if(_senderInfoText) {
                _titleTextLine1.text = _mainTitleText;
                _titleTextLine2.text = _senderInfoText;
@@ -316,8 +311,7 @@ package com.broceliand.ui.renderers
                _titleTextLine1.setStyle("fontWeight", "bold"); 
                
                var maxLines:int = 2;
-               
-               
+
                if (_pearlRenderer && _pearlRenderer.node && !_pearlRenderer.node.isDocked) {
                   if (_orientation == VERTICAL_SIZE || _orientation ==  BIG_SIZE || _isTitleExpanded || true) {
                      maxLines = 4;
@@ -335,8 +329,7 @@ package com.broceliand.ui.renderers
                      maxLines = 2;
                   }
                }
-               
-               
+
                var formattedTitle:Array = null;
                
                if (_isTitleMegaExpanded) {
@@ -382,8 +375,7 @@ package com.broceliand.ui.renderers
                _titleTextLine3.setStyle("fontWeight", "normal");
                _titleTextLine4.setStyle("fontWeight", "normal");
             }
-            
-            
+
             _titleTextLine1.setStyle('color', _currentColorCode);
             if (!InteractorRightsManager.PREVENT_TOO_MANY_DESCENDANT && _pearlRenderer != null && _pearlRenderer.node.getBusinessNode() && _pearlRenderer.node.getBusinessNode().isEdited()) {
                _titleTextLine1.setStyle("color", ColorPalette.getInstance().connectionDarkColor);
@@ -479,16 +471,14 @@ package com.broceliand.ui.renderers
          titleMaxWidth = increaseTitleSizeWithScale(titleMaxWidth);
          return titleMaxWidth;
       }
-      
-      
+
       private function increaseTitleSizeWithScale(titleMaxWidth:Number):Number {
          titleMaxWidth = titleMaxWidth * _labelSizeScale / scaleX;
          return titleMaxWidth;
       }
       public function getTitleFontSize():int {
          var titleFontSize:int;
-         
-         
+
          if(_pearlRenderer && _pearlRenderer.node && _pearlRenderer.node.isDocked) {
             titleFontSize = DOCKED_TITLE_FONT_SIZE;
          }
@@ -496,8 +486,7 @@ package com.broceliand.ui.renderers
          else {
             titleFontSize = TITLE_FONT_SIZE;
          }
-         
-         
+
          if (_isTitleMegaExpanded) {
             titleFontSize = TITLE_FONT_SIZE_MEGA_EXPANDED;
          }
@@ -507,8 +496,7 @@ package com.broceliand.ui.renderers
       
       public function getTitleLineHeight():int {
          var titleLineHeight:int;
-         
-         
+
          if(_pearlRenderer && _pearlRenderer.node && _pearlRenderer.node.isDocked) {
             titleLineHeight = DOCKED_TITLE_LINE_HEIGHT;
          }
@@ -516,8 +504,7 @@ package com.broceliand.ui.renderers
          else {
             titleLineHeight = PEARL_TITLE_LINE_HEIGHT;
          }
-         
-         
+
          if (_isTitleMegaExpanded) {
             titleLineHeight = PEARL_TITLE_LINE_HEIGHT_MEGA_EXPANDED;
          }
@@ -553,8 +540,7 @@ package com.broceliand.ui.renderers
       public function get pearlRenderer():IUIPearl{
          return _pearlRenderer;
       }
-      
-      
+
       public function end():void{
          callLater(clearMemory);
       }
@@ -619,8 +605,7 @@ package com.broceliand.ui.renderers
       public function set editable(value:Boolean):void {
          _editable = value;
       }
-      
-      
+
       public function get showStartEndSign():Boolean {
          return _showStartEndSign;
       }
@@ -636,8 +621,7 @@ package com.broceliand.ui.renderers
       public function get isMarkedForDestruction():Boolean {
          return _isMarkedForDestruction;
       }
-      
-      
+
       public function set recycled (value:Boolean):void
       {
          _recycled = value;
@@ -663,8 +647,7 @@ package com.broceliand.ui.renderers
          }
          return false;
       }
-      
-      
+
       public static function getTitleRendererUnderPoint(point:Point):TitleRenderer{
          var objectsUnderPoint:Array = ApplicationManager.flexApplication.stage.getObjectsUnderPoint(point);
          var candidate:TitleRenderer = null;

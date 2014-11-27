@@ -109,8 +109,7 @@ package com.broceliand.ui.undo
          _startIndex ++;
          
       } 
-      
-      
+
       public function canUndo():Boolean {
          return _undoStack.length>0 && (_undoStack[length-1]as IUndoableAction).canUndo();
       }
@@ -132,8 +131,7 @@ package com.broceliand.ui.undo
          }
          _isPerformingUndoRedoAction = false;   
       }
-      
-      
+
       public function redo():void{
          _isPerformingUndoRedoAction = true;
          _historyIndex++;
@@ -147,8 +145,7 @@ package com.broceliand.ui.undo
             _undoStack.shift();
          }
          _isPerformingUndoRedoAction = false;
-         
-         
+
       }
       
       public function set historyMaxSize (value:int):void

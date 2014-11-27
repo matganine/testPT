@@ -16,8 +16,7 @@ package com.broceliand.pearlTree.model
          }
          
          _isSingleton = true;
-         
-         
+
       }
       
       public function getOrMakeUser(userDb:int, userId:int):User {
@@ -29,13 +28,11 @@ package com.broceliand.pearlTree.model
          } 
          return ret;
       }
-      
-      
+
       private function makeNewUser(userDb:int, userId:int):User {
          return new User(userDb, userId);
       }
-      
-      
+
       public function registerCurrentUserInDictionary():void {
          var user:User = ApplicationManager.getInstance().currentUser; 
          _userDictionary[User.getUserKey(user.persistentDbId, user.persistentId)] = user;

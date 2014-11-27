@@ -27,7 +27,6 @@ def compareMakeListEngAux(enFile, tokenList, listDifferences):
              
     return listDifferences        
 
-
 def compareEngFiles():
 
     sFile = searchFiles.searchFile()

@@ -136,8 +136,7 @@ package com.broceliand.graphLayout.model
             _vgraph.unlinkNodes(_tempParent, _draggedVNode);
          }
          if (_draggedVNode && _draggedVNode.node.predecessors.length==0 && _originalParent) {
-            
-            
+
             var orignalParentVNode:IVisualNode = _originalParent.getVnode(true); 
             if (orignalParentVNode) {
                _vgraph.linkNodesAtIndex(orignalParentVNode , _draggedVNode, _originalNodeIndex);
@@ -246,8 +245,7 @@ package com.broceliand.graphLayout.model
       }
       private function checkDisappearedLeftNode(vnode:IVisualNode):IVisualNode {
          if (IPTNode(vnode.node).isEnded()) {
-            
-            
+
             var endNode:EndNode = vnode.node as EndNode;
             if (endNode && !endNode.rootNodeOfMyTree.isEnded()) {
                return endNode.rootNodeOfMyTree.vnode;

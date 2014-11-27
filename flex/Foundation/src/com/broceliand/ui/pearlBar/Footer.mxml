@@ -283,8 +283,7 @@
       private var _isOverPearlWindowContainer:Boolean;
       private var _deckVisible:Boolean = true;
       private var _isImportEnabled:Boolean;
-      
-      
+
       private var _zoomModel:ZoomModel;
       
       private var _ignoreNewTreeAction:Boolean;
@@ -296,8 +295,7 @@
       private static const DISABLED_ALPHA:Number = 0.35;
       private static const IGNORE_NEW_TREE_ACTION_DELAY:Number = 2000;
       public static const DECK_HEIGHT:Number = 80;
-      
-      
+
       private function onInitialize():void {
          
          var am:ApplicationManager = ApplicationManager.getInstance();
@@ -388,8 +386,7 @@
             
          }
       }
-      
-      
+
       private function onClickCustomizePremium(event:MouseEvent):void {
          if (!_isPremiumEnabled) return;
          PremiumWindowHelper.onClickOpenUpgradePremiumBackgroundWindow();
@@ -471,8 +468,7 @@
          var position:Rectangle = new Rectangle(posX, posY, 0, 0);
          return position;
       }
-      
-      
+
       private function clearSelection():void{
          ApplicationManager.getInstance().visualModel.selectionModel.selectNode(null,-1);
       }
@@ -484,18 +480,14 @@
          var currentUser:CurrentUser = am.currentUser;
          var isAnonymous:Boolean = currentUser.isAnonymous();
          var isLoggedOnFacebook:Boolean = currentUser.isLoggedOnFacebook();
-         
-         
+
          if (!processedDescriptors || !spl.isUserAuthenticated()) return;
-         
-         
+
          if(!isAnonymous && !StartPolicyLogger.getInstance().isFirstTimeHomeOpened() && (!spl.isFirstNavigationEnded() || !spl.isDropzoneLoaded())) return;
          displayBanner = isAnonymous;
-         
-         
+
          visible = true;
-         
-         
+
          dropZoneDeck.deckModel.isNavButtonVisible = !isAnonymous;
          
          if(!_isReadyToShow) {
@@ -505,8 +497,7 @@
          }
          
          decksContainer.visible = decksContainer.includeInLayout = true;
-         
-         
+
          if (!isAnonymous) {
             if (navigationModel.isShowingPearlTreesWorld() && !navigationModel.isHomePage()) {
                
@@ -552,8 +543,7 @@
             _isPremiumEnabled = true;
             _isTrashEnabled = !navigationModel.isShowingPearlTreesWorld() || navigationModel.isHomePage();
          }
-         
-         
+
          importContainer.visible = importContainer.includeInLayout = !am.currentUser.isAnonymous();
          pearlerContainer.visible = pearlerContainer.includeInLayout = pearlerSpacer.includeInLayout = !am.isEmbed() && !isAnonymous ;
          premiumBox.visible = premiumBox.includeInLayout = firstPartSpacer.includeInLayout = !am.isEmbed() && !isAnonymous ;

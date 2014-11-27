@@ -11,8 +11,7 @@ package com.broceliand.graphLayout.model
    public class PTRootNode extends PTNode{
 
       private var _containedPearlTreeModel:IPearlTreeModel;
-      
-      
+
       public function PTRootNode(id:int, sid:String, vn:IVisualNode, o:BroPTNode)
       {
          super(id, sid, vn, o);

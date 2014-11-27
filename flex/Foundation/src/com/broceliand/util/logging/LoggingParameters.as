@@ -22,11 +22,9 @@ package com.broceliand.util.logging
       
       private static function initLogginParameters():void {         
          var target:LineFormattedTarget = new BroFormattedTarget();
-         
-         
+
          target.level = LogEventLevel.INFO; 
-         
-         
+
          target.filters = new Array(
             "com.broceliand.ui.util.profiler",
             "com.broceliand.ui.screenwindow.*",
@@ -43,8 +41,7 @@ package com.broceliand.util.logging
       private static function addInMemoryLogger():void {    
          _inMemoryLogger = new InMemoryActionLogger();
          var target:LineFormattedTarget =  _inMemoryLogger;
-         
-         
+
          target.level = LogEventLevel.INFO;
          target.filters = new Array(
             "*"

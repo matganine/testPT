@@ -27,7 +27,6 @@ package com.broceliand.ui.effects
          }
          super.handledObjectPlayBackward();
       }   
-      
-      
+
    }
 }

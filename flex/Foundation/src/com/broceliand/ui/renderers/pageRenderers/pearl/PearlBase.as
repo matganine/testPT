@@ -1,6 +1,5 @@
 package com.broceliand.ui.renderers.pageRenderers.pearl{
-   
-   
+
    import com.broceliand.ApplicationManager;
    import com.broceliand.graphLayout.model.EndNode;
    import com.broceliand.graphLayout.model.IPTNode;
@@ -34,19 +33,16 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       protected var _isWarmedHighlighted:Boolean= false;
       protected var _state:int = NORMAL_STATE;
       protected var _normalState:UIComponent;
-      
-      
+
       private var _selectedForeground:Image;
       private var _overForeground:Image;
-      
-      
+
       protected var _pearlWidth:Number;
       private var _markAsDisappearing:Boolean;
       private  var _pearlWidthChanged:Boolean;
       private var _inSelection:Boolean = true;
       private var _maskSprite :Sprite;
-      
-      
+
       public var _colorRing:PearlRing= null;
       protected var _node:IPTNode;
       protected var _pearlNotificationState:PearlNotificationState = new PearlNotificationState();
@@ -127,8 +123,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
             showRings = true;
          }
       } 
-      
-      
+
       protected function createBlackMask():void {
          if(!_mask) {
             _mask = new UIComponent();
@@ -290,8 +285,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
          var objParent:DisplayObjectContainer = null;
          
          var objectsUnderPoint:Array = ApplicationManager.flexApplication.stage.getObjectsUnderPoint(point);
-         
-         
+
          for each(objUnderPoint in objectsUnderPoint) {
             if (objUnderPoint is UIComponent && (objUnderPoint.name == GeometricalConstants.PEARL_CLOSE_BUTTON_MASK_NAME  || objUnderPoint.name == GeometricalConstants.PEARL_NEWS_BUTTON_MASK_NAME)) {
                objParent = objUnderPoint.parent;
@@ -313,8 +307,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
                if((objUnderPoint is HaloBorder) || (objUnderPoint is FlexSprite)) {
                   continue;
                }            
-               
-               
+
                objParent = objUnderPoint.parent;
                while(objParent) {
                   if(objParent is IUIPearl) {
@@ -446,8 +439,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl{
       public function setScale(value:Number):void {
          _scale = value;
       }
-      
-      
+
       public function getPearlVisibleWidth():Number {
          return pearlWidth;  
       }

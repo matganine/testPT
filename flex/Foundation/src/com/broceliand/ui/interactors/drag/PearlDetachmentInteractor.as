@@ -22,8 +22,7 @@ package com.broceliand.ui.interactors.drag
    
    import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class PearlDetachmentInteractor extends RemovePearlInteractor
    {
       public static const MIN_INACTIVE_TIME_1:Number = 1000;
@@ -49,22 +48,19 @@ package com.broceliand.ui.interactors.drag
          if (_draggedNode.parent && _draggedNode.parent.vnode.isVisible) {
             var timer :Timer = new Timer(MIN_INACTIVE_TIME_1, 1);
             if (false || !isDraggedNodeIsOpenTree()) {
-               
-               
+
                timer.addEventListener(TimerEvent.TIMER_COMPLETE, tryDetachBranch);
             } else {
                
                timer.addEventListener(TimerEvent.TIMER_COMPLETE, tryDetachPearl);
             }
-            
-            
+
             timer.start();
          }
          _interactorManager = interactorManager;
          
       }
-      
-      
+
       public function onMove():void {
          
          if (!_hasMoved) {
@@ -148,8 +144,7 @@ package com.broceliand.ui.interactors.drag
             _interactorManager.manipulatedNodesModel.updateManipulatedNodesFromDraggedNode(_draggedNode);
          }
       }
-      
-      
+
       public function onMovingOnNewParent(newParentVNode:IVisualNode) :void{
          if (!_nodesDetached) return;
          if (false && _interactorManager.draggedPearlLogicalOriginParentVNode == newParentVNode) {
@@ -246,8 +241,7 @@ package com.broceliand.ui.interactors.drag
          if (detachedChildren) {
             var childBNode:BroPTNode;
             var child:IPTNode;
-            
-            
+
             for (var i:int= 0; i<detachedChildren.length ; i++){
                childBNode = detachedChildren[i];
                child = childBNode.graphNode;

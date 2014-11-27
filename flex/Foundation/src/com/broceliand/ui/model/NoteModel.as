@@ -29,69 +29,53 @@ package com.broceliand.ui.model
    import flash.events.TimerEvent;
    import flash.utils.Dictionary;
    import flash.utils.Timer;
-   
-   
+
    public class NoteModel extends EventDispatcher
    {
-      
-      
+
       public static const MODEL_CHANGED_EVENT:String = "NoteModelChanged";
-      
-      
+
       public static const TYPE_NOTE:uint = 0;
       public static const TYPE_TEAM_DISCUSSION:uint = 1;
-      
-      
+
       public static const MODE_LOCAL:uint = 1;
       public static const MODE_ALL:uint = 2;
-      
-      
+
       public static const SENT_THIS_MAP_TO:String = "sentThisMapTo_translate";
       public static const AND_WROTE:String = "andWrote_translate";
       public static const SENT_THIS_PEARL_TO:String = "sentThisPealrTo_translate";
-      
-      
+
       public static const MODE_PAGE_DEFAULT:uint = 2;
       public static const MODE_TREE_DEFAULT:uint = 1;
-      
-      
+
       private var _noteType:uint;
-      
-      
+
       private var isFirstRound:Boolean = true;
       private var _feedKeyToLocalCountNotes:Dictionary;
       private var _feedKeyToAllCountNotes:Dictionary;
-      
-      
+
       private var _feedKeyToLocalNotes:Dictionary;
       private var _feedKeyToAllNotes:Dictionary;
-      
-      
+
       private var _feedKeyToIsLocalNotesLoaded:Dictionary;
       private var _feedKeyToIsAllNotesLoaded:Dictionary;
-      
-      
+
       private var _realTimeNodes:Array;
       private static const REAL_TIME_INTERVAL:Number = AbstractRealtimeScheduler.DEFAULT_UPDATE_INTERVAL;
       private var _realTimeTimer:Timer;
-      
-      
+
       private var _feedKeyToLastNoteReadDate:Dictionary;
 
       private var _feedKeyToNotesToSave:Dictionary;
       private var _notesToUpdate:Array;
-      
-      
+
       private var _feedKeyToCallback:Dictionary;
-      
-      
+
       private var _feedKeyToNode:Dictionary;
-      
-      
+
       private var _feedKeyToIsNotesLoading:Dictionary;
       private var _feedKeyToIsNotesLoadingInRealTime:Dictionary;
-      
-      
+
       private var _nextFeedKeyUniqueId:uint;
       
       private var _noteExporter:INoteExporter;
@@ -110,8 +94,7 @@ package com.broceliand.ui.model
          _feedKeyToAllNotes = new Dictionary();
          _feedKeyToAllCountNotes = new Dictionary();
          _feedKeyToNotesToSave = new Dictionary();
-         
-         
+
          _feedKeyToIsNotesLoading = new Dictionary();
          _feedKeyToIsNotesLoadingInRealTime = new Dictionary();
          
@@ -159,8 +142,7 @@ package com.broceliand.ui.model
          if(!_realTimeTimer.running) {
             _realTimeTimer.start();
          }
-         
-         
+
          if(_realTimeNodes.length > 1) {
             trace("[NoteModel] NoteModel should have only 1 node in real time mode");
          }
@@ -280,16 +262,14 @@ package com.broceliand.ui.model
       public function addNewNoteNotification(node:BroPTNode):void {
          
          markNotesNotLoaded(node);
-         
-         
+
          if(node.noteMode == MODE_LOCAL && node.serverNoteCount == 0) {
             node.serverNoteCount = 1;
          }
          else if(node.noteMode == MODE_ALL && node.serverFullFeedNoteCount == 0) {
             node.serverFullFeedNoteCount = 1;
          }
-         
-         
+
          callFeedKeyCallbacksNoteAdded(getFeedKey(node));
       }
       
@@ -326,8 +306,7 @@ package com.broceliand.ui.model
          }
          return noteCount;
       }
-      
-      
+
       public function getNotes(node:BroPTNode, mode:int=-1):IPaginatedList {
          mode = nodeMode(node, mode);
          if (mode == -1) return null;
@@ -460,27 +439,23 @@ package com.broceliand.ui.model
       }
       
       private function isMyNote(note:BroComment, noteNode:BroPTNode):Boolean {
-         
-         
+
          var am:ApplicationManager = ApplicationManager.getInstance();
          var currentUser:User = am.currentUser;
-         
-         
+
          if(note.author && currentUser == note.author) {
             return true;
          }
          if (currentUser.persistentId == WelcomePearlsExceptions.WelcomeUser ) {
             return true;
          }
-         
-         
+
          if(note.parentTree) {
             
             if(note.parentTree.isCurrentUserAuthor()) {
                return true;
             }
-            
-            
+
             if(!currentUser.isAnonymous()) {
                var treeInUserHierarchy:BroPearlTree = am.pearlTreeLoader.getTreeInAssociationHierarchy(currentUser.userWorld.treeId, note.parentTree.id);
                if(treeInUserHierarchy) {
@@ -521,8 +496,7 @@ package com.broceliand.ui.model
          if (mode == -1) return;
          
          if(callback != null) this.addOnChangeCallback(node, callback);
-         
-         
+
          if(isNotesLoaded(node, mode)) {
             if(callback != null) {
                callback.onNotesLoaded();
@@ -635,8 +609,7 @@ package com.broceliand.ui.model
          var allNotes:IPaginatedList = _feedKeyToAllNotes[allFeedKey];
          if(!localNotes)_feedKeyToLocalNotes[localFeedKey] = localNotes = new PaginatedList();
          if(!allNotes) _feedKeyToAllNotes[allFeedKey] = allNotes = new PaginatedList();
-         
-         
+
          note.pearlId = relevantNode.persistentID;
          note.pearlDb = relevantNode.persistentDbID;
          note.editable = (forceEditable)?true:isMyNote(note, relevantNode);
@@ -644,8 +617,7 @@ package com.broceliand.ui.model
          
          var noteItem:IPaginatedListItem = new PaginatedListItem();
          noteItem.innerItem = note;
-         
-         
+
          if (replaceLast) {
             localNotes.replaceAtBeginning(noteItem);
          }
@@ -666,8 +638,7 @@ package com.broceliand.ui.model
                _feedKeyToAllCountNotes[allFeedKey] = 1;
             }
          }
-         
-         
+
          if(save && !note.isPersisted()) {
             if(relevantNode.isPersisted()) {
                _noteExporter.addNote(note, node);
@@ -973,8 +944,7 @@ package com.broceliand.ui.model
          var localNotes:IPaginatedList = _feedKeyToLocalNotes[localFeedKey];
          var allNotes:IPaginatedList = _feedKeyToAllNotes[allFeedKey];
          if(!allNotes) _feedKeyToAllNotes[allFeedKey] = allNotes = new PaginatedList();
-         
-         
+
          if(!isLocalNotesLoaded(node) && localNotes) {
             var localNote:BroComment;
             for (var i:int ; i < localNotes.numberLoaded ; i++) {
@@ -1000,8 +970,7 @@ package com.broceliand.ui.model
                }
             }
          }
-         
-         
+
          localNotes = new PaginatedList();
          var note:BroComment;
          for (var k:int = 0 ; k < allNotes.numberLoaded ; k++) {
@@ -1079,8 +1048,7 @@ package com.broceliand.ui.model
       private function addNodeToFeedKey(node:BroPTNode, isNewNode:Boolean):void{
          var localFeedKey:String = this.getFeedKey(node, MODE_LOCAL);
          var allFeedKey:String = this.getFeedKey(node, MODE_ALL);
-         
-         
+
          var hasFeedKeyChanged:Boolean = false;
          if (!isNewNode) {
             for (var key:String in _feedKeyToNode) {
@@ -1116,8 +1084,7 @@ package com.broceliand.ui.model
       private function changeNodeFeedKey(node:BroPTNode, oldKey:String, newKey:String, copyNotes:Boolean=true):void{
          
          if(copyNotes) {
-            
-            
+
             if(_feedKeyToLocalNotes[oldKey]){
                _feedKeyToLocalNotes[newKey] = _feedKeyToLocalNotes[oldKey];
                delete _feedKeyToLocalNotes[oldKey];
@@ -1130,8 +1097,7 @@ package com.broceliand.ui.model
                _feedKeyToNotesToSave[newKey] = _feedKeyToNotesToSave[oldKey];
                delete _feedKeyToNotesToSave[oldKey];
             }
-            
-            
+
             if(_feedKeyToIsLocalNotesLoaded[oldKey]){
                _feedKeyToIsLocalNotesLoaded[newKey] = _feedKeyToIsLocalNotesLoaded[oldKey];
                delete _feedKeyToIsLocalNotesLoaded[oldKey];
@@ -1141,8 +1107,7 @@ package com.broceliand.ui.model
                delete _feedKeyToIsAllNotesLoaded[oldKey];
             }
          }
-         
-         
+
          var nodes:Array = _feedKeyToNode[newKey];
          if(!nodes) _feedKeyToNode[newKey] = nodes = new Array();
          if(nodes.indexOf(node) == -1) {
@@ -1153,8 +1118,7 @@ package com.broceliand.ui.model
             nodes.splice(nodes.indexOf(node),1);
             if(nodes.length == 0) delete _feedKeyToNode[oldKey];
          }
-         
-         
+
          var oldCallbacks:Array = _feedKeyToCallback[oldKey];
          if(oldCallbacks) {
             var newCallbacks:Array = _feedKeyToCallback[newKey];
@@ -1166,8 +1130,7 @@ package com.broceliand.ui.model
             }
          }
       }
-      
-      
+
       private function notifyNodesForChange(feedKey:String, mode:uint):void{
          var nodes:Array = _feedKeyToNode[feedKey];
          for each(var node:BroPTNode in nodes) {
@@ -1190,8 +1153,7 @@ package com.broceliand.ui.model
          var key:String = null;
          var feedKey:String = null;
          var relevantNode:BroPTNode = this.getRelevantNodeForNotes(node);
-         
-         
+
          if (mode == MODE_ALL && relevantNode is BroPageNode) {
             var pageNode:BroPageNode = relevantNode as BroPageNode;
             
@@ -1229,8 +1191,7 @@ package com.broceliand.ui.model
       
       public function getRelevantNodeForNotes(node:BroPTNode):BroPTNode {
          var relevantNode:BroPTNode = null;
-         
-         
+
          if(node is BroTreeRefNode) {
             var distantNode:BroTreeRefNode = node as BroTreeRefNode;
             Assert.assert((distantNode.refTree != null), "NoteModel can't find a relevant node for a BroTreeRefNode without refTree");

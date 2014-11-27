@@ -2,8 +2,7 @@ package com.broceliand.ui.box {
    
    import mx.containers.HBox;
    import mx.core.UIComponent;
-   
-   
+
    public class PTHBox extends HBox {
       
       private var _dynamicGap:Boolean = false;
@@ -28,8 +27,7 @@ package com.broceliand.ui.box {
          var gap:Number = 0;
          for each(var child:UIComponent in children) {
             if(child.includeInLayout) {
-               
-               
+
                childrenWidth += child.getExplicitOrMeasuredWidth();
                visibleChildren++;
             }

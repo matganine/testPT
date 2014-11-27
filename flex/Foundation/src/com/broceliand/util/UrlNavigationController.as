@@ -26,17 +26,13 @@ package com.broceliand.util {
    
    public class UrlNavigationController implements IAmfRetNumberCallback {
       private static const TITILE_PREFIX:String = "pearltrees ";
-      
-      
+
       private static const DEFAULT_TITLE:String = "Pearltrees";
-      
-      
+
       private static const ID_NAME_SEPARATOR:String = "-";
-      
-      
+
       private static const NAME_VALUE_SEPARATOR:String = "=";
-      
-      
+
       private static const PROPERTY_SEPARATOR:String = "&";
       
       private var _flexUrlBuilder:IFlexUrlBuilder;
@@ -103,8 +99,7 @@ package com.broceliand.util {
       public function onError(message:FaultEvent):void {
          
       }
-      
-      
+
       static public function initNavigationUrl(navigate:Boolean = true, resetIfHome:Boolean = false):Boolean  {
          var urlNav:UrlNavigationController = ApplicationManager.getInstance().urlNavigationController;
          var fragment:String = urlNav._browserManager.fragment;
@@ -128,14 +123,12 @@ package com.broceliand.util {
             } else if (fragment.lastIndexOf("N-play-url")>=0 && fragment.lastIndexOf("N-play=1")>=0) {
                return true;
             }
-            
-            
+
             return false;
          }
          return false;
       }
-      
-      
+
       public static function getFromUrl(prefix:String):String{
          var urlNav:UrlNavigationController = ApplicationManager.getInstance().urlNavigationController;
          var fragment:String = urlNav._browserManager.fragment;
@@ -172,8 +165,7 @@ package com.broceliand.util {
          }
          return null;
       }
-      
-      
+
       static public function getPotentialTreeIdFromUser(userId:String):int  {
          var urlNav:UrlNavigationController = ApplicationManager.getInstance().urlNavigationController;
          var fragment:String = urlNav._browserManager.fragment;
@@ -234,8 +226,7 @@ package com.broceliand.util {
                encodedObject = append(encodedObject, encodeObject2String(title, obj));
             }
          }
-         
-         
+
          if (encodedObject.length>0)
          {
             _pendingQueryString = encodedObject;

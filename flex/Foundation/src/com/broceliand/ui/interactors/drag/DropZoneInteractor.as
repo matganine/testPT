@@ -12,8 +12,7 @@ package com.broceliand.ui.interactors.drag
    
    import flash.events.MouseEvent;
    import flash.geom.Point;
-   
-   
+
    public class DropZoneInteractor extends RemovePearlInteractor
    {
       private var _draggedPearlIsOverDropZone:Boolean = false;
@@ -27,14 +26,12 @@ package com.broceliand.ui.interactors.drag
          var node:IPTNode = _interactorManager.draggedPearl.node;
          _draggedPearlIsOverDropZone = true;
       } 
-      
-      
+
       private function exitDropZone():void{
          var node:IPTNode = _interactorManager.draggedPearl.node;
          _draggedPearlIsOverDropZone = false;
       }
-      
-      
+
       public function moveBranchToDropZone(node:IPTNode):void{
          var bnode:BroPTNode = node.getBusinessNode();
          if (bnode is BroPTRootNode) {
@@ -43,8 +40,7 @@ package com.broceliand.ui.interactors.drag
                var ftree:BroPearlTree = nm.getFocusedTree();
                nm.goTo(ftree.getAssociationId(), nm.getSelectedUser().persistentId, ftree.id, ftree.id); 
             }
-            
-            
+
             bnode = bnode.owner.refInParent;
             
          }

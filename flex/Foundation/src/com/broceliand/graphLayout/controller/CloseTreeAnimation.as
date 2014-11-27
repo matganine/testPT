@@ -34,8 +34,7 @@ package com.broceliand.graphLayout.controller
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    import org.un.cava.birdeye.ravis.graphLayout.visual.VisualNode;
-   
-   
+
    public class CloseTreeAnimation extends OpenTreeAnimationControllerBase implements IOpenTreeAnimationController
    {
       
@@ -133,8 +132,7 @@ package com.broceliand.graphLayout.controller
          }
          return nodesToDelete;
       }
-      
-      
+
       protected function playDisappearAnimation():void {
          var par:Parallel = new Parallel();
          var effect:Fade=null;
@@ -159,8 +157,7 @@ package com.broceliand.graphLayout.controller
          }
          par.play();
       }
-      
-      
+
       protected function onEndDisapparition(e:Event):void {
          if (e && e.target) {
             e.target.removeEventListener(TweenEvent.TWEEN_END,onEndDisapparition);
@@ -231,12 +228,10 @@ package com.broceliand.graphLayout.controller
                changeGraphBackForAnimation(t.visualRootOfTheClosedTree, t.endVNode, nodesConnectedToEndNodeByTree[t], edgeDataOfEndNodeByTree[t]);
             }
          }
-         
-         
+
          moveToFinalLayout(nodesPositions);
       }
-      
-      
+
       private function changeGraphForComputeNodes(vrootOfClosingNode:IVisualNode, endVNode:IVisualNode, endNodeEdgesData:Array):Array {
          var nodesConnectedToEndNode:Array= new Array();
          
@@ -244,8 +239,7 @@ package com.broceliand.graphLayout.controller
             _vgraph.unlinkNodes(endVNode.node.predecessors[0].vnode, endVNode);
          }
          var  endNode:IPTNode = endVNode.node as IPTNode;
-         
-         
+
          for each (var node:IPTNode in endNode.successors) {
             if (node.vnode.isVisible && node.vnode.view.visible ) {
                nodesConnectedToEndNode.push(node);
@@ -260,8 +254,7 @@ package com.broceliand.graphLayout.controller
          
          return nodesConnectedToEndNode;
       } 
-      
-      
+
       private function changeGraphBackForAnimation(vrootOfClosingNode:IVisualNode, endVNode:IVisualNode, nodesConnectedToEndNode:Array, edgeDataArray:Array):void{
          for (var childIndex:int=nodesConnectedToEndNode.length; childIndex-->0;) {
             _vgraph.unlinkNodes(vrootOfClosingNode,  nodesConnectedToEndNode[childIndex].vnode);
@@ -329,8 +322,7 @@ package com.broceliand.graphLayout.controller
                
                nodesConnectedToEndNode.push(node);
                edgeDataArray.push(IEdge(node.inEdges[0]).data);
-               
-               
+
             }
             try {
                _vgraph.removeNode(endVNode);
@@ -357,7 +349,6 @@ package com.broceliand.graphLayout.controller
 import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
 import com.broceliand.graphLayout.visual.IPTVisualGraph;
 import com.broceliand.graphLayout.model.IPTNode;
-
 
 internal class TreeToCloseArg {
    private var _endVNode:IVisualNode;

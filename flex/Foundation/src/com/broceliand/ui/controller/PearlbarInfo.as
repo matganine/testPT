@@ -24,8 +24,7 @@ package com.broceliand.ui.controller
       private var _userLoader:IUserLoader;
       private var _isPearlbarDetected:Boolean;
       private var _pearlbarVersion:String;
-      
-      
+
       public function PearlbarInfo() {
          _pearlbarInfoLoaded = false;
          var am:ApplicationManager = ApplicationManager.getInstance();
@@ -61,8 +60,7 @@ package com.broceliand.ui.controller
             dispatchEvent(new Event(PEARLBAR_INFO_CHANGED_EVENT));            
          }
       }
-      
-      
+
       public function isNotifyingInstallPearlbar():Boolean {
          var user:User = ApplicationManager.getInstance().currentUser;
          return (isPearlbarInstalled() && isAccountLessThanAWeekOld(user) && !userDownloadedPluginButHasNotRestartedYet());

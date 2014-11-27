@@ -24,8 +24,7 @@ package com.broceliand.pearlTree.navigation.impl
       
       public static const PLAYMODE_NORMAL:int=-1;
       public static const PLAYMODE_HIGHLIGHT:uint=0;
-      
-      
+
       public static function buildUserPermaLink(user:User, pwTab:uint=0, usePrettyUserUrl:Boolean=true, playMode:int=-1):String {
          var url:String = getRootUrl();
          

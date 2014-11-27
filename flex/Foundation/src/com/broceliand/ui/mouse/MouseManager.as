@@ -21,12 +21,10 @@ package com.broceliand.ui.mouse
    import mx.events.FlexEvent;
    import mx.managers.CursorManager;
    import mx.managers.CursorManagerPriority;
-   
-   
+
    public class MouseManager
    {
-      
-      
+
       public static const CURSOR_TYPE_NONE:String = "none";
       
       public static const CURSOR_TYPE_ARROW:String = "arrow";
@@ -150,8 +148,7 @@ package com.broceliand.ui.mouse
             update();
          }
       }
-      
-      
+
       private function updateCursor():void {
          if (_cursorManagementDisabled) {
             return;
@@ -162,8 +159,7 @@ package com.broceliand.ui.mouse
          } else {
             switch(_cursorType){
                case CURSOR_TYPE_ARROW:
-                  
-                  
+
                   break;
                case CURSOR_TYPE_ARROW_WITH_UPDATE_REQUESTED:
                   break;
@@ -204,8 +200,7 @@ package com.broceliand.ui.mouse
             CursorManager.removeCursor(_cursorId);
          }
       } 
-      
-      
+
       private function updateInternal(event:Event = null):void {        
          if (_cursorManagementDisabled) return;
          _updateScheduled = false;

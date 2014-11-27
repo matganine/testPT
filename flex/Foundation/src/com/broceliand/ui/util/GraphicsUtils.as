@@ -38,8 +38,7 @@ package com.broceliand.ui.util
          dX /= len;
          dY /= len;
          var tMax:Number = len;
-         
-         
+
          var t:Number = -drawingState.offset;
          var bDrawing:Boolean = drawingState.drawing;
          var patternIndex:int = drawingState.patternIndex;
@@ -80,8 +79,7 @@ package com.broceliand.ui.util
             patternIndex = (patternIndex + 1) % pattern.length;
          }
       }
-      
-      
+
       public static function drawDashedLine(target:Graphics,stroke:IStroke,pattern:Array,x0:Number,y0:Number,x1:Number,y1:Number):void
       {
          target.moveTo(x0,y0);

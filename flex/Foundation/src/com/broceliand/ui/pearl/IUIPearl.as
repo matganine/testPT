@@ -25,8 +25,7 @@ package com.broceliand.ui.pearl
       function get titleCenter():Point;
       
       function get uiComponent():UIComponent;
-      
-      
+
       function canBeMoved():Boolean;
       function canBeCopied():Boolean;
       function refresh():void;

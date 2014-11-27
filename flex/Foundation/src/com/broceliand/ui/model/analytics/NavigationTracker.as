@@ -13,8 +13,7 @@ package com.broceliand.ui.model.analytics
    import flash.utils.Timer;
    
    import mx.utils.StringUtil;
-   
-   
+
    public class NavigationTracker
    {
       private static const SAVE_INTERVAL:uint = 30000; 
@@ -144,18 +143,15 @@ package com.broceliand.ui.model.analytics
       private function buildTreeHitsUrl():String {
          var treeHitsUrl:String = "";
          if(!_treeHit || _treeHit.length==0) return treeHitsUrl;
-         
-         
+
          var treeHitCount:Dictionary = new Dictionary();
          for each(var action:TreeHitAction in _treeHit) {
             var treeKey:String = action.tree.dbId+ID_SEPARATOR+action.tree.id;
             treeHitCount[treeKey] = (treeHitCount[treeKey] as uint) + 1;
          }
-         
-         
+
          _treeHit = new Array();
-         
-         
+
          for (var key:String in treeHitCount) {
             treeHitsUrl += key+VALUE_SEPARATOR+treeHitCount[key]+ITEM_SEPARATOR;
          }
@@ -170,22 +166,19 @@ package com.broceliand.ui.model.analytics
          
          var uniqueTreeHitsUrl:String = "";
          if(!treeHitsArray || treeHitsArray.length==0) return uniqueTreeHitsUrl;
-         
-         
+
          var uniqueTreeHitCount:Dictionary = new Dictionary();
          for each(var action:TreeHitAction in treeHitsArray) {
             var treeKey:String = action.tree.dbId+ID_SEPARATOR+action.tree.id;
             uniqueTreeHitCount[treeKey] = (uniqueTreeHitCount[treeKey] as uint) + 1;
          }
-         
-         
+
          if (isMyTreeVisits) {
             _myVisitTreeHit = new Array();  
          }  else {
             _uniqueTreeHit  = new Array();
          }
-         
-         
+
          for (var key:String in uniqueTreeHitCount) {
             uniqueTreeHitsUrl += key+VALUE_SEPARATOR+uniqueTreeHitCount[key]+ITEM_SEPARATOR;
          }

@@ -104,8 +104,7 @@ package com.broceliand.ui.effects
          }
          EffectManager.resumeEventHandling();
       }
-      
-      
+
       override public function onTweenEnd(value:Object):void
       {
          if (forceClipping)

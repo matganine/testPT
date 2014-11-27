@@ -78,8 +78,7 @@ package com.broceliand.ui.interactors
          var am:ApplicationManager = ApplicationManager.getInstance();
          var wc:IWindowController = am.components.windowController;
          var isPWUndockedButNodeInfoNotVisible:Boolean = !wc.isPearlWindowDocked() && (wc.visibleWindowId != 1 || wc.pearlWindow.model.selectedPanel != PWModel.CONTENT_PANEL);
-         
-         
+
          if (true && 
             (!am.visualModel.navigationModel.isShowingDiscover()  || renderer.node.getBusinessNode() is BroPTWPageNode ) &&
             _selectionModel.getSelectedNode() == renderer.node && 
@@ -92,8 +91,7 @@ package com.broceliand.ui.interactors
          }
          
          am.components.windowController.displayNodeInfo(renderer.node, true);
-         
-         
+
          if (am.currentUser.openPWOnNextOver) {
             am.components.windowController.setPearlWindowDocked(false, null, true);
             am.currentUser.openPWOnNextOver = false;
@@ -116,8 +114,7 @@ package com.broceliand.ui.interactors
          _currentSelectionOnMouseDown =null;
          _selectTwiceOnMouseUp = false;
       }
-      
-      
+
       private function selectInternal(node:IPTNode):void {
          if (!node.vnode) return;
          
@@ -267,8 +264,7 @@ package com.broceliand.ui.interactors
          }
          _selectionModel.centerGraphOnCurrentSelectionWithPWDisplayed(false, true);
       }
-      
-      
+
       public function closePlayOrDisplayContentPanel():void {
          
          var am:ApplicationManager = ApplicationManager.getInstance();
@@ -361,8 +357,7 @@ package com.broceliand.ui.interactors
          
          clearPendingSelection();
       }
-      
-      
+
       private function openPlayerOnNewTab(node:BroPTNode):void {
          if (ApplicationManager.getInstance().isEmbed()) {
             playSelection(false);   

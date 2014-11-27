@@ -58,8 +58,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          return _neighbourRingThickNess>0 || _noteRingThickNess>0;
       }
       public function warmNoteRing():void{
-         
-         
+
          if (_noteRing)
             _noteRing.transform.colorTransform = new ColorTransform(0, 0, 0, 1, NOTE_RING_NOTIFIED_COLOR_2 >> 16, (NOTE_RING_NOTIFIED_COLOR_2  >> 8)& 0xFF, NOTE_RING_NOTIFIED_COLOR_2 & 0x0000FF, 0);
       }    
@@ -200,8 +199,7 @@ package com.broceliand.ui.renderers.pageRenderers.pearl
          }
          var hasRing:Boolean = (_neighbourRingThickNess >0 )|| (_noteRingThickNess > 0);
          hasRing = hasRing && _showRings;
-         
-         
+
       }
       
       public function get showRings():Boolean {

@@ -3,8 +3,7 @@ package com.broceliand.pearlTree.model
    import com.broceliand.util.logging.Log;
    
    import flash.utils.Dictionary;
-   
-   
+
    public class TreeHierarchy
    {
       static private var UID:int = 0;

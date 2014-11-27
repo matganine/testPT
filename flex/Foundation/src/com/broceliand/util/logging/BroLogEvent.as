@@ -4,8 +4,7 @@ package com.broceliand.util.logging
    
    import mx.logging.ILogger;
    import mx.logging.LogEvent;
-   
-   
+
    public class BroLogEvent extends LogEvent
    {
       private var _args:Array;

@@ -69,12 +69,10 @@ package com.broceliand.pearlTree.model {
       public var dockStateForPW:int;
       public var welcomeTips:int;
       public var whiteMark:int;
-      
-      
+
       public var twitterLogin:int; 
       public var facebookLogin:int;
-      
-      
+
       public var location:String;
       public var realname:String;
       public var website:String;
@@ -82,8 +80,7 @@ package com.broceliand.pearlTree.model {
       public var pearlbarType:uint;
       public var creationDate:Number;
       public var locale:int;
-      
-      
+
       public var needsRefresh:Boolean = false;
       
       public function isPearlbarInstalled():Boolean {
@@ -127,8 +124,7 @@ package com.broceliand.pearlTree.model {
       public function isPearlWindowDockedOnInit():Boolean {
          return (dockStateForPW == UserSettings.PW_IS_DOCKED);
       }
-      
-      
+
       public static function changeAutoActionFbState(originalValue:int, changingValue:int):int {
          return originalValue;
       }

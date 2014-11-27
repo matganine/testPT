@@ -8,8 +8,7 @@ package com.broceliand.ui.interactors.drag
       
       private var _imageToMask:Image;
       private var _maskImage:Image;
-      
-      
+
       public function ImageWithMask()
       {
          super();
@@ -29,8 +28,7 @@ package com.broceliand.ui.interactors.drag
       public function get imageToMask():Image {
          return _imageToMask;
       }
-      
-      
+
       public function get maskImage():Image {
          return _maskImage;
       }

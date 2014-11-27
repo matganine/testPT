@@ -24,15 +24,13 @@ package com.broceliand.ui.util
          
          shadow.angle = 133;
          shadow.distance = distance;
-         
-         
+
          shadow.blurX = blur;
          shadow.blurY = blur;
          shadow.strength = 2;
          shadow.inner=false;
          shadow.knockout = knockout;
-         
-         
+
          shadow.alpha = 0.24;
          return shadow;         
       }

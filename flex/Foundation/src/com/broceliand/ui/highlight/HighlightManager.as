@@ -4,8 +4,7 @@ package com.broceliand.ui.highlight
    import com.broceliand.pearlTree.model.BroPearlTree;
    
    import flash.utils.Dictionary;
-   
-   
+
    public class HighlightManager
    {
       private var _name2Registered:Dictionary;
@@ -15,8 +14,7 @@ package com.broceliand.ui.highlight
          
          _name2Registered = new Dictionary(true);  
       }
-      
-      
+
       public function registerHighlightableObject(command:String, obj:IHighlightable):void{
          _name2Registered[command] = obj;
       }
@@ -44,8 +42,7 @@ package com.broceliand.ui.highlight
          if (_highlightedCloseTree != tree) {
             _highlightedCloseTree = tree;
             ApplicationManager.getInstance().components.pearlTreeViewer.vgraph.refreshEdges()
-            
-            
+
          }
       }
       public function getHighlightedCloseTree():BroPearlTree{

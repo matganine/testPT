@@ -51,8 +51,7 @@ package com.broceliand.ui.effects
       protected function handledObjectPlayBackward():void{
          
       }
-      
-      
+
       protected function onEnd(event:Event):void{
          switch(_state){
             case PLAYING_FORWARD:

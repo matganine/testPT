@@ -22,8 +22,7 @@ package com.broceliand.graphLayout.visual
    
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualEdge;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class WeightEdgeComponent extends UIComponent implements IRepositionable, IScrollable
    {
       public static const USE_EDGE_COMPONENT:Boolean = true;
@@ -49,8 +48,7 @@ package com.broceliand.graphLayout.visual
       private static var _withBackgroundColorlink:Boolean = false;
       private static const COLOR_WITH_BACKGROUND:uint =0x989898;
       private static const COLOR_WITH_WHITE_BACKGROUND:uint = 0xb4b4b4;
-      
-      
+
       public function WeightEdgeComponent(){
          
       }
@@ -73,11 +71,9 @@ package com.broceliand.graphLayout.visual
          } else {
             _hidden = false;
          }
-         
-         
+
       }
-      
-      
+
       private function computeFromPoint(pearl:IUIPearl):void {
          var targetPoint:Point = pearl.getTargetMove();
          var center:Point = pearl.pearlCenter; 
@@ -170,8 +166,7 @@ package com.broceliand.graphLayout.visual
                   _numDescendants = numDescendants;
                   _mustRedraw = true;   
                }
-               
-               
+
                edgeColor = computeColor(edgeData);
                if (edgeData.highlighted){
                   filters= getHaloFilters();
@@ -264,8 +259,7 @@ package com.broceliand.graphLayout.visual
       {
          return _edgeColor;
       }
-      
-      
+
       private function balancedWeight(weight:int):Number{
          
          if(weight == 0){
@@ -320,8 +314,7 @@ package com.broceliand.graphLayout.visual
             edgeWidth = 1;   
          }
          edgeWidth *=_scale;
-         
-         
+
          graphics.lineStyle(
             edgeWidth,
             edgeColor,
@@ -332,8 +325,7 @@ package com.broceliand.graphLayout.visual
             String(ve.lineStyle.joints),
             Number(ve.lineStyle.miterLimits)
          );
-         
-         
+
       }
       private function computeColor(edgeData:EdgeData):uint {
          var edgeColorVar:uint = COLOR_WITH_WHITE_BACKGROUND;
@@ -382,8 +374,7 @@ package com.broceliand.graphLayout.visual
          
          graphic.moveTo(_xFrom - x, _yFrom - y);            
          graphic.lineTo(_xTo - x, _yTo-y);
-         
-         
+
          graphic.endFill();
       }
 
@@ -454,8 +445,7 @@ package com.broceliand.graphLayout.visual
          }
          return _filters;
       }
-      
-      
+
       public static function setDefaultColorLink(hasBackground:Boolean):Boolean{
          if (hasBackground != _withBackgroundColorlink) {
             _withBackgroundColorlink = hasBackground;
@@ -465,6 +455,5 @@ package com.broceliand.graphLayout.visual
       }
       
    }
-   
-   
+
 }

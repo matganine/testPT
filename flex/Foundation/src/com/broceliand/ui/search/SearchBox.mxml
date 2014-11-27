@@ -128,8 +128,7 @@
          public static const SEARCH_BOX_WIDTH_SW_PRIVATE_MESSAGE_PANEL:Number = 280;
          
          public static const SEARCH_EVENT:String = "search";
-         
-         
+
          private var _searchDefaultTextString:String;
          private var _searchPeopleDefaultTextString:String;
          private var _searchAccountDefaultTextString:String;
@@ -329,8 +328,7 @@
             }
             hideModeBox();
          }
-         
-         
+
          private function hideModeBox():void {
             var wc:IWindowController = ApplicationManager.getInstance().components.windowController;
             if(wc.isSearchModeWindowOpen()) {

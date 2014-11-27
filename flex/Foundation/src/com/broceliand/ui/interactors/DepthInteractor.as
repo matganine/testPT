@@ -162,8 +162,7 @@ package com.broceliand.ui.interactors
             moveUIComponentToDepth(renderer.uiComponent, controlLayerDepth + 1);
          }
       }
-      
-      
+
       public function movePearlToNormalDepth(renderer:IUIPearl):void{
          if(!renderer){
             return;

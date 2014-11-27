@@ -11,8 +11,7 @@ package com.broceliand.ui.renderers.factory
       public function PTCenterPTWPearlRendererFactory(resourceManager:IRemoteResourceManager, interactorManager:InteractorManager, pearlRendererStateManager:PearlRendererStateManager){
          super(resourceManager, interactorManager, pearlRendererStateManager);         
       }
-      
-      
+
       override public function newInstance():*
       {
          var renderer:PTCenterPTWPearlRenderer= new UICenterPTWPearl(_pearlRendererStateManager, _remoteResourceManager);

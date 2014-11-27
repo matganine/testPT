@@ -100,8 +100,7 @@ package com.broceliand.ui.interactors.drag
       }
       
       override public function dragEnd(ev:MouseEvent):void {
-         
-         
+
          if (!_mustInit) {
             handleDrag(ev);
             suscribeToNavEvent(false);

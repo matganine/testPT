@@ -49,8 +49,7 @@ package com.broceliand.ui.pearlTree
          return image;
          
       }
-      
-      
+
       override  protected function getUIComponentFromNode(node:IPTNode,uiComponent:UIComponent=null):UIComponent {
          var rootNode:PTRootNode = node as PTRootNode;
          if (rootNode) {

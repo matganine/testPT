@@ -31,8 +31,7 @@ package com.broceliand.ui.interactors.drag
    import mx.effects.Fade;
    import mx.effects.Parallel;
    import mx.events.EffectEvent;
-   
-   
+
    public class InteractiveTreeOpener {
       private var _nodeToOpen:IPTNode =null;
       private var _openingTreeNode:PTRootNode =null;
@@ -72,8 +71,7 @@ package com.broceliand.ui.interactors.drag
          setHasBusyCursor(false);
          _treeLoader.reset();
       }
-      
-      
+
       public function openAvailableTreeNow(tree:BroPearlTree):void {
          _arePearlsHidden = false;
          clearShowBusyCursorTimeout();
@@ -89,8 +87,7 @@ package com.broceliand.ui.interactors.drag
          }
          
          ApplicationManager.getInstance().visualModel.selectionModel.highlightTree(null);
-         
-         
+
          if (_nodeToOpen.vnode && _nodeToOpen.vnode.vgraph.currentRootVNode == _nodeToOpen.vnode) {
             var ftree:BroPearlTree = (_nodeToOpen as PTRootNode).containedPearlTreeModel.businessTree;
             var nextFocusTree:BroPearlTree = ftree.treeHierarchyNode.parentTree;
@@ -99,8 +96,7 @@ package com.broceliand.ui.interactors.drag
          }
 
          ApplicationManager.getInstance().visualModel.navigationModel.goTo(tree.getAssociationId(), userId, tree.id, tree.id, -2);  
-         
-         
+
          ApplicationManager.getInstance().visualModel.selectionModel.openingTree = tree;
          _openingTreeNode = _nodeToOpen as PTRootNode;
          _currentTreeOpenerRequestor.onOpeningTree(_openingTreeNode);
@@ -178,7 +174,6 @@ import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-
 internal class LoadedTreeProviderWithDelay implements IPearlTreeLoaderCallback {
    private var _treeToOpen:BroPearlTree;
    private var _timer:Timer;
@@ -207,16 +202,14 @@ internal class LoadedTreeProviderWithDelay implements IPearlTreeLoaderCallback {
       }
       
    } 
-   
-   
+
    public function onTreeLoaded(tree:BroPearlTree):void {
       if (tree!= _treeToOpen) {
          return;
       } else {
          updateState();
       }
-      
-      
+
    }
    public function onErrorLoadingTree(error:Object):void {
       trace("Error Loading tree " +error);
@@ -245,7 +238,6 @@ internal class LoadedTreeProviderWithDelay implements IPearlTreeLoaderCallback {
       _treeToOpen = null;
       _timeOut = false;
    }
-   
-   
+
 }
 

@@ -20,16 +20,14 @@ package com.broceliand.ui
       public static const DISTANCE_BREAK_LINK_FACTOR:Number = 1.8;
       public static const DISTANCE_CREATE_LINK:Number = 105;
       public static const SQUARE_DISTANCE_SHOW_FORDIBBEN_SIGN:Number = 3249;
-      
-      
+
       public static const SCROLLUI_LIMIT_PROPORTION:Number = 5 / 6;
       public static const SCROLLUI_LIMIT_INVERSE_PROPORTION:Number = 1 - SCROLLUI_LIMIT_PROPORTION;
       
       public static const SCROLL_BTN_SQUARE_DEPTH:Number = 400;
       public static const SCROLL_BTN_HEIGHT:Number = 150;
       public static const SCROLL_BTN_WIDTH:Number = 210;
-      
-      
+
       public static const LINK_LENGTH_ALGO_DIVIDER:Number = 3;
       public static const LINK_LENGTH_ALGO_SUBSTRACTOR:Number = -1;
       
@@ -62,8 +60,7 @@ package com.broceliand.ui
       
       public static const DOCKED_TREE_PEARL_YOFFSET:int = -2;
       public static const DOCKED_PAGE_PEARL_YOFFSET:int = 2;
-      
-      
+
       public static const MAX_TITLE_CHARLENGTH_PAGE:int = 128;
       public static const MAX_TITLE_CHARLENGTH_TREE:int = 64;
       public static var   ZOOM_DENSITY_FACTOR:Number = 0.72;

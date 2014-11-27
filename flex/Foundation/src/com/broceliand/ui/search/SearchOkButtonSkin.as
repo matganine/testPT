@@ -5,8 +5,7 @@ package com.broceliand.ui.search {
    import flash.display.Graphics;
    
    import mx.skins.ProgrammaticSkin;
-   
-   
+
    public class SearchOkButtonSkin extends ProgrammaticSkin {
       
       override protected  function updateDisplayList(w:Number, h:Number):void {

@@ -13,8 +13,7 @@ package com.broceliand.ui.navBar {
    
    import flash.events.Event;
    import flash.events.EventDispatcher;
-   
-   
+
    public class NavBarWhatsHotModel extends EventDispatcher implements INavBarModel {
       
       private var _infoText:String;
@@ -86,8 +85,7 @@ package com.broceliand.ui.navBar {
             displayOrHideRelatedInfoWindow();
          }
       }
-      
-      
+
       private function displayOrHidePopularInfoWindow():void {
          var am:ApplicationManager = ApplicationManager.getInstance(); 
          var wc:IWindowController = am.components.windowController;

@@ -9,8 +9,7 @@ package com.broceliand.ui.controller
    import flash.events.Event;
    import flash.events.TimerEvent;
    import flash.utils.Timer;
-   
-   
+
    public class CurrentTreeFollower
    {
       private var _myWorld:BroPearlTree;
@@ -34,8 +33,7 @@ package com.broceliand.ui.controller
       private function getLastNode():BroPTNode {
          var node:BroPTNode = _myWorld.getRootNode();
          while (node.childLinks.length>0) {
-            
-            
+
             node = BroLink(node.childLinks[0]).toPTNode;
          }
          return node;

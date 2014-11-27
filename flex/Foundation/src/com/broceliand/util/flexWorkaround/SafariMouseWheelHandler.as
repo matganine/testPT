@@ -13,16 +13,14 @@ package com.broceliand.util.flexWorkaround
    import mx.core.Application;
    import mx.core.UIComponent;
    import mx.events.FlexEvent;
-   
-   
+
    public class SafariMouseWheelHandler
    {
       private static var _singleton:SafariMouseWheelHandler;
       
       private var _lastMousePoint:Point;
       private var _lastObject:InteractiveObject;
-      
-      
+
       public static function getInstance():SafariMouseWheelHandler {
          if (!_singleton) {
             _singleton = new SafariMouseWheelHandler();

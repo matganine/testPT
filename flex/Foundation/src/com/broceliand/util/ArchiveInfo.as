@@ -55,7 +55,6 @@ package com.broceliand.util
       {
          _pearlTitle = value;
       }
-      
-      
+
    }
 }

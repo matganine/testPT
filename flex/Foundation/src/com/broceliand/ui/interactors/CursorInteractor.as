@@ -30,8 +30,7 @@ package com.broceliand.ui.interactors
          pearlTreeViewer.addEventListener(MouseEvent.ROLL_OUT, onMouseOut);
          ApplicationManager.getInstance().visualModel.mouseManager.register(this, CursorSetterConsts.MAP);
       }
-      
-      
+
       private function updaterMouseDirectlyOnMap(event:MouseEvent):void{
          var wc:IWindowController =  ApplicationManager.getInstance().components.windowController;
          if(wc.isPointOverWindow(event.stageX, event.stageY)) {
@@ -62,8 +61,7 @@ package com.broceliand.ui.interactors
          }
          return cursor;
       }
-      
-      
+
       public function getWantedCursor(stageX:Number, stageY:Number, isMouseDown:Boolean, distanceToMouseDown:Number):String{
          if(_interactorManager.actionForbidden && distanceToMouseDown > 2){
             
@@ -108,8 +106,7 @@ package com.broceliand.ui.interactors
             } else if (getTimer() - _lastRendererTime > InteractorManager.MIN_TIME_UNDER_CURSOR) {               
                return getCursorCorrespondingToPearlRenderer(renderer, stagePoint);
             }
-            
-            
+
             return MouseManager.CURSOR_TYPE_ARROW_WITH_UPDATE_REQUESTED; 
          }else{
             return MouseManager.CURSOR_TYPE_ARROW; 

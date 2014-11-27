@@ -173,8 +173,7 @@ package com.broceliand.graphLayout.controller
       public function moveInPTW(tree:BroPearlTree):void {
          request(new Request(this,MOVE_IN_PTW_TREE_REQUEST, null, tree, null, -1 ));
       }
-      
-      
+
       private function createTreeGraphNodes(loadedNode:IPTNode):Array {
          var newNodes : Array= new Array();
          var refNodeVisualNode:IVisualNode = loadedNode.vnode;
@@ -355,8 +354,7 @@ package com.broceliand.graphLayout.controller
             }
          }
          _vgraph.getEditedGraphVisualModification().changeEndNodeParentOnOpeningNode(endNode.vnode, detachEndNodeIndex);
-         
-         
+
          if (refNodeVisualNode.view!=null) {
             refNodeVisualNode.view.invalidateProperties();   
          }
@@ -615,22 +613,19 @@ package com.broceliand.graphLayout.controller
             notifyEndOfRequest(null, request);
             return;
          } 
-         
-         
+
          if (isFromPTW) {
             allowMoveDockedPearl();  
          }
          var addOnNavigation:Boolean = resetGraphOption >0;
-         
-         
+
          if (!addOnNavigation) {
             
             var currentFocusTree:BroPearlTree = _displayModel.getCurrentFocusedTree();
             
             if (currentFocusTree) {
                var parentTrees:Array = currentFocusTree.treeHierarchyNode.getTreePath(tree);
-               
-               
+
                if (parentTrees[0] == tree) {
                   
                   if (parentTrees.length == 2) {
@@ -734,8 +729,7 @@ package com.broceliand.graphLayout.controller
                isOpeningNode = true;
             }
          }
-         
-         
+
          var selectedNode:IPTNode = null;
          if (navModel.getSelectedTree() == tree && navModel.getSelectedPearl()==node && navModel.getSelectionIntersectionIndex()== intersection) {
             
@@ -821,8 +815,7 @@ package com.broceliand.graphLayout.controller
          } else if (pwState == PWModel.IMAGES_BIBLI_PANEL) {
             windowController.displayImagesBibli(null, null,  selectedNode);
          } else if (pwState == PWModel.TEAM_NOTIFICATION_PANEL){
-            
-            
+
          } else if (pwState == PWModel.FACEBOOK_INVITATION_DEFAULT_PANEL){
             windowController.displayFacebookInvitationDefault(selectedNode);
          } else if (pwState == PWModel.FACEBOOK_INVITATION_TEAMUP_PANEL){
@@ -892,8 +885,7 @@ package com.broceliand.graphLayout.controller
                }
             }
          } else {
-            
-            
+
          }
          
          invoker.onUserEditionProcessed(synchroRequest, updateOutsideMyAccount);
@@ -923,8 +915,7 @@ internal class Request implements IAction {
    public var withLayout:Boolean;
    public var secondaryTree:BroPearlTree;
    private var _addOnNavigation:int;
-   
-   
+
    public var crossingBusinessNode:BroPTNode;
    public function Request(gnc:GraphicalNavigationController, requestType:int, node:IPTNode, tree:BroPearlTree, businessNode:BroPTNode=null, intersection:int=-1, crossingBusinessNode:BroPTNode=null, animationType:int=0, withLayout:Boolean= true) {
       _gnc = gnc;

@@ -35,8 +35,7 @@ package com.broceliand.ui.pearlTree
    
    public class OpenTreeButton extends PearlButton
    {
-      
-      
+
       public static const BUTTON_WIDTH:Number = 33;
       
       public static const X_OFFSET:int= - GeometricalConstants.PEARL_BUTTON_X;

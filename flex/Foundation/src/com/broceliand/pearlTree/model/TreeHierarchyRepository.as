@@ -17,8 +17,7 @@ package com.broceliand.pearlTree.model
          }
          return treeHierarchy.getTree(treeDb, treeId);
       }
-      
-      
+
       public function registerTreeHierarchy(user:User, hierarchy:TreeHierarchy):void {
          _user2TreeHierarchy[user] = hierarchy;
       }  

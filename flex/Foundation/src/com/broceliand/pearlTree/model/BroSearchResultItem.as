@@ -46,7 +46,6 @@ package com.broceliand.pearlTree.model
       public function get hits():int { return _hits; }
       public function get pearlCount():int { return _pearlCount; }
       public function get user():User{ return _user; }
-      
-      
+
    }
 }

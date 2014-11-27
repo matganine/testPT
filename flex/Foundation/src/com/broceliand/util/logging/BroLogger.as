@@ -9,8 +9,7 @@ package com.broceliand.util.logging
    import mx.logging.ILogger;
    import mx.logging.LogEvent;
    import mx.logging.LogEventLevel;
-   
-   
+
    public class BroLogger extends EventDispatcher implements ILogger 
    {
       private var _isUsed:Boolean = false;
@@ -38,8 +37,7 @@ package com.broceliand.util.logging
       public function log(level:int, msg:String, ... rest):void {
          logInternal(level, msg, rest);
       }
-      
-      
+
       private function logInternal(level:int, msg:String, rest:Array):void
       {
          if (hasEventListener(LogEvent.LOG))
@@ -54,8 +52,7 @@ package com.broceliand.util.logging
                Alert.show(BroLocale.formatMessage(msg,rest));
             }
          }
-         
-         
+
       }
       
       public function debug(msg:String, ... rest):void

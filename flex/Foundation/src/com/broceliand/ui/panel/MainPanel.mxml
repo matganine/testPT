@@ -202,8 +202,7 @@
             
             addEventListener(DragEvent.DRAG_ENTER, dragEnterHandler);
          }
-         
-         
+
          private function dragEnterHandler(event:DragEvent):void {
             DragManager.acceptDragDrop(event.target  as IUIComponent);
          }
@@ -219,8 +218,7 @@
                if(am.isEmbed()) {
                   var paddingBottom:uint = (am.embedManager.isModeFacebook())?EmbedManager.FACEBOOK_PADDING_BOTTOM:0;
                   var borderColor:int = (am.embedManager.isModeFacebook())?0xE9E9E9:ColorPalette.getInstance().pearltreesColor;
-                  
-                  
+
                   g.lineStyle(1, ColorPalette.getInstance().backgroundColor);
                   g.moveTo(0, 0);
                   g.lineTo(stage.stageWidth - 1, 0);
@@ -231,8 +229,7 @@
                      g.lineTo(0, stage.stageHeight - 1);
                   }
                   g.lineTo(0, 0);
-                  
-                  
+
                   g.lineStyle(1, borderColor);
                   g.moveTo(1, 1);
                   g.lineTo(stage.stageWidth - 2, 1);
@@ -285,8 +282,7 @@
             
             showOrHideEventPromo();
             showOrHideBackground();
-            
-            
+
             if(_signupBanner) {
                if (am.currentUser.isLoggedOnFacebook()) {
                   _signupBanner.signUpBannerMode = SignUpBanner.SIGN_UP_BANNER_MODE_FACEBOOK;

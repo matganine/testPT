@@ -106,8 +106,7 @@ package com.broceliand.ui.settings {
                UrlNavigationController.setBrowserTitle(" • "+BroLocale.getInstance().getText('menu.action.settingsTitle'));
             }
             else{
-               
-               
+
                super.visible = false;
                if (ApplicationManager.getInstance().visualModel.navigationModel.getPlayState() != NavigationEvent.PLAY_STATE_SCREEN) {
                   am.components.pearlTreeViewer.setActive(true);

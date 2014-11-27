@@ -193,7 +193,6 @@ public class BindableModelLocator
             GetItems2Event.EVENT_NAME,
             GetItems2Command );
 
-         
       }
    } 
 }]]></example>
@@ -892,7 +891,6 @@ public class UnknownMetaDataAttribute
       public function doMoreWork() : void {}
       public function doWorkAgain() : void {}
 
-      
    }]]></example>
   </rule>
   <rule since="" class="com.adobe.ac.pmd.rules.sizing.TooManyFieldsRule" message="Too many field detected ({0} maximum, but {1} actually)">

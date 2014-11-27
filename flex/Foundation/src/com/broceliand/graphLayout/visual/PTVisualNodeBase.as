@@ -150,7 +150,6 @@ package com.broceliand.graphLayout.visual
       {
          _distanceToClosestBrother = value;
       }
-      
-      
+
    }
 }

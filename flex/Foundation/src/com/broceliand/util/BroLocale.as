@@ -217,8 +217,7 @@ package com.broceliand.util {
          }
          
          var text:String = ResourceManager.getInstance().getString(bundle, key);
-         
-         
+
          if (text == null) {
             return key;
          }
@@ -235,8 +234,7 @@ package com.broceliand.util {
          }
          return text;
       }
-      
-      
+
       public function getTextForBusinessNode(key:String, node:BroPTNode, params:Array=null, bundle:String=null):String {
          if(node is BroPageNode) {
             key += ".pearl";

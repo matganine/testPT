@@ -2,8 +2,7 @@ package com.broceliand.pearlTree.model.paginatedlists {
    import com.broceliand.pearlTree.io.object.util.paginatedlist.PaginatedListData;
    
    import mx.collections.ArrayCollection;
-   
-   
+
    public interface IPaginatedList {
       function get innerArray():Array;
       function get innerList():ArrayCollection;

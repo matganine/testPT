@@ -20,8 +20,7 @@ package com.broceliand.ui.pearlBar.dropZone {
    import mx.controls.Label;
    import mx.core.Application;
    import mx.formatters.SwitchSymbolFormatter;
-   
-   
+
    public class DropZoneDeck extends Deck {
       
       private var _holdingLabel:Label;
@@ -63,8 +62,7 @@ package com.broceliand.ui.pearlBar.dropZone {
       
       override protected function updateDisplayList(w:Number, h:Number):void {
          super.updateDisplayList(w, h);
-         
-         
+
          _holdingLabel.width=w-2*Deck.NAV_BUTTON_WIDTH;
          _holdingLabel.height=25;
          _holdingLabel.y = h - _holdingLabel.height/2 - 27;
@@ -127,8 +125,7 @@ package com.broceliand.ui.pearlBar.dropZone {
          }else if (msgType==DropZoneDeckModel.HOLDING_PTW_EMPTY){
             i18nKey = i18nKey.concat(".ptw");
          }
-         
-         
+
          if (i18nKey==null){
             _holdingLabelText = null;
          }else{

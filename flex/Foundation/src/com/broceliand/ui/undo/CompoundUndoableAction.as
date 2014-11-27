@@ -21,8 +21,7 @@ package com.broceliand.ui.undo
       public function getActionCount():int {
          return _subActions.length;
       }
-      
-      
+
       public function doIt():void  {
          for each (var a:IUndoableAction in _subActions) {
             a.doIt();

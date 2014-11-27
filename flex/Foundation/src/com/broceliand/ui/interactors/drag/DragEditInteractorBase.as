@@ -14,8 +14,7 @@ package com.broceliand.ui.interactors.drag
          _interactorManager = interactorManager;
          
       }
-      
-      
+
       public function dragBegin(ev:MouseEvent):void{
          _interactorManager.draggedPearl = _interactorManager.pearlRendererUnderCursor;
          var isPearlInDropZone:Boolean = _interactorManager.pearlRendererUnderCursor.node && _interactorManager.pearlRendererUnderCursor.node.isDocked;

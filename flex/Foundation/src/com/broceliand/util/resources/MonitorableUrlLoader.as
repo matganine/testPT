@@ -5,16 +5,14 @@ package com.broceliand.util.resources
    
    import flash.net.URLLoader;
    import flash.net.URLRequest;
-   
-   
+
    public class MonitorableUrlLoader implements IMonitorableTask {
       
       private var _loader:URLLoader;
       private var _url:String;
       
       private var _isForPreloadingOnly:Boolean;
-      
-      
+
       public function MonitorableUrlLoader(urlLoader:URLLoader, url:String) {
          _loader= urlLoader;
          _url = url;

@@ -7,8 +7,7 @@ package com.broceliand.util.resources
    import flash.utils.getTimer;
    
    import mx.core.Application;
-   
-   
+
    internal class DisposingRemoteResourceManager extends RemoteResourceManager
    {
       protected static const DEFAULT_MAX_NUM_ELEMENTS:uint = 50;

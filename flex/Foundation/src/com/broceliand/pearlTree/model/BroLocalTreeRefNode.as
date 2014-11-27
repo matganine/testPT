@@ -3,8 +3,7 @@ package com.broceliand.pearlTree.model{
    import com.broceliand.pearlTree.io.services.AmfTreeService;
    import com.broceliand.pearlTree.model.notification.PearlNotification;
    import com.broceliand.pearlTree.model.paginatedlists.IPaginatedList;
-   
-   
+
    public class BroLocalTreeRefNode extends BroTreeRefNode {
       
       public function BroLocalTreeRefNode(treeDB :int, treeId:int ) {

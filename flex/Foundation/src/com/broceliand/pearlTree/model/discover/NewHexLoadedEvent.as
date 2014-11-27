@@ -1,8 +1,7 @@
 package com.broceliand.pearlTree.model.discover {
    
    import flash.events.Event;
-   
-   
+
    public class NewHexLoadedEvent extends Event {
       
       private var _isFirstLoad:Boolean;

@@ -82,8 +82,7 @@ package com.broceliand.ui.util
          return str.substr(-6).toUpperCase();
       }
       public static function getDomainFromUrl(value:String):String {
-         
-         
+
          var domainRegExp:RegExp = /^((http[s]?|ftp):\/)?\/?([^\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)?(.*)?(#[\w\-]+)?$/i;
          var result:Object = domainRegExp.exec(value);
          var domain:String = (result)?result[3]:null;
@@ -110,8 +109,7 @@ package com.broceliand.ui.util
          }
          return domainUrl;            
       }
-      
-      
+
       public static function htmlEscape(str:String):String {
          return XML( new XMLNode( XMLNodeType.TEXT_NODE, str ) ).toXMLString().replace(/"/g,'&#34;');
       }	    

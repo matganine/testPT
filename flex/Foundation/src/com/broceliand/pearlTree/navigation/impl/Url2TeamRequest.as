@@ -5,8 +5,7 @@ package com.broceliand.pearlTree.navigation.impl {
    import com.broceliand.util.UrlNavigationController;
    
    import mx.managers.IHistoryManagerClient;
-   
-   
+
    public class Url2TeamRequest implements IHistoryManagerClient {
       
       private static const TEAMREQUEST_CLIENT_NAME:String="teamRequest";

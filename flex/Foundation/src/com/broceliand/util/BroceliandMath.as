@@ -3,8 +3,7 @@ package com.broceliand.util
    import com.broceliand.ui.GeometricalConstants;
    
    import flash.geom.Point;
-   
-   
+
    public class BroceliandMath
    {
       static public  function getDistanceBetweenPoints(p1:Point, p2:Point):Number{

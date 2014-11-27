@@ -157,8 +157,7 @@
             footer.addEventListener(Footer.FOOTER_SHOW, onFooterVisibilityChange);
             footer.addEventListener(Footer.FOOTER_HIDE, onFooterVisibilityChange);
          }
-         
-         
+
          private function onFooterVisibilityChange(event:Event):void {
             var am:ApplicationManager = ApplicationManager.getInstance();
             var footer:IFooter = am.components.pearlTreeViewer.vgraph.controls.footer;

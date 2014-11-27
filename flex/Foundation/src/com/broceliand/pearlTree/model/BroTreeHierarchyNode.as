@@ -8,8 +8,7 @@ package com.broceliand.pearlTree.model
       private static const MAX_LOOP:int= 15000; 
       
       private var _tree:BroPearlTree;
-      
-      
+
       private var _parentTree:BroTreeHierarchyNode;
       
       private var _childTrees:Array;
@@ -30,8 +29,7 @@ package com.broceliand.pearlTree.model
       {
          return _isAlias;
       }
-      
-      
+
       public function addChild(childNode:BroTreeHierarchyNode, changeSubTreesAssociations:Boolean = true):void {
          Log.getLogger("com.broceliand.pearlTree.model.BroTreeHierarchyNode").info("add Child node parent: {0} {1} ({2}) child :{3} {4}({5}) child isOwner: {6}",_tree.traceId(), _tree.title, _tree.id,  childNode._tree.traceId(), childNode._tree.title, 
             childNode._tree.id, childNode._tree.isOwner)
@@ -40,8 +38,7 @@ package com.broceliand.pearlTree.model
             childNode._parentTree.removeChild(childNode);
             if (!childNode.isAlias) {
                var oldAssociation:BroAssociation = childNode._tree.getMyAssociation();
-               
-               
+
                if (changeSubTreesAssociations && oldAssociation != _tree.getMyAssociation() && (!childNode._tree.isAssociationRoot()||oldAssociation.isDissolvedAssociation ))   {
                   _tree.getMyAssociation().moveTreeFromOtherAssociationWithDescendant(childNode._tree);  
                }
@@ -62,8 +59,7 @@ package com.broceliand.pearlTree.model
             _childTrees.splice(i,1);
          }
       }
-      
-      
+
       public function getTreePath(limitToParent:BroPearlTree=null):Array {
          var node:BroTreeHierarchyNode = this;
          var result:Array= new Array();
@@ -83,8 +79,7 @@ package com.broceliand.pearlTree.model
          
          return result;
       }
-      
-      
+
       public function getDescendantTrees(skipAlias:Boolean=false, limitedToAssociation:Boolean=false, withPrivate:Boolean=true):Array {
          var result:Array= new Array();
          
@@ -104,8 +99,7 @@ package com.broceliand.pearlTree.model
             if(indexForInfiniteLoop > MAX_LOOP){
                throw new Error("Infinite loop in hierarchy of "+_tree.title);
             }
-            
-            
+
             node = nodeToProcess.shift();  
             if (node._childTrees && !node.isAlias) {
                for each (var child:BroTreeHierarchyNode in node._childTrees) {

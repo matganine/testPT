@@ -211,8 +211,7 @@ package com.broceliand.pearlTree.navigation.impl
       public function isShowingDiscover():Boolean {
          return (_isShowingPTW /* && !isShowingSearchResult() && !isWhatsHot() */ && !isHomePage());
       }
-      
-      
+
       public function notifyNavigation(request:NavigationRequestBase, event:NavigationEvent):void {
          if (_currentRequestPerformed == request) {
             _user = event.newUser;
@@ -230,8 +229,7 @@ package com.broceliand.pearlTree.navigation.impl
             _isSearchingUserOnly = event.searchUserOnly;
             _revealState = event.revealState;
             _isInMyWorld = !_isShowingPTW && _user == ApplicationManager.getInstance().currentUser;
-            
-            
+
             if (ApplicationManager.getInstance().components.windowController.toUndockPWImediatelyForAnonymousUser()
                && ApplicationManager.getInstance().currentUser.isAnonymous() && _pearlWindowPreferredState == 0) {
                _pearlWindowPreferredState = 1;

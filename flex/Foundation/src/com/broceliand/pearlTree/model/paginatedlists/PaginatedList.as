@@ -3,8 +3,7 @@ package com.broceliand.pearlTree.model.paginatedlists {
    import com.broceliand.pearlTree.io.object.util.paginatedlist.PaginatedListData;
    
    import mx.collections.ArrayCollection;
-   
-   
+
    public class PaginatedList implements IPaginatedList {
       
       private var _items:ArrayCollection; 
@@ -18,8 +17,7 @@ package com.broceliand.pearlTree.model.paginatedlists {
          _state = new PaginatedListData;
          _state.limit = new Array();
          _state.nonLoadedNumber = 0;
-         
-         
+
          _ref++;
          _myRef = _ref;
          
@@ -125,7 +123,6 @@ package com.broceliand.pearlTree.model.paginatedlists {
             _items.removeItemAt(_items.length - 1);
          }
       }
-      
-      
+
    }
 }

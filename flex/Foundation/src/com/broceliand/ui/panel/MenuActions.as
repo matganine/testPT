@@ -97,16 +97,14 @@ package com.broceliand.ui.panel {
                -1, 0, -1);
          }
       }
-      
-      
+
       private function hideContextualHelp(am:ApplicationManager):void {
          var help:IContextualHelp = am.components.getContextualHelp(false);
          if (help) {
             help.hide();
          }
       }
-      
-      
+
       public function gettingStarted():void{
          hidePlayer();
          hideFaq();

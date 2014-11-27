@@ -42,8 +42,7 @@ package com.broceliand.graphLayout.controller
    import org.un.cava.birdeye.ravis.graphLayout.data.IEdge;
    import org.un.cava.birdeye.ravis.graphLayout.data.Node;
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
-   
-   
+
    public class FocusController
    {
       private static const TRACE_DEBUG:Boolean = false;
@@ -89,8 +88,7 @@ package com.broceliand.graphLayout.controller
          }
          _isAnimating = value;
       }
-      
-      
+
       public function focusOnNode(request:IAction, vnodeToFocusOn:IVisualNode, displayModel:GraphicalDisplayedModel, crossingBusinessNode:BroPTNode):void{
          setIsAnimating(true);
          _vgraph.PTLayouter.setPearlTreesWorldLayout(false);
@@ -124,8 +122,7 @@ package com.broceliand.graphLayout.controller
          }
          focusZoomIn(vnodeToFocusOn);
       }
-      
-      
+
       public static function getDescendantsWithExclusion(rootNode:IPTNode, excludingRootNode:IPTNode):Array{
          var ret:Array = new Array();
          var nodesToProcess:Array = new Array();
@@ -195,8 +192,7 @@ package com.broceliand.graphLayout.controller
          }else{
             focusZoomInStep2(null);
          }
-         
-         
+
       }
       
       private function focusZoomInStep2(ev:Event):void{
@@ -265,7 +261,6 @@ package com.broceliand.graphLayout.controller
 }
 import com.broceliand.util.IAction;
 import mx.effects.Effect;
-
 
 internal class PlayAnimationAction implements IAction {
    private var _effect:Effect;

@@ -94,8 +94,7 @@ package com.broceliand.graphLayout.controller
          }
          var nodesToRemove:Array = _editionController.clearGraph(false);
          var nodesToMoveToTheCenter:Array = new Array();
-         
-         
+
          var clearTreeEffect:Sequence;
          
          var vnodeToKeep:IVisualNode;
@@ -146,8 +145,7 @@ package com.broceliand.graphLayout.controller
             }  
             nodesToRemove = nodesToRemoveNotInTheTree;
          }        
-         
-         
+
          var effect:Effect= makeDisappearEffect(nodesToRemove, vnodeToKeep);
          if (effect) {
             clearTreeEffect = new Sequence();
@@ -161,8 +159,7 @@ package com.broceliand.graphLayout.controller
          if (vnodeToKeep) {
             depthInteractor.movePearlAboveAllElse(vnodeToKeep.view as IUIPearl);   
          }
-         
-         
+
          var moveEffect:Parallel = new Parallel();
          nodesToRemove = new Array();
          var action:IAction = new RemoveVNodesAtAnimationEnd(nodesToRemove, null); 
@@ -370,8 +367,7 @@ package com.broceliand.graphLayout.controller
          
          var vnodesFromOutsideScreen:Array = new Array();
          var nodesToGoAway:Array = new Array();
-         
-         
+
          for each (vnode in tree2Node) {
             if (getTreeKeyAndResetSearchCenter(vnode, false) == rootTreeKey) {
                
@@ -470,8 +466,7 @@ package com.broceliand.graphLayout.controller
             return null;
          }
       }
-      
-      
+
       public function changeVGraphRoot( vgraph:IVisualGraph,  newRootVnode:IPTVisualNode, tree2VNode:Dictionary, nodesThatGoAway:Array):void {
          var rootNode:BroNeighbourRootPearl = newRootVnode.ptNode.getBusinessNode() as BroNeighbourRootPearl;
          var newRoot:BroTreeRefNode = rootNode.delegateNode as BroTreeRefNode;
@@ -485,8 +480,7 @@ package com.broceliand.graphLayout.controller
             }
             if (previousVNode && previousVNode.view) {
                var previousNodePos:Point = previousVNode.pearlView.positionWithoutZoom;
-               
-               
+
                newRootVnode.pearlView.moveWithoutZoomOffset(previousNodePos.x, previousNodePos.y);
                newRootVnode.pearlView.animationZoomFactor = previousVNode.pearlView.animationZoomFactor;
                var point:Point = _vgraph.currentRootVNode.viewCenter.clone();
@@ -592,8 +586,7 @@ package com.broceliand.graphLayout.controller
          Profiler.getInstance().addMarker("animation end", "search");
          Profiler.getInstance().endSession("search");
       }
-      
-      
+
       private function findTreeInCurrentGraph(newPTW:BroPearlTree):BroPearlTree {
          var result:BroPearlTree = null;
          var rootNode:IVisualNode = _vgraph.currentRootVNode;
@@ -657,8 +650,7 @@ internal class CreateNewPTWAction implements IAction {
       } else {
          endEffect(null);
       }
-      
-      
+
    }
    public function endEffect(e:EffectEvent):void {
       Profiler.getInstance().addMarker("hide pearls","search");       

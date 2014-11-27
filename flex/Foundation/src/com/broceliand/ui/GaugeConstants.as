@@ -1,6 +1,5 @@
 package com.broceliand.ui {
-   
-   
+
    public class GaugeConstants {
       
       public static const PEARL_MEDIUM:int = 10;

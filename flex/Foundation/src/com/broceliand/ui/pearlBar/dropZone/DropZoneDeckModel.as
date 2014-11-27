@@ -11,8 +11,7 @@ package com.broceliand.ui.pearlBar.dropZone {
    
    import flash.events.Event;
    import flash.geom.Point;
-   
-   
+
    public class DropZoneDeckModel extends DeckModel {
       public static const HOLDING_NO_MSG:int =0;
       public static const HOLDING_MY_ASSO_DRAGGED:int=1;
@@ -109,7 +108,6 @@ package com.broceliand.ui.pearlBar.dropZone {
             return HOLDING_NO_MSG;
          }
       }
-      
-      
+
    }
 }

@@ -10,15 +10,13 @@ package com.broceliand.ui.pearlTree
    
    public interface IPearlTreeViewer extends IFlexDisplayObject, IActive
    {
-      
-      
+
       function get vgraph ():IPTVisualGraph;		
       function get pearlTreeEditionController():IPearlTreeEditionController;
       function get interactorManager():InteractorManager;
       function get pearlRendererStateManager():PearlRendererStateManager;
       function init():void;
-      
-      
+
       function refresh():void;
       
    }

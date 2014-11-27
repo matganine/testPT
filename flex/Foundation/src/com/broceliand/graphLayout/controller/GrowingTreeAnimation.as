@@ -118,8 +118,7 @@ package com.broceliand.graphLayout.controller
                useAnimToPosition = false;
             } 
             currentAncestor = vn;
-            
-            
+
             var startPoint:Point;  
             var targetPoint:Point;
             
@@ -153,8 +152,7 @@ package com.broceliand.graphLayout.controller
             if (targetPointWithScroll.y< - pearl.pearlWidth || targetPointWithScroll.y>_vgraph.height) {
                targetOutsideScreen = true;
             }
-            
-            
+
             if (targetOutsideScreen && startOutsideScreen) {
                useAnimToPosition = false;
             }   

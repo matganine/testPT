@@ -9,8 +9,7 @@ package com.broceliand.ui.model
    import com.broceliand.pearlTree.model.paginatedlists.PaginatedListItem;
    
    import flash.utils.Dictionary;
-   
-   
+
    public class NeighbourClientRepository
    {
       private var _nodeIdToNeighbourArray:Dictionary;
@@ -81,7 +80,6 @@ package com.broceliand.ui.model
          }
          return true;
       }
-      
-      
+
    }
 }

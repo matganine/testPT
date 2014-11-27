@@ -2,8 +2,7 @@ package com.broceliand.pearlTree.model {
    import com.broceliand.ui.model.NoteModel;
    import com.broceliand.util.Alert;
    import com.broceliand.util.BroLocale;
-   
-   
+
    public class BroComment {
       public static const TYPE_USER_MESSAGE:uint = 1;
       public static const TYPE_TEAM_DISCUSSION_MESSAGE:uint = 4;

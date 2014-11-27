@@ -61,8 +61,7 @@ package com.broceliand.util
       public function stopListeningComponent(value:UIComponent):void {
          value.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
       }
-      
-      
+
       public function addKeyboardListener(listener:Function, keyCode:uint, ctrlKey:Boolean=false, shiftKey:Boolean=false):void {
          var keyListener:KeyCodeListener = new KeyCodeListener();
          keyListener.listener = listener;
@@ -153,7 +152,6 @@ package com.broceliand.util
 }
 import flash.events.KeyboardEvent;
 
-
 internal class KeyListener {
    public var listener:Function;
    public var ctrlKey:Boolean;
@@ -180,7 +178,6 @@ internal class KeyCodeListener extends KeyListener {
    }
    
 }
-
 
 internal class CharListener extends KeyListener {
    public var charCode:uint;

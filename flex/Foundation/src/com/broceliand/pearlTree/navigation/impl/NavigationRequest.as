@@ -29,8 +29,7 @@ package com.broceliand.pearlTree.navigation.impl
    import flash.utils.getTimer;
    
    import mx.events.FlexEvent;
-   
-   
+
    public class NavigationRequest extends NavigationRequestBase implements IPearlTreeHierarchyLoaderCallback, IPearlTreeLoaderCallback {
       
       private static const WHATS_HOT_ID:int=0;
@@ -56,8 +55,7 @@ package com.broceliand.pearlTree.navigation.impl
       private var _resultCallback:INavigationResultCallback;
       private var _loadingTreesIds:Dictionary=new Dictionary();
       private var _hasErrorLoadingTree:Boolean;
-      
-      
+
       private var _pearlFinder:pearlFinderReturn;
       
       public  function NavigationRequest(navDes:NavigationDescription){
@@ -159,8 +157,7 @@ package com.broceliand.pearlTree.navigation.impl
          }   
       }
       private function loadIntermediateTrees(treeHierarchy:TreeHierarchy, ptLoader:IPearlTreeLoaderManager ):void {
-         
-         
+
          var oldFocusTree:BroPearlTree = _navigator.getFocusedTree();
          var newFocusTree:BroPearlTree = treeHierarchy.getTree(_focusTreeId);
          var itree:BroPearlTree;
@@ -234,8 +231,7 @@ package com.broceliand.pearlTree.navigation.impl
          if(_event.newFocusTree) {
             if ((event.spatialTreeLoaded.length <1) && _event.newFocusTree.isCurrentUserAuthor()) {
                ApplicationManager.getInstance().components.mainPanel.navBar.layoutEmptyMessageOnDiscover(true);
-               
-               
+
                return;
             }
             
@@ -252,8 +248,7 @@ package com.broceliand.pearlTree.navigation.impl
          _isFocusTreeLoaded = true;
          checkEventProcessComplete();      
       }
-      
-      
+
       public function onHierarchyLoaded(treeHierarchy:TreeHierarchy):void {
          if (treeHierarchy.owner.isMyAssociation()) {
             _treeHierarchy = treeHierarchy.getMyWorldHierarchy();
@@ -269,8 +264,7 @@ package com.broceliand.pearlTree.navigation.impl
             processFocusTree();
          }
       }
-      
-      
+
       public function processFocusTree():void {
          if (!_isFocusTreeProcessed) { 
             if (!_treeHierarchy && !_event.newUser.isAnonymous()) {
@@ -288,8 +282,7 @@ package com.broceliand.pearlTree.navigation.impl
                if (!_event.newFocusTree) {
                   _event.newFocusTree = _treeHierarchy.getTree(_focusTreeId);
                }
-               
-               
+
                if (_event.newFocusTree==null) {
                   if(_navigateFromNode) {
                      onError(ErrorConst.ERROR_LOADING_DELETED_TREE, true);
@@ -337,8 +330,7 @@ package com.broceliand.pearlTree.navigation.impl
          }
          
       }
-      
-      
+
       public function onTreeLoaded(tree:BroPearlTree):void {
          if (tree.id == _focusTreeId) {
             _event.newFocusTree = tree;
@@ -513,7 +505,6 @@ import com.broceliand.pearlTree.io.services.callbacks.IAmfRetPearlCallback;
 import com.broceliand.pearlTree.navigation.impl.NavigationRequest;
 
 import mx.rpc.events.FaultEvent;
-
 
 internal class pearlFinderReturn implements IAmfRetPearlCallback {
    

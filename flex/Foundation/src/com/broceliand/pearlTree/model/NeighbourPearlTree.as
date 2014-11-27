@@ -2,8 +2,7 @@ package com.broceliand.pearlTree.model
 {
    public class NeighbourPearlTree extends BroPearlTree
    {
-      
-      
+
       private var _isSearchTree:Boolean = false;
       private var _spatialTreeCount:uint = 0;
       

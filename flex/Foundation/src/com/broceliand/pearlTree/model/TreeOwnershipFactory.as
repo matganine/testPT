@@ -27,8 +27,7 @@ package com.broceliand.pearlTree.model
             owner.association = association;
          }
          return owner;  
-         
-         
+
       }
    }
 }

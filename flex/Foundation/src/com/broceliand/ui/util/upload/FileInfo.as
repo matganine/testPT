@@ -100,7 +100,6 @@ package com.broceliand.ui.util.upload
       {
          _hasError = value;
       }
-      
-      
+
    }
 }

@@ -107,8 +107,7 @@ package com.broceliand {
       public static const MAX_NOTE_LENGTH : int = 25000; 
       
       public static const MANAGER_INITIALIZED_EVENT:String = "managerInitializedEvent";
-      
-      
+
       private var _isManagerInitialized:Boolean;
       private static var _singleton:ApplicationManager;
       
@@ -181,8 +180,7 @@ package com.broceliand {
       private var _isWhiteMark:Boolean = false;
       private var _hasUsedSlideshow:Boolean = false;
       private var _sessionHelper:SessionHelper;
-      
-      
+
       public function getCustomStartLocation():String {
          var startLocation:String = null;
          return startLocation;
@@ -453,8 +451,7 @@ package com.broceliand {
          }
          return _appVersion;
       }
-      
-      
+
       public function isAppLoadedFromClientCache():Boolean {
          return (getAppVersion() == _previousAppVersion);
       }
@@ -893,8 +890,7 @@ package com.broceliand {
       public function get exporter():Exporters {
          return _exporter;
       }
-      
-      
+
       public function get components():ComponentsAccessPoint {
          return _components;
       }
@@ -1048,8 +1044,7 @@ package com.broceliand {
       public function isWhiteMark():Boolean  {
          return _isWhiteMark;
       }
-      
-      
+
       public function get hasUsedSlideshow():Boolean{
          return _hasUsedSlideshow;
       }

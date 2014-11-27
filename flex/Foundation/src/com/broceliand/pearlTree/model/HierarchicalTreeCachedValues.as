@@ -60,8 +60,7 @@ package com.broceliand.pearlTree.model
       internal function saveTotalHitCount(count:Number):void {
          saveValue(TOTAL_HIT_COUNT, count);
       }
-      
-      
+
       internal function getTotalMembershipCount():Number {
          return getValue(TOTAL_MEMBERSHIP_COUNT) as Number;
       }      
@@ -71,8 +70,7 @@ package com.broceliand.pearlTree.model
       internal function saveTotalMembershipCount(count:Number):void {
          saveValue(TOTAL_MEMBERSHIP_COUNT, count);
       }
-      
-      
+
       internal function getTotalCommentsCount():Number {
          return getValue(TOTAL_COMMENTS_COUNT) as Number;
       }      
@@ -82,8 +80,7 @@ package com.broceliand.pearlTree.model
       internal function saveTotalCommentsCount(count:Number):void {
          saveValue(TOTAL_COMMENTS_COUNT, count);
       }
-      
-      
+
       internal function getTotalNeighboursCount():Number {
          return getValue(TOTAL_NEIGHBOURS_COUNT) as Number;
       }     
@@ -93,8 +90,7 @@ package com.broceliand.pearlTree.model
       internal function saveTotalNeighboursCount(count:Number):void {
          saveValue(TOTAL_NEIGHBOURS_COUNT, count);
       }      
-      
-      
+
       internal function getTotalPearlsCount():Number {
          return getValue(TOTAL_PEARLS_COUNT) as Number;
       }     
@@ -164,8 +160,7 @@ package com.broceliand.pearlTree.model
       internal function resetTotalPearlsCountWithoutAliasLimitedToAssoWithoutPrivate(owner:BroPearlTree):void {
          resetValue(TOTAL_PEARLS_COUNT_WITHOUT_ALIAS_LIMITED_TO_ASSO_WITHOUT_PRIVATE, owner, true);
       }
-      
-      
+
       internal function resetHasCrossNotification(owner:BroPearlTree):void {
          resetValue(HAS_CROSS_NOTIFICATIONS, owner, true);
       }
@@ -204,8 +199,7 @@ package com.broceliand.pearlTree.model
       internal function hasStructureNotification():Number {
          return getValue(HAS_STRUCTURE_CHANGED_NOTIFICATIONS) as Number;
       }
-      
-      
+
       internal function resetHasSubTeam(owner:BroPearlTree):void {
          resetValue(HAS_SUB_TEAM, owner, true);
       }
@@ -227,8 +221,7 @@ package com.broceliand.pearlTree.model
       internal function hasSubTeamRequest():Number {
          return getValue(HAS_SUB_TEAM_REQUEST) as Number;
       }
-      
-      
+
       private function getValue(name:String):Object {
          return _cachedValues[name];
       }

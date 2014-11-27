@@ -118,8 +118,7 @@ package com.broceliand.pearlTree.model{
             _rootPearlId = rootId;
          }
       }
-      
-      
+
       public function get notifications():TreeNotification{
          return _notifications;
       }
@@ -165,8 +164,7 @@ package com.broceliand.pearlTree.model{
       public function set neighbourPearlDb(value:int):void{
          _neighbourPearlDB = value;
       }
-      
-      
+
       public function get isOwner():Boolean{
          return _isOwner;
       }
@@ -452,8 +450,7 @@ package com.broceliand.pearlTree.model{
             }
          }
       }
-      
-      
+
       public function importBranch(newBranchParent:BroPTNode, branchStart:BroPTNode, index:int = -1):void{
          if(!isCurrentUserAuthor()){
             Assert.assert(false, "user must have the right to remove the branch");
@@ -502,8 +499,7 @@ package com.broceliand.pearlTree.model{
          }
       }
       public function addToNode(nodeFrom:BroPTNode, nodeTo:BroPTNode, index:int=-1):void {
-         
-         
+
          if (nodeTo is BroTreeRefNode) {
             var myDropZoneTreeRef:BroLocalTreeRefNode = ApplicationManager.getInstance().currentUser.dropZoneTreeRef;
             if (myDropZoneTreeRef && myDropZoneTreeRef.treeId == BroTreeRefNode(nodeTo).treeId) {
@@ -552,8 +548,7 @@ package com.broceliand.pearlTree.model{
          }
          return _root;
       }
-      
-      
+
       internal function notifyPearlTreeChanged():void {
          _lastModificationDate= new Date().getTime();
          _mustRecomputeChildrenCount = true;
@@ -611,8 +606,7 @@ package com.broceliand.pearlTree.model{
          }
          return result;
       }
-      
-      
+
       private function getTotalDescendantPearlCountWithoutAliasInternal(limitedToAsso:Boolean, withPrivate:Boolean=true):int{
          var result:int;
          if (limitedToAsso) {
@@ -853,8 +847,7 @@ package com.broceliand.pearlTree.model{
          
          return false;
       }
-      
-      
+
       public function performTreeHierarchyUpdate(edition:TreeEdition, treeHiearchyAdded:Array, treeHiearchyRemove:Array):void {
          if (edition.tree != this ) {
             Assert.assert(false, "Tree not supposed to be logged");
@@ -1107,8 +1100,7 @@ package com.broceliand.pearlTree.model{
       public function isPrivatePearltreeOfCurrentUserNotPremium():Boolean {
          return isPrivate() && isCurrentUserAuthor() && ApplicationManager.getInstance().isPremium != 1;
       }
-      
-      
+
       public function releasePearls():void {
          _root.removeAllNodes();
          _pearlsLoaded = false;
@@ -1137,5 +1129,4 @@ package com.broceliand.pearlTree.model{
       }
    }
 }
-
 

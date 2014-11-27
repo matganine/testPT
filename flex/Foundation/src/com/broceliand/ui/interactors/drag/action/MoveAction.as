@@ -102,8 +102,7 @@ package com.broceliand.ui.interactors.drag.action
          _bnode.setCollectedStatus();
          _destination.importBranch(_destination.getRootNode(),_bnode, index);
          if (!_destination.pearlsLoaded) {
-            
-            
+
             ApplicationManager.getInstance().pearlTreeLoader.loadTree(_destination.getMyAssociation().associationId, _destination.id,new PearlTreeLoaderCallback(null,null));
          } 
          ApplicationManager.getInstance().persistencyQueue.registerInQueue(_destination);

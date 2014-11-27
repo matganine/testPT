@@ -6,27 +6,23 @@ package com.broceliand.graphLayout.model
    import org.un.cava.birdeye.ravis.graphLayout.visual.IVisualNode;
    
    public class EndNode extends PTNode{
-      
-      
+
       private var _rootNodeOfMyTree:IPTNode;
       private var _ownerTree:BroPearlTree;
       
       private var _canBeVisible:Boolean;
-      
-      
+
       public function EndNode(id:int, sid:String, vn:IVisualNode, tree:BroPearlTree) 
       {
          super(id, sid, vn, null);
          _ownerTree = tree;
          _canBeVisible = false;
       }
-      
-      
+
       override public function get rootNodeOfMyTree():IPTNode{
          return _rootNodeOfMyTree; 
       }
-      
-      
+
       public function set rootNodeOfMyTree(value:IPTNode):void{
          _rootNodeOfMyTree = value;
       }
@@ -72,7 +68,6 @@ package com.broceliand.graphLayout.model
       override public function end():void {
          super.end();
       }
-      
-      
+
    }
 }

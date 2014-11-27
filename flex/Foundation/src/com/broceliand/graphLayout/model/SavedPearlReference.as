@@ -108,8 +108,7 @@ package com.broceliand.graphLayout.model
       public function set isParentTemporaryLink(value:Boolean):void {
          _isTemporaryLink = value;
       }
-      
-      
+
       private function findPearlInVgraph(node:BroPTNode):IPTNode {
          if (node.graphNode) {
             return node.graphNode;
