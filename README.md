@@ -1,12 +1,12 @@
 # Tree Shape Visualization
 
 ## Presentation
-With this project we are open-sourcing key visualization modules from our 1.6 "tree shape" version.
+With this project we open-source key visualization modules from our 1.6 "tree shape" version.
 
 ![Alt text](/readme/pearltrees.png?raw=true "1.6 Tree Shape Visualization")
 
 ## Overview
-This project contains the core of our application. It includes:
+This project details the key visualization modules from our 1.6 "tree shape" version:
 
 * tree structure visualization
 * animations
@@ -18,13 +18,13 @@ In this project, we implement a simple and ergonomic tree structure visualizatio
 Ravis library is extended to create our customized tree representation and 
 layout. Automatic organization algorithms are implemented to balance nodes around 
 trees and reorganize them in order to have simple and appealing layouts. We also
-use the flash-tree-shape-visualization-assets-box project to shape our nodes. This allows us to give a unique 
+use the tree-shape-visualization-assets-box project to shape our nodes. This allows us to give a unique 
 representation for each type of node; trees, aliases, teams, pages,
 notes, photos and documents have all their own mask and decoration.
 
 
 #### Animations
-In the Tree Shape Visualization, nodes manipulation is a core feature, and animations are necessary to
+In the Tree Shape Visualization, nodes manipulation is a key feature, and animations are necessary to
 enhance the user experience. Animations have been implemented for many manipulations
 among them:
 * adding a new node
@@ -71,7 +71,7 @@ and ownerId (id of the user who owns the node).
 This example requires:
 
 * the Ravis library that can be found [here](https://code.google.com/p/birdeye/wiki/RaVis).
-* the flash-tree-shape-visualization-assets-box library that can be found [here] (https://github.com/pearltrees/flash-tree-shape-visualization-assets-box)
+* the tree-shape-visualization-assets-box library that can be found [here] (https://github.com/pearltrees/tree-shape-visualization-assets-box)
 
 ## Setting up project and components
 
@@ -85,16 +85,16 @@ Ravis is the library used for the visualization of our tree organization. You ne
 import it as a separate project in your workspace. You can find it [here](https://code.google.com/p/birdeye/wiki/RaVis).
 
 #### Tree Shape Visualization Assets Box Project Import
-flash-tree-shape-visualization-assets-box project is necessary to get the assets used in the layout of our nodes.
+tree-shape-visualization-assets-box project is necessary to get the assets used in the layout of our nodes.
 Therefore, you also need to import it as a separate project in your workspace. You
-can find it [here] (https://github.com/pearltrees/flash-tree-shape-visualization-assets-box).
+can find it [here] (https://github.com/pearltrees/tree-shape-visualization-assets-box).
 
 #### Tree Shape Visualization
-You finally need to import the flash-tree-shape-visualization in your workspace and add the above
-Ravis and flash-assets-box projects in your Library Path. 
+You finally need to import the tree-shape-visualization in your workspace and add the above
+Ravis and tree-shape-visualization-assets-box projects in your Library Path. 
 
 #### Tree Shape Example
-flash-tree-shape-example is a separate project that can be found [here](https://github.com/pearltrees/flash-tree-shape-example), it is an example
+tree-shape-example is a separate project that can be found [here](https://github.com/pearltrees/tree-shape-example), it is an example
 code to easily draw a tree and its nodes. Here is an example output tree representation that
 you can make with it:
 
